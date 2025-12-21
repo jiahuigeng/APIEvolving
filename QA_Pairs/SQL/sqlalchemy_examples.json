@@ -1,0 +1,269 @@
+[
+  {
+    "source_url": "https://docs.sqlalchemy.org/en/14/core/sqlelement.html#sqlalchemy.sql.expression.or_",
+    "api": "or_",
+    "package": "sqlalchemy.sql.expression",
+    "language": "Sql",
+    "deprecated_in": "1.4",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "The or_() element now requires that at least one argument is passed; creating the or_() construct with no arguments is deprecated, and will emit a deprecation warning while continuing to produce a blank SQL string.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sqlalchemy import or_\n\nstmt = select(users_table).where(\n    or_(users_table.c.name == \"wendy\", users_table.c.name == \"jack\")\n)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      },
+      {
+        "code": "from sqlalchemy import false\n\nor_criteria = or_(false(), *expressions)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 2,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.sqlalchemy.org/en/14/core/sqlelement.html#sqlalchemy.sql.expression.ColumnElement.anon_key_label",
+    "api": "anon_key_label",
+    "package": "sqlalchemy.sql.expression.ColumnElement",
+    "language": "Sql",
+    "deprecated_in": "1.4",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "The ColumnElement.anon_key_label attribute is now private, and the public accessor is deprecated.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.sqlalchemy.org/en/14/core/sqlelement.html#sqlalchemy.sql.expression.ColumnElement.anon_label",
+    "api": "anon_label",
+    "package": "sqlalchemy.sql.expression.ColumnElement",
+    "language": "Sql",
+    "deprecated_in": "1.4",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "The ColumnElement.anon_label attribute is now private, and the public accessor is deprecated.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.sqlalchemy.org/en/14/core/sqlelement.html#sqlalchemy.sql.expression.and_",
+    "api": "and_",
+    "package": "sqlalchemy.sql.expression",
+    "language": "Sql",
+    "deprecated_in": "1.4",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "The and_() element now requires that at least one argument is passed; creating the and_() construct with no arguments is deprecated, and will emit a deprecation warning while continuing to produce a blank SQL string.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sqlalchemy import and_\n\nstmt = select(users_table).where(\n    and_(users_table.c.name == \"wendy\", users_table.c.enrolled == True)\n)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      },
+      {
+        "code": "from sqlalchemy import true\n\ncriteria = and_(true(), *expressions)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 2,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.sqlalchemy.org/en/14/core/sqlelement.html#sqlalchemy.sql.expression.bindparam",
+    "api": "bindparam",
+    "package": "sqlalchemy.sql.expression",
+    "language": "Sql",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Feature Update",
+    "reason": "Updates across versions introduced new parameters: 'expanding' (Added in 1.2, updated in 1.3 to support empty lists) allows parameters to be treated as sequences for IN clauses. 'literal_execute' (Added in 1.4) allows bound parameters to be rendered as literals during the compile phase (post-compile), useful for LIMIT/OFFSET clauses.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sqlalchemy import bindparam\n\nstmt = select(users_table).where(\n    users_table.c.name == bindparam(\"username\")\n)\n\n# Execution\nresult = connection.execute(stmt, {\"username\": \"wendy\"})",
+        "output": "SELECT id, name FROM user WHERE name = :username",
+        "has_output": true,
+        "language": "python"
+      },
+      {
+        "code": "# Explicit use for UPDATE statements invoked multiple times\nstmt = (\n    users_table.update()\n    .where(users_table.c.name == bindparam(\"username\"))\n    .values(fullname=bindparam(\"fullname\"))\n)\n\nconnection.execute(\n    stmt,\n    [\n        {\"username\": \"wendy\", \"fullname\": \"Wendy Smith\"},\n        {\"username\": \"jack\", \"fullname\": \"Jack Jones\"},\n    ],\n)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 2,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.sqlalchemy.org/en/20/changelog/migration_14.html",
+    "api": "sqlalchemy.orm.mapper()",
+    "package": "SQLAlchemy",
+    "language": "Sql",
+    "deprecated_in": "1.4",
+    "removed_in": "",
+    "replaced_by": "registry.map_imperatively()",
+    "change_type": "API Deprecation",
+    "reason": "Calling `sqlalchemy.orm.mapper()` directly is deprecated. The new `registry.map_imperatively()` method routes the request through the `registry` to integrate with other declarative mappings.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.sqlalchemy.org/en/20/changelog/migration_14.html",
+    "api": "sqlalchemy.ext.declarative.declarative_base",
+    "package": "SQLAlchemy",
+    "language": "Sql",
+    "deprecated_in": "1.4",
+    "removed_in": "",
+    "replaced_by": "sqlalchemy.orm.declarative_base",
+    "change_type": "API Move / Deprecation",
+    "reason": "The declarative system is now integrated into the `sqlalchemy.orm` namespace. The old location emits a 2.0 deprecation warning when 2.0 deprecations mode is enabled.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.sqlalchemy.org/en/20/changelog/migration_14.html",
+    "api": "sqlalchemy.ext.declarative.declared_attr",
+    "package": "SQLAlchemy",
+    "language": "Sql",
+    "deprecated_in": "1.4",
+    "removed_in": "",
+    "replaced_by": "sqlalchemy.orm.declared_attr",
+    "change_type": "API Move / Deprecation",
+    "reason": "Moved to `sqlalchemy.orm` namespace. The old name `sqlalchemy.ext.declarative.declared_attr` is still present but emits a 2.0 deprecation warning.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.sqlalchemy.org/en/20/changelog/migration_14.html",
+    "api": "instrument_declarative()",
+    "package": "SQLAlchemy",
+    "language": "Python",
+    "deprecated_in": "1.4",
+    "removed_in": "",
+    "replaced_by": "registry.map_declaratively()",
+    "change_type": "API Deprecation",
+    "reason": "The function is deprecated and superseded by `registry.map_declaratively()`.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.sqlalchemy.org/en/13/changelog/migration_13.html",
+    "api": "create_engine",
+    "package": "SQLAlchemy",
+    "language": "Sql",
+    "deprecated_in": "1.3",
+    "removed_in": "",
+    "replaced_by": "create_engine(connect_args={'threaded': True})",
+    "change_type": "API Deprecation",
+    "reason": "Passing `threaded` directly to `create_engine` is deprecated. It should now be passed via the `connect_args` dictionary or the query string. Additionally, the default value is no longer generated as `True`.",
+    "has_examples": true,
+    "examples": ["oracle+cx_oracle://...?threaded=true"],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.sqlalchemy.org/en/13/changelog/migration_13.html",
+    "api": "Pool.use_threadlocal",
+    "package": "SQLAlchemy",
+    "language": "Sql",
+    "deprecated_in": "1.3",
+    "removed_in": "1.4",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "The 'threadlocal' style is being phased out and does not actually have an effect in most cases.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.sqlalchemy.org/en/12/changelog/migration_12.html",
+    "api": "Session.refresh()",
+    "package": "SQLAlchemy",
+    "language": "Sql",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "New Feature",
+    "reason": "Added `with_for_update` argument to `Session.refresh` to supersede the `lockmode` parameter, aligning it with `Query.with_for_update`.",
+    "has_examples": true,
+    "examples": [
+      "session.refresh(some_object, with_for_update=True)",
+      "session.refresh(some_objects, with_for_update={\"read\": True})"
+    ],
+    "examples_count": 2,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.sqlalchemy.org/en/12/changelog/migration_12.html",
+    "api": "cursor.setinputsizes()",
+    "package": "SQLAlchemy",
+    "language": "Sql",
+    "deprecated_in": "1.2",
+    "removed_in": "",
+    "replaced_by": "Native cx_Oracle datatype handling",
+    "change_type": "Behavior Change",
+    "reason": "Datatype handling refactored. `setinputsizes` is no longer used for non-LOB types. `auto_setinputsizes` and `exclude_setinputsizes` are deprecated and have no effect.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.sqlalchemy.org/en/12/changelog/migration_12.html",
+    "api": "allow_twophase",
+    "package": "SQLAlchemy",
+    "language": "Sql",
+    "deprecated_in": "1.2",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "The 'two phase' transaction support flag is deprecated and has no effect as the feature was removed from the underlying cx_Oracle driver.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.sqlalchemy.org/en/13/changelog/migration_13.html",
+    "api": "String.convert_unicode",
+    "package": "SQLAlchemy",
+    "language": "Sql",
+    "deprecated_in": "1.3",
+    "removed_in": "",
+    "replaced_by": "Automatic dialect detection",
+    "change_type": "API Deprecation",
+    "reason": "Explicit unicode conversion flags are deprecated. Python 3 DBAPIs support unicode natively, and SQLAlchemy now automatically detects dialect unicode support.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "Manual"
+  }
+]

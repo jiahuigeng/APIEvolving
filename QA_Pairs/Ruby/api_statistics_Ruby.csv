@@ -1,0 +1,31 @@
+Statistic,Count
+Total Unique Packages,20
+Total Unique APIs,50
+--- Package List ---,---
+Core (Integer),
+Dir,
+Environment Variables,
+File,
+Kernel,
+Nokogiri,
+Nokogiri HTML,
+Nokogiri::CSS,
+Nokogiri::XML,
+Nokogiri::XML::SAX,
+RSpec,
+RSpec Core,
+RSpec::Core::Configuration,
+RSpec::Core::Example,
+RSpec::Core::Notifications,
+RSpec::Core::Pending,
+Random,
+Regexp,
+Struct,
+nokogiri,
+--- Change Type Counts ---,---
+Change Type: API Deprecation,26
+Change Type: API Removal,14
+Change Type: Behavior Change,7
+Change Type: Parameter Change,1
+Change Type: API Addition,1
+Change Type: API Replacement,1

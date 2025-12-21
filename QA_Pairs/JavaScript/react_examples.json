@@ -1,0 +1,376 @@
+[
+  {
+    "source_url": "https://react.dev/reference/react-dom/client#createRoot",
+    "api": "createRoot",
+    "package": "react-dom",
+    "change_type": "Behavior Change",
+    "reason": "To handle server-rendered HTML more efficiently and prevent unnecessary DOM manipulation",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://reactjs.org/docs/react-dom-server.html#rendertostring",
+    "api": "renderToString",
+    "package": "react-dom",
+    "change_type": "API Deprecation",
+    "reason": "renderToString does not support streaming or waiting for data, making it unsuitable for scenarios requiring progressive rendering or a fully resolved static HTML output.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "// ES modules\nimport * as ReactDOMServer from 'react-dom/server';\n// CommonJS\nvar ReactDOMServer = require('react-dom/server');\nlet didError = false;\nconst stream = renderToPipeableStream(",
+        "output": "ReactDOMServer.renderToPipeableStream(element, options)"
+      },
+      {
+        "code": "import React from 'react';\n  <App />,\n      // The content above all Suspense boundaries is ready.\n      // If something errored before we started streaming, we set the error code appropriately.\n      // Something errored before we could complete the shell so we emit an alternative shell.\n      // If you don't want streaming, use this instead of onShellReady.\n      // This will fire after the entire page content is ready.\n      // You can use this for crawlers or static generation.\n      // res.statusCode = didError ? 500 : 200;\n      // res.setHeader('Content-type', 'text/html');\n      // stream.pipe(res);\nlet controller = new AbortController();\nlet didError = false;\n  let stream = await renderToReadableStream(\n    <html>\n      <body>Success</body>\n    </html>,\n  // This is to wait for all Suspense boundaries to be ready. You can uncomment\n  // this line if you want to buffer the entire HTML instead of streaming it.\n  // You can use this for crawlers or static generation:\n  // await stream.allReady;",
+        "output": "{\n    onShellReady() {\n      res.statusCode = didError ? 500 : 200;\n      res.setHeader('Content-type', 'text/html');\n      stream.pipe(res);\n    },\n    onShellError(error) {\n      res.statusCode = 500;\n      res.send(\n        '<!doctype html><p>Loading...</p><script src=\"clientrender.js\"></script>'\n      );\n    },\n    onAllReady() {\n\n    },\n    onError(err) {\n      didError = true;\n      console.error(err);\n    },\n  }\n);\n\nReactDOMServer.renderToReadableStream(element, options);\n\ntry {\n    {\n      signal: controller.signal,\n      onError(error) {\n        didError = true;\n        console.error(error);\n      }\n    }\n  );\n  \n\n\n  return new Response(stream, {\n    status: didError ? 500 : 200,\n    headers: {'Content-Type': 'text/html'},\n  });\n} catch (error) {\n  return new Response(\n    '<!doctype html><p>Loading...</p><script src=\"clientrender.js\"></script>',\n    {\n      status: 500,\n      headers: {'Content-Type': 'text/html'},\n    }\n  );\n}\n\nReactDOMServer.renderToNodeStream(element)\n\nReactDOMServer.renderToStaticNodeStream(element)\n\nReactDOMServer.renderToString(element)\n\nReactDOMServer.renderToStaticMarkup(element)"
+      }
+    ],
+    "examples_count": 2,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://react.dev/reference/renderToPipeableStream",
+    "api": "renderToPipeableStream",
+    "package": "react-dom",
+    "change_type": "Behavior Change",
+    "reason": "React recommends using Web Streams for modern environments like Deno and edge runtimes rather than Node.js Streams, as Web Streams provide better integration in these environments.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://react.dev/docs/api-reference#resumetopipeablestream",
+    "api": "resumeToPipeableStream",
+    "package": "react-dom@19.2",
+    "change_type": "API Deprecation",
+    "reason": "The `resumeToPipeableStream` API, specific to Node.js streams, has largely been replaced by the more versatile `resume` API that supports environments with Web Streams, such as Deno and modern edge runtimes.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://react.dev/reference/react-dom/static/prerender",
+    "api": "prerender",
+    "package": "react-dom",
+    "change_type": "Behavior Change",
+    "reason": "The `prerender` API is designed for static site generation (SSG) to render a complete page after all data has loaded, unlike `renderToReadableStream`, which allows streaming content as it loads. Developers requiring streaming should use `renderToReadableStream` instead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://react.dev/api-reference/act",
+    "api": "act",
+    "package": "react",
+    "change_type": "API Deprecation",
+    "reason": "The synchronous version of act does not work consistently due to internal React scheduling, especially with async boundary-crossing code.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://react.dev/reference/createContext",
+    "api": "createContext",
+    "package": "react",
+    "change_type": "API Deprecation",
+    "reason": "Simplified usage and improved readability by introducing a dedicated hook, `useContext`, for accessing context.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://reactjs.org/docs/react-api.html#memo",
+    "api": "memo",
+    "package": "react",
+    "change_type": "Performance Optimization",
+    "reason": "React Compiler automatically applies memoization to components, making manual use of React.memo unnecessary.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "class Greeting extends React.Component {",
+        "output": "render() {\n    return <h1>Hello, {this.props.name}</h1>;\n  }\n}"
+      },
+      {
+        "code": "const MyComponent = React.memo(function MyComponent(props) {\n  /* render using props */",
+        "output": "});"
+      },
+      {
+        "code": "import React from 'react';\nfunction MyComponent(props) {\n  /* render using props */\nfunction areEqual(prevProps, nextProps) {\n  /*",
+        "output": "}\n  return true if passing nextProps to render would return\n  the same result as passing prevProps to render,\n  otherwise return false\n  */\n}"
+      },
+      {
+        "code": "export default React.memo(MyComponent, areEqual);\n<element.type {...element.props} {...props}>{children}</element.type>",
+        "output": "React.createElement(\n  type,\n  [props],\n  [...children]\n)\n\nReact.cloneElement(\n  element,\n  [config],\n  [...children]\n)\n\n\nReact.createFactory(type)\n\nReact.isValidElement(object)\n\nReact.Children.map(children, function[(thisArg)])\n\nReact.Children.forEach(children, function[(thisArg)])\n\nReact.Children.count(children)\n\nReact.Children.only(children)\n\nReact.Children.toArray(children)\nrender() {\n  return ("
+      },
+      {
+        "code": "    <React.Fragment>\n      <h2>A heading</h2>",
+        "output": "Some text."
+      },
+      {
+        "code": "    </React.Fragment>",
+        "output": ");\n}\n\nrender() {\n  return ("
+      },
+      {
+        "code": "    <React.Fragment>\n      <h2>A heading</h2>",
+        "output": "Some text."
+      },
+      {
+        "code": "    </React.Fragment>",
+        "output": ");\n}"
+      },
+      {
+        "code": "class MyComponent extends React.Component {\n  constructor(props) {",
+        "output": "super(props);\n\n    this.inputRef = React.createRef();  }\n\n  render() {\n    return <input type=\"text\" ref={this.inputRef} />;  }\n\n  componentDidMount() {\n    this.inputRef.current.focus();  }\n}"
+      },
+      {
+        "code": "const FancyButton = React.forwardRef((props, ref) => (  <button ref={ref} className=\"FancyButton\">    {props.children}\n  </button>\n// You can now get a ref directly to the DOM button:",
+        "output": "));"
+      },
+      {
+        "code": "const ref = React.createRef();",
+        "output": ""
+      },
+      {
+        "code": "import React from 'react';\n<FancyButton ref={ref}>Click me!</FancyButton>;\n// This component is loaded dynamically",
+        "output": ""
+      },
+      {
+        "code": "const SomeComponent = React.lazy(() => import('./SomeComponent'));\n// This component is loaded dynamically",
+        "output": ""
+      },
+      {
+        "code": "const SomeComponent = React.lazy(() => import('./SomeComponent'));\n// This component is loaded dynamically",
+        "output": ""
+      },
+      {
+        "code": "const OtherComponent = React.lazy(() => import('./OtherComponent'));",
+        "output": ""
+      },
+      {
+        "code": "import React from 'react';\nfunction MyComponent() {",
+        "output": "return ("
+      },
+      {
+        "code": "    <React.Suspense fallback={<Spinner />}>\n      <div>",
+        "output": ""
+      },
+      {
+        "code": "import React from 'react';\n        <OtherComponent />\n      </div>",
+        "output": ""
+      },
+      {
+        "code": "    </React.Suspense>\n// This component is loaded dynamically",
+        "output": ");\n}"
+      },
+      {
+        "code": "const OtherComponent = React.lazy(() => import('./OtherComponent'));",
+        "output": ""
+      },
+      {
+        "code": "import React from 'react';\nfunction MyComponent() {",
+        "output": "return ("
+      },
+      {
+        "code": "    <React.Suspense fallback={<Spinner />}>\n      <div>",
+        "output": ""
+      },
+      {
+        "code": "import React from 'react';\n        <OtherComponent />\n      </div>",
+        "output": ""
+      },
+      {
+        "code": "    </React.Suspense>",
+        "output": ");\n}\n\nReact.startTransition(callback)"
+      }
+    ],
+    "examples_count": 24,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://reactjs.org/docs/react-api.html#use",
+    "api": "use",
+    "package": "react",
+    "change_type": "",
+    "reason": "",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "class Greeting extends React.Component {",
+        "output": "render() {\n    return <h1>Hello, {this.props.name}</h1>;\n  }\n}"
+      },
+      {
+        "code": "const MyComponent = React.memo(function MyComponent(props) {\n  /* render using props */",
+        "output": "});"
+      },
+      {
+        "code": "import React from 'react';\nfunction MyComponent(props) {\n  /* render using props */\nfunction areEqual(prevProps, nextProps) {\n  /*",
+        "output": "}\n  return true if passing nextProps to render would return\n  the same result as passing prevProps to render,\n  otherwise return false\n  */\n}"
+      },
+      {
+        "code": "export default React.memo(MyComponent, areEqual);\n<element.type {...element.props} {...props}>{children}</element.type>",
+        "output": "React.createElement(\n  type,\n  [props],\n  [...children]\n)\n\nReact.cloneElement(\n  element,\n  [config],\n  [...children]\n)\n\n\nReact.createFactory(type)\n\nReact.isValidElement(object)\n\nReact.Children.map(children, function[(thisArg)])\n\nReact.Children.forEach(children, function[(thisArg)])\n\nReact.Children.count(children)\n\nReact.Children.only(children)\n\nReact.Children.toArray(children)\nrender() {\n  return ("
+      },
+      {
+        "code": "    <React.Fragment>\n      <h2>A heading</h2>",
+        "output": "Some text."
+      },
+      {
+        "code": "    </React.Fragment>",
+        "output": ");\n}\n\nrender() {\n  return ("
+      },
+      {
+        "code": "    <React.Fragment>\n      <h2>A heading</h2>",
+        "output": "Some text."
+      },
+      {
+        "code": "    </React.Fragment>",
+        "output": ");\n}"
+      },
+      {
+        "code": "class MyComponent extends React.Component {\n  constructor(props) {",
+        "output": "super(props);\n\n    this.inputRef = React.createRef();  }\n\n  render() {\n    return <input type=\"text\" ref={this.inputRef} />;  }\n\n  componentDidMount() {\n    this.inputRef.current.focus();  }\n}"
+      },
+      {
+        "code": "const FancyButton = React.forwardRef((props, ref) => (  <button ref={ref} className=\"FancyButton\">    {props.children}\n  </button>\n// You can now get a ref directly to the DOM button:",
+        "output": "));"
+      },
+      {
+        "code": "const ref = React.createRef();",
+        "output": ""
+      },
+      {
+        "code": "import React from 'react';\n<FancyButton ref={ref}>Click me!</FancyButton>;\n// This component is loaded dynamically",
+        "output": ""
+      },
+      {
+        "code": "const SomeComponent = React.lazy(() => import('./SomeComponent'));\n// This component is loaded dynamically",
+        "output": ""
+      },
+      {
+        "code": "const SomeComponent = React.lazy(() => import('./SomeComponent'));\n// This component is loaded dynamically",
+        "output": ""
+      },
+      {
+        "code": "const OtherComponent = React.lazy(() => import('./OtherComponent'));",
+        "output": ""
+      },
+      {
+        "code": "import React from 'react';\nfunction MyComponent() {",
+        "output": "return ("
+      },
+      {
+        "code": "    <React.Suspense fallback={<Spinner />}>\n      <div>",
+        "output": ""
+      },
+      {
+        "code": "import React from 'react';\n        <OtherComponent />\n      </div>",
+        "output": ""
+      },
+      {
+        "code": "    </React.Suspense>\n// This component is loaded dynamically",
+        "output": ");\n}"
+      },
+      {
+        "code": "const OtherComponent = React.lazy(() => import('./OtherComponent'));",
+        "output": ""
+      },
+      {
+        "code": "import React from 'react';\nfunction MyComponent() {",
+        "output": "return ("
+      },
+      {
+        "code": "    <React.Suspense fallback={<Spinner />}>\n      <div>",
+        "output": ""
+      },
+      {
+        "code": "import React from 'react';\n        <OtherComponent />\n      </div>",
+        "output": ""
+      },
+      {
+        "code": "    </React.Suspense>",
+        "output": ");\n}\n\nReact.startTransition(callback)"
+      }
+    ],
+    "examples_count": 24,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://react.dev/docs/hooks-reference#useactionstate",
+    "api": "useFormState",
+    "package": "react-dom",
+    "change_type": "API Deprecation",
+    "reason": "Consolidation of APIs for modern forms usage and better alignment with React Server Components.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://react.dev/reference/useCallback",
+    "api": "useCallback",
+    "package": "react",
+    "change_type": "Performance Optimization",
+    "reason": "React Compiler now automatically memoizes values and functions, reducing the need for manual `useCallback` calls.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://react.dev/reference#useimperativehandle",
+    "api": "useImperativeHandle",
+    "package": "react",
+    "change_type": "Parameter Change",
+    "reason": "The `ref` parameter was updated in React 19 to be directly available as a prop, eliminating the need for `forwardRef` in its usage.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://react.dev/reference/react/useLayoutEffect",
+    "api": "useLayoutEffect",
+    "package": "react",
+    "change_type": "Performance Optimization",
+    "reason": "useLayoutEffect can hurt performance as it blocks the browser from painting until the layout measurement logic finishes executing. Developers are encouraged to use useEffect when layout information is not needed before repaint.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://react.dev",
+    "api": "onKeyPress",
+    "package": "react",
+    "change_type": "API Deprecation",
+    "reason": "onKeyPress is deprecated in favor of onKeyDown and onBeforeInput for better reliability and standardization across browsers.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "import React from 'react';\nfunction Video({ video }) {  return (    <div>      <Thumbnail video={video} />      <a href={video.url}>        <h3>{video.title}</h3>        <p>{video.description}</p>      </a>      <LikeButton video={video} />    </div>  );}",
+        "output": ""
+      },
+      {
+        "code": "import React from 'react';\nfunction VideoList({ videos, emptyHeading }) {  const count = videos.length;  let heading = emptyHeading;  if (count > 0) {    const noun = count > 1 ? 'Videos' : 'Video';    heading = count + ' ' + noun;  }  return (    <section>      <h2>{heading}</h2>      {videos.map(video =>        <Video key={video.id} video={video} />      )}    </section>  );}",
+        "output": ""
+      },
+      {
+        "code": "import { useState } from 'react';function SearchableVideoList({ videos }) {  const [searchText, setSearchText] = useState('');  const foundVideos = filterVideos(videos, searchText);  return (    <>      <SearchInput        value={searchText}        onChange={newText => setSearchText(newText)} />      <VideoList        videos={foundVideos}        emptyHeading={`No matches for “${searchText}”`} />    </>  );}",
+        "output": ""
+      },
+      {
+        "code": "import { db } from './database.js';import { Suspense } from 'react';async function ConferencePage({ slug }) {  const conf = await db.Confs.find({ slug });  return (    <ConferenceLayout conf={conf}>      <Suspense fallback={<TalksLoading />}>        <Talks confId={conf.id} />      </Suspense>    </ConferenceLayout>  );}async function Talks({ confId }) {  const talks = await db.Talks.findAll({ confId });  const videos = talks.map(talk => talk.video);  return <SearchableVideoList videos={videos} />;}",
+        "output": ""
+      }
+    ],
+    "examples_count": 4,
+    "extraction_method": "Manual"
+  }
+]

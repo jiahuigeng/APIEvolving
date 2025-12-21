@@ -1,0 +1,23 @@
+Statistic,Count
+Total Unique Packages,14
+Total Unique APIs,685
+--- Package List ---,---
+@angular/animations,
+@angular/common,
+@angular/core,
+@angular/core/testing,
+@angular/forms,
+@angular/platform-browser,
+@angular/platform-browser-dynamic,
+@angular/platform-server,
+@angular/router,
+React,
+TypeScript,
+TypeScript Compiler,
+TypeScript compiler,
+typescript,
+--- Change Type Counts ---,---
+Change Type: API Documentation,638
+Change Type: API Deprecation,48
+Change Type: Behavior Change,5
+Change Type: Parameter Change,1

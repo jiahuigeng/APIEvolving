@@ -1,0 +1,1074 @@
+[
+    {
+        "source_url": "https://www.typescriptlang.org/docs/whats-new",
+        "api": "Decorators",
+        "package": "TypeScript",
+        "language": "TypeScript",
+        "deprecated_in": "4.6.0",
+        "removed_in": "",
+        "replaced_by": "Stage 3 implementation",
+        "change_type": "API Deprecation",
+        "reason": "The decorators syntax used in experimental stage 2 has been replaced with the newer Stage 3 implementation, offering improved standardization and alignment with the upcoming ECMAScript standard.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "No Examples"
+    },
+    {
+        "source_url": "https://www.typescriptlang.org/docs/whats-new-in-typescript-5-0.html",
+        "api": "@experimentalDecorators",
+        "package": "typescript",
+        "language": "TypeScript",
+        "deprecated_in": "5.0.0",
+        "removed_in": "",
+        "replaced_by": "Stage 3 decorators",
+        "change_type": "API Deprecation",
+        "reason": "Stage 3 decorators provide a more robust and standardized implementation, aligning with the ECMAScript specification.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "No Examples"
+    },
+    {
+        "source_url": "https://www.typescriptlang.org/docs/handbook/decorators.html",
+        "api": "decorators",
+        "package": "typescript",
+        "language": "TypeScript",
+        "deprecated_in": "4.0.0",
+        "removed_in": "",
+        "replaced_by": "Stage 3 decorators",
+        "change_type": "Behavior Change",
+        "reason": "TypeScript updated decorators to align with ECMAScript standard and introduced Stage 3 decorators to provide enhanced capabilities.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "shelltsc --target ES5 --experimentalDecorators\n{  \"compilerOptions\": {    \"target\": \"ES5\",    \"experimentalDecorators\": true  }}\n\n{  \"compilerOptions\": {    \"target\": \"ES5\",    \"experimentalDecorators\": true  }}",
+                "output": ""
+            },
+            {
+                "code": "tsfunction sealed(target) {  // do something with 'target' ...}\n",
+                "output": ""
+            },
+            {
+                "code": "tsfunction sealed(target) {  // do something with 'target' ...}\ntsfunction color(value: string) {  // this is the decorator factory, it sets up  // the returned decorator function  return function (target) {    // this is the decorator    // do something with 'target' and 'value'...  };}\n\ntsfunction color(value: string) {  // this is the decorator factory, it sets up  // the returned decorator function  return function (target) {    // this is the decorator    // do something with 'target' and 'value'...  };}\nts@f @g xTry\n\nts@f @g xTry\nts@f@gxTry\n\nts@f@gxTry\n\nshellfirst(): factory evaluatedsecond(): factory evaluatedsecond(): calledfirst(): called\n\nshellfirst(): factory evaluatedsecond(): factory evaluatedsecond(): calledfirst(): called",
+                "output": "tsfunction first() {  console.log(\"first(): factory evaluated\");  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {    console.log(\"first(): called\");  };} function second() {  console.log(\"second(): factory evaluated\");  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {    console.log(\"second(): called\");  };} class ExampleClass {  @first()  @second()  method() {}}Try\ntsfunction first() {  console.log(\"first(): factory evaluated\");  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {    console.log(\"first(): called\");  };} function second() {  console.log(\"second(): factory evaluated\");  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {    console.log(\"second(): called\");  };} class ExampleClass {  @first()  @second()  method() {}}Try"
+            },
+            {
+                "code": "ts@sealedclass BugReport {  type = \"report\";  title: string;   constructor(t: string) {    this.title = t;  }}Try\n",
+                "output": ""
+            },
+            {
+                "code": "ts@sealedclass BugReport {  type = \"report\";  title: string;   constructor(t: string) {    this.title = t;  }}Try",
+                "output": ""
+            },
+            {
+                "code": "tsfunction sealed(constructor: Function) {  Object.seal(constructor);  Object.seal(constructor.prototype);}\n",
+                "output": ""
+            },
+            {
+                "code": "tsfunction sealed(constructor: Function) {  Object.seal(constructor);  Object.seal(constructor.prototype);}\n\ntsclass Greeter {  greeting: string;  constructor(message: string) {    this.greeting = message;  }   @enumerable(false)  greet() {    return \"Hello, \" + this.greeting;  }}Try\n\ntsclass Greeter {  greeting: string;  constructor(message: string) {    this.greeting = message;  }   @enumerable(false)  greet() {    return \"Hello, \" + this.greeting;  }}Try\ntsfunction enumerable(value: boolean) {  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {    descriptor.enumerable = value;  };}Try\n\ntsfunction enumerable(value: boolean) {  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {    descriptor.enumerable = value;  };}Try\ntsclass Point {  private _x: number;  private _y: number;  constructor(x: number, y: number) {    this._x = x;    this._y = y;  }   @configurable(false)  get x() {    return this._x;  }   @configurable(false)  get y() {    return this._y;  }}Try\n\ntsclass Point {  private _x: number;  private _y: number;  constructor(x: number, y: number) {    this._x = x;    this._y = y;  }   @configurable(false)  get x() {    return this._x;  }   @configurable(false)  get y() {    return this._y;  }}Try\ntsfunction configurable(value: boolean) {  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {    descriptor.configurable = value;  };}\n\ntsfunction configurable(value: boolean) {  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {    descriptor.configurable = value;  };}\ntsclass Greeter {  @format(\"Hello, %s\")  greeting: string;  constructor(message: string) {    this.greeting = message;  }  greet() {    let formatString = getFormat(this, \"greeting\");    return formatString.replace(\"%s\", this.greeting);  }}\n\ntsclass Greeter {  @format(\"Hello, %s\")  greeting: string;  constructor(message: string) {    this.greeting = message;  }  greet() {    let formatString = getFormat(this, \"greeting\");    return formatString.replace(\"%s\", this.greeting);  }}\ntsimport \"reflect-metadata\";const formatMetadataKey = Symbol(\"format\");function format(formatString: string) {  return Reflect.metadata(formatMetadataKey, formatString);}function getFormat(target: any, propertyKey: string) {  return Reflect.getMetadata(formatMetadataKey, target, propertyKey);}\n\ntsimport \"reflect-metadata\";const formatMetadataKey = Symbol(\"format\");function format(formatString: string) {  return Reflect.metadata(formatMetadataKey, formatString);}function getFormat(target: any, propertyKey: string) {  return Reflect.getMetadata(formatMetadataKey, target, propertyKey);}\n\ntsimport \"reflect-metadata\";const requiredMetadataKey = Symbol(\"required\"); function required(target: Object, propertyKey: string | symbol, parameterIndex: number) {  let existingRequiredParameters: number[] = Reflect.getOwnMetadata(requiredMetadataKey, target, propertyKey) || [];  existingRequiredParameters.push(parameterIndex);  Reflect.defineMetadata( requiredMetadataKey, existingRequiredParameters, target, propertyKey);} function validate(target: any, propertyName: string, descriptor: TypedPropertyDescriptor<Function>) {  let method = descriptor.value!;   descriptor.value = function () {    let requiredParameters: number[] = Reflect.getOwnMetadata(requiredMetadataKey, target, propertyName);    if (requiredParameters) {      for (let parameterIndex of requiredParameters) {        if (parameterIndex >= arguments.length || arguments[parameterIndex] === undefined) {          throw new Error(\"Missing required argument.\");        }      }    }    return method.apply(this, arguments);  };}Try\n\ntsimport \"reflect-metadata\";const requiredMetadataKey = Symbol(\"required\"); function required(target: Object, propertyKey: string | symbol, parameterIndex: number) {  let existingRequiredParameters: number[] = Reflect.getOwnMetadata(requiredMetadataKey, target, propertyKey) || [];  existingRequiredParameters.push(parameterIndex);  Reflect.defineMetadata( requiredMetadataKey, existingRequiredParameters, target, propertyKey);} function validate(target: any, propertyName: string, descriptor: TypedPropertyDescriptor<Function>) {  let method = descriptor.value!;   descriptor.value = function () {    let requiredParameters: number[] = Reflect.getOwnMetadata(requiredMetadataKey, target, propertyName);    if (requiredParameters) {      for (let parameterIndex of requiredParameters) {        if (parameterIndex >= arguments.length || arguments[parameterIndex] === undefined) {          throw new Error(\"Missing required argument.\");        }      }    }    return method.apply(this, arguments);  };}Try\nshellnpm i reflect-metadata --save\n\nshellnpm i reflect-metadata --save\nshelltsc --target ES5 --experimentalDecorators --emitDecoratorMetadata\n\nshelltsc --target ES5 --experimentalDecorators --emitDecoratorMetadata\n{  \"compilerOptions\": {    \"target\": \"ES5\",    \"experimentalDecorators\": true,    \"emitDecoratorMetadata\": true  }}\n\n{  \"compilerOptions\": {    \"target\": \"ES5\",    \"experimentalDecorators\": true,    \"emitDecoratorMetadata\": true  }}\ntsimport \"reflect-metadata\"; class Point {  constructor(public x: number, public y: number) {}} class Line {  private _start: Point;  private _end: Point;   @validate  set start(value: Point) {    this._start = value;  }   get start() {    return this._start;  }   @validate  set end(value: Point) {    this._end = value;  }   get end() {    return this._end;  }} function validate<T>(target: any, propertyKey: string, descriptor: TypedPropertyDescriptor<T>) {  let set = descriptor.set!;    descriptor.set = function (value: T) {    let type = Reflect.getMetadata(\"design:type\", target, propertyKey);     if (!(value instanceof type)) {      throw new TypeError(`Invalid type, got ${typeof value} not ${type.name}.`);    }     set.call(this, value);  };} const line = new Line()line.start = new Point(0, 0) // @ts-ignore// line.end = {} // Fails at runtime with:// > Invalid type, got object not Point Try\n\ntsimport \"reflect-metadata\"; class Point {  constructor(public x: number, public y: number) {}} class Line {  private _start: Point;  private _end: Point;   @validate  set start(value: Point) {    this._start = value;  }   get start() {    return this._start;  }   @validate  set end(value: Point) {    this._end = value;  }   get end() {    return this._end;  }} function validate<T>(target: any, propertyKey: string, descriptor: TypedPropertyDescriptor<T>) {  let set = descriptor.set!;    descriptor.set = function (value: T) {    let type = Reflect.getMetadata(\"design:type\", target, propertyKey);     if (!(value instanceof type)) {      throw new TypeError(`Invalid type, got ${typeof value} not ${type.name}.`);    }     set.call(this, value);  };} const line = new Line()line.start = new Point(0, 0) // @ts-ignore// line.end = {} // Fails at runtime with:// > Invalid type, got object not Point Try\ntsclass Line {  private _start: Point;  private _end: Point;  @validate  @Reflect.metadata(\"design:type\", Point)  set start(value: Point) {    this._start = value;  }  get start() {    return this._start;  }  @validate  @Reflect.metadata(\"design:type\", Point)  set end(value: Point) {    this._end = value;  }  get end() {    return this._end;  }}\n\ntsclass Line {  private _start: Point;  private _end: Point;  @validate  @Reflect.metadata(\"design:type\", Point)  set start(value: Point) {    this._start = value;  }  get start() {    return this._start;  }  @validate  @Reflect.metadata(\"design:type\", Point)  set end(value: Point) {    this._end = value;  }  get end() {    return this._end;  }}\n\n",
+                "output": "tsfunction reportableClassDecorator<T extends { new (...args: any[]): {} }>(constructor: T) {  return class extends constructor {    reportingURL = \"http://www...\";  };} @reportableClassDecoratorclass BugReport {  type = \"report\";  title: string;   constructor(t: string) {    this.title = t;  }} const bug = new BugReport(\"Needs dark mode\");console.log(bug.title); // Prints \"Needs dark mode\"console.log(bug.type); // Prints \"report\" // Note that the decorator _does not_ change the TypeScript type// and so the new property `reportingURL` is not known// to the type system:bug.reportingURL;Property 'reportingURL' does not exist on type 'BugReport'.2339Property 'reportingURL' does not exist on type 'BugReport'.Try\ntsfunction reportableClassDecorator<T extends { new (...args: any[]): {} }>(constructor: T) {  return class extends constructor {    reportingURL = \"http://www...\";  };} @reportableClassDecoratorclass BugReport {  type = \"report\";  title: string;   constructor(t: string) {    this.title = t;  }} const bug = new BugReport(\"Needs dark mode\");console.log(bug.title); // Prints \"Needs dark mode\"console.log(bug.type); // Prints \"report\" // Note that the decorator _does not_ change the TypeScript type// and so the new property `reportingURL` is not known// to the type system:bug.reportingURL;Property 'reportingURL' does not exist on type 'BugReport'.2339Property 'reportingURL' does not exist on type 'BugReport'.Try\ntsclass BugReport {  type = \"report\";  title: string;   constructor(t: string) {    this.title = t;  }   @validate  print(@required verbose: boolean) {    if (verbose) {      return `type: ${this.type}\\ntitle: ${this.title}`;    } else {     return this.title;     }  }}Try\ntsclass BugReport {  type = \"report\";  title: string;   constructor(t: string) {    this.title = t;  }   @validate  print(@required verbose: boolean) {    if (verbose) {      return `type: ${this.type}\\ntitle: ${this.title}`;    } else {     return this.title;     }  }}Try"
+            }
+        ],
+        "examples_count": 7,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://www.typescriptlang.org/docs/handbook/enums.html",
+        "api": "Enums",
+        "package": "TypeScript",
+        "language": "TypeScript",
+        "deprecated_in": "4.0.0",
+        "removed_in": "",
+        "replaced_by": "objects with `as const`",
+        "change_type": "Behavior Change",
+        "reason": "Aligning TypeScript with the state of JavaScript. Enums are not officially part of JavaScript yet and are replaced by objects with `as const` for better compatibility and runtime behavior.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "tsenum Direction {  Up = 1,  Down,  Left,  Right,}Try",
+                "output": ""
+            },
+            {
+                "code": "tsenum Direction {  Up,  Down,  Left,  Right,}Try\n",
+                "output": ""
+            },
+            {
+                "code": "tsenum Direction {  Up,  Down,  Left,  Right,}Try",
+                "output": ""
+            },
+            {
+                "code": "tsenum UserResponse {  No = 0,  Yes = 1,} function respond(recipient: string, message: UserResponse): void {  // ...} respond(\"Princess Caroline\", UserResponse.Yes);Try\n",
+                "output": ""
+            },
+            {
+                "code": "tsenum UserResponse {  No = 0,  Yes = 1,} function respond(recipient: string, message: UserResponse): void {  // ...} respond(\"Princess Caroline\", UserResponse.Yes);Try",
+                "output": ""
+            },
+            {
+                "code": "tsenum E {  A = getSomeValue(),  B,Enum member must have initializer.1061Enum member must have initializer.}Try\n",
+                "output": ""
+            },
+            {
+                "code": "tsenum E {  A = getSomeValue(),  B,Enum member must have initializer.1061Enum member must have initializer.}Try",
+                "output": ""
+            },
+            {
+                "code": "tsenum Direction {  Up = \"UP\",  Down = \"DOWN\",  Left = \"LEFT\",  Right = \"RIGHT\",}Try\n",
+                "output": ""
+            },
+            {
+                "code": "tsenum Direction {  Up = \"UP\",  Down = \"DOWN\",  Left = \"LEFT\",  Right = \"RIGHT\",}Try",
+                "output": ""
+            },
+            {
+                "code": "tsenum BooleanLikeHeterogeneousEnum {  No = 0,  Yes = \"YES\",}Try\n",
+                "output": ""
+            },
+            {
+                "code": "tsenum BooleanLikeHeterogeneousEnum {  No = 0,  Yes = \"YES\",}Try",
+                "output": ""
+            },
+            {
+                "code": "ts// E.X is constant:enum E {  X,}Try\n",
+                "output": ""
+            },
+            {
+                "code": "ts// E.X is constant:enum E {  X,}Try",
+                "output": ""
+            },
+            {
+                "code": "ts// All enum members in 'E1' and 'E2' are constant. enum E1 {  X,  Y,  Z,} enum E2 {  A = 1,  B,  C,}Try\n",
+                "output": ""
+            },
+            {
+                "code": "ts// All enum members in 'E1' and 'E2' are constant. enum E1 {  X,  Y,  Z,} enum E2 {  A = 1,  B,  C,}Try",
+                "output": ""
+            },
+            {
+                "code": "tsenum FileAccess {  // constant members  None,  Read = 1 << 1,  Write = 1 << 2,  ReadWrite = Read | Write,  // computed member  G = \"123\".length,}Try\n",
+                "output": ""
+            },
+            {
+                "code": "tsenum FileAccess {  // constant members  None,  Read = 1 << 1,  Write = 1 << 2,  ReadWrite = Read | Write,  // computed member  G = \"123\".length,}Try",
+                "output": ""
+            },
+            {
+                "code": "tsenum ShapeKind {  Circle,  Square,} interface Circle {  kind: ShapeKind.Circle;  radius: number;} interface Square {  kind: ShapeKind.Square;  sideLength: number;} let c: Circle = {  kind: ShapeKind.Square,Type 'ShapeKind.Square' is not assignable to type 'ShapeKind.Circle'.2322Type 'ShapeKind.Square' is not assignable to type 'ShapeKind.Circle'.  radius: 100,};Try\n",
+                "output": ""
+            },
+            {
+                "code": "tsenum ShapeKind {  Circle,  Square,} interface Circle {  kind: ShapeKind.Circle;  radius: number;} interface Square {  kind: ShapeKind.Square;  sideLength: number;} let c: Circle = {  kind: ShapeKind.Square,Type 'ShapeKind.Square' is not assignable to type 'ShapeKind.Circle'.2322Type 'ShapeKind.Square' is not assignable to type 'ShapeKind.Circle'.  radius: 100,};Try",
+                "output": ""
+            },
+            {
+                "code": "tsenum E {  Foo,  Bar,} function f(x: E) {  if (x !== E.Foo || x !== E.Bar) {This comparison appears to be unintentional because the types 'E.Foo' and 'E.Bar' have no overlap.2367This comparison appears to be unintentional because the types 'E.Foo' and 'E.Bar' have no overlap.    //  }}Try\n",
+                "output": ""
+            },
+            {
+                "code": "tsenum E {  Foo,  Bar,} function f(x: E) {  if (x !== E.Foo || x !== E.Bar) {This comparison appears to be unintentional because the types 'E.Foo' and 'E.Bar' have no overlap.2367This comparison appears to be unintentional because the types 'E.Foo' and 'E.Bar' have no overlap.    //  }}Try",
+                "output": ""
+            },
+            {
+                "code": "tsenum E {  X,  Y,  Z,}Try\n",
+                "output": ""
+            },
+            {
+                "code": "tsenum E {  X,  Y,  Z,}Try\ntsenum E {  X,  Y,  Z,} function f(obj: { X: number }) {  return obj.X;} // Works, since 'E' has a property named 'X' which is a number.f(E);Try\n\ntsenum E {  X,  Y,  Z,} function f(obj: { X: number }) {  return obj.X;} // Works, since 'E' has a property named 'X' which is a number.f(E);Try\n",
+                "output": "tsenum LogLevel {  ERROR,  WARN,  INFO,  DEBUG,} /** * This is equivalent to: * type LogLevelStrings = 'ERROR' | 'WARN' | 'INFO' | 'DEBUG'; */type LogLevelStrings = keyof typeof LogLevel; function printImportant(key: LogLevelStrings, message: string) {  const num = LogLevel[key];  if (num <= LogLevel.WARN) {    console.log(\"Log level key is:\", key);    console.log(\"Log level value is:\", num);    console.log(\"Log level message is:\", message);  }}printImportant(\"ERROR\", \"This is a message\");Try\ntsenum LogLevel {  ERROR,  WARN,  INFO,  DEBUG,} /** * This is equivalent to: * type LogLevelStrings = 'ERROR' | 'WARN' | 'INFO' | 'DEBUG'; */type LogLevelStrings = keyof typeof LogLevel; function printImportant(key: LogLevelStrings, message: string) {  const num = LogLevel[key];  if (num <= LogLevel.WARN) {    console.log(\"Log level key is:\", key);    console.log(\"Log level value is:\", num);    console.log(\"Log level message is:\", message);  }}printImportant(\"ERROR\", \"This is a message\");Try"
+            },
+            {
+                "code": "tsenum Enum {  A,} let a = Enum.A;let nameOfA = Enum[a]; // \"A\"Try\n",
+                "output": ""
+            },
+            {
+                "code": "tsenum Enum {  A,} let a = Enum.A;let nameOfA = Enum[a]; // \"A\"Try",
+                "output": ""
+            },
+            {
+                "code": "ts\"use strict\";var Enum;(function (Enum) {    Enum[Enum[\"A\"] = 0] = \"A\";})(Enum || (Enum = {}));let a = Enum.A;let nameOfA = Enum[a]; // \"A\" Try\n",
+                "output": ""
+            },
+            {
+                "code": "ts\"use strict\";var Enum;(function (Enum) {    Enum[Enum[\"A\"] = 0] = \"A\";})(Enum || (Enum = {}));let a = Enum.A;let nameOfA = Enum[a]; // \"A\" Try",
+                "output": ""
+            },
+            {
+                "code": "tsconst enum Enum {  A = 1,  B = A * 2,}Try\n",
+                "output": ""
+            },
+            {
+                "code": "tsconst enum Enum {  A = 1,  B = A * 2,}Try",
+                "output": ""
+            },
+            {
+                "code": "tsconst enum Direction {  Up,  Down,  Left,  Right,} let directions = [  Direction.Up,  Direction.Down,  Direction.Left,  Direction.Right,];Try\n",
+                "output": ""
+            },
+            {
+                "code": "tsconst enum Direction {  Up,  Down,  Left,  Right,} let directions = [  Direction.Up,  Direction.Down,  Direction.Left,  Direction.Right,];Try",
+                "output": ""
+            },
+            {
+                "code": "ts\"use strict\";let directions = [    0 /* Direction.Up */,    1 /* Direction.Down */,    2 /* Direction.Left */,    3 /* Direction.Right */,]; Try\n",
+                "output": ""
+            },
+            {
+                "code": "ts\"use strict\";let directions = [    0 /* Direction.Up */,    1 /* Direction.Down */,    2 /* Direction.Left */,    3 /* Direction.Right */,]; Try",
+                "output": ""
+            },
+            {
+                "code": "tsdeclare enum Enum {  A = 1,  B,  C = 2,}Try\n",
+                "output": ""
+            },
+            {
+                "code": "tsdeclare enum Enum {  A = 1,  B,  C = 2,}Try",
+                "output": ""
+            },
+            {
+                "code": "tsconst enum EDirection {  Up,  Down,  Left,  Right,} const ODirection = {  Up: 0,  Down: 1,  Left: 2,  Right: 3,} as const; EDirection.Up;           (enum member) EDirection.Up = 0 ODirection.Up;           (property) Up: 0 // Using the enum as a parameterfunction walk(dir: EDirection) {} // It requires an extra line to pull out the valuestype Direction = typeof ODirection[keyof typeof ODirection];function run(dir: Direction) {} walk(EDirection.Left);run(ODirection.Right);Try\n",
+                "output": ""
+            },
+            {
+                "code": "tsconst enum EDirection {  Up,  Down,  Left,  Right,} const ODirection = {  Up: 0,  Down: 1,  Left: 2,  Right: 3,} as const; EDirection.Up;           (enum member) EDirection.Up = 0 ODirection.Up;           (property) Up: 0 // Using the enum as a parameterfunction walk(dir: EDirection) {} // It requires an extra line to pull out the valuestype Direction = typeof ODirection[keyof typeof ODirection];function run(dir: Direction) {} walk(EDirection.Left);run(ODirection.Right);Try\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 37,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://www.typescriptlang.org/docs",
+        "api": "for..of loops on non-Array iterable values",
+        "package": "TypeScript",
+        "language": "TypeScript",
+        "deprecated_in": "4.5.0",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "API Deprecation",
+        "reason": "Targeting ES5-compliant engines restricted iterators to Array values only, creating restrictions incompatible with future ECMAScript standards and broader iterable implementations.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "No Examples"
+    },
+    {
+        "source_url": "https://www.typescriptlang.org/docs/handbook/jsx.html",
+        "api": "jsxFactory",
+        "package": "typescript",
+        "language": "TypeScript",
+        "deprecated_in": "4.1.0",
+        "removed_in": "",
+        "replaced_by": "jsxImportSource",
+        "change_type": "API Deprecation",
+        "reason": "The jsxFactory option was deprecated in favor of jsxImportSource due to the introduction of updated JSX runtimes (react-jsx and react-jsxdev) that provide clearer handling and configuration.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "tsconst foo = <Foo>bar;",
+                "output": ""
+            },
+            {
+                "code": "tsconst foo = bar as Foo;\n",
+                "output": ""
+            },
+            {
+                "code": "tsconst foo = bar as Foo;",
+                "output": ""
+            },
+            {
+                "code": "tsexport function createElement(): any;export namespace JSX {  // …}\n",
+                "output": ""
+            },
+            {
+                "code": "tsexport function createElement(): any;export namespace JSX {  // …}\ntsimport * as React from 'react';\n\ntsimport * as React from 'react';",
+                "output": ""
+            },
+            {
+                "code": "tsexport function h(props: any): any;export namespace h.JSX {  // …}\n",
+                "output": ""
+            },
+            {
+                "code": "tsexport function h(props: any): any;export namespace h.JSX {  // …}\ntsimport { h } from 'preact';\n\ntsimport { h } from 'preact';\njson{  \"exports\": {    \"./jsx-runtime\": \"./jsx-runtime.js\",    \"./jsx-dev-runtime\": \"./jsx-dev-runtime.js\",  }}\n\njson{  \"exports\": {    \"./jsx-runtime\": \"./jsx-runtime.js\",    \"./jsx-dev-runtime\": \"./jsx-dev-runtime.js\",  }}",
+                "output": ""
+            },
+            {
+                "code": "tsexport namespace JSX {  // …}\n",
+                "output": ""
+            },
+            {
+                "code": "tsexport namespace JSX {  // …}",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: any;  }}<foo />; // ok<bar />; // error\n",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: any;  }}<foo />; // ok<bar />; // error",
+                "output": ""
+            },
+            {
+                "code": "tsdeclare namespace JSX {  interface IntrinsicElements {    [elemName: string]: any;  }}\n",
+                "output": ""
+            },
+            {
+                "code": "tsdeclare namespace JSX {  interface IntrinsicElements {    [elemName: string]: any;  }}\ntsximport MyComponent from \"./myComponent\";<MyComponent />; // ok<SomeOtherComponent />; // error\n\ntsximport MyComponent from \"./myComponent\";<MyComponent />; // ok<SomeOtherComponent />; // error\n",
+                "output": "tsxinterface FooProp {  name: string;  X: number;  Y: number;}declare function AnotherComponent(prop: { name: string });function ComponentFoo(prop: FooProp) {  return <AnotherComponent name={prop.name} />;}const Button = (prop: { value: string }, context: { color: string }) => (  <button />);\ntsxinterface FooProp {  name: string;  X: number;  Y: number;}declare function AnotherComponent(prop: { name: string });function ComponentFoo(prop: FooProp) {  return <AnotherComponent name={prop.name} />;}const Button = (prop: { value: string }, context: { color: string }) => (  <button />);"
+            },
+            {
+                "code": "tsinterface ClickableProps {  children: JSX.Element[] | JSX.Element;} interface HomeProps extends ClickableProps {  home: JSX.Element;} interface SideProps extends ClickableProps {  side: JSX.Element | string;} function MainButton(prop: HomeProps): JSX.Element;function MainButton(prop: SideProps): JSX.Element;function MainButton(prop: ClickableProps): JSX.Element {  // ...}Try\n",
+                "output": ""
+            },
+            {
+                "code": "tsinterface ClickableProps {  children: JSX.Element[] | JSX.Element;} interface HomeProps extends ClickableProps {  home: JSX.Element;} interface SideProps extends ClickableProps {  side: JSX.Element | string;} function MainButton(prop: HomeProps): JSX.Element;function MainButton(prop: SideProps): JSX.Element;function MainButton(prop: ClickableProps): JSX.Element {  // ...}Try\n\n",
+                "output": "tsclass MyComponent {  render() {}}// use a construct signatureconst myComponent = new MyComponent();// element class type => MyComponent// element instance type => { render: () => void }function MyFactoryFunction() {  return {    render: () => {},  };}// use a call signatureconst myComponent = MyFactoryFunction();// element class type => MyFactoryFunction// element instance type => { render: () => void }\ntsclass MyComponent {  render() {}}// use a construct signatureconst myComponent = new MyComponent();// element class type => MyComponent// element instance type => { render: () => void }function MyFactoryFunction() {  return {    render: () => {},  };}// use a call signatureconst myComponent = MyFactoryFunction();// element class type => MyFactoryFunction// element instance type => { render: () => void }\ntsxdeclare namespace JSX {  interface ElementClass {    render: any;  }}class MyComponent {  render() {}}function MyFactoryFunction() {  return { render: () => {} };}<MyComponent />; // ok<MyFactoryFunction />; // okclass NotAValidComponent {}function NotAValidFactoryFunction() {  return {};}<NotAValidComponent />; // error<NotAValidFactoryFunction />; // error\ntsxdeclare namespace JSX {  interface ElementClass {    render: any;  }}class MyComponent {  render() {}}function MyFactoryFunction() {  return { render: () => {} };}<MyComponent />; // ok<MyFactoryFunction />; // okclass NotAValidComponent {}function NotAValidFactoryFunction() {  return {};}<NotAValidComponent />; // error<NotAValidFactoryFunction />; // error"
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: { bar?: boolean };  }}// element attributes type for 'foo' is '{bar?: boolean}'<foo bar />;\n",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: { bar?: boolean };  }}// element attributes type for 'foo' is '{bar?: boolean}'<foo bar />;",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface ElementAttributesProperty {    props; // specify the property name to use  }}class MyComponent {  // specify the property on the element instance type  props: {    foo?: string;  };}// element attributes type for 'MyComponent' is '{foo?: string}'<MyComponent foo=\"bar\" />;\n",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface ElementAttributesProperty {    props; // specify the property name to use  }}class MyComponent {  // specify the property on the element instance type  props: {    foo?: string;  };}// element attributes type for 'MyComponent' is '{foo?: string}'<MyComponent foo=\"bar\" />;",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: { requiredProp: string; optionalProp?: number };  }}<foo requiredProp=\"bar\" />; // ok<foo requiredProp=\"bar\" optionalProp={0} />; // ok<foo />; // error, requiredProp is missing<foo requiredProp={0} />; // error, requiredProp should be a string<foo requiredProp=\"bar\" unknownProp />; // error, unknownProp does not exist<foo requiredProp=\"bar\" some-unknown-prop />; // ok, because 'some-unknown-prop' is not a valid identifier\n",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: { requiredProp: string; optionalProp?: number };  }}<foo requiredProp=\"bar\" />; // ok<foo requiredProp=\"bar\" optionalProp={0} />; // ok<foo />; // error, requiredProp is missing<foo requiredProp={0} />; // error, requiredProp should be a string<foo requiredProp=\"bar\" unknownProp />; // error, unknownProp does not exist<foo requiredProp=\"bar\" some-unknown-prop />; // ok, because 'some-unknown-prop' is not a valid identifier",
+                "output": ""
+            },
+            {
+                "code": "tsxconst props = { requiredProp: \"bar\" };<foo {...props} />; // okconst badProps = {};<foo {...badProps} />; // error\n",
+                "output": ""
+            },
+            {
+                "code": "tsxconst props = { requiredProp: \"bar\" };<foo {...props} />; // okconst badProps = {};<foo {...badProps} />; // error",
+                "output": ""
+            },
+            {
+                "code": "tsdeclare namespace JSX {  interface ElementChildrenAttribute {    children: {}; // specify children name to use  }}\n",
+                "output": ""
+            },
+            {
+                "code": "tsdeclare namespace JSX {  interface ElementChildrenAttribute {    children: {}; // specify children name to use  }}\n\ntsxinterface PropsType {  children: JSX.Element  name: string}class Component extends React.Component<PropsType, {}> {  render() {    return (      <h2>        {this.props.children}      </h2>    )  }}// OK<Component name=\"foo\">  <h1>Hello World</h1></Component>// Error: children is of type JSX.Element not array of JSX.Element<Component name=\"bar\">  <h1>Hello World</h1>  <h2>Hello World</h2></Component>// Error: children is of type JSX.Element not array of JSX.Element or string.<Component name=\"baz\">  <h1>Hello</h1>  World</Component>\n\ntsxinterface PropsType {  children: JSX.Element  name: string}class Component extends React.Component<PropsType, {}> {  render() {    return (      <h2>        {this.props.children}      </h2>    )  }}// OK<Component name=\"foo\">  <h1>Hello World</h1></Component>// Error: children is of type JSX.Element not array of JSX.Element<Component name=\"bar\">  <h1>Hello World</h1>  <h2>Hello World</h2></Component>// Error: children is of type JSX.Element not array of JSX.Element or string.<Component name=\"baz\">  <h1>Hello</h1>  World</Component>\n\n\ntsxconst a = (  <div>    {[\"foo\", \"bar\"].map(function (i) {      return <span>{i / 2}</span>;    })}  </div>);\n\ntsxconst a = (  <div>    {[\"foo\", \"bar\"].map(function (i) {      return <span>{i / 2}</span>;    })}  </div>);\ntsx/// <reference path=\"react.d.ts\" />interface Props {  foo: string;}class MyComponent extends React.Component<Props, {}> {  render() {    return <span>{this.props.foo}</span>;  }}<MyComponent foo=\"bar\" />; // ok<MyComponent foo={0} />; // error\n\ntsx/// <reference path=\"react.d.ts\" />interface Props {  foo: string;}class MyComponent extends React.Component<Props, {}> {  render() {    return <span>{this.props.foo}</span>;  }}<MyComponent foo=\"bar\" />; // ok<MyComponent foo={0} />; // error\n\n",
+                "output": "tsx<div>  <h1>Hello</h1></div>;<div>  <h1>Hello</h1>  World</div>;const CustomComp = (props) => <div>{props.children}</div><CustomComp>  <div>Hello World</div>  {\"This is just a JS expression...\" + 1000}</CustomComp>\ntsx<div>  <h1>Hello</h1></div>;<div>  <h1>Hello</h1>  World</div>;const CustomComp = (props) => <div>{props.children}</div><CustomComp>  <div>Hello World</div>  {\"This is just a JS expression...\" + 1000}</CustomComp>\ntsnamespace JSX {    export type ElementType =        // All the valid lowercase tags        | keyof IntrinsicElements        // Function components        | (props: any) => Element        // Class components        | new (props: any) => ElementClass;    export interface IntrinsicAttributes extends /*...*/ {}    export type Element = /*...*/;    export type ElementClass = /*...*/;}\ntsnamespace JSX {    export type ElementType =        // All the valid lowercase tags        | keyof IntrinsicElements        // Function components        | (props: any) => Element        // Class components        | new (props: any) => ElementClass;    export interface IntrinsicAttributes extends /*...*/ {}    export type Element = /*...*/;    export type ElementClass = /*...*/;}\ntsxconst a = (  <div>    {[\"foo\", \"bar\"].map((i) => (      <span>{i / 2}</span>    ))}  </div>);\ntsxconst a = (  <div>    {[\"foo\", \"bar\"].map((i) => (      <span>{i / 2}</span>    ))}  </div>);"
+            }
+        ],
+        "examples_count": 25,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://www.typescriptlang.org/docs/jsx",
+        "api": "JSX.ElementChildrenAttribute",
+        "package": "TypeScript",
+        "language": "TypeScript",
+        "deprecated_in": "4.0.0",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Updated behavior for type checking JSX children for better alignment with runtime behavior and to prevent inconsistencies in JSX expressions.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "No Examples"
+    },
+    {
+        "source_url": "https://www.typescriptlang.org/docs/handbook/jsx.html",
+        "api": "JSX.ElementType",
+        "package": "TypeScript",
+        "language": "TypeScript",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Align JSX element return types more closely with runtime behavior and provide users with greater flexibility in specifying valid JSX component types.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "tsconst foo = <Foo>bar;",
+                "output": ""
+            },
+            {
+                "code": "tsconst foo = bar as Foo;\n",
+                "output": ""
+            },
+            {
+                "code": "tsconst foo = bar as Foo;",
+                "output": ""
+            },
+            {
+                "code": "tsexport function createElement(): any;export namespace JSX {  // …}\n",
+                "output": ""
+            },
+            {
+                "code": "tsexport function createElement(): any;export namespace JSX {  // …}\ntsimport * as React from 'react';\n\ntsimport * as React from 'react';",
+                "output": ""
+            },
+            {
+                "code": "tsexport function h(props: any): any;export namespace h.JSX {  // …}\n",
+                "output": ""
+            },
+            {
+                "code": "tsexport function h(props: any): any;export namespace h.JSX {  // …}\ntsimport { h } from 'preact';\n\ntsimport { h } from 'preact';\njson{  \"exports\": {    \"./jsx-runtime\": \"./jsx-runtime.js\",    \"./jsx-dev-runtime\": \"./jsx-dev-runtime.js\",  }}\n\njson{  \"exports\": {    \"./jsx-runtime\": \"./jsx-runtime.js\",    \"./jsx-dev-runtime\": \"./jsx-dev-runtime.js\",  }}",
+                "output": ""
+            },
+            {
+                "code": "tsexport namespace JSX {  // …}\n",
+                "output": ""
+            },
+            {
+                "code": "tsexport namespace JSX {  // …}",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: any;  }}<foo />; // ok<bar />; // error\n",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: any;  }}<foo />; // ok<bar />; // error",
+                "output": ""
+            },
+            {
+                "code": "tsdeclare namespace JSX {  interface IntrinsicElements {    [elemName: string]: any;  }}\n",
+                "output": ""
+            },
+            {
+                "code": "tsdeclare namespace JSX {  interface IntrinsicElements {    [elemName: string]: any;  }}\ntsximport MyComponent from \"./myComponent\";<MyComponent />; // ok<SomeOtherComponent />; // error\n\ntsximport MyComponent from \"./myComponent\";<MyComponent />; // ok<SomeOtherComponent />; // error\n",
+                "output": "tsxinterface FooProp {  name: string;  X: number;  Y: number;}declare function AnotherComponent(prop: { name: string });function ComponentFoo(prop: FooProp) {  return <AnotherComponent name={prop.name} />;}const Button = (prop: { value: string }, context: { color: string }) => (  <button />);\ntsxinterface FooProp {  name: string;  X: number;  Y: number;}declare function AnotherComponent(prop: { name: string });function ComponentFoo(prop: FooProp) {  return <AnotherComponent name={prop.name} />;}const Button = (prop: { value: string }, context: { color: string }) => (  <button />);"
+            },
+            {
+                "code": "tsinterface ClickableProps {  children: JSX.Element[] | JSX.Element;} interface HomeProps extends ClickableProps {  home: JSX.Element;} interface SideProps extends ClickableProps {  side: JSX.Element | string;} function MainButton(prop: HomeProps): JSX.Element;function MainButton(prop: SideProps): JSX.Element;function MainButton(prop: ClickableProps): JSX.Element {  // ...}Try\n",
+                "output": ""
+            },
+            {
+                "code": "tsinterface ClickableProps {  children: JSX.Element[] | JSX.Element;} interface HomeProps extends ClickableProps {  home: JSX.Element;} interface SideProps extends ClickableProps {  side: JSX.Element | string;} function MainButton(prop: HomeProps): JSX.Element;function MainButton(prop: SideProps): JSX.Element;function MainButton(prop: ClickableProps): JSX.Element {  // ...}Try\n\n",
+                "output": "tsclass MyComponent {  render() {}}// use a construct signatureconst myComponent = new MyComponent();// element class type => MyComponent// element instance type => { render: () => void }function MyFactoryFunction() {  return {    render: () => {},  };}// use a call signatureconst myComponent = MyFactoryFunction();// element class type => MyFactoryFunction// element instance type => { render: () => void }\ntsclass MyComponent {  render() {}}// use a construct signatureconst myComponent = new MyComponent();// element class type => MyComponent// element instance type => { render: () => void }function MyFactoryFunction() {  return {    render: () => {},  };}// use a call signatureconst myComponent = MyFactoryFunction();// element class type => MyFactoryFunction// element instance type => { render: () => void }\ntsxdeclare namespace JSX {  interface ElementClass {    render: any;  }}class MyComponent {  render() {}}function MyFactoryFunction() {  return { render: () => {} };}<MyComponent />; // ok<MyFactoryFunction />; // okclass NotAValidComponent {}function NotAValidFactoryFunction() {  return {};}<NotAValidComponent />; // error<NotAValidFactoryFunction />; // error\ntsxdeclare namespace JSX {  interface ElementClass {    render: any;  }}class MyComponent {  render() {}}function MyFactoryFunction() {  return { render: () => {} };}<MyComponent />; // ok<MyFactoryFunction />; // okclass NotAValidComponent {}function NotAValidFactoryFunction() {  return {};}<NotAValidComponent />; // error<NotAValidFactoryFunction />; // error"
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: { bar?: boolean };  }}// element attributes type for 'foo' is '{bar?: boolean}'<foo bar />;\n",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: { bar?: boolean };  }}// element attributes type for 'foo' is '{bar?: boolean}'<foo bar />;",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface ElementAttributesProperty {    props; // specify the property name to use  }}class MyComponent {  // specify the property on the element instance type  props: {    foo?: string;  };}// element attributes type for 'MyComponent' is '{foo?: string}'<MyComponent foo=\"bar\" />;\n",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface ElementAttributesProperty {    props; // specify the property name to use  }}class MyComponent {  // specify the property on the element instance type  props: {    foo?: string;  };}// element attributes type for 'MyComponent' is '{foo?: string}'<MyComponent foo=\"bar\" />;",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: { requiredProp: string; optionalProp?: number };  }}<foo requiredProp=\"bar\" />; // ok<foo requiredProp=\"bar\" optionalProp={0} />; // ok<foo />; // error, requiredProp is missing<foo requiredProp={0} />; // error, requiredProp should be a string<foo requiredProp=\"bar\" unknownProp />; // error, unknownProp does not exist<foo requiredProp=\"bar\" some-unknown-prop />; // ok, because 'some-unknown-prop' is not a valid identifier\n",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: { requiredProp: string; optionalProp?: number };  }}<foo requiredProp=\"bar\" />; // ok<foo requiredProp=\"bar\" optionalProp={0} />; // ok<foo />; // error, requiredProp is missing<foo requiredProp={0} />; // error, requiredProp should be a string<foo requiredProp=\"bar\" unknownProp />; // error, unknownProp does not exist<foo requiredProp=\"bar\" some-unknown-prop />; // ok, because 'some-unknown-prop' is not a valid identifier",
+                "output": ""
+            },
+            {
+                "code": "tsxconst props = { requiredProp: \"bar\" };<foo {...props} />; // okconst badProps = {};<foo {...badProps} />; // error\n",
+                "output": ""
+            },
+            {
+                "code": "tsxconst props = { requiredProp: \"bar\" };<foo {...props} />; // okconst badProps = {};<foo {...badProps} />; // error",
+                "output": ""
+            },
+            {
+                "code": "tsdeclare namespace JSX {  interface ElementChildrenAttribute {    children: {}; // specify children name to use  }}\n",
+                "output": ""
+            },
+            {
+                "code": "tsdeclare namespace JSX {  interface ElementChildrenAttribute {    children: {}; // specify children name to use  }}\n\ntsxinterface PropsType {  children: JSX.Element  name: string}class Component extends React.Component<PropsType, {}> {  render() {    return (      <h2>        {this.props.children}      </h2>    )  }}// OK<Component name=\"foo\">  <h1>Hello World</h1></Component>// Error: children is of type JSX.Element not array of JSX.Element<Component name=\"bar\">  <h1>Hello World</h1>  <h2>Hello World</h2></Component>// Error: children is of type JSX.Element not array of JSX.Element or string.<Component name=\"baz\">  <h1>Hello</h1>  World</Component>\n\ntsxinterface PropsType {  children: JSX.Element  name: string}class Component extends React.Component<PropsType, {}> {  render() {    return (      <h2>        {this.props.children}      </h2>    )  }}// OK<Component name=\"foo\">  <h1>Hello World</h1></Component>// Error: children is of type JSX.Element not array of JSX.Element<Component name=\"bar\">  <h1>Hello World</h1>  <h2>Hello World</h2></Component>// Error: children is of type JSX.Element not array of JSX.Element or string.<Component name=\"baz\">  <h1>Hello</h1>  World</Component>\n\n\ntsxconst a = (  <div>    {[\"foo\", \"bar\"].map(function (i) {      return <span>{i / 2}</span>;    })}  </div>);\n\ntsxconst a = (  <div>    {[\"foo\", \"bar\"].map(function (i) {      return <span>{i / 2}</span>;    })}  </div>);\ntsx/// <reference path=\"react.d.ts\" />interface Props {  foo: string;}class MyComponent extends React.Component<Props, {}> {  render() {    return <span>{this.props.foo}</span>;  }}<MyComponent foo=\"bar\" />; // ok<MyComponent foo={0} />; // error\n\ntsx/// <reference path=\"react.d.ts\" />interface Props {  foo: string;}class MyComponent extends React.Component<Props, {}> {  render() {    return <span>{this.props.foo}</span>;  }}<MyComponent foo=\"bar\" />; // ok<MyComponent foo={0} />; // error\n\n",
+                "output": "tsx<div>  <h1>Hello</h1></div>;<div>  <h1>Hello</h1>  World</div>;const CustomComp = (props) => <div>{props.children}</div><CustomComp>  <div>Hello World</div>  {\"This is just a JS expression...\" + 1000}</CustomComp>\ntsx<div>  <h1>Hello</h1></div>;<div>  <h1>Hello</h1>  World</div>;const CustomComp = (props) => <div>{props.children}</div><CustomComp>  <div>Hello World</div>  {\"This is just a JS expression...\" + 1000}</CustomComp>\ntsnamespace JSX {    export type ElementType =        // All the valid lowercase tags        | keyof IntrinsicElements        // Function components        | (props: any) => Element        // Class components        | new (props: any) => ElementClass;    export interface IntrinsicAttributes extends /*...*/ {}    export type Element = /*...*/;    export type ElementClass = /*...*/;}\ntsnamespace JSX {    export type ElementType =        // All the valid lowercase tags        | keyof IntrinsicElements        // Function components        | (props: any) => Element        // Class components        | new (props: any) => ElementClass;    export interface IntrinsicAttributes extends /*...*/ {}    export type Element = /*...*/;    export type ElementClass = /*...*/;}\ntsxconst a = (  <div>    {[\"foo\", \"bar\"].map((i) => (      <span>{i / 2}</span>    ))}  </div>);\ntsxconst a = (  <div>    {[\"foo\", \"bar\"].map((i) => (      <span>{i / 2}</span>    ))}  </div>);"
+            }
+        ],
+        "examples_count": 25,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://www.typescriptlang.org/docs/handbook/jsx.html#jsx-function-return-type",
+        "api": "JSX.Element",
+        "package": "TypeScript",
+        "language": "TypeScript",
+        "deprecated_in": "4.5.0",
+        "removed_in": "",
+        "replaced_by": "JSX.ElementType",
+        "change_type": "API Deprecation",
+        "reason": "The previous implementation did not accurately represent runtime behavior, leading to inconsistencies between defined types and actual behavior. JSX.ElementType provides better extensibility and aligns with runtime behavior.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "tsconst foo = <Foo>bar;",
+                "output": ""
+            },
+            {
+                "code": "tsconst foo = bar as Foo;\n",
+                "output": ""
+            },
+            {
+                "code": "tsconst foo = bar as Foo;",
+                "output": ""
+            },
+            {
+                "code": "tsexport function createElement(): any;export namespace JSX {  // …}\n",
+                "output": ""
+            },
+            {
+                "code": "tsexport function createElement(): any;export namespace JSX {  // …}\ntsimport * as React from 'react';\n\ntsimport * as React from 'react';",
+                "output": ""
+            },
+            {
+                "code": "tsexport function h(props: any): any;export namespace h.JSX {  // …}\n",
+                "output": ""
+            },
+            {
+                "code": "tsexport function h(props: any): any;export namespace h.JSX {  // …}\ntsimport { h } from 'preact';\n\ntsimport { h } from 'preact';\njson{  \"exports\": {    \"./jsx-runtime\": \"./jsx-runtime.js\",    \"./jsx-dev-runtime\": \"./jsx-dev-runtime.js\",  }}\n\njson{  \"exports\": {    \"./jsx-runtime\": \"./jsx-runtime.js\",    \"./jsx-dev-runtime\": \"./jsx-dev-runtime.js\",  }}",
+                "output": ""
+            },
+            {
+                "code": "tsexport namespace JSX {  // …}\n",
+                "output": ""
+            },
+            {
+                "code": "tsexport namespace JSX {  // …}",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: any;  }}<foo />; // ok<bar />; // error\n",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: any;  }}<foo />; // ok<bar />; // error",
+                "output": ""
+            },
+            {
+                "code": "tsdeclare namespace JSX {  interface IntrinsicElements {    [elemName: string]: any;  }}\n",
+                "output": ""
+            },
+            {
+                "code": "tsdeclare namespace JSX {  interface IntrinsicElements {    [elemName: string]: any;  }}\ntsximport MyComponent from \"./myComponent\";<MyComponent />; // ok<SomeOtherComponent />; // error\n\ntsximport MyComponent from \"./myComponent\";<MyComponent />; // ok<SomeOtherComponent />; // error\n",
+                "output": "tsxinterface FooProp {  name: string;  X: number;  Y: number;}declare function AnotherComponent(prop: { name: string });function ComponentFoo(prop: FooProp) {  return <AnotherComponent name={prop.name} />;}const Button = (prop: { value: string }, context: { color: string }) => (  <button />);\ntsxinterface FooProp {  name: string;  X: number;  Y: number;}declare function AnotherComponent(prop: { name: string });function ComponentFoo(prop: FooProp) {  return <AnotherComponent name={prop.name} />;}const Button = (prop: { value: string }, context: { color: string }) => (  <button />);"
+            },
+            {
+                "code": "tsinterface ClickableProps {  children: JSX.Element[] | JSX.Element;} interface HomeProps extends ClickableProps {  home: JSX.Element;} interface SideProps extends ClickableProps {  side: JSX.Element | string;} function MainButton(prop: HomeProps): JSX.Element;function MainButton(prop: SideProps): JSX.Element;function MainButton(prop: ClickableProps): JSX.Element {  // ...}Try\n",
+                "output": ""
+            },
+            {
+                "code": "tsinterface ClickableProps {  children: JSX.Element[] | JSX.Element;} interface HomeProps extends ClickableProps {  home: JSX.Element;} interface SideProps extends ClickableProps {  side: JSX.Element | string;} function MainButton(prop: HomeProps): JSX.Element;function MainButton(prop: SideProps): JSX.Element;function MainButton(prop: ClickableProps): JSX.Element {  // ...}Try\n\n",
+                "output": "tsclass MyComponent {  render() {}}// use a construct signatureconst myComponent = new MyComponent();// element class type => MyComponent// element instance type => { render: () => void }function MyFactoryFunction() {  return {    render: () => {},  };}// use a call signatureconst myComponent = MyFactoryFunction();// element class type => MyFactoryFunction// element instance type => { render: () => void }\ntsclass MyComponent {  render() {}}// use a construct signatureconst myComponent = new MyComponent();// element class type => MyComponent// element instance type => { render: () => void }function MyFactoryFunction() {  return {    render: () => {},  };}// use a call signatureconst myComponent = MyFactoryFunction();// element class type => MyFactoryFunction// element instance type => { render: () => void }\ntsxdeclare namespace JSX {  interface ElementClass {    render: any;  }}class MyComponent {  render() {}}function MyFactoryFunction() {  return { render: () => {} };}<MyComponent />; // ok<MyFactoryFunction />; // okclass NotAValidComponent {}function NotAValidFactoryFunction() {  return {};}<NotAValidComponent />; // error<NotAValidFactoryFunction />; // error\ntsxdeclare namespace JSX {  interface ElementClass {    render: any;  }}class MyComponent {  render() {}}function MyFactoryFunction() {  return { render: () => {} };}<MyComponent />; // ok<MyFactoryFunction />; // okclass NotAValidComponent {}function NotAValidFactoryFunction() {  return {};}<NotAValidComponent />; // error<NotAValidFactoryFunction />; // error"
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: { bar?: boolean };  }}// element attributes type for 'foo' is '{bar?: boolean}'<foo bar />;\n",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: { bar?: boolean };  }}// element attributes type for 'foo' is '{bar?: boolean}'<foo bar />;",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface ElementAttributesProperty {    props; // specify the property name to use  }}class MyComponent {  // specify the property on the element instance type  props: {    foo?: string;  };}// element attributes type for 'MyComponent' is '{foo?: string}'<MyComponent foo=\"bar\" />;\n",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface ElementAttributesProperty {    props; // specify the property name to use  }}class MyComponent {  // specify the property on the element instance type  props: {    foo?: string;  };}// element attributes type for 'MyComponent' is '{foo?: string}'<MyComponent foo=\"bar\" />;",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: { requiredProp: string; optionalProp?: number };  }}<foo requiredProp=\"bar\" />; // ok<foo requiredProp=\"bar\" optionalProp={0} />; // ok<foo />; // error, requiredProp is missing<foo requiredProp={0} />; // error, requiredProp should be a string<foo requiredProp=\"bar\" unknownProp />; // error, unknownProp does not exist<foo requiredProp=\"bar\" some-unknown-prop />; // ok, because 'some-unknown-prop' is not a valid identifier\n",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: { requiredProp: string; optionalProp?: number };  }}<foo requiredProp=\"bar\" />; // ok<foo requiredProp=\"bar\" optionalProp={0} />; // ok<foo />; // error, requiredProp is missing<foo requiredProp={0} />; // error, requiredProp should be a string<foo requiredProp=\"bar\" unknownProp />; // error, unknownProp does not exist<foo requiredProp=\"bar\" some-unknown-prop />; // ok, because 'some-unknown-prop' is not a valid identifier",
+                "output": ""
+            },
+            {
+                "code": "tsxconst props = { requiredProp: \"bar\" };<foo {...props} />; // okconst badProps = {};<foo {...badProps} />; // error\n",
+                "output": ""
+            },
+            {
+                "code": "tsxconst props = { requiredProp: \"bar\" };<foo {...props} />; // okconst badProps = {};<foo {...badProps} />; // error",
+                "output": ""
+            },
+            {
+                "code": "tsdeclare namespace JSX {  interface ElementChildrenAttribute {    children: {}; // specify children name to use  }}\n",
+                "output": ""
+            },
+            {
+                "code": "tsdeclare namespace JSX {  interface ElementChildrenAttribute {    children: {}; // specify children name to use  }}\n\ntsxinterface PropsType {  children: JSX.Element  name: string}class Component extends React.Component<PropsType, {}> {  render() {    return (      <h2>        {this.props.children}      </h2>    )  }}// OK<Component name=\"foo\">  <h1>Hello World</h1></Component>// Error: children is of type JSX.Element not array of JSX.Element<Component name=\"bar\">  <h1>Hello World</h1>  <h2>Hello World</h2></Component>// Error: children is of type JSX.Element not array of JSX.Element or string.<Component name=\"baz\">  <h1>Hello</h1>  World</Component>\n\ntsxinterface PropsType {  children: JSX.Element  name: string}class Component extends React.Component<PropsType, {}> {  render() {    return (      <h2>        {this.props.children}      </h2>    )  }}// OK<Component name=\"foo\">  <h1>Hello World</h1></Component>// Error: children is of type JSX.Element not array of JSX.Element<Component name=\"bar\">  <h1>Hello World</h1>  <h2>Hello World</h2></Component>// Error: children is of type JSX.Element not array of JSX.Element or string.<Component name=\"baz\">  <h1>Hello</h1>  World</Component>\n\n\ntsxconst a = (  <div>    {[\"foo\", \"bar\"].map(function (i) {      return <span>{i / 2}</span>;    })}  </div>);\n\ntsxconst a = (  <div>    {[\"foo\", \"bar\"].map(function (i) {      return <span>{i / 2}</span>;    })}  </div>);\ntsx/// <reference path=\"react.d.ts\" />interface Props {  foo: string;}class MyComponent extends React.Component<Props, {}> {  render() {    return <span>{this.props.foo}</span>;  }}<MyComponent foo=\"bar\" />; // ok<MyComponent foo={0} />; // error\n\ntsx/// <reference path=\"react.d.ts\" />interface Props {  foo: string;}class MyComponent extends React.Component<Props, {}> {  render() {    return <span>{this.props.foo}</span>;  }}<MyComponent foo=\"bar\" />; // ok<MyComponent foo={0} />; // error\n\n",
+                "output": "tsx<div>  <h1>Hello</h1></div>;<div>  <h1>Hello</h1>  World</div>;const CustomComp = (props) => <div>{props.children}</div><CustomComp>  <div>Hello World</div>  {\"This is just a JS expression...\" + 1000}</CustomComp>\ntsx<div>  <h1>Hello</h1></div>;<div>  <h1>Hello</h1>  World</div>;const CustomComp = (props) => <div>{props.children}</div><CustomComp>  <div>Hello World</div>  {\"This is just a JS expression...\" + 1000}</CustomComp>\ntsnamespace JSX {    export type ElementType =        // All the valid lowercase tags        | keyof IntrinsicElements        // Function components        | (props: any) => Element        // Class components        | new (props: any) => ElementClass;    export interface IntrinsicAttributes extends /*...*/ {}    export type Element = /*...*/;    export type ElementClass = /*...*/;}\ntsnamespace JSX {    export type ElementType =        // All the valid lowercase tags        | keyof IntrinsicElements        // Function components        | (props: any) => Element        // Class components        | new (props: any) => ElementClass;    export interface IntrinsicAttributes extends /*...*/ {}    export type Element = /*...*/;    export type ElementClass = /*...*/;}\ntsxconst a = (  <div>    {[\"foo\", \"bar\"].map((i) => (      <span>{i / 2}</span>    ))}  </div>);\ntsxconst a = (  <div>    {[\"foo\", \"bar\"].map((i) => (      <span>{i / 2}</span>    ))}  </div>);"
+            }
+        ],
+        "examples_count": 25,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://www.typescriptlang.org/docs/handbook/jsx.html",
+        "api": "React.createElement",
+        "package": "React",
+        "language": "TypeScript",
+        "deprecated_in": "17.0.0",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "API Deprecation",
+        "reason": "Simplification and alignment with React's automatic runtime for JSX processing",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "tsconst foo = <Foo>bar;",
+                "output": ""
+            },
+            {
+                "code": "tsconst foo = bar as Foo;\n",
+                "output": ""
+            },
+            {
+                "code": "tsconst foo = bar as Foo;",
+                "output": ""
+            },
+            {
+                "code": "tsexport function createElement(): any;export namespace JSX {  // …}\n",
+                "output": ""
+            },
+            {
+                "code": "tsexport function createElement(): any;export namespace JSX {  // …}\ntsimport * as React from 'react';\n\ntsimport * as React from 'react';",
+                "output": ""
+            },
+            {
+                "code": "tsexport function h(props: any): any;export namespace h.JSX {  // …}\n",
+                "output": ""
+            },
+            {
+                "code": "tsexport function h(props: any): any;export namespace h.JSX {  // …}\ntsimport { h } from 'preact';\n\ntsimport { h } from 'preact';\njson{  \"exports\": {    \"./jsx-runtime\": \"./jsx-runtime.js\",    \"./jsx-dev-runtime\": \"./jsx-dev-runtime.js\",  }}\n\njson{  \"exports\": {    \"./jsx-runtime\": \"./jsx-runtime.js\",    \"./jsx-dev-runtime\": \"./jsx-dev-runtime.js\",  }}",
+                "output": ""
+            },
+            {
+                "code": "tsexport namespace JSX {  // …}\n",
+                "output": ""
+            },
+            {
+                "code": "tsexport namespace JSX {  // …}",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: any;  }}<foo />; // ok<bar />; // error\n",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: any;  }}<foo />; // ok<bar />; // error",
+                "output": ""
+            },
+            {
+                "code": "tsdeclare namespace JSX {  interface IntrinsicElements {    [elemName: string]: any;  }}\n",
+                "output": ""
+            },
+            {
+                "code": "tsdeclare namespace JSX {  interface IntrinsicElements {    [elemName: string]: any;  }}\ntsximport MyComponent from \"./myComponent\";<MyComponent />; // ok<SomeOtherComponent />; // error\n\ntsximport MyComponent from \"./myComponent\";<MyComponent />; // ok<SomeOtherComponent />; // error\n",
+                "output": "tsxinterface FooProp {  name: string;  X: number;  Y: number;}declare function AnotherComponent(prop: { name: string });function ComponentFoo(prop: FooProp) {  return <AnotherComponent name={prop.name} />;}const Button = (prop: { value: string }, context: { color: string }) => (  <button />);\ntsxinterface FooProp {  name: string;  X: number;  Y: number;}declare function AnotherComponent(prop: { name: string });function ComponentFoo(prop: FooProp) {  return <AnotherComponent name={prop.name} />;}const Button = (prop: { value: string }, context: { color: string }) => (  <button />);"
+            },
+            {
+                "code": "tsinterface ClickableProps {  children: JSX.Element[] | JSX.Element;} interface HomeProps extends ClickableProps {  home: JSX.Element;} interface SideProps extends ClickableProps {  side: JSX.Element | string;} function MainButton(prop: HomeProps): JSX.Element;function MainButton(prop: SideProps): JSX.Element;function MainButton(prop: ClickableProps): JSX.Element {  // ...}Try\n",
+                "output": ""
+            },
+            {
+                "code": "tsinterface ClickableProps {  children: JSX.Element[] | JSX.Element;} interface HomeProps extends ClickableProps {  home: JSX.Element;} interface SideProps extends ClickableProps {  side: JSX.Element | string;} function MainButton(prop: HomeProps): JSX.Element;function MainButton(prop: SideProps): JSX.Element;function MainButton(prop: ClickableProps): JSX.Element {  // ...}Try\n\n",
+                "output": "tsclass MyComponent {  render() {}}// use a construct signatureconst myComponent = new MyComponent();// element class type => MyComponent// element instance type => { render: () => void }function MyFactoryFunction() {  return {    render: () => {},  };}// use a call signatureconst myComponent = MyFactoryFunction();// element class type => MyFactoryFunction// element instance type => { render: () => void }\ntsclass MyComponent {  render() {}}// use a construct signatureconst myComponent = new MyComponent();// element class type => MyComponent// element instance type => { render: () => void }function MyFactoryFunction() {  return {    render: () => {},  };}// use a call signatureconst myComponent = MyFactoryFunction();// element class type => MyFactoryFunction// element instance type => { render: () => void }\ntsxdeclare namespace JSX {  interface ElementClass {    render: any;  }}class MyComponent {  render() {}}function MyFactoryFunction() {  return { render: () => {} };}<MyComponent />; // ok<MyFactoryFunction />; // okclass NotAValidComponent {}function NotAValidFactoryFunction() {  return {};}<NotAValidComponent />; // error<NotAValidFactoryFunction />; // error\ntsxdeclare namespace JSX {  interface ElementClass {    render: any;  }}class MyComponent {  render() {}}function MyFactoryFunction() {  return { render: () => {} };}<MyComponent />; // ok<MyFactoryFunction />; // okclass NotAValidComponent {}function NotAValidFactoryFunction() {  return {};}<NotAValidComponent />; // error<NotAValidFactoryFunction />; // error"
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: { bar?: boolean };  }}// element attributes type for 'foo' is '{bar?: boolean}'<foo bar />;\n",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: { bar?: boolean };  }}// element attributes type for 'foo' is '{bar?: boolean}'<foo bar />;",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface ElementAttributesProperty {    props; // specify the property name to use  }}class MyComponent {  // specify the property on the element instance type  props: {    foo?: string;  };}// element attributes type for 'MyComponent' is '{foo?: string}'<MyComponent foo=\"bar\" />;\n",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface ElementAttributesProperty {    props; // specify the property name to use  }}class MyComponent {  // specify the property on the element instance type  props: {    foo?: string;  };}// element attributes type for 'MyComponent' is '{foo?: string}'<MyComponent foo=\"bar\" />;",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: { requiredProp: string; optionalProp?: number };  }}<foo requiredProp=\"bar\" />; // ok<foo requiredProp=\"bar\" optionalProp={0} />; // ok<foo />; // error, requiredProp is missing<foo requiredProp={0} />; // error, requiredProp should be a string<foo requiredProp=\"bar\" unknownProp />; // error, unknownProp does not exist<foo requiredProp=\"bar\" some-unknown-prop />; // ok, because 'some-unknown-prop' is not a valid identifier\n",
+                "output": ""
+            },
+            {
+                "code": "tsxdeclare namespace JSX {  interface IntrinsicElements {    foo: { requiredProp: string; optionalProp?: number };  }}<foo requiredProp=\"bar\" />; // ok<foo requiredProp=\"bar\" optionalProp={0} />; // ok<foo />; // error, requiredProp is missing<foo requiredProp={0} />; // error, requiredProp should be a string<foo requiredProp=\"bar\" unknownProp />; // error, unknownProp does not exist<foo requiredProp=\"bar\" some-unknown-prop />; // ok, because 'some-unknown-prop' is not a valid identifier",
+                "output": ""
+            },
+            {
+                "code": "tsxconst props = { requiredProp: \"bar\" };<foo {...props} />; // okconst badProps = {};<foo {...badProps} />; // error\n",
+                "output": ""
+            },
+            {
+                "code": "tsxconst props = { requiredProp: \"bar\" };<foo {...props} />; // okconst badProps = {};<foo {...badProps} />; // error",
+                "output": ""
+            },
+            {
+                "code": "tsdeclare namespace JSX {  interface ElementChildrenAttribute {    children: {}; // specify children name to use  }}\n",
+                "output": ""
+            },
+            {
+                "code": "tsdeclare namespace JSX {  interface ElementChildrenAttribute {    children: {}; // specify children name to use  }}\n\ntsxinterface PropsType {  children: JSX.Element  name: string}class Component extends React.Component<PropsType, {}> {  render() {    return (      <h2>        {this.props.children}      </h2>    )  }}// OK<Component name=\"foo\">  <h1>Hello World</h1></Component>// Error: children is of type JSX.Element not array of JSX.Element<Component name=\"bar\">  <h1>Hello World</h1>  <h2>Hello World</h2></Component>// Error: children is of type JSX.Element not array of JSX.Element or string.<Component name=\"baz\">  <h1>Hello</h1>  World</Component>\n\ntsxinterface PropsType {  children: JSX.Element  name: string}class Component extends React.Component<PropsType, {}> {  render() {    return (      <h2>        {this.props.children}      </h2>    )  }}// OK<Component name=\"foo\">  <h1>Hello World</h1></Component>// Error: children is of type JSX.Element not array of JSX.Element<Component name=\"bar\">  <h1>Hello World</h1>  <h2>Hello World</h2></Component>// Error: children is of type JSX.Element not array of JSX.Element or string.<Component name=\"baz\">  <h1>Hello</h1>  World</Component>\n\n\ntsxconst a = (  <div>    {[\"foo\", \"bar\"].map(function (i) {      return <span>{i / 2}</span>;    })}  </div>);\n\ntsxconst a = (  <div>    {[\"foo\", \"bar\"].map(function (i) {      return <span>{i / 2}</span>;    })}  </div>);\ntsx/// <reference path=\"react.d.ts\" />interface Props {  foo: string;}class MyComponent extends React.Component<Props, {}> {  render() {    return <span>{this.props.foo}</span>;  }}<MyComponent foo=\"bar\" />; // ok<MyComponent foo={0} />; // error\n\ntsx/// <reference path=\"react.d.ts\" />interface Props {  foo: string;}class MyComponent extends React.Component<Props, {}> {  render() {    return <span>{this.props.foo}</span>;  }}<MyComponent foo=\"bar\" />; // ok<MyComponent foo={0} />; // error\n\n",
+                "output": "tsx<div>  <h1>Hello</h1></div>;<div>  <h1>Hello</h1>  World</div>;const CustomComp = (props) => <div>{props.children}</div><CustomComp>  <div>Hello World</div>  {\"This is just a JS expression...\" + 1000}</CustomComp>\ntsx<div>  <h1>Hello</h1></div>;<div>  <h1>Hello</h1>  World</div>;const CustomComp = (props) => <div>{props.children}</div><CustomComp>  <div>Hello World</div>  {\"This is just a JS expression...\" + 1000}</CustomComp>\ntsnamespace JSX {    export type ElementType =        // All the valid lowercase tags        | keyof IntrinsicElements        // Function components        | (props: any) => Element        // Class components        | new (props: any) => ElementClass;    export interface IntrinsicAttributes extends /*...*/ {}    export type Element = /*...*/;    export type ElementClass = /*...*/;}\ntsnamespace JSX {    export type ElementType =        // All the valid lowercase tags        | keyof IntrinsicElements        // Function components        | (props: any) => Element        // Class components        | new (props: any) => ElementClass;    export interface IntrinsicAttributes extends /*...*/ {}    export type Element = /*...*/;    export type ElementClass = /*...*/;}\ntsxconst a = (  <div>    {[\"foo\", \"bar\"].map((i) => (      <span>{i / 2}</span>    ))}  </div>);\ntsxconst a = (  <div>    {[\"foo\", \"bar\"].map((i) => (      <span>{i / 2}</span>    ))}  </div>);"
+            }
+        ],
+        "examples_count": 25,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html#amd-dependency",
+        "api": "/// <amd-dependency />",
+        "package": "typescript",
+        "language": "JavaScript/TypeScript",
+        "deprecated_in": "4.6.0",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "API Deprecation",
+        "reason": "The AMD dependency directive was deprecated to encourage modern ES module-based workflows, which are widely adopted over legacy AMD module practices.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "ts/// <reference lib=\"es2017.string\" />\"foo\".padStart(4);",
+                "output": ""
+            },
+            {
+                "code": "ts/// <amd-module name=\"NamedModule\"/>export class C {}\n",
+                "output": ""
+            },
+            {
+                "code": "ts/// <amd-module name=\"NamedModule\"/>export class C {}\njsdefine(\"NamedModule\", [\"require\", \"exports\"], function (require, exports) {  var C = (function () {    function C() {}    return C;  })();  exports.C = C;});\n\njsdefine(\"NamedModule\", [\"require\", \"exports\"], function (require, exports) {  var C = (function () {    function C() {}    return C;  })();  exports.C = C;});",
+                "output": ""
+            },
+            {
+                "code": "ts/// <amd-dependency path=\"legacy/moduleA\" name=\"moduleA\"/>declare var moduleA: MyType;moduleA.callStuff();\n",
+                "output": ""
+            },
+            {
+                "code": "ts/// <amd-dependency path=\"legacy/moduleA\" name=\"moduleA\"/>declare var moduleA: MyType;moduleA.callStuff();",
+                "output": ""
+            },
+            {
+                "code": "jsdefine([\"require\", \"exports\", \"legacy/moduleA\"], function (  require,  exports,  moduleA) {  moduleA.callStuff();});\n",
+                "output": ""
+            },
+            {
+                "code": "jsdefine([\"require\", \"exports\", \"legacy/moduleA\"], function (  require,  exports,  moduleA) {  moduleA.callStuff();});\nts/// <reference path=\"...\" />/// <reference types=\"...\" />/// <reference lib=\"...\" />\n\nts/// <reference path=\"...\" />/// <reference types=\"...\" />/// <reference lib=\"...\" />\nts/// <reference path=\"...\" preserve=\"true\" />/// <reference types=\"...\" preserve=\"true\" />/// <reference lib=\"...\" preserve=\"true\" />\n\nts/// <reference path=\"...\" preserve=\"true\" />/// <reference types=\"...\" preserve=\"true\" />/// <reference lib=\"...\" preserve=\"true\" />\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 7,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://www.typescriptlang.org/docs/",
+        "api": "// <amd-dependency />",
+        "package": "",
+        "language": "TypeScript",
+        "deprecated_in": "4.0.0",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "API Deprecation",
+        "reason": "To simplify syntax and reduce reliance on legacy AMD mechanisms.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "No Examples"
+    },
+    {
+        "source_url": "https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html",
+        "api": "amd-dependency directive",
+        "package": "TypeScript",
+        "language": "TypeScript",
+        "deprecated_in": "4.0.0",
+        "removed_in": "",
+        "replaced_by": "import statements",
+        "change_type": "API Deprecation",
+        "reason": "The `amd-dependency` directive was deprecated to encourage the use of `import` statements, which provide a more standardized and flexible way of handling module dependencies.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "ts/// <reference lib=\"es2017.string\" />\"foo\".padStart(4);",
+                "output": ""
+            },
+            {
+                "code": "ts/// <amd-module name=\"NamedModule\"/>export class C {}\n",
+                "output": ""
+            },
+            {
+                "code": "ts/// <amd-module name=\"NamedModule\"/>export class C {}\njsdefine(\"NamedModule\", [\"require\", \"exports\"], function (require, exports) {  var C = (function () {    function C() {}    return C;  })();  exports.C = C;});\n\njsdefine(\"NamedModule\", [\"require\", \"exports\"], function (require, exports) {  var C = (function () {    function C() {}    return C;  })();  exports.C = C;});",
+                "output": ""
+            },
+            {
+                "code": "ts/// <amd-dependency path=\"legacy/moduleA\" name=\"moduleA\"/>declare var moduleA: MyType;moduleA.callStuff();\n",
+                "output": ""
+            },
+            {
+                "code": "ts/// <amd-dependency path=\"legacy/moduleA\" name=\"moduleA\"/>declare var moduleA: MyType;moduleA.callStuff();",
+                "output": ""
+            },
+            {
+                "code": "jsdefine([\"require\", \"exports\", \"legacy/moduleA\"], function (  require,  exports,  moduleA) {  moduleA.callStuff();});\n",
+                "output": ""
+            },
+            {
+                "code": "jsdefine([\"require\", \"exports\", \"legacy/moduleA\"], function (  require,  exports,  moduleA) {  moduleA.callStuff();});\nts/// <reference path=\"...\" />/// <reference types=\"...\" />/// <reference lib=\"...\" />\n\nts/// <reference path=\"...\" />/// <reference types=\"...\" />/// <reference lib=\"...\" />\nts/// <reference path=\"...\" preserve=\"true\" />/// <reference types=\"...\" preserve=\"true\" />/// <reference lib=\"...\" preserve=\"true\" />\n\nts/// <reference path=\"...\" preserve=\"true\" />/// <reference types=\"...\" preserve=\"true\" />/// <reference lib=\"...\" preserve=\"true\" />\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 7,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html",
+        "api": "amd-dependency",
+        "package": "TypeScript Compiler",
+        "language": "TypeScript",
+        "deprecated_in": "4.0.0",
+        "removed_in": "",
+        "replaced_by": "standard ES module import syntax",
+        "change_type": "API Deprecation",
+        "reason": "The amd-dependency directive was considered obsolete and replaced with standard ES module import syntax for better compatibility and modern practices.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "ts/// <reference lib=\"es2017.string\" />\"foo\".padStart(4);",
+                "output": ""
+            },
+            {
+                "code": "ts/// <amd-module name=\"NamedModule\"/>export class C {}\n",
+                "output": ""
+            },
+            {
+                "code": "ts/// <amd-module name=\"NamedModule\"/>export class C {}\njsdefine(\"NamedModule\", [\"require\", \"exports\"], function (require, exports) {  var C = (function () {    function C() {}    return C;  })();  exports.C = C;});\n\njsdefine(\"NamedModule\", [\"require\", \"exports\"], function (require, exports) {  var C = (function () {    function C() {}    return C;  })();  exports.C = C;});",
+                "output": ""
+            },
+            {
+                "code": "ts/// <amd-dependency path=\"legacy/moduleA\" name=\"moduleA\"/>declare var moduleA: MyType;moduleA.callStuff();\n",
+                "output": ""
+            },
+            {
+                "code": "ts/// <amd-dependency path=\"legacy/moduleA\" name=\"moduleA\"/>declare var moduleA: MyType;moduleA.callStuff();",
+                "output": ""
+            },
+            {
+                "code": "jsdefine([\"require\", \"exports\", \"legacy/moduleA\"], function (  require,  exports,  moduleA) {  moduleA.callStuff();});\n",
+                "output": ""
+            },
+            {
+                "code": "jsdefine([\"require\", \"exports\", \"legacy/moduleA\"], function (  require,  exports,  moduleA) {  moduleA.callStuff();});\nts/// <reference path=\"...\" />/// <reference types=\"...\" />/// <reference lib=\"...\" />\n\nts/// <reference path=\"...\" />/// <reference types=\"...\" />/// <reference lib=\"...\" />\nts/// <reference path=\"...\" preserve=\"true\" />/// <reference types=\"...\" preserve=\"true\" />/// <reference lib=\"...\" preserve=\"true\" />\n\nts/// <reference path=\"...\" preserve=\"true\" />/// <reference types=\"...\" preserve=\"true\" />/// <reference lib=\"...\" preserve=\"true\" />\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 7,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html",
+        "api": "Triple-Slash Directive: /// <amd-dependency />",
+        "package": "",
+        "language": "TypeScript",
+        "deprecated_in": "4.0.0",
+        "removed_in": "",
+        "replaced_by": "import statements",
+        "change_type": "API Deprecation",
+        "reason": "Modern JavaScript module resolution and dependency handling have shifted towards using import statements for consistency and improved tooling support.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "ts/// <reference lib=\"es2017.string\" />\"foo\".padStart(4);",
+                "output": ""
+            },
+            {
+                "code": "ts/// <amd-module name=\"NamedModule\"/>export class C {}\n",
+                "output": ""
+            },
+            {
+                "code": "ts/// <amd-module name=\"NamedModule\"/>export class C {}\njsdefine(\"NamedModule\", [\"require\", \"exports\"], function (require, exports) {  var C = (function () {    function C() {}    return C;  })();  exports.C = C;});\n\njsdefine(\"NamedModule\", [\"require\", \"exports\"], function (require, exports) {  var C = (function () {    function C() {}    return C;  })();  exports.C = C;});",
+                "output": ""
+            },
+            {
+                "code": "ts/// <amd-dependency path=\"legacy/moduleA\" name=\"moduleA\"/>declare var moduleA: MyType;moduleA.callStuff();\n",
+                "output": ""
+            },
+            {
+                "code": "ts/// <amd-dependency path=\"legacy/moduleA\" name=\"moduleA\"/>declare var moduleA: MyType;moduleA.callStuff();",
+                "output": ""
+            },
+            {
+                "code": "jsdefine([\"require\", \"exports\", \"legacy/moduleA\"], function (  require,  exports,  moduleA) {  moduleA.callStuff();});\n",
+                "output": ""
+            },
+            {
+                "code": "jsdefine([\"require\", \"exports\", \"legacy/moduleA\"], function (  require,  exports,  moduleA) {  moduleA.callStuff();});\nts/// <reference path=\"...\" />/// <reference types=\"...\" />/// <reference lib=\"...\" />\n\nts/// <reference path=\"...\" />/// <reference types=\"...\" />/// <reference lib=\"...\" />\nts/// <reference path=\"...\" preserve=\"true\" />/// <reference types=\"...\" preserve=\"true\" />/// <reference lib=\"...\" preserve=\"true\" />\n\nts/// <reference path=\"...\" preserve=\"true\" />/// <reference types=\"...\" preserve=\"true\" />/// <reference lib=\"...\" preserve=\"true\" />\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 7,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html",
+        "api": "/// <amd-dependency /> directive",
+        "package": "TypeScript",
+        "language": "TypeScript",
+        "deprecated_in": "4.0.0",
+        "removed_in": "",
+        "replaced_by": "standard import statements",
+        "change_type": "API Deprecation",
+        "reason": "The directive is no longer necessary; standard import statements provide better functionality and are the preferred approach.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "ts/// <reference lib=\"es2017.string\" />\"foo\".padStart(4);",
+                "output": ""
+            },
+            {
+                "code": "ts/// <amd-module name=\"NamedModule\"/>export class C {}\n",
+                "output": ""
+            },
+            {
+                "code": "ts/// <amd-module name=\"NamedModule\"/>export class C {}\njsdefine(\"NamedModule\", [\"require\", \"exports\"], function (require, exports) {  var C = (function () {    function C() {}    return C;  })();  exports.C = C;});\n\njsdefine(\"NamedModule\", [\"require\", \"exports\"], function (require, exports) {  var C = (function () {    function C() {}    return C;  })();  exports.C = C;});",
+                "output": ""
+            },
+            {
+                "code": "ts/// <amd-dependency path=\"legacy/moduleA\" name=\"moduleA\"/>declare var moduleA: MyType;moduleA.callStuff();\n",
+                "output": ""
+            },
+            {
+                "code": "ts/// <amd-dependency path=\"legacy/moduleA\" name=\"moduleA\"/>declare var moduleA: MyType;moduleA.callStuff();",
+                "output": ""
+            },
+            {
+                "code": "jsdefine([\"require\", \"exports\", \"legacy/moduleA\"], function (  require,  exports,  moduleA) {  moduleA.callStuff();});\n",
+                "output": ""
+            },
+            {
+                "code": "jsdefine([\"require\", \"exports\", \"legacy/moduleA\"], function (  require,  exports,  moduleA) {  moduleA.callStuff();});\nts/// <reference path=\"...\" />/// <reference types=\"...\" />/// <reference lib=\"...\" />\n\nts/// <reference path=\"...\" />/// <reference types=\"...\" />/// <reference lib=\"...\" />\nts/// <reference path=\"...\" preserve=\"true\" />/// <reference types=\"...\" preserve=\"true\" />/// <reference lib=\"...\" preserve=\"true\" />\n\nts/// <reference path=\"...\" preserve=\"true\" />/// <reference types=\"...\" preserve=\"true\" />/// <reference lib=\"...\" preserve=\"true\" />\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 7,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://www.typescriptlang.org/docs/handbook/module-resolution.html",
+        "api": "moduleResolution",
+        "package": "typescript",
+        "language": "TypeScript",
+        "deprecated_in": "4.6.0",
+        "removed_in": "",
+        "replaced_by": "CommonJS and ECMAScript module resolution",
+        "change_type": "API Deprecation",
+        "reason": "Renamed and updated functionality to reflect the latest CommonJS and ECMAScript module resolution behaviors in Node.js v12 or later.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "No Examples"
+    },
+    {
+        "source_url": "https://www.typescriptlang.org/docs/handbook/module-resolution.html",
+        "api": "TypeScript module configuration options",
+        "package": "TypeScript compiler",
+        "language": "TypeScript",
+        "deprecated_in": "4.0.0",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "API Deprecation",
+        "reason": "Reflect compatibility improvements necessary for Node.js versions 12+ with dual-format module systems, as well as providing more accurate type checks for ES modules and CommonJS interoperability.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "No Examples"
+    },
+    {
+        "source_url": "https://www.typescriptlang.org/docs/handbook/modules.html",
+        "api": "import type",
+        "package": "TypeScript",
+        "language": "TypeScript",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Parameter Change",
+        "reason": "Added explicit elision rules for type-only imports and exports for enhanced clarity.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "No Examples"
+    },
+    {
+        "source_url": "https://www.typescriptlang.org/docs/handbook/modules.html#type-only-imports-and-exports",
+        "api": "Type-only imports and exports",
+        "package": "TypeScript",
+        "language": "TypeScript",
+        "deprecated_in": "4.6.0",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Introduced to make the elision of import declarations more explicit and improve clarity.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "No Examples"
+    },
+    {
+        "source_url": "https://www.typescriptlang.org/docs/handbook/modules.html",
+        "api": "moduleResolution compilation option",
+        "package": "typescript",
+        "language": "typescript",
+        "deprecated_in": "4.0.0",
+        "removed_in": "",
+        "replaced_by": "node16, nodenext, node10",
+        "change_type": "API Deprecation",
+        "reason": "The classic and node resolution options were outdated and superseded by more modern options reflecting Node.js v12+ behavior, including node16, nodenext, and node10.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "No Examples"
+    },
+    {
+        "source_url": "https://www.typescriptlang.org/docs/handbook/module-resolution.html",
+        "api": "node16",
+        "package": "TypeScript",
+        "language": "TypeScript",
+        "deprecated_in": "12.0.0",
+        "removed_in": "",
+        "replaced_by": "nodenext",
+        "change_type": "API Deprecation",
+        "reason": "Node.js v12 introduced significant updates to the module resolution behavior, making `node16` and `nodenext` better suited for modern projects.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "No Examples"
+    },
+    {
+        "source_url": "https://www.typescriptlang.org/docs/handbook/modules.html",
+        "api": "",
+        "package": "TypeScript",
+        "language": "TypeScript",
+        "deprecated_in": "16.0.0",
+        "removed_in": "",
+        "replaced_by": "exports",
+        "change_type": "API Deprecation",
+        "reason": "Node.js introduced 'exports' to offer a more robust and secure module resolution mechanism, replacing legacy features like package-relative paths and directory modules.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "No Examples"
+    }
+]

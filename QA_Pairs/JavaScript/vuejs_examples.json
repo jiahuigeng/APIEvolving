@@ -1,0 +1,1103 @@
+[
+  {
+    "source_url": "https://vuejs.org/api/application.html#app-mixin",
+    "api": "app.mixin",
+    "package": "Vue",
+    "language": "JavaScript",
+    "change_type": "API Deprecation",
+    "reason": "Mixins are less composable and more prone to conflicts compared to Composables. They are retained primarily for backward compatibility.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\n<script setup>\nimport { ref, onMounted, onUnmounted } from 'vue'\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst x = ref(0)",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst y = ref(0)\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nfunction update(event) {\n  x.value = event.pageX\n  y.value = event.pageY\n}\n\n</script>\n\n<template>Mouse position is at: {{ x }}, {{ y }}</template>\n\nimport { ref, onMounted, onUnmounted } from 'vue'\n\n// by convention, composable function names start with \"use\"",
+        "output": "onMounted(() => window.addEventListener('mousemove', update))\nonUnmounted(() => window.removeEventListener('mousemove', update))"
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\n  const x = ref(0)",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\n  const y = ref(0)\n\n  // a composable can update its managed state over time.",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\n  function update(event) {\n    x.value = event.pageX\n    y.value = event.pageY\n  }\n\n  // a composable can also hook into its owner component's\n  // lifecycle to setup and teardown side effects.\n\n  // expose managed state as return value\n  return { x, y }\n}\n<script setup>\nimport { useMouse } from './mouse.js'\n",
+        "output": "onMounted(() => window.addEventListener('mousemove', update))\n  onUnmounted(() => window.removeEventListener('mousemove', update))"
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst { x, y } = useMouse()\n</script>\n\n<template>Mouse position is at: {{ x }}, {{ y }}</template>\n\n<script setup>\nimport { useMouse } from './mouse.js'\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst { x, y } = useMouse()\n</script>\n\n<template>Mouse position is at: {{ x }}, {{ y }}</template>\n\nimport { onMounted, onUnmounted } from 'vue'\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nexport function useEventListener(target, event, callback) {\n  // if you want, you can also make this\n  // support selector strings as target\n}\n\nimport { useEventListener } from './event'\n",
+        "output": "onMounted(() => target.addEventListener(event, callback))\n  onUnmounted(() => target.removeEventListener(event, callback))"
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\n  const x = ref(0)",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\n  const y = ref(0)\n\n    x.value = event.pageX\n    y.value = event.pageY\n  })\n\n  return { x, y }\n}\n<script setup>\n",
+        "output": "useEventListener(window, 'mousemove', (event) => {"
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst data = ref(null)",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst error = ref(null)\n\nfetch('...')\n</script>\n\n<template>\n  <div v-if=\"error\">Oops! Error encountered: {{ error.message }}</div>\n  <div v-else-if=\"data\">\n    Data loaded:\n    <pre>{{ data }}</pre>\n  </div>\n  <div v-else>Loading...</div>\n</template>\n\n<script setup>\n",
+        "output": ".then((res) => res.json())\n  .then((json) => (data.value = json))\n  .catch((err) => (error.value = err))"
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst data = ref(null)",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst error = ref(null)\n\nfetch('...')\n</script>\n\n<template>\n  <div v-if=\"error\">Oops! Error encountered: {{ error.message }}</div>\n  <div v-else-if=\"data\">\n    Data loaded:\n    <pre>{{ data }}</pre>\n  </div>\n  <div v-else>Loading...</div>\n</template>\n\n",
+        "output": ".then((res) => res.json())\n  .then((json) => (data.value = json))\n  .catch((err) => (error.value = err))"
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\n  const data = ref(null)",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\n  const error = ref(null)\n\n  fetch(url)\n\n  return { data, error }\n}\n<script setup>\nimport { useFetch } from './fetch.js'\n",
+        "output": ".then((res) => res.json())\n    .then((json) => (data.value = json))\n    .catch((err) => (error.value = err))"
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst { data, error } = useFetch('...')\n</script>\n\n<script setup>\nimport { useFetch } from './fetch.js'\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst { data, error } = useFetch('...')\n</script>\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst url = ref('/initial-url')\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst { data, error } = useFetch(url)\n\n// this should trigger a re-fetch\nurl.value = '/new-url'\n// re-fetch when props.id changes\n\n// re-fetch when props.id changes\n\nimport { ref, watchEffect, toValue } from 'vue'\n",
+        "output": "const { data, error } = useFetch(() => `/posts/${props.id}`)\nconst { data, error } = useFetch(() => `/posts/${props.id}`)"
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\n  const data = ref(null)",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\n  const error = ref(null)\n\n    // reset state before fetching..\n    data.value = null\n    error.value = null\n\n    fetch(toValue(url))\n  }\n\n    fetchData()\n  })\n\n  return { data, error }\n}\n\nimport { toValue } from 'vue'\n",
+        "output": "const fetchData = () => {\n      .then((res) => res.json())\n      .then((json) => (data.value = json))\n      .catch((err) => (error.value = err))\n  watchEffect(() => {"
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nfunction useFeature(maybeRefOrGetter) {\n  // If maybeRefOrGetter is a ref or a getter,\n  // its normalized value will be returned.\n  // Otherwise, it is returned as-is.",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\n  const value = toValue(maybeRefOrGetter)\n}\n// x and y are refs",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst { x, y } = useMouse()\n\n// x and y are refs",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst { x, y } = useMouse()\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst mouse = reactive(useMouse())\n// mouse.x is linked to original ref\nMouse position is at: {{ mouse.x }}, {{ mouse.y }}\n\nMouse position is at: {{ mouse.x }}, {{ mouse.y }}\n<script setup>\nimport { useFeatureA } from './featureA.js'\nimport { useFeatureB } from './featureB.js'\nimport { useFeatureC } from './featureC.js'\n",
+        "output": "console.log(mouse.x)"
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst { foo, bar } = useFeatureA()",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst { baz } = useFeatureB(foo)",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst { qux } = useFeatureC(baz)\n</script>\n\n<script setup>\nimport { useFeatureA } from './featureA.js'\nimport { useFeatureB } from './featureB.js'\nimport { useFeatureC } from './featureC.js'\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst { foo, bar } = useFeatureA()",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst { baz } = useFeatureB(foo)",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst { qux } = useFeatureC(baz)\n</script>\n\nimport { useMouse } from './mouse.js'\nimport { useFetch } from './fetch.js'\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nexport default {\n  setup() {",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\n    const { x, y } = useMouse()",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\n    const { data, error } = useFetch('...')\n    return { x, y, data, error }\n  },\n  mounted() {\n    // setup() exposed properties can be accessed on `this`\n  }\n  // ...other options\n}\n\n",
+        "output": "console.log(this.x)"
+      }
+    ],
+    "examples_count": 38,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://vuejs.org/api/reactivity-core.html#watchposteffect",
+    "api": "watchPostEffect",
+    "package": "Vue.js Reactivity API: Core",
+    "language": "JavaScript",
+    "change_type": "API Deprecation",
+    "reason": "Standardize the naming and behavior of APIs for consistency and clarity.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "function ref<T>(value: T): Ref<UnwrapRef<T>>\n\ninterface Ref<T> {\n  value: T\n}\n",
+        "output": ""
+      },
+      {
+        "code": "const count = ref(0)\n\ncount.value = 1\n// read-only",
+        "output": "console.log(count.value) // 0\nconsole.log(count.value) // 1"
+      },
+      {
+        "code": "function computed<T>(\n  // see \"Computed Debugging\" link below\n  debuggerOptions?: DebuggerOptions\n): Readonly<Ref<Readonly<T>>>\n\n// writable",
+        "output": "getter: (oldValue: T | undefined) => T,"
+      },
+      {
+        "code": "function computed<T>(\n  options: {\n  },\n  debuggerOptions?: DebuggerOptions\n): Ref<T>\n\n// read-only",
+        "output": "get: (oldValue: T | undefined) => T\n    set: (value: T) => void"
+      },
+      {
+        "code": "function computed<T>(\n  // see \"Computed Debugging\" link below\n  debuggerOptions?: DebuggerOptions\n): Readonly<Ref<Readonly<T>>>\n\n// writable",
+        "output": "getter: (oldValue: T | undefined) => T,"
+      },
+      {
+        "code": "function computed<T>(\n  options: {\n  },\n  debuggerOptions?: DebuggerOptions\n): Ref<T>\n",
+        "output": "get: (oldValue: T | undefined) => T\n    set: (value: T) => void"
+      },
+      {
+        "code": "const count = ref(1)\n\n\nplusOne.value++ // error\n",
+        "output": "const plusOne = computed(() => count.value + 1)\nconsole.log(plusOne.value) // 2"
+      },
+      {
+        "code": "const count = ref(1)",
+        "output": ""
+      },
+      {
+        "code": "const plusOne = computed({\n    count.value = val - 1\n  }\n})\n\nplusOne.value = 1\n\n  onTrack(e) {\n    debugger\n  },\n  onTrigger(e) {\n    debugger\n  }\n})\n",
+        "output": "get: () => count.value + 1,\n  set: (val) => {\nconsole.log(count.value) // 0\nconst plusOne = computed(() => count.value + 1, {"
+      },
+      {
+        "code": "function reactive<T extends object>(target: T): UnwrapNestedRefs<T>\n",
+        "output": ""
+      },
+      {
+        "code": "const obj = reactive({ count: 0 })\nobj.count++\n",
+        "output": ""
+      },
+      {
+        "code": "const count = ref(1)",
+        "output": ""
+      },
+      {
+        "code": "const obj = reactive({ count })\n\n// ref will be unwrapped\n\n// it will update `obj.count`\ncount.value++\n\n// it will also update `count` ref\nobj.count++\n",
+        "output": "console.log(obj.count === count.value) // true\nconsole.log(count.value) // 2\nconsole.log(obj.count) // 2\nconsole.log(obj.count) // 3\nconsole.log(count.value) // 3"
+      },
+      {
+        "code": "const books = reactive([ref('Vue 3 Guide')])\n// need .value here\n",
+        "output": "console.log(books[0].value)"
+      },
+      {
+        "code": "const map = reactive(new Map([['count', ref(0)]]))\n// need .value here\n",
+        "output": "console.log(map.get('count').value)"
+      },
+      {
+        "code": "const count = ref(1)",
+        "output": ""
+      },
+      {
+        "code": "const obj = reactive({})\n\nobj.count = count\n\n",
+        "output": "console.log(obj.count) // 1\nconsole.log(obj.count === count.value) // true"
+      },
+      {
+        "code": "function readonly<T extends object>(\n  target: T\n): DeepReadonly<UnwrapNestedRefs<T>>\n",
+        "output": ""
+      },
+      {
+        "code": "const original = reactive({ count: 0 })\n",
+        "output": ""
+      },
+      {
+        "code": "const copy = readonly(original)\n\n  // works for reactivity tracking\n})\n\n// mutating original will trigger watchers relying on the copy\noriginal.count++\n\n// mutating the copy will fail and result in a warning\ncopy.count++ // warning!\n",
+        "output": "watchEffect(() => {\n  console.log(copy.count)"
+      },
+      {
+        "code": "function watchEffect(\n  options?: WatchEffectOptions\n): WatchHandle\n\n\ninterface WatchEffectOptions {\n  flush?: 'pre' | 'post' | 'sync' // default: 'pre'\n}\n\ninterface WatchHandle {\n  (): void // callable, same as `stop`\n}\n",
+        "output": "effect: (onCleanup: OnCleanup) => void,\ntype OnCleanup = (cleanupFn: () => void) => void\n  onTrack?: (event: DebuggerEvent) => void\n  onTrigger?: (event: DebuggerEvent) => void\n  pause: () => void\n  resume: () => void\n  stop: () => void"
+      },
+      {
+        "code": "const count = ref(0)\n\n// -> logs 0\n\ncount.value++\n// -> logs 1\n\n\n// when the watcher is no longer needed:\nstop()\n\n\n// temporarily pause the watcher\npause()\n\n// resume later\nresume()\n\n// stop\nstop()\n",
+        "output": "watchEffect(() => console.log(count.value))\nconst stop = watchEffect(() => {})\nconst { stop, pause, resume } = watchEffect(() => {})\nwatchEffect(async (onCleanup) => {"
+      },
+      {
+        "code": "  const { response, cancel } = doAsyncWork(newId)\n  // `cancel` will be called if `id` changes, cancelling\n  // the previous request if it hasn't completed yet\n  onCleanup(cancel)\n  data.value = await response\n})\n\nimport { onWatcherCleanup } from 'vue'\n",
+        "output": "watchEffect(async () => {"
+      },
+      {
+        "code": "  const { response, cancel } = doAsyncWork(newId)\n  // `cancel` will be called if `id` changes, cancelling\n  // the previous request if it hasn't completed yet\n  onWatcherCleanup(cancel)\n  data.value = await response\n})\n\n  flush: 'post',\n  onTrack(e) {\n    debugger\n  },\n  onTrigger(e) {\n    debugger\n  }\n})\n// watching single source",
+        "output": "watchEffect(() => {}, {"
+      },
+      {
+        "code": "function watch<T>(\n  source: WatchSource<T>,\n  callback: WatchCallback<T>,\n  options?: WatchOptions\n): WatchHandle\n\n// watching multiple sources",
+        "output": ""
+      },
+      {
+        "code": "function watch<T>(\n  sources: WatchSource<T>[],\n  callback: WatchCallback<T[]>,\n  options?: WatchOptions\n): WatchHandle\n\ntype WatchCallback<T> = (\n  value: T,\n  oldValue: T,\n\ntype WatchSource<T> =\n  | Ref<T> // ref\n  | (T extends object ? T : never) // reactive object\n\ninterface WatchOptions extends WatchEffectOptions {\n  immediate?: boolean // default: false\n  deep?: boolean | number // default: false\n  flush?: 'pre' | 'post' | 'sync' // default: 'pre'\n  once?: boolean // default: false (3.4+)\n}\n\ninterface WatchHandle {\n  (): void // callable, same as `stop`\n}\n\n// watching single source",
+        "output": "onCleanup: (cleanupFn: () => void) => void\n) => void\n  | (() => T) // getter\n  onTrack?: (event: DebuggerEvent) => void\n  onTrigger?: (event: DebuggerEvent) => void\n  pause: () => void\n  resume: () => void\n  stop: () => void"
+      },
+      {
+        "code": "function watch<T>(\n  source: WatchSource<T>,\n  callback: WatchCallback<T>,\n  options?: WatchOptions\n): WatchHandle\n\n// watching multiple sources",
+        "output": ""
+      },
+      {
+        "code": "function watch<T>(\n  sources: WatchSource<T>[],\n  callback: WatchCallback<T[]>,\n  options?: WatchOptions\n): WatchHandle\n\ntype WatchCallback<T> = (\n  value: T,\n  oldValue: T,\n\ntype WatchSource<T> =\n  | Ref<T> // ref\n  | (T extends object ? T : never) // reactive object\n\ninterface WatchOptions extends WatchEffectOptions {\n  immediate?: boolean // default: false\n  deep?: boolean | number // default: false\n  flush?: 'pre' | 'post' | 'sync' // default: 'pre'\n  once?: boolean // default: false (3.4+)\n}\n\ninterface WatchHandle {\n  (): void // callable, same as `stop`\n}\n",
+        "output": "onCleanup: (cleanupFn: () => void) => void\n) => void\n  | (() => T) // getter\n  onTrack?: (event: DebuggerEvent) => void\n  onTrigger?: (event: DebuggerEvent) => void\n  pause: () => void\n  resume: () => void\n  stop: () => void"
+      },
+      {
+        "code": "const state = reactive({ count: 0 })",
+        "output": ""
+      },
+      {
+        "code": "watch(\n    /* ... */\n  }\n)\n",
+        "output": "() => state.count,\n  (count, prevCount) => {"
+      },
+      {
+        "code": "const count = ref(0)\n  /* ... */\n})\n\n  /* ... */\n})\n",
+        "output": "watch(count, (count, prevCount) => {\nwatch([fooRef, barRef], ([foo, bar], [prevFoo, prevBar]) => {"
+      },
+      {
+        "code": "const state = reactive({ count: 0 })",
+        "output": ""
+      },
+      {
+        "code": "watch(\n    // newValue === oldValue\n  },\n  { deep: true }\n)\n",
+        "output": "() => state,\n  (newValue, oldValue) => {"
+      },
+      {
+        "code": "const state = reactive({ count: 0 })\n  /* triggers on deep mutation to state */\n})\n",
+        "output": "watch(state, () => {"
+      },
+      {
+        "code": "watch(source, callback, {\n  flush: 'post',\n  onTrack(e) {\n    debugger\n  },\n  onTrigger(e) {\n    debugger\n  }\n})\n",
+        "output": ""
+      },
+      {
+        "code": "const stop = watch(source, callback)\n\n// when the watcher is no longer needed:\nstop()\n\n\n// temporarily pause the watcher\npause()\n\n// resume later\nresume()\n\n// stop\nstop()\n",
+        "output": "const { stop, pause, resume } = watch(() => {})\nwatch(id, async (newId, oldId, onCleanup) => {"
+      },
+      {
+        "code": "  const { response, cancel } = doAsyncWork(newId)\n  // `cancel` will be called if `id` changes, cancelling\n  // the previous request if it hasn't completed yet\n  onCleanup(cancel)\n  data.value = await response\n})\n\nimport { onWatcherCleanup } from 'vue'\n",
+        "output": "watch(id, async (newId) => {"
+      },
+      {
+        "code": "  const { response, cancel } = doAsyncWork(newId)\n  onWatcherCleanup(cancel)\n  data.value = await response\n})\n",
+        "output": ""
+      },
+      {
+        "code": "function onWatcherCleanup(\n  failSilently?: boolean\n): void\n\nimport { watch, onWatcherCleanup } from 'vue'\n",
+        "output": "cleanupFn: () => void,\nwatch(id, (newId) => {"
+      },
+      {
+        "code": "  const { response, cancel } = doAsyncWork(newId)\n  // `cancel` will be called if `id` changes, cancelling\n  // the previous request if it hasn't completed yet\n  onWatcherCleanup(cancel)\n})\n\n",
+        "output": ""
+      }
+    ],
+    "examples_count": 40,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://vuejs.org/api/reactivity-core.html#ref",
+    "api": "ref",
+    "package": "Reactivity API: Core",
+    "language": "TypeScript",
+    "change_type": "Behavior Change",
+    "reason": "Provides finer control and prevents deep reactivity conversion when not needed.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "function ref<T>(value: T): Ref<UnwrapRef<T>>\n\ninterface Ref<T> {\n  value: T\n}\n",
+        "output": ""
+      },
+      {
+        "code": "const count = ref(0)\n\ncount.value = 1\n// read-only",
+        "output": "console.log(count.value) // 0\nconsole.log(count.value) // 1"
+      },
+      {
+        "code": "function computed<T>(\n  // see \"Computed Debugging\" link below\n  debuggerOptions?: DebuggerOptions\n): Readonly<Ref<Readonly<T>>>\n\n// writable",
+        "output": "getter: (oldValue: T | undefined) => T,"
+      },
+      {
+        "code": "function computed<T>(\n  options: {\n  },\n  debuggerOptions?: DebuggerOptions\n): Ref<T>\n\n// read-only",
+        "output": "get: (oldValue: T | undefined) => T\n    set: (value: T) => void"
+      },
+      {
+        "code": "function computed<T>(\n  // see \"Computed Debugging\" link below\n  debuggerOptions?: DebuggerOptions\n): Readonly<Ref<Readonly<T>>>\n\n// writable",
+        "output": "getter: (oldValue: T | undefined) => T,"
+      },
+      {
+        "code": "function computed<T>(\n  options: {\n  },\n  debuggerOptions?: DebuggerOptions\n): Ref<T>\n",
+        "output": "get: (oldValue: T | undefined) => T\n    set: (value: T) => void"
+      },
+      {
+        "code": "const count = ref(1)\n\n\nplusOne.value++ // error\n",
+        "output": "const plusOne = computed(() => count.value + 1)\nconsole.log(plusOne.value) // 2"
+      },
+      {
+        "code": "const count = ref(1)",
+        "output": ""
+      },
+      {
+        "code": "const plusOne = computed({\n    count.value = val - 1\n  }\n})\n\nplusOne.value = 1\n\n  onTrack(e) {\n    debugger\n  },\n  onTrigger(e) {\n    debugger\n  }\n})\n",
+        "output": "get: () => count.value + 1,\n  set: (val) => {\nconsole.log(count.value) // 0\nconst plusOne = computed(() => count.value + 1, {"
+      },
+      {
+        "code": "function reactive<T extends object>(target: T): UnwrapNestedRefs<T>\n",
+        "output": ""
+      },
+      {
+        "code": "const obj = reactive({ count: 0 })\nobj.count++\n",
+        "output": ""
+      },
+      {
+        "code": "const count = ref(1)",
+        "output": ""
+      },
+      {
+        "code": "const obj = reactive({ count })\n\n// ref will be unwrapped\n\n// it will update `obj.count`\ncount.value++\n\n// it will also update `count` ref\nobj.count++\n",
+        "output": "console.log(obj.count === count.value) // true\nconsole.log(count.value) // 2\nconsole.log(obj.count) // 2\nconsole.log(obj.count) // 3\nconsole.log(count.value) // 3"
+      },
+      {
+        "code": "const books = reactive([ref('Vue 3 Guide')])\n// need .value here\n",
+        "output": "console.log(books[0].value)"
+      },
+      {
+        "code": "const map = reactive(new Map([['count', ref(0)]]))\n// need .value here\n",
+        "output": "console.log(map.get('count').value)"
+      },
+      {
+        "code": "const count = ref(1)",
+        "output": ""
+      },
+      {
+        "code": "const obj = reactive({})\n\nobj.count = count\n\n",
+        "output": "console.log(obj.count) // 1\nconsole.log(obj.count === count.value) // true"
+      },
+      {
+        "code": "function readonly<T extends object>(\n  target: T\n): DeepReadonly<UnwrapNestedRefs<T>>\n",
+        "output": ""
+      },
+      {
+        "code": "const original = reactive({ count: 0 })\n",
+        "output": ""
+      },
+      {
+        "code": "const copy = readonly(original)\n\n  // works for reactivity tracking\n})\n\n// mutating original will trigger watchers relying on the copy\noriginal.count++\n\n// mutating the copy will fail and result in a warning\ncopy.count++ // warning!\n",
+        "output": "watchEffect(() => {\n  console.log(copy.count)"
+      },
+      {
+        "code": "function watchEffect(\n  options?: WatchEffectOptions\n): WatchHandle\n\n\ninterface WatchEffectOptions {\n  flush?: 'pre' | 'post' | 'sync' // default: 'pre'\n}\n\ninterface WatchHandle {\n  (): void // callable, same as `stop`\n}\n",
+        "output": "effect: (onCleanup: OnCleanup) => void,\ntype OnCleanup = (cleanupFn: () => void) => void\n  onTrack?: (event: DebuggerEvent) => void\n  onTrigger?: (event: DebuggerEvent) => void\n  pause: () => void\n  resume: () => void\n  stop: () => void"
+      },
+      {
+        "code": "const count = ref(0)\n\n// -> logs 0\n\ncount.value++\n// -> logs 1\n\n\n// when the watcher is no longer needed:\nstop()\n\n\n// temporarily pause the watcher\npause()\n\n// resume later\nresume()\n\n// stop\nstop()\n",
+        "output": "watchEffect(() => console.log(count.value))\nconst stop = watchEffect(() => {})\nconst { stop, pause, resume } = watchEffect(() => {})\nwatchEffect(async (onCleanup) => {"
+      },
+      {
+        "code": "  const { response, cancel } = doAsyncWork(newId)\n  // `cancel` will be called if `id` changes, cancelling\n  // the previous request if it hasn't completed yet\n  onCleanup(cancel)\n  data.value = await response\n})\n\nimport { onWatcherCleanup } from 'vue'\n",
+        "output": "watchEffect(async () => {"
+      },
+      {
+        "code": "  const { response, cancel } = doAsyncWork(newId)\n  // `cancel` will be called if `id` changes, cancelling\n  // the previous request if it hasn't completed yet\n  onWatcherCleanup(cancel)\n  data.value = await response\n})\n\n  flush: 'post',\n  onTrack(e) {\n    debugger\n  },\n  onTrigger(e) {\n    debugger\n  }\n})\n// watching single source",
+        "output": "watchEffect(() => {}, {"
+      },
+      {
+        "code": "function watch<T>(\n  source: WatchSource<T>,\n  callback: WatchCallback<T>,\n  options?: WatchOptions\n): WatchHandle\n\n// watching multiple sources",
+        "output": ""
+      },
+      {
+        "code": "function watch<T>(\n  sources: WatchSource<T>[],\n  callback: WatchCallback<T[]>,\n  options?: WatchOptions\n): WatchHandle\n\ntype WatchCallback<T> = (\n  value: T,\n  oldValue: T,\n\ntype WatchSource<T> =\n  | Ref<T> // ref\n  | (T extends object ? T : never) // reactive object\n\ninterface WatchOptions extends WatchEffectOptions {\n  immediate?: boolean // default: false\n  deep?: boolean | number // default: false\n  flush?: 'pre' | 'post' | 'sync' // default: 'pre'\n  once?: boolean // default: false (3.4+)\n}\n\ninterface WatchHandle {\n  (): void // callable, same as `stop`\n}\n\n// watching single source",
+        "output": "onCleanup: (cleanupFn: () => void) => void\n) => void\n  | (() => T) // getter\n  onTrack?: (event: DebuggerEvent) => void\n  onTrigger?: (event: DebuggerEvent) => void\n  pause: () => void\n  resume: () => void\n  stop: () => void"
+      },
+      {
+        "code": "function watch<T>(\n  source: WatchSource<T>,\n  callback: WatchCallback<T>,\n  options?: WatchOptions\n): WatchHandle\n\n// watching multiple sources",
+        "output": ""
+      },
+      {
+        "code": "function watch<T>(\n  sources: WatchSource<T>[],\n  callback: WatchCallback<T[]>,\n  options?: WatchOptions\n): WatchHandle\n\ntype WatchCallback<T> = (\n  value: T,\n  oldValue: T,\n\ntype WatchSource<T> =\n  | Ref<T> // ref\n  | (T extends object ? T : never) // reactive object\n\ninterface WatchOptions extends WatchEffectOptions {\n  immediate?: boolean // default: false\n  deep?: boolean | number // default: false\n  flush?: 'pre' | 'post' | 'sync' // default: 'pre'\n  once?: boolean // default: false (3.4+)\n}\n\ninterface WatchHandle {\n  (): void // callable, same as `stop`\n}\n",
+        "output": "onCleanup: (cleanupFn: () => void) => void\n) => void\n  | (() => T) // getter\n  onTrack?: (event: DebuggerEvent) => void\n  onTrigger?: (event: DebuggerEvent) => void\n  pause: () => void\n  resume: () => void\n  stop: () => void"
+      },
+      {
+        "code": "const state = reactive({ count: 0 })",
+        "output": ""
+      },
+      {
+        "code": "watch(\n    /* ... */\n  }\n)\n",
+        "output": "() => state.count,\n  (count, prevCount) => {"
+      },
+      {
+        "code": "const count = ref(0)\n  /* ... */\n})\n\n  /* ... */\n})\n",
+        "output": "watch(count, (count, prevCount) => {\nwatch([fooRef, barRef], ([foo, bar], [prevFoo, prevBar]) => {"
+      },
+      {
+        "code": "const state = reactive({ count: 0 })",
+        "output": ""
+      },
+      {
+        "code": "watch(\n    // newValue === oldValue\n  },\n  { deep: true }\n)\n",
+        "output": "() => state,\n  (newValue, oldValue) => {"
+      },
+      {
+        "code": "const state = reactive({ count: 0 })\n  /* triggers on deep mutation to state */\n})\n",
+        "output": "watch(state, () => {"
+      },
+      {
+        "code": "watch(source, callback, {\n  flush: 'post',\n  onTrack(e) {\n    debugger\n  },\n  onTrigger(e) {\n    debugger\n  }\n})\n",
+        "output": ""
+      },
+      {
+        "code": "const stop = watch(source, callback)\n\n// when the watcher is no longer needed:\nstop()\n\n\n// temporarily pause the watcher\npause()\n\n// resume later\nresume()\n\n// stop\nstop()\n",
+        "output": "const { stop, pause, resume } = watch(() => {})\nwatch(id, async (newId, oldId, onCleanup) => {"
+      },
+      {
+        "code": "  const { response, cancel } = doAsyncWork(newId)\n  // `cancel` will be called if `id` changes, cancelling\n  // the previous request if it hasn't completed yet\n  onCleanup(cancel)\n  data.value = await response\n})\n\nimport { onWatcherCleanup } from 'vue'\n",
+        "output": "watch(id, async (newId) => {"
+      },
+      {
+        "code": "  const { response, cancel } = doAsyncWork(newId)\n  onWatcherCleanup(cancel)\n  data.value = await response\n})\n",
+        "output": ""
+      },
+      {
+        "code": "function onWatcherCleanup(\n  failSilently?: boolean\n): void\n\nimport { watch, onWatcherCleanup } from 'vue'\n",
+        "output": "cleanupFn: () => void,\nwatch(id, (newId) => {"
+      },
+      {
+        "code": "  const { response, cancel } = doAsyncWork(newId)\n  // `cancel` will be called if `id` changes, cancelling\n  // the previous request if it hasn't completed yet\n  onWatcherCleanup(cancel)\n})\n\n",
+        "output": ""
+      }
+    ],
+    "examples_count": 40,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://vuejs.org/api/reactivity-utilities.html#toRef",
+    "api": "toRef",
+    "package": "Vue.js",
+    "language": "TypeScript",
+    "change_type": "Behavior Change",
+    "reason": "With version 3.3, `toRef` received an additional normalization signature to handle values, refs, and getters. This improves consistency in handling various inputs and simplifies composable logic.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "function isRef<T>(r: Ref<T> | unknown): r is Ref<T>\n",
+        "output": ""
+      },
+      {
+        "code": "let foo: unknown\nif (isRef(foo)) {\n  // foo's type is narrowed to Ref<unknown>\n  foo.value\n}\n",
+        "output": ""
+      },
+      {
+        "code": "function unref<T>(ref: T | Ref<T>): T\n",
+        "output": ""
+      },
+      {
+        "code": "function useFoo(x: number | Ref<number>) {",
+        "output": ""
+      },
+      {
+        "code": "  const unwrapped = unref(x)\n  // unwrapped is guaranteed to be number now\n}\n// normalization signature (3.3+)",
+        "output": ""
+      },
+      {
+        "code": "function toRef<T>(\n  value: T\n  ? Readonly<Ref<R>>\n  : T extends Ref\n  ? T\n  : Ref<UnwrapRef<T>>\n\n// object property signature",
+        "output": "): T extends () => infer R"
+      },
+      {
+        "code": "function toRef<T extends object, K extends keyof T>(\n  object: T,\n  key: K,\n  defaultValue?: T[K]\n): ToRef<T[K]>\n\ntype ToRef<T> = T extends Ref ? T : Ref<T>\n\n// normalization signature (3.3+)",
+        "output": ""
+      },
+      {
+        "code": "function toRef<T>(\n  value: T\n  ? Readonly<Ref<R>>\n  : T extends Ref\n  ? T\n  : Ref<UnwrapRef<T>>\n\n// object property signature",
+        "output": "): T extends () => infer R"
+      },
+      {
+        "code": "function toRef<T extends object, K extends keyof T>(\n  object: T,\n  key: K,\n  defaultValue?: T[K]\n): ToRef<T[K]>\n\ntype ToRef<T> = T extends Ref ? T : Ref<T>\ntoRef(existingRef)\n\n// creates a readonly ref that calls the getter on .value access\n\n// creates normal refs from non-function values\n// equivalent to ref(1)\ntoRef(1)\n\ntoRef(existingRef)\n\n// creates a readonly ref that calls the getter on .value access\n\n// creates normal refs from non-function values\n// equivalent to ref(1)\ntoRef(1)\n",
+        "output": "// returns existing refs as-is\ntoRef(() => props.foo)\n// returns existing refs as-is\ntoRef(() => props.foo)"
+      },
+      {
+        "code": "const state = reactive({\n  foo: 1,\n  bar: 2\n})\n\n// a two-way ref that syncs with the original property",
+        "output": ""
+      },
+      {
+        "code": "const fooRef = toRef(state, 'foo')\n\n// mutating the ref updates the original\nfooRef.value++\n\n// mutating the original also updates the ref\nstate.foo++\n",
+        "output": "console.log(state.foo) // 2\nconsole.log(fooRef.value) // 3"
+      },
+      {
+        "code": "const fooRef = ref(state.foo)\n<script setup>\nimport { toRef } from 'vue'\n",
+        "output": ""
+      },
+      {
+        "code": "const props = defineProps(/* ... */)\n\n// convert `props.foo` into a ref, then pass into\n// a composable\nuseSomeFeature(toRef(props, 'foo'))\n\n// getter syntax - recommended in 3.3+\n</script>\n\n<script setup>\nimport { toRef } from 'vue'\n",
+        "output": "useSomeFeature(toRef(() => props.foo))"
+      },
+      {
+        "code": "const props = defineProps(/* ... */)\n\n// convert `props.foo` into a ref, then pass into\n// a composable\nuseSomeFeature(toRef(props, 'foo'))\n\n// getter syntax - recommended in 3.3+\n</script>\n\ntoValue(1) //       --> 1",
+        "output": "useSomeFeature(toRef(() => props.foo))\nfunction toValue<T>(source: T | Ref<T> | (() => T)): T"
+      },
+      {
+        "code": "toValue(ref(1)) //  --> 1\n\ntoValue(1) //       --> 1",
+        "output": "toValue(() => 1) // --> 1"
+      },
+      {
+        "code": "toValue(ref(1)) //  --> 1\n\nimport type { MaybeRefOrGetter } from 'vue'\n",
+        "output": "toValue(() => 1) // --> 1"
+      },
+      {
+        "code": "function useFeature(id: MaybeRefOrGetter<number>) {\n    // react to id changes\n  })\n}\n\n// this composable supports any of the following:\nuseFeature(1)",
+        "output": "watch(() => toValue(id), id => {"
+      },
+      {
+        "code": "useFeature(ref(1))\n",
+        "output": "useFeature(() => 1)"
+      },
+      {
+        "code": "function toRefs<T extends object>(\n  object: T\n): {\n  [K in keyof T]: ToRef<T[K]>\n}\n\ntype ToRef = T extends Ref ? T : Ref<T>\n",
+        "output": ""
+      },
+      {
+        "code": "const state = reactive({\n  foo: 1,\n  bar: 2\n})\n",
+        "output": ""
+      },
+      {
+        "code": "const stateAsRefs = toRefs(state)\n/*\nType of stateAsRefs: {\n  foo: Ref<number>,\n  bar: Ref<number>\n}\n*/\n\n// The ref and the original property is \"linked\"\nstate.foo++\n\nstateAsRefs.foo.value++\n",
+        "output": "console.log(stateAsRefs.foo.value) // 2\nconsole.log(state.foo) // 3"
+      },
+      {
+        "code": "function useFeatureX() {",
+        "output": ""
+      },
+      {
+        "code": "  const state = reactive({\n    foo: 1,\n    bar: 2\n  })\n\n  // ...logic operating on state\n\n  // convert to refs when returning\n  return toRefs(state)\n}\n\n// can destructure without losing reactivity",
+        "output": ""
+      },
+      {
+        "code": "const { foo, bar } = useFeatureX()\n",
+        "output": ""
+      },
+      {
+        "code": "function isProxy(value: any): boolean\n",
+        "output": ""
+      },
+      {
+        "code": "function isReactive(value: unknown): boolean\n",
+        "output": ""
+      },
+      {
+        "code": "function isReadonly(value: unknown): boolean\n\n",
+        "output": ""
+      }
+    ],
+    "examples_count": 27,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://vuejs.org/api/options-lifecycle.html#beforecreate",
+    "api": "beforeCreate",
+    "package": "Vue.js (Options API)",
+    "language": "TypeScript",
+    "change_type": "API Deprecation",
+    "reason": "The Composition API's setup() provides a more modern and flexible approach to managing component initialization and lifecycle, superseding Options API hooks.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "interface ComponentOptions {\n  beforeCreate?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  created?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  created?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  beforeMount?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  beforeMount?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  mounted?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  mounted?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  beforeUpdate?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  beforeUpdate?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  updated?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  updated?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  beforeUnmount?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  beforeUnmount?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  unmounted?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  unmounted?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  errorCaptured?(\n    this: ComponentPublicInstance,\n    err: unknown,\n    instance: ComponentPublicInstance | null,\n    info: string\n  ): boolean | void\n}\n\ninterface ComponentOptions {\n  errorCaptured?(\n    this: ComponentPublicInstance,\n    err: unknown,\n    instance: ComponentPublicInstance | null,\n    info: string\n  ): boolean | void\n}\ninterface ComponentOptions {\n  renderTracked?(this: ComponentPublicInstance, e: DebuggerEvent): void\n}\n\ntype DebuggerEvent = {\n  effect: ReactiveEffect\n  target: object\n  type: TrackOpTypes /* 'get' | 'has' | 'iterate' */\n  key: any\n}\n\ninterface ComponentOptions {\n  renderTracked?(this: ComponentPublicInstance, e: DebuggerEvent): void\n}\n\ntype DebuggerEvent = {\n  effect: ReactiveEffect\n  target: object\n  type: TrackOpTypes /* 'get' | 'has' | 'iterate' */\n  key: any\n}\ninterface ComponentOptions {\n  renderTriggered?(this: ComponentPublicInstance, e: DebuggerEvent): void\n}\n\ntype DebuggerEvent = {\n  effect: ReactiveEffect\n  target: object\n  type: TriggerOpTypes /* 'set' | 'add' | 'delete' | 'clear' */\n  key: any\n  newValue?: any\n  oldValue?: any\n  oldTarget?: Map<any, any> | Set<any>\n}\n\ninterface ComponentOptions {\n  renderTriggered?(this: ComponentPublicInstance, e: DebuggerEvent): void\n}\n\ntype DebuggerEvent = {\n  effect: ReactiveEffect\n  target: object\n  type: TriggerOpTypes /* 'set' | 'add' | 'delete' | 'clear' */\n  key: any\n  newValue?: any\n  oldValue?: any\n  oldTarget?: Map<any, any> | Set<any>\n}\ninterface ComponentOptions {\n  activated?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  activated?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  deactivated?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  deactivated?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  serverPrefetch?(this: ComponentPublicInstance): Promise<any>\n}\n\ninterface ComponentOptions {\n  serverPrefetch?(this: ComponentPublicInstance): Promise<any>\n}\n",
+        "output": ""
+      },
+      {
+        "code": "export default {\n  data() {\n    return {\n      data: null\n    }\n  },\n  async serverPrefetch() {\n    // component is rendered as part of the initial request\n    // pre-fetch data on server as it is faster than on the client\n    this.data = await fetchOnServer(/* ... */)\n  },\n  async mounted() {\n    if (!this.data) {\n      // if data is null on mount, it means the component\n      // is dynamically rendered on the client. Perform a\n      // client-side fetch instead.\n      this.data = await fetchOnClient(/* ... */)\n    }\n  }\n}\n\n",
+        "output": ""
+      }
+    ],
+    "examples_count": 2,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://vuejs.org/api/options-lifecycle.html",
+    "api": "Options Lifecycle Hooks",
+    "package": "Vue.js",
+    "language": "JavaScript/TypeScript",
+    "change_type": "API Deprecation",
+    "reason": "The Options API lifecycle hooks were enhanced or replaced by the Composition API to provide a more consistent and flexible API design.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "interface ComponentOptions {\n  beforeCreate?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  created?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  created?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  beforeMount?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  beforeMount?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  mounted?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  mounted?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  beforeUpdate?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  beforeUpdate?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  updated?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  updated?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  beforeUnmount?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  beforeUnmount?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  unmounted?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  unmounted?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  errorCaptured?(\n    this: ComponentPublicInstance,\n    err: unknown,\n    instance: ComponentPublicInstance | null,\n    info: string\n  ): boolean | void\n}\n\ninterface ComponentOptions {\n  errorCaptured?(\n    this: ComponentPublicInstance,\n    err: unknown,\n    instance: ComponentPublicInstance | null,\n    info: string\n  ): boolean | void\n}\ninterface ComponentOptions {\n  renderTracked?(this: ComponentPublicInstance, e: DebuggerEvent): void\n}\n\ntype DebuggerEvent = {\n  effect: ReactiveEffect\n  target: object\n  type: TrackOpTypes /* 'get' | 'has' | 'iterate' */\n  key: any\n}\n\ninterface ComponentOptions {\n  renderTracked?(this: ComponentPublicInstance, e: DebuggerEvent): void\n}\n\ntype DebuggerEvent = {\n  effect: ReactiveEffect\n  target: object\n  type: TrackOpTypes /* 'get' | 'has' | 'iterate' */\n  key: any\n}\ninterface ComponentOptions {\n  renderTriggered?(this: ComponentPublicInstance, e: DebuggerEvent): void\n}\n\ntype DebuggerEvent = {\n  effect: ReactiveEffect\n  target: object\n  type: TriggerOpTypes /* 'set' | 'add' | 'delete' | 'clear' */\n  key: any\n  newValue?: any\n  oldValue?: any\n  oldTarget?: Map<any, any> | Set<any>\n}\n\ninterface ComponentOptions {\n  renderTriggered?(this: ComponentPublicInstance, e: DebuggerEvent): void\n}\n\ntype DebuggerEvent = {\n  effect: ReactiveEffect\n  target: object\n  type: TriggerOpTypes /* 'set' | 'add' | 'delete' | 'clear' */\n  key: any\n  newValue?: any\n  oldValue?: any\n  oldTarget?: Map<any, any> | Set<any>\n}\ninterface ComponentOptions {\n  activated?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  activated?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  deactivated?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  deactivated?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  serverPrefetch?(this: ComponentPublicInstance): Promise<any>\n}\n\ninterface ComponentOptions {\n  serverPrefetch?(this: ComponentPublicInstance): Promise<any>\n}\n",
+        "output": ""
+      },
+      {
+        "code": "export default {\n  data() {\n    return {\n      data: null\n    }\n  },\n  async serverPrefetch() {\n    // component is rendered as part of the initial request\n    // pre-fetch data on server as it is faster than on the client\n    this.data = await fetchOnServer(/* ... */)\n  },\n  async mounted() {\n    if (!this.data) {\n      // if data is null on mount, it means the component\n      // is dynamically rendered on the client. Perform a\n      // client-side fetch instead.\n      this.data = await fetchOnClient(/* ... */)\n    }\n  }\n}\n\n",
+        "output": ""
+      }
+    ],
+    "examples_count": 2,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://vuejs.org/guide/migration/lifecycle-hooks.html",
+    "api": "Options: Lifecycle Hooks",
+    "package": "Vue.js",
+    "language": "JavaScript/TypeScript",
+    "change_type": "API Deprecation",
+    "reason": "The Composition API introduced a simplified and unified way to manage reactive state and lifecycle hooks, offering better type safety and enhanced developer experience.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://vuejs.org/api/options-lifecycle.html",
+    "api": "Lifecycle Hooks",
+    "package": "Vue.js",
+    "language": "TypeScript",
+    "change_type": "API Deprecation",
+    "reason": "The Composition API setup() was introduced to simplify and standardize API usage and lifecycle management, making it easier to work with component state and reactivity using declarative React-like hooks.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "interface ComponentOptions {\n  beforeCreate?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  created?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  created?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  beforeMount?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  beforeMount?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  mounted?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  mounted?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  beforeUpdate?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  beforeUpdate?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  updated?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  updated?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  beforeUnmount?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  beforeUnmount?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  unmounted?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  unmounted?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  errorCaptured?(\n    this: ComponentPublicInstance,\n    err: unknown,\n    instance: ComponentPublicInstance | null,\n    info: string\n  ): boolean | void\n}\n\ninterface ComponentOptions {\n  errorCaptured?(\n    this: ComponentPublicInstance,\n    err: unknown,\n    instance: ComponentPublicInstance | null,\n    info: string\n  ): boolean | void\n}\ninterface ComponentOptions {\n  renderTracked?(this: ComponentPublicInstance, e: DebuggerEvent): void\n}\n\ntype DebuggerEvent = {\n  effect: ReactiveEffect\n  target: object\n  type: TrackOpTypes /* 'get' | 'has' | 'iterate' */\n  key: any\n}\n\ninterface ComponentOptions {\n  renderTracked?(this: ComponentPublicInstance, e: DebuggerEvent): void\n}\n\ntype DebuggerEvent = {\n  effect: ReactiveEffect\n  target: object\n  type: TrackOpTypes /* 'get' | 'has' | 'iterate' */\n  key: any\n}\ninterface ComponentOptions {\n  renderTriggered?(this: ComponentPublicInstance, e: DebuggerEvent): void\n}\n\ntype DebuggerEvent = {\n  effect: ReactiveEffect\n  target: object\n  type: TriggerOpTypes /* 'set' | 'add' | 'delete' | 'clear' */\n  key: any\n  newValue?: any\n  oldValue?: any\n  oldTarget?: Map<any, any> | Set<any>\n}\n\ninterface ComponentOptions {\n  renderTriggered?(this: ComponentPublicInstance, e: DebuggerEvent): void\n}\n\ntype DebuggerEvent = {\n  effect: ReactiveEffect\n  target: object\n  type: TriggerOpTypes /* 'set' | 'add' | 'delete' | 'clear' */\n  key: any\n  newValue?: any\n  oldValue?: any\n  oldTarget?: Map<any, any> | Set<any>\n}\ninterface ComponentOptions {\n  activated?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  activated?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  deactivated?(this: ComponentPublicInstance): void\n}\n\ninterface ComponentOptions {\n  deactivated?(this: ComponentPublicInstance): void\n}\ninterface ComponentOptions {\n  serverPrefetch?(this: ComponentPublicInstance): Promise<any>\n}\n\ninterface ComponentOptions {\n  serverPrefetch?(this: ComponentPublicInstance): Promise<any>\n}\n",
+        "output": ""
+      },
+      {
+        "code": "export default {\n  data() {\n    return {\n      data: null\n    }\n  },\n  async serverPrefetch() {\n    // component is rendered as part of the initial request\n    // pre-fetch data on server as it is faster than on the client\n    this.data = await fetchOnServer(/* ... */)\n  },\n  async mounted() {\n    if (!this.data) {\n      // if data is null on mount, it means the component\n      // is dynamically rendered on the client. Perform a\n      // client-side fetch instead.\n      this.data = await fetchOnClient(/* ... */)\n    }\n  }\n}\n\n",
+        "output": ""
+      }
+    ],
+    "examples_count": 2,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://vuejs.org/api/component-instance.html#el",
+    "api": "$el",
+    "package": "Vue.js",
+    "language": "JavaScript",
+    "change_type": "Behavior Change",
+    "reason": "For consistency and to encourage direct access to elements via template refs instead of relying on $el.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "interface ComponentPublicInstance {\n  $data: object\n}\ninterface ComponentPublicInstance {\n  $props: object\n}\n\ninterface ComponentPublicInstance {\n  $props: object\n}\ninterface ComponentPublicInstance {\n  $el: any\n}\n\ninterface ComponentPublicInstance {\n  $el: any\n}\ninterface ComponentPublicInstance {\n  $options: ComponentOptions\n}\n\ninterface ComponentPublicInstance {\n  $options: ComponentOptions\n}\n",
+        "output": ""
+      },
+      {
+        "code": "const app = createApp({\n  customOption: 'foo',\n  created() {\n  }\n})\ninterface ComponentPublicInstance {\n  $parent: ComponentPublicInstance | null\n}\n\ninterface ComponentPublicInstance {\n  $parent: ComponentPublicInstance | null\n}\ninterface ComponentPublicInstance {\n  $root: ComponentPublicInstance\n}\n\ninterface ComponentPublicInstance {\n  $root: ComponentPublicInstance\n}\ninterface ComponentPublicInstance {\n  $slots: { [name: string]: Slot }\n}\n\n\ninterface ComponentPublicInstance {\n  $slots: { [name: string]: Slot }\n}\n\ninterface ComponentPublicInstance {\n  $refs: { [name: string]: Element | ComponentPublicInstance | null }\n}\n\ninterface ComponentPublicInstance {\n  $refs: { [name: string]: Element | ComponentPublicInstance | null }\n}\ninterface ComponentPublicInstance {\n  $attrs: object\n}\n\ninterface ComponentPublicInstance {\n  $attrs: object\n}\ninterface ComponentPublicInstance {",
+        "output": "console.log(this.$options.customOption) // => 'foo'\ntype Slot = (...args: any[]) => VNode[]\ntype Slot = (...args: any[]) => VNode[]"
+      },
+      {
+        "code": "  $watch(\n    callback: WatchCallback,\n    options?: WatchOptions\n  ): StopHandle\n}\n\ntype WatchCallback<T> = (\n  value: T,\n  oldValue: T,\n\ninterface WatchOptions {\n  immediate?: boolean // default: false\n  deep?: boolean // default: false\n  flush?: 'pre' | 'post' | 'sync' // default: 'pre'\n}\n\n\ninterface ComponentPublicInstance {",
+        "output": "source: string | (() => any),\n  onCleanup: (cleanupFn: () => void) => void\n) => void\n  onTrack?: (event: DebuggerEvent) => void\n  onTrigger?: (event: DebuggerEvent) => void\ntype StopHandle = () => void"
+      },
+      {
+        "code": "  $watch(\n    callback: WatchCallback,\n    options?: WatchOptions\n  ): StopHandle\n}\n\ntype WatchCallback<T> = (\n  value: T,\n  oldValue: T,\n\ninterface WatchOptions {\n  immediate?: boolean // default: false\n  deep?: boolean // default: false\n  flush?: 'pre' | 'post' | 'sync' // default: 'pre'\n}\n\n\n",
+        "output": "source: string | (() => any),\n  onCleanup: (cleanupFn: () => void) => void\n) => void\n  onTrack?: (event: DebuggerEvent) => void\n  onTrigger?: (event: DebuggerEvent) => void\ntype StopHandle = () => void\nthis.$watch('a', (newVal, oldVal) => {})\nthis.$watch('a', (newVal, oldVal) => {})\nthis.$watch('a.b', (newVal, oldVal) => {})\nthis.$watch('a.b', (newVal, oldVal) => {})"
+      },
+      {
+        "code": "this.$watch(\n  // every time the expression `this.a + this.b` yields\n  // a different result, the handler will be called.\n  // It's as if we were watching a computed property\n  // without defining the computed property itself.\n)\n",
+        "output": "() => this.a + this.b,\n  (newVal, oldVal) => {}"
+      },
+      {
+        "code": "this.$watch(\n  // every time the expression `this.a + this.b` yields\n  // a different result, the handler will be called.\n  // It's as if we were watching a computed property\n  // without defining the computed property itself.\n)\n",
+        "output": "() => this.a + this.b,\n  (newVal, oldVal) => {}"
+      },
+      {
+        "code": "const unwatch = this.$watch('a', cb)\n\n// later...",
+        "output": ""
+      },
+      {
+        "code": "unwatch()\ninterface ComponentPublicInstance {\n  $emit(event: string, ...args: any[]): void\n}\n\ninterface ComponentPublicInstance {\n  $emit(event: string, ...args: any[]): void\n}\n",
+        "output": ""
+      },
+      {
+        "code": "export default {\n  created() {\n    // only event\n    this.$emit('foo')\n    // with additional arguments\n    this.$emit('bar', 1, 2, 3)\n  }\n}\ninterface ComponentPublicInstance {\n  $forceUpdate(): void\n}\n\ninterface ComponentPublicInstance {\n  $forceUpdate(): void\n}\ninterface ComponentPublicInstance {\n}\n\ninterface ComponentPublicInstance {\n}\n\n",
+        "output": "$nextTick(callback?: (this: ComponentPublicInstance) => void): Promise<void>\n  $nextTick(callback?: (this: ComponentPublicInstance) => void): Promise<void>"
+      }
+    ],
+    "examples_count": 9,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://vuejs.org/guide/reactivity.html#watchers",
+    "api": "$watch",
+    "package": "Vue.js",
+    "language": "TypeScript",
+    "change_type": "API Deprecation",
+    "reason": "Transition to Composition API for improved flexibility and reusability.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://vuejs.org/guide/built-in-directives.html#v-memo",
+    "api": "v-once",
+    "package": "Vue.js",
+    "language": "JavaScript",
+    "change_type": "API Deprecation",
+    "reason": "v-memo provides a more flexible and optimized approach to memoizing templates, making it suitable for performance-critical scenarios.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://vuejs.org/guide/built-in-directives.html#v-memo",
+    "api": "v-memo",
+    "package": "Vue.js",
+    "language": "JavaScript",
+    "change_type": "Performance Optimization",
+    "reason": "Introduced for micro performance optimization in scenarios like rendering large lists in v-for.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://vuejs.org",
+    "api": "defineProps",
+    "package": "vue",
+    "language": "TypeScript",
+    "change_type": "Parameter Change",
+    "reason": "Updated to allow referencing imported and complex types in type parameter position, removing older interface limitations.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://vuejs.org/guide/api/script-setup.html#defineProps",
+    "api": "defineProps()",
+    "package": "Vue.js",
+    "language": "TypeScript",
+    "change_type": "Behavior Change",
+    "reason": "In Vue 3.5 and above, variables destructured from the return value of defineProps are now reactive by default, eliminating the need to explicitly wrap them.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://vuejs.org/api/script-setup.html#defineprops-defineemits",
+    "api": "defineProps and defineEmits",
+    "package": "Vue.js",
+    "language": "TypeScript",
+    "change_type": "Behavior Change",
+    "reason": "Enhancements in type inference and runtime declaration compatibility for props and emits starting with version 3.3.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://vuejs.org/api/sfc-script-setup.html",
+    "api": "<script setup>",
+    "package": "Vue.js",
+    "language": "JavaScript",
+    "change_type": "Behavior Change",
+    "reason": "Improved syntax to simplify code structure, reduce boilerplate, and enhance runtime and type inference performance.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\n<script setup>\n</script>\n<script setup>\n// variable",
+        "output": "console.log('hello script setup')"
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst msg = 'Hello!'\n\n// functions",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nfunction log() {\n}\n</script>\n\n<template>\n  <button @click=\"log\">{{ msg }}</button>\n</template>\n\n<script setup>\n// variable",
+        "output": "console.log(msg)"
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst msg = 'Hello!'\n\n// functions",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nfunction log() {\n}\n</script>\n\n<template>\n  <button @click=\"log\">{{ msg }}</button>\n</template>\n<script setup>\nimport { capitalize } from './helpers'\n</script>\n\n<template>\n  <div>{{ capitalize('hello') }}</div>\n</template>\n\n<script setup>\nimport { capitalize } from './helpers'\n</script>\n\n<template>\n  <div>{{ capitalize('hello') }}</div>\n</template>\n<script setup>\n",
+        "output": "console.log(msg)"
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst count = ref(0)\n</script>\n\n<template>\n  <button @click=\"count++\">{{ count }}</button>\n</template>\n\n<script setup>\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst count = ref(0)\n</script>\n\n<template>\n  <button @click=\"count++\">{{ count }}</button>\n</template>\n<script setup>\nimport MyComponent from './MyComponent.vue'\n</script>\n\n<template>\n  <MyComponent />\n</template>\n\n<script setup>\nimport MyComponent from './MyComponent.vue'\n</script>\n\n<template>\n  <MyComponent />\n</template>\n<script setup>\nimport Foo from './Foo.vue'\nimport Bar from './Bar.vue'\n</script>\n\n<template>\n  <component :is=\"Foo\" />\n  <component :is=\"someCondition ? Foo : Bar\" />\n</template>\n\n<script setup>\nimport Foo from './Foo.vue'\nimport Bar from './Bar.vue'\n</script>\n\n<template>\n  <component :is=\"Foo\" />\n  <component :is=\"someCondition ? Foo : Bar\" />\n</template>\n\nimport { FooBar as FooBarChild } from './components'\n<script setup>\nimport * as Form from './form-components'\n</script>\n\n<template>\n  <Form.Input>\n    <Form.Label>label</Form.Label>\n  </Form.Input>\n</template>\n\n<script setup>\nimport * as Form from './form-components'\n</script>\n\n<template>\n  <Form.Input>\n    <Form.Label>label</Form.Label>\n  </Form.Input>\n</template>\n<script setup>",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst vMyDirective = {\n    // do something with the element\n  }\n}\n</script>\n<template>\n  <h1 v-my-directive>This is a Heading</h1>\n</template>\n\n<script setup>",
+        "output": "beforeMount: (el) => {"
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst vMyDirective = {\n    // do something with the element\n  }\n}\n</script>\n<template>\n  <h1 v-my-directive>This is a Heading</h1>\n</template>\n<script setup>\nimport { myDirective as vMyDirective } from './MyDirective.js'\n</script>\n\n<script setup>\nimport { myDirective as vMyDirective } from './MyDirective.js'\n</script>\n<script setup>",
+        "output": "beforeMount: (el) => {"
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst props = defineProps({\n  foo: String\n})\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst emit = defineEmits(['change', 'delete'])\n// setup code\n</script>\n\n<script setup>",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst props = defineProps({\n  foo: String\n})\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst emit = defineEmits(['change', 'delete'])\n// setup code\n</script>\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst props = defineProps<{\n  foo: string\n  bar?: number\n}>()\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst emit = defineEmits<{\n  (e: 'change', id: number): void\n  (e: 'update', value: string): void\n}>()\n\n// 3.3+: alternative, more succinct syntax",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst emit = defineEmits<{\n  change: [id: number] // named tuple syntax\n  update: [value: string]\n}>()\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst { foo } = defineProps(['foo'])\n\n  // runs only once before 3.5\n  // re-runs when the \"foo\" prop changes in 3.5+\n})\n",
+        "output": "watchEffect(() => {\n  console.log(foo)"
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst props = defineProps(['foo'])\n\n  // `foo` transformed to `props.foo` by the compiler\n})\ninterface Props {\n  msg?: string\n  labels?: string[]\n}\n",
+        "output": "watchEffect(() => {\n  console.log(props.foo)"
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst { msg = 'hello', labels = ['one', 'two'] } = defineProps<Props>()\n\ninterface Props {\n  msg?: string\n  labels?: string[]\n}\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst { msg = 'hello', labels = ['one', 'two'] } = defineProps<Props>()\ninterface Props {\n  msg?: string\n  labels?: string[]\n}\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst props = withDefaults(defineProps<Props>(), {\n  msg: 'hello',\n})\n\ninterface Props {\n  msg?: string\n  labels?: string[]\n}\n",
+        "output": "labels: () => ['one', 'two']"
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst props = withDefaults(defineProps<Props>(), {\n  msg: 'hello',\n})\n// declares \"modelValue\" prop, consumed by parent via v-model",
+        "output": "labels: () => ['one', 'two']"
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst model = defineModel()\n// OR: declares \"modelValue\" prop with options",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst model = defineModel({ type: String })\n\n// emits \"update:modelValue\" when mutated\nmodel.value = 'hello'\n\n// declares \"count\" prop, consumed by parent via v-model:count",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst count = defineModel('count')\n// OR: declares \"count\" prop with options",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst count = defineModel('count', { type: Number, default: 0 })\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nfunction inc() {\n  // emits \"update:count\" when mutated\n  count.value++\n}\n\n// declares \"modelValue\" prop, consumed by parent via v-model",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst model = defineModel()\n// OR: declares \"modelValue\" prop with options",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst model = defineModel({ type: String })\n\n// emits \"update:modelValue\" when mutated\nmodel.value = 'hello'\n\n// declares \"count\" prop, consumed by parent via v-model:count",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst count = defineModel('count')\n// OR: declares \"count\" prop with options",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst count = defineModel('count', { type: Number, default: 0 })\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nfunction inc() {\n  // emits \"update:count\" when mutated\n  count.value++\n}\n<script setup>",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst model = defineModel({ default: 1 })\n</script>\n\n<script setup>",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst model = defineModel({ default: 1 })\n</script>\n<script setup>",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst myRef = ref()\n</script>\n\n<template>\n  <Child v-model=\"myRef\"></Child>\n</template>\n\n<script setup>",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst myRef = ref()\n</script>\n\n<template>\n  <Child v-model=\"myRef\"></Child>\n</template>\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst [modelValue, modelModifiers] = defineModel()\n\n// corresponds to v-model.trim\nif (modelModifiers.trim) {\n  // ...\n}\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst [modelValue, modelModifiers] = defineModel({\n  // get() omitted as it is not needed here\n  set(value) {\n    // if the .trim modifier is used, return trimmed value\n    if (modelModifiers.trim) {\n      return value.trim()\n    }\n    // otherwise, return the value as-is\n    return value\n  }\n})\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst modelValue = defineModel<string>()\n//    ^? Ref<string | undefined>\n\n// default model with options, required removes possible undefined values",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst modelValue = defineModel<string>({ required: true })\n//    ^? Ref<string>\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst [modelValue, modifiers] = defineModel<string, 'trim' | 'uppercase'>()\n//                 ^? Record<'trim' | 'uppercase', true | undefined>\n<script setup>\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst a = 1",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst b = ref(2)\n\ndefineExpose({\n  a,\n  b\n})\n</script>\n\n<script setup>\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst a = 1",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst b = ref(2)\n\ndefineExpose({\n  a,\n  b\n})\n</script>\n<script setup>\ndefineOptions({\n  inheritAttrs: false,\n  customOptions: {\n    /* ... */\n  }\n})\n</script>\n\n<script setup>\ndefineOptions({\n  inheritAttrs: false,\n  customOptions: {\n    /* ... */\n  }\n})\n</script>\n<script setup lang=\"ts\">",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst slots = defineSlots<{\n  default(props: { msg: string }): any\n}>()\n</script>\n\n<script setup lang=\"ts\">",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst slots = defineSlots<{\n  default(props: { msg: string }): any\n}>()\n</script>\n<script setup>\nimport { useSlots, useAttrs } from 'vue'\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst slots = useSlots()",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst attrs = useAttrs()\n</script>\n\n<script setup>\nimport { useSlots, useAttrs } from 'vue'\n",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst slots = useSlots()",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nconst attrs = useAttrs()\n</script>\n<script>\n// normal <script>, executed in module scope (only once)\nrunSideEffectOnce()\n\n// declare additional options",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nexport default {\n  inheritAttrs: false,\n  customOptions: {}\n}\n</script>\n\n<script setup>\n// executed in setup() scope (for each instance)\n</script>\n\n<script>\n// normal <script>, executed in module scope (only once)\nrunSideEffectOnce()\n\n// declare additional options",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\nexport default {\n  inheritAttrs: false,\n  customOptions: {}\n}\n</script>\n\n<script setup>\n// executed in setup() scope (for each instance)\n</script>\n<script setup>\n</script>\n\n<script setup>\n</script>\n<script setup>\nimport { componentA } from './Components'\nimport { componentB } from '@/Components'\nimport { componentC } from '~/Components'\n</script>\n\n<script setup>\nimport { componentA } from './Components'\nimport { componentB } from '@/Components'\nimport { componentC } from '~/Components'\n</script>\n<script setup lang=\"ts\" generic=\"T\">\ndefineProps<{\n  items: T[]\n  selected: T\n}>()\n</script>\n\n<script setup lang=\"ts\" generic=\"T\">\ndefineProps<{\n  items: T[]\n  selected: T\n}>()\n</script>\n<script\n  setup",
+        "output": "const post = await fetch(`/api/post/1`).then((r) => r.json())\nconst post = await fetch(`/api/post/1`).then((r) => r.json())"
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\n  lang=\"ts\"",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\n  generic=\"T extends string | number, U extends Item\"\n>\nimport type { Item } from './types'\ndefineProps<{\n  id: T\n  list: U[]\n}>()\n</script>\n\n<script\n  setup",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\n  lang=\"ts\"",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\n  generic=\"T extends string | number, U extends Item\"\n>\nimport type { Item } from './types'\ndefineProps<{\n  id: T\n  list: U[]\n}>()\n</script>\n<template>\n  <!-- @vue-generic {import('@/api').Actor} -->\n  <ApiSelect v-model=\"peopleIds\" endpoint=\"/api/actors\" id-prop=\"actorId\" />\n\n  <!-- @vue-generic {import('@/api').Genre} -->\n  <ApiSelect v-model=\"genreIds\" endpoint=\"/api/genres\" id-prop=\"genreId\" />\n</template>\n\n<template>\n  <!-- @vue-generic {import('@/api').Actor} -->\n  <ApiSelect v-model=\"peopleIds\" endpoint=\"/api/actors\" id-prop=\"actorId\" />\n\n  <!-- @vue-generic {import('@/api').Genre} -->\n  <ApiSelect v-model=\"genreIds\" endpoint=\"/api/genres\" id-prop=\"genreId\" />\n</template>\n<script\n  setup",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\n  lang=\"ts\"\n>\nimport componentWithoutGenerics from '../component-without-generics.vue';\nimport genericComponent from '../generic-component.vue';\n\nimport type { ComponentExposed } from 'vue-component-type-helpers';\n\n// Works for a component without generics\nref<InstanceType<typeof componentWithoutGenerics>>();\n\nref<ComponentExposed<typeof genericComponent>>();\n\n<script\n  setup",
+        "output": ""
+      },
+      {
+        "code": "import { ref, reactive, computed, watch, onMounted, createApp } from 'vue'\n  lang=\"ts\"\n>\nimport componentWithoutGenerics from '../component-without-generics.vue';\nimport genericComponent from '../generic-component.vue';\n\nimport type { ComponentExposed } from 'vue-component-type-helpers';\n\n// Works for a component without generics\nref<InstanceType<typeof componentWithoutGenerics>>();\n\nref<ComponentExposed<typeof genericComponent>>();\n\n",
+        "output": ""
+      }
+    ],
+    "examples_count": 59,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://vuejs.org/api/server-rendering-api.html",
+    "api": "renderToNodeStream",
+    "package": "vue/server-renderer",
+    "language": "JavaScript/TypeScript",
+    "change_type": "API Deprecation",
+    "reason": "The method is not supported in the ESM build of 'vue/server-renderer', which is decoupled from Node.js environments.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://vuejs.org/api/server-side-rendering.html",
+    "api": "renderToNodeStream()",
+    "package": "vue/server-renderer",
+    "language": "JavaScript",
+    "change_type": "API Deprecation",
+    "reason": "The method `renderToNodeStream()` is not supported in the ESM build of `vue/server-renderer`, which is decoupled from Node.js environments.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  }
+]

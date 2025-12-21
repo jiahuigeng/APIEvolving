@@ -1,0 +1,30 @@
+Statistic,Count
+Total Unique Packages,17
+Total Unique APIs,45
+--- Package List ---,---
+bufio,
+crypto/elliptic,
+crypto/rsa,
+crypto/tls,
+crypto/x509,
+crypto/x509/pkix,
+gin,
+gin-gonic/gin,
+github.com/gin-gonic/gin,
+go/ast,
+math/rand,
+math/rand/v2,
+net,
+reflect,
+runtime/metrics,
+"strings, bytes",
+syscall,
+--- Change Type Counts ---,---
+Change Type: API Deprecation,32
+Change Type: Behavior Change,5
+Change Type: API Addition,2
+Change Type: Performance Optimization,2
+Change Type: Deprecation Reversion,2
+Change Type: API Removal,1
+Change Type: Interface Change,1
+Change Type: API Renaming / Pending Deprecation,1

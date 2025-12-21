@@ -1,0 +1,1641 @@
+[
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.2/releases/4.2/#migrations",
+        "api": "AlterIndexTogether",
+        "package": "django.db.migrations.operations",
+        "language": "Python",
+        "deprecated_in": "4.2",
+        "removed_in": "5.1",
+        "replaced_by": "AddIndex",
+        "change_type": "API Deprecation",
+        "reason": "The `index_together` option is deprecated in favor of the `indexes` option. Consequently, the `AlterIndexTogether` migration operation is also deprecated.",
+        "has_examples": true,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.2/releases/4.2/#csrf",
+        "api": "CSRF_COOKIE_MASKED",
+        "package": "django.conf.settings",
+        "language": "Python",
+        "deprecated_in": "4.2",
+        "removed_in": "5.0",
+        "replaced_by": "",
+        "change_type": "Setting Deprecation",
+        "reason": "The transitional `CSRF_COOKIE_MASKED` setting is deprecated. The masking of the CSRF cookie is now standard behavior.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.0/releases/3.1/#id2",
+        "api": "NullBooleanField",
+        "package": "django.db.models",
+        "language": "Python",
+        "deprecated_in": "3.1",
+        "removed_in": "4.0",
+        "replaced_by": "BooleanField(null=True)",
+        "change_type": "API Removal",
+        "reason": "This field type was removed in Django 4.0. Use BooleanField with null=True instead.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.2/ref/settings/#data-upload-max-number-files",
+        "api": "DATA_UPLOAD_MAX_NUMBER_FILES",
+        "package": "django.conf.settings",
+        "language": "Python",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Security Feature",
+        "reason": "New in 4.2: Limits the number of files that can be uploaded in a single request (default 100) to prevent DoS attacks. Raises TooManyFilesSent if exceeded.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/5.0/releases/4.1/#django-utils-functional-cached-property",
+        "api": "cached_property",
+        "package": "django.utils.functional",
+        "language": "Python",
+        "deprecated_in": "4.1",
+        "removed_in": "5.0",
+        "replaced_by": "",
+        "change_type": "Parameter Removal",
+        "reason": "The 'name' parameter is unnecessary and was removed in Django 5.0.",
+        "has_examples": true,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/1.9/releases/1.9/#features-removed-in-1-9",
+        "api": "IPAddressField",
+        "package": "django.db.models",
+        "language": "Python",
+        "deprecated_in": "1.7",
+        "removed_in": "1.9",
+        "replaced_by": "GenericIPAddressField",
+        "change_type": "API Removal",
+        "reason": "IPAddressField was removed in Django 1.9. Use GenericIPAddressField instead.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.0/releases/3.0/#django-utils-encoding-smart-text-and-force-text",
+        "api": "smart_text",
+        "package": "django.utils.encoding",
+        "language": "Python",
+        "deprecated_in": "3.0",
+        "removed_in": "4.0",
+        "replaced_by": "smart_str",
+        "change_type": "API Removal",
+        "reason": "smart_text was removed in Django 4.0. Use smart_str instead.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/5.1/releases/5.1/#forms",
+        "api": "FORMS_URLFIELD_ASSUME_HTTPS",
+        "package": "django.conf.settings",
+        "language": "Python",
+        "deprecated_in": "5.1",
+        "removed_in": "6.0",
+        "replaced_by": "Default behavior (HTTPS)",
+        "change_type": "Setting Deprecation",
+        "reason": "This transitional setting (introduced in 5.0) is deprecated. Starting from Django 6.0, the default scheme for URLField will assume 'https' without the option to revert globally via settings.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/5.0/releases/5.0/#features-removed-in-5-0",
+        "api": "django.utils.timezone.utc",
+        "package": "django.utils",
+        "language": "Python",
+        "deprecated_in": "4.1",
+        "removed_in": "5.0",
+        "replaced_by": "datetime.timezone.utc",
+        "change_type": "API Removal",
+        "reason": "The `django.utils.timezone.utc` alias is removed. Use the standard library `datetime.timezone.utc` instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "from django.utils.timezone import utc\n# Removed usage\n# now = datetime.datetime.now(utc)\n# Recommended usage\nfrom datetime import timezone\nnow = datetime.datetime.now(timezone.utc)",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/5.0/releases/5.0/#features-removed-in-5-0",
+        "api": "USE_TZ",
+        "package": "django.conf.settings",
+        "language": "Python",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Setting Change",
+        "reason": "The default value of the `USE_TZ` setting has changed from `False` to `True`. Django now enables time zone support by default.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/5.0/releases/5.0/#features-removed-in-5-0",
+        "api": "django.contrib.auth.views.LogoutView",
+        "package": "django.contrib.auth",
+        "language": "Python",
+        "deprecated_in": "4.1",
+        "removed_in": "5.0",
+        "replaced_by": "POST request",
+        "change_type": "Behavior Change",
+        "reason": "Support for logging out via GET requests in `LogoutView` and `logout_then_login()` is removed to prevent CSRF attacks. Logout must now be performed via POST requests.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "\n<a href=\"{% url 'logout' %}\">Log out</a>\n\n\n<form action=\"{% url 'logout' %}\" method=\"post\">\n  {% csrf_token %}\n  <button type=\"submit\">Log out</button>\n</form>",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/5.0/releases/5.0/#features-removed-in-5-0",
+        "api": "django.utils.functional.cached_property",
+        "package": "django.utils",
+        "language": "Python",
+        "deprecated_in": "4.1",
+        "removed_in": "5.0",
+        "replaced_by": "",
+        "change_type": "Argument Removal",
+        "reason": "The `name` argument of `cached_property()` is removed. It was used for compatibility with Python < 3.6.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/5.0/releases/5.0/#features-removed-in-5-0",
+        "api": "pytz",
+        "package": "django",
+        "language": "Python",
+        "deprecated_in": "4.0",
+        "removed_in": "5.0",
+        "replaced_by": "zoneinfo",
+        "change_type": "API Removal",
+        "reason": "Support for `pytz` timezones is removed. The `USE_DEPRECATED_PYTZ` transitional setting is also removed. Django now exclusively uses Python's built-in `zoneinfo`.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/5.0/releases/5.0/#features-removed-in-5-0",
+        "api": "CSRF_COOKIE_MASKED",
+        "package": "django.conf.settings",
+        "language": "Python",
+        "deprecated_in": "4.1",
+        "removed_in": "5.0",
+        "replaced_by": "",
+        "change_type": "Setting Removal",
+        "reason": "The `CSRF_COOKIE_MASKED` transitional setting is removed. CSRF cookie masking is now standard behavior.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/5.0/releases/5.0/#features-removed-in-5-0",
+        "api": "USE_L10N",
+        "package": "django.conf.settings",
+        "language": "Python",
+        "deprecated_in": "4.0",
+        "removed_in": "5.0",
+        "replaced_by": "USE_I18N",
+        "change_type": "Setting Removal",
+        "reason": "The `USE_L10N` setting is removed. Localization formatting is now controlled by `USE_I18N`.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/5.0/releases/5.0/#features-removed-in-5-0",
+        "api": "is_dst",
+        "package": "django.utils.timezone",
+        "language": "Python",
+        "deprecated_in": "4.0",
+        "removed_in": "5.0",
+        "replaced_by": "",
+        "change_type": "Argument Removal",
+        "reason": "The `is_dst` argument is removed from `timezone.make_aware()`, `QuerySet.datetimes()`, and database function classes like `Trunc()`.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.2/releases/4.2/#deprecations",
+        "api": "length_is",
+        "package": "django.template.defaultfilters",
+        "language": "Python (Template)",
+        "deprecated_in": "4.2",
+        "removed_in": "5.1",
+        "replaced_by": "length filter with == operator",
+        "change_type": "Template Filter Deprecation",
+        "reason": "The `length_is` template filter is deprecated in favor of using the `length` filter combined with the `==` operator within an `{% if %}` tag.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "{% comment %} Deprecated usage {% endcomment %}\n{% if value|length_is:4 %}...{% endif %}\n{{ value|length_is:4 }}\n\n{% comment %} Recommended usage {% endcomment %}\n{% if value|length == 4 %}...{% endif %}\n{% if value|length == 4 %}True{% else %}False{% endif %}",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.2/releases/4.2/#deprecations",
+        "api": "JSONField",
+        "package": "django.db.models",
+        "language": "Python",
+        "deprecated_in": "4.2",
+        "removed_in": "5.1",
+        "replaced_by": "Non-encoded Python objects",
+        "change_type": "Usage Deprecation",
+        "reason": "Passing JSON encoded string literals (e.g., 'null', '[]') to JSONField is deprecated due to ambiguity. Users should pass native Python objects (None, lists, dicts) instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "# Deprecated usage\nDocument.objects.bulk_create(\n    Document(data=Value(\"null\")),\n    Document(data=Value(\"[]\")),\n)\n\n# Recommended usage\nDocument.objects.bulk_create(\n    Document(data=Value(None, JSONField())),\n    Document(data=[]),\n)",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.2/releases/4.2/#deprecations",
+        "api": "DEFAULT_FILE_STORAGE",
+        "package": "django.conf.settings",
+        "language": "Python",
+        "deprecated_in": "4.2",
+        "removed_in": "5.1",
+        "replaced_by": "STORAGES",
+        "change_type": "Setting Deprecation",
+        "reason": "The `DEFAULT_FILE_STORAGE` setting is deprecated in favor of the new dictionary-based `STORAGES` setting (specifically `STORAGES['default']`).",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.2/releases/4.2/#deprecations",
+        "api": "BaseUserManager.make_random_password",
+        "package": "django.contrib.auth.base_user",
+        "language": "Python",
+        "deprecated_in": "4.2",
+        "removed_in": "5.1",
+        "replaced_by": "secrets module",
+        "change_type": "API Deprecation",
+        "reason": "The `make_random_password()` method is deprecated. Users are encouraged to use Python's built-in `secrets` module for generating secure passwords.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.2/releases/4.2/#deprecations",
+        "api": "django.contrib.postgres.fields.CICharField",
+        "package": "django.contrib.postgres.fields",
+        "language": "Python",
+        "deprecated_in": "4.2",
+        "removed_in": "5.1",
+        "replaced_by": "CharField(db_collation=\"...\")",
+        "change_type": "API Deprecation",
+        "reason": "`CICharField`, `CIEmailField`, and `CITextField` are deprecated in favor of using standard fields (`CharField`, etc.) with a case-insensitive non-deterministic collation via `db_collation`.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.1/releases/4.1/#features-deprecated-in-4-1",
+        "api": "django.contrib.auth.views.LogoutView",
+        "package": "django.contrib.auth",
+        "language": "Python",
+        "deprecated_in": "4.1",
+        "removed_in": "5.0",
+        "replaced_by": "POST request",
+        "change_type": "Behavior Deprecation",
+        "reason": "Logging out via GET requests to the built-in logout view is deprecated. Use POST requests instead to prevent CSRF attacks.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "\n<a href=\"{% url 'logout' %}\">Log out</a>\n\n\n<form action=\"{% url 'logout' %}\" method=\"post\">\n  {% csrf_token %}\n  <button type=\"submit\">Log out</button>\n</form>",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.1/releases/4.1/#features-deprecated-in-4-1",
+        "api": "django.utils.timezone.utc",
+        "package": "django.utils",
+        "language": "Python",
+        "deprecated_in": "4.1",
+        "removed_in": "5.0",
+        "replaced_by": "datetime.timezone.utc",
+        "change_type": "API Deprecation",
+        "reason": "The `django.utils.timezone.utc` alias is deprecated. Use the standard library `datetime.timezone.utc` directly.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.1/releases/4.1/#features-removed-in-4-1",
+        "api": "default_app_config",
+        "package": "django.apps",
+        "language": "Python",
+        "deprecated_in": "3.2",
+        "removed_in": "4.1",
+        "replaced_by": "AppConfig.default",
+        "change_type": "API Removal",
+        "reason": "The `default_app_config` application configuration variable is removed. Django now automatically detects the `AppConfig` class with `default = True`.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.1/releases/4.1/#features-deprecated-in-4-1",
+        "api": "django.contrib.sessions.serializers.PickleSerializer",
+        "package": "django.contrib.sessions",
+        "language": "Python",
+        "deprecated_in": "4.1",
+        "removed_in": "5.0",
+        "replaced_by": "JSONSerializer",
+        "change_type": "API Deprecation",
+        "reason": "`PickleSerializer` is deprecated due to the risk of remote code execution. Use JSON serialization instead.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.1/releases/4.1/#features-deprecated-in-4-1",
+        "api": "CSRF_COOKIE_MASKED",
+        "package": "django.conf.settings",
+        "language": "Python",
+        "deprecated_in": "4.1",
+        "removed_in": "5.0",
+        "replaced_by": "",
+        "change_type": "Setting Deprecation",
+        "reason": "The `CSRF_COOKIE_MASKED` transitional setting is deprecated. `CsrfViewMiddleware` no longer masks the CSRF cookie like it does the CSRF token in the DOM.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.1/releases/4.1/#features-removed-in-4-1",
+        "api": "django.core.validators.EmailValidator",
+        "package": "django.core.validators",
+        "language": "Python",
+        "deprecated_in": "3.2",
+        "removed_in": "4.1",
+        "replaced_by": "allowlist",
+        "change_type": "Argument Removal",
+        "reason": "The `whitelist` argument and `domain_whitelist` attribute of `EmailValidator` are removed (renamed to `allowlist` in previous versions).",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.1/releases/4.1/#features-deprecated-in-4-1",
+        "api": "django.utils.functional.cached_property",
+        "package": "django.utils",
+        "language": "Python",
+        "deprecated_in": "4.1",
+        "removed_in": "5.0",
+        "replaced_by": "",
+        "change_type": "Argument Deprecation",
+        "reason": "The `name` argument of `cached_property()` is deprecated as it is unnecessary as of Python 3.6.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.1/releases/4.1/#features-deprecated-in-4-1",
+        "api": "QuerySet.iterator",
+        "package": "django.db.models",
+        "language": "Python",
+        "deprecated_in": "4.1",
+        "removed_in": "5.0",
+        "replaced_by": "chunk_size (argument)",
+        "change_type": "Usage Deprecation",
+        "reason": "Usage of `iterator()` on a queryset that prefetches related objects without providing the `chunk_size` argument is deprecated.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.0/releases/4.0/#features-removed-in-4-0",
+        "api": "django.conf.urls.url",
+        "package": "django.conf.urls",
+        "language": "Python",
+        "deprecated_in": "3.1",
+        "removed_in": "4.0",
+        "replaced_by": "django.urls.re_path",
+        "change_type": "API Removal",
+        "reason": "The `url()` alias is removed. Developers should use `re_path()` for regular expression matching or `path()` for standard routing.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "from django.conf.urls import url\nfrom . import views\n# Removed usage\n# urlpatterns = [url(r'^index/$', views.index)]\n\n# Recommended usage\nfrom django.urls import re_path\nurlpatterns = [re_path(r'^index/$', views.index)]",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.0/releases/4.0/#features-removed-in-4-0",
+        "api": "HttpRequest.is_ajax",
+        "package": "django.http",
+        "language": "Python",
+        "deprecated_in": "3.1",
+        "removed_in": "4.0",
+        "replaced_by": "request.headers.get('x-requested-with') == 'XMLHttpRequest'",
+        "change_type": "API Removal",
+        "reason": "The `is_ajax()` method relied on a jQuery-specific header behavior. It is removed in favor of explicitly checking the HTTP header.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "# Removed usage\n# if request.is_ajax():\n\n# Recommended usage\nif request.headers.get('x-requested-with') == 'XMLHttpRequest':\n    pass",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.0/releases/4.0/#features-removed-in-4-0",
+        "api": "ugettext",
+        "package": "django.utils.translation",
+        "language": "Python",
+        "deprecated_in": "3.0",
+        "removed_in": "4.0",
+        "replaced_by": "gettext",
+        "change_type": "API Removal",
+        "reason": "`ugettext()`, `ugettext_lazy()`, `ugettext_noop()`, `ungettext()`, and `ungettext_lazy()` are removed in favor of their non-u prefixed counterparts (e.g., `gettext`) as Python 3 strings are unicode by default.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "# Removed usage\nfrom django.utils.translation import ugettext as _\n\n# Recommended usage\nfrom django.utils.translation import gettext as _",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.0/releases/4.0/#features-deprecated-in-4-0",
+        "api": "pytz",
+        "package": "django",
+        "language": "Python",
+        "deprecated_in": "4.0",
+        "removed_in": "5.0",
+        "replaced_by": "zoneinfo",
+        "change_type": "API Deprecation",
+        "reason": "Support for `pytz` timezones is deprecated. Django is migrating to using the Python standard library's `zoneinfo` module as the default timezone implementation.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.0/releases/4.0/#features-removed-in-4-0",
+        "api": "NullBooleanField",
+        "package": "django.db.models",
+        "language": "Python",
+        "deprecated_in": "3.1",
+        "removed_in": "4.0",
+        "replaced_by": "BooleanField(null=True)",
+        "change_type": "API Removal",
+        "reason": "The `NullBooleanField` model field is removed. Use `BooleanField` with `null=True` instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "# Removed usage\n# field = models.NullBooleanField()\n\n# Recommended usage\nfield = models.BooleanField(null=True)",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.0/releases/4.0/#features-removed-in-4-0",
+        "api": "force_text",
+        "package": "django.utils.encoding",
+        "language": "Python",
+        "deprecated_in": "3.0",
+        "removed_in": "4.0",
+        "replaced_by": "force_str",
+        "change_type": "API Removal",
+        "reason": "`force_text()` and `smart_text()` are removed in favor of `force_str()` and `smart_str()`.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.0/releases/4.0/#features-deprecated-in-4-0",
+        "api": "USE_L10N",
+        "package": "django.conf.settings",
+        "language": "Python",
+        "deprecated_in": "4.0",
+        "removed_in": "5.0",
+        "replaced_by": "True (Default behavior)",
+        "change_type": "Setting Deprecation",
+        "reason": "`USE_L10N` is deprecated. Starting with Django 5.0, localized formatting of numbers and dates will be enabled by default.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.0/releases/4.0/#features-removed-in-4-0",
+        "api": "ifequal",
+        "package": "django.template",
+        "language": "Python (Template)",
+        "deprecated_in": "3.1",
+        "removed_in": "4.0",
+        "replaced_by": "{% if a == b %}",
+        "change_type": "Template Tag Removal",
+        "reason": "The `{% ifequal %}` and `{% ifnotequal %}` template tags are removed. Use the standard `{% if %}` tag with comparison operators instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "{% comment %} Removed usage {% endcomment %}\n{% ifequal a b %}...{% endifequal %}\n\n{% comment %} Recommended usage {% endcomment %}\n{% if a == b %}...{% endif %}",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/3.2/releases/3.2/#features-deprecated-in-3-2",
+        "api": "django.core.validators.EmailValidator",
+        "package": "django.core.validators",
+        "language": "Python",
+        "deprecated_in": "3.2",
+        "removed_in": "4.1",
+        "replaced_by": "allowlist",
+        "change_type": "Argument Rename/Deprecation",
+        "reason": "The `whitelist` argument and `domain_whitelist` attribute are deprecated in favor of `allowlist` and `domain_allowlist` respectively.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "from django.core.validators import EmailValidator\n# Deprecated usage\n# validator = EmailValidator(whitelist=['example.com'])\n\n# Recommended usage\nvalidator = EmailValidator(allowlist=['example.com'])",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/3.2/releases/3.2/#features-deprecated-in-3-2",
+        "api": "default_app_config",
+        "package": "django.apps",
+        "language": "Python",
+        "deprecated_in": "3.2",
+        "removed_in": "4.1",
+        "replaced_by": "AppConfig discovery",
+        "change_type": "Config Deprecation",
+        "reason": "The `default_app_config` variable in `__init__.py` is deprecated. Django now automatically discovers `AppConfig` classes configured with `default = True`.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "# myapp/__init__.py\n# Deprecated usage\n# default_app_config = 'myapp.apps.MyAppConfig'\n\n# Recommended usage: Set 'default = True' inside the AppConfig class in apps.py",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/3.2/releases/3.2/#features-deprecated-in-3-2",
+        "api": "django.core.cache.backends.memcached.MemcachedCache",
+        "package": "django.core.cache.backends",
+        "language": "Python",
+        "deprecated_in": "3.2",
+        "removed_in": "4.1",
+        "replaced_by": "PyMemcacheCache or PyLibMCCache",
+        "change_type": "API Deprecation",
+        "reason": "The `MemcachedCache` backend (using `python-memcached`) is deprecated as the library is unmaintained. Use `PyMemcacheCache` or `PyLibMCCache` instead.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/3.2/releases/3.2/#features-deprecated-in-3-2",
+        "api": "BaseCommand.requires_system_checks",
+        "package": "django.core.management",
+        "language": "Python",
+        "deprecated_in": "3.2",
+        "removed_in": "4.1",
+        "replaced_by": "List or Tuple of tags",
+        "change_type": "Behavior Deprecation",
+        "reason": "Using a boolean value for `requires_system_checks` is deprecated. Use `'__all__'` instead of `True`, and `[]` (empty list) instead of `False`.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "from django.core.management.base import BaseCommand\nclass Command(BaseCommand):\n    # Deprecated\n    # requires_system_checks = True\n    \n    # Recommended\n    requires_system_checks = '__all__'",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/3.2/releases/3.2/#what-s-new-in-django-3-2",
+        "api": "SessionMiddleware",
+        "package": "django.contrib.sessions.middleware",
+        "language": "Python",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "SessionInterrupted",
+        "change_type": "Behavior Change",
+        "reason": "`SessionMiddleware` now raises `SessionInterrupted` instead of `SuspiciousOperation` when a session is destroyed in a concurrent request.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/3.2/releases/3.2/#what-s-new-in-django-3-2",
+        "api": "django.core.files.locks.lock",
+        "package": "django.core.files.locks",
+        "language": "Python",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "Returns False",
+        "change_type": "Behavior Change",
+        "reason": "The `lock()` function now returns `False` if the file cannot be locked, instead of raising `BlockingIOError`.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/3.1/releases/3.1/#features-deprecated-in-3-1",
+        "api": "django.conf.urls.url",
+        "package": "django.conf.urls",
+        "language": "Python",
+        "deprecated_in": "3.1",
+        "removed_in": "4.0",
+        "replaced_by": "django.urls.re_path",
+        "change_type": "API Deprecation",
+        "reason": "The `url()` alias is deprecated in favor of `re_path()`. It remains backward compatible for now but will be removed in Django 4.0.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "# Deprecated usage\nfrom django.conf.urls import url\n# urlpatterns = [url(r'^regex/$', view)]\n\n# Recommended usage\nfrom django.urls import re_path\n# urlpatterns = [re_path(r'^regex/$', view)]",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/3.1/releases/3.1/#features-deprecated-in-3-1",
+        "api": "NullBooleanField",
+        "package": "django.db.models",
+        "language": "Python",
+        "deprecated_in": "3.1",
+        "removed_in": "4.0",
+        "replaced_by": "BooleanField(null=True)",
+        "change_type": "API Deprecation",
+        "reason": "`NullBooleanField` is deprecated. Use `BooleanField` with `null=True` instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "# Deprecated usage\n# field = models.NullBooleanField()\n\n# Recommended usage\nfield = models.BooleanField(null=True)",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/3.1/releases/3.1/#features-deprecated-in-3-1",
+        "api": "ifequal",
+        "package": "django.template",
+        "language": "Python (Template)",
+        "deprecated_in": "3.1",
+        "removed_in": "4.0",
+        "replaced_by": "{% if %}",
+        "change_type": "Template Tag Deprecation",
+        "reason": "The `{% ifequal %}` and `{% ifnotequal %}` template tags are deprecated. Use the `{% if %}` tag with comparison operators (`==`, `!=`) instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "{% comment %} Deprecated usage {% endcomment %}\n{% ifequal a b %}...{% endifequal %}\n\n{% comment %} Recommended usage {% endcomment %}\n{% if a == b %}...{% endif %}",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/3.1/releases/3.1/#features-deprecated-in-3-1",
+        "api": "django.contrib.postgres.fields.JSONField",
+        "package": "django.contrib.postgres.fields",
+        "language": "Python",
+        "deprecated_in": "3.1",
+        "removed_in": "4.0",
+        "replaced_by": "django.db.models.JSONField",
+        "change_type": "API Deprecation",
+        "reason": "The PostgreSQL-specific `JSONField` is deprecated in favor of the new database-agnostic `django.db.models.JSONField`.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/3.1/releases/3.1/#features-deprecated-in-3-1",
+        "api": "HttpRequest.is_ajax",
+        "package": "django.http",
+        "language": "Python",
+        "deprecated_in": "3.1",
+        "removed_in": "4.0",
+        "replaced_by": "request.headers.get('x-requested-with') == 'XMLHttpRequest'",
+        "change_type": "API Deprecation",
+        "reason": "`request.is_ajax()` is deprecated as it relies on a jQuery-specific header. Developers should check the `x-requested-with` header explicitly or use `request.accepts()`.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "# Deprecated usage\n# if request.is_ajax():\n\n# Recommended usage\nif request.headers.get('x-requested-with') == 'XMLHttpRequest':\n    pass",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/3.1/releases/3.1/#features-deprecated-in-3-1",
+        "api": "DEFAULT_HASHING_ALGORITHM",
+        "package": "django.conf.settings",
+        "language": "Python",
+        "deprecated_in": "3.1",
+        "removed_in": "4.0",
+        "replaced_by": "",
+        "change_type": "Setting Deprecation",
+        "reason": "The `DEFAULT_HASHING_ALGORITHM` transitional setting is deprecated and will be removed in Django 4.0.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/3.1/releases/3.1/#features-deprecated-in-3-1",
+        "api": "PASSWORD_RESET_TIMEOUT_DAYS",
+        "package": "django.conf.settings",
+        "language": "Python",
+        "deprecated_in": "3.1",
+        "removed_in": "4.0",
+        "replaced_by": "PASSWORD_RESET_TIMEOUT",
+        "change_type": "Setting Deprecation",
+        "reason": "`PASSWORD_RESET_TIMEOUT_DAYS` is deprecated in favor of `PASSWORD_RESET_TIMEOUT`.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/3.1/releases/3.1/#features-deprecated-in-3-1",
+        "api": "django.utils.crypto.get_random_string",
+        "package": "django.utils.crypto",
+        "language": "Python",
+        "deprecated_in": "3.1",
+        "removed_in": "4.0",
+        "replaced_by": "length argument",
+        "change_type": "Argument Deprecation",
+        "reason": "Calling `get_random_string()` without a `length` argument is deprecated.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/3.0/releases/3.0/#features-removed-in-3-0",
+        "api": "django.shortcuts.render_to_response",
+        "package": "django.shortcuts",
+        "language": "Python",
+        "deprecated_in": "2.0",
+        "removed_in": "3.0",
+        "replaced_by": "django.shortcuts.render",
+        "change_type": "API Removal",
+        "reason": "`render_to_response()` is removed. It was superseded by `render()`, which accepts the request object and is more flexible.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "# Removed usage\nreturn render_to_response('template.html', {'context': 'value'})\n\n# Recommended usage\nreturn render(request, 'template.html', {'context': 'value'})",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/3.0/releases/3.0/#features-deprecated-in-3-0",
+        "api": "force_text",
+        "package": "django.utils.encoding",
+        "language": "Python",
+        "deprecated_in": "3.0",
+        "removed_in": "4.0",
+        "replaced_by": "force_str",
+        "change_type": "API Deprecation",
+        "reason": "`force_text()` and `smart_text()` are deprecated. Since Python 2 support is dropped, they are aliases for `force_str()` and `smart_str()`, which should be used instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "from django.utils.encoding import force_text\n# Deprecated usage\nval = force_text(some_bytes)\n\n# Recommended usage\nfrom django.utils.encoding import force_str\nval = force_str(some_bytes)",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/3.0/releases/3.0/#features-deprecated-in-3-0",
+        "api": "ugettext",
+        "package": "django.utils.translation",
+        "language": "Python",
+        "deprecated_in": "3.0",
+        "removed_in": "4.0",
+        "replaced_by": "gettext",
+        "change_type": "API Deprecation",
+        "reason": "`ugettext()`, `ugettext_lazy()`, etc. are deprecated. In Python 3, strings are Unicode by default, so the non-u-prefixed functions (e.g., `gettext`) should be used.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "# Deprecated usage\nfrom django.utils.translation import ugettext as _\n\n# Recommended usage\nfrom django.utils.translation import gettext as _",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/3.0/releases/3.0/#features-removed-in-3-0",
+        "api": "staticfiles",
+        "package": "django.templatetags",
+        "language": "Python (Template)",
+        "deprecated_in": "2.1",
+        "removed_in": "3.0",
+        "replaced_by": "static",
+        "change_type": "Template Tag Removal",
+        "reason": "The `staticfiles` template tag library is removed. Users should load the `static` library instead (`{% load static %}`).",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "{% comment %} Removed usage {% endcomment %}\n{% load staticfiles %}\n\n{% comment %} Recommended usage {% endcomment %}\n{% load static %}",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/3.0/releases/3.0/#features-deprecated-in-3-0",
+        "api": "django.utils.http.urlquote",
+        "package": "django.utils.http",
+        "language": "Python",
+        "deprecated_in": "3.0",
+        "removed_in": "4.0",
+        "replaced_by": "urllib.parse.quote",
+        "change_type": "API Deprecation",
+        "reason": "`urlquote()`, `urlquote_plus()`, etc. are deprecated. They were aliases for `urllib.parse` functions which should be used directly.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/2.2/releases/2.2/#features-deprecated-in-2-2",
+        "api": "Meta.ordering",
+        "package": "django.db.models",
+        "language": "Python",
+        "deprecated_in": "2.2",
+        "removed_in": "3.1",
+        "replaced_by": "QuerySet.order_by()",
+        "change_type": "Behavior Deprecation",
+        "reason": "A model's `Meta.ordering` affecting GROUP BY queries (such as `.annotate().values()`) is deprecated as it causes confusion. Users should explicitly call `.order_by()` to retain the current query behavior.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "# Deprecated behavior: Implicit ordering in group by\n# Model.objects.values('field').annotate(count=Count('id'))\n\n# Recommended usage: Explicit ordering\nModel.objects.values('field').annotate(count=Count('id')).order_by('field')",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/2.2/releases/2.2/#features-deprecated-in-2-2",
+        "api": "django.contrib.staticfiles.storage.CachedStaticFilesStorage",
+        "package": "django.contrib.staticfiles",
+        "language": "Python",
+        "deprecated_in": "2.2",
+        "removed_in": "3.1",
+        "replaced_by": "ManifestStaticFilesStorage",
+        "change_type": "API Deprecation",
+        "reason": "`CachedStaticFilesStorage` is deprecated due to intractable problems (e.g. hash collisions). Use `ManifestStaticFilesStorage` or a third-party cloud storage backend instead.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/2.2/releases/2.2/#features-deprecated-in-2-2",
+        "api": "FILE_CHARSET",
+        "package": "django.conf.settings",
+        "language": "Python",
+        "deprecated_in": "2.2",
+        "removed_in": "3.1",
+        "replaced_by": "UTF-8 (Standard)",
+        "change_type": "Setting Deprecation",
+        "reason": "The `FILE_CHARSET` setting is deprecated. Starting with Django 3.1, files read from disk must be UTF-8 encoded.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/2.2/releases/2.2/#features-deprecated-in-2-2",
+        "api": "django.utils.timezone.FixedOffset",
+        "package": "django.utils.timezone",
+        "language": "Python",
+        "deprecated_in": "2.2",
+        "removed_in": "3.1",
+        "replaced_by": "datetime.timezone",
+        "change_type": "API Deprecation",
+        "reason": "`FixedOffset` is deprecated in favor of the standard library's `datetime.timezone`.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/2.2/releases/2.2/#features-deprecated-in-2-2",
+        "api": "allow_database_queries",
+        "package": "django.test",
+        "language": "Python",
+        "deprecated_in": "2.2",
+        "removed_in": "3.1",
+        "replaced_by": "databases",
+        "change_type": "API Deprecation",
+        "reason": "`SimpleTestCase.allow_database_queries`, `TransactionTestCase.multi_db`, and `TestCase.multi_db` are deprecated in favor of the `databases` attribute (e.g., `databases = '__all__'`).",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "from django.test import TestCase\nclass MyTest(TestCase):\n    # Deprecated\n    # multi_db = True\n    \n    # Recommended\n    databases = '__all__'",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/2.2/releases/2.2/#features-deprecated-in-2-2",
+        "api": "FloatRangeField",
+        "package": "django.contrib.postgres.fields",
+        "language": "Python",
+        "deprecated_in": "2.2",
+        "removed_in": "3.1",
+        "replaced_by": "DecimalRangeField",
+        "change_type": "API Deprecation",
+        "reason": "`FloatRangeField` is deprecated in favor of `DecimalRangeField` to better match the underlying `numrange` data type in PostgreSQL.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/2.1/releases/2.1/#features-removed-in-2-1",
+        "api": "django.contrib.auth.views",
+        "package": "django.contrib.auth",
+        "language": "Python",
+        "deprecated_in": "1.11",
+        "removed_in": "2.1",
+        "replaced_by": "Class-based views",
+        "change_type": "API Removal",
+        "reason": "Function-based views `login()`, `logout()`, `password_change()`, etc., are removed. Use class-based views like `LoginView`, `LogoutView`, etc., instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "# Removed usage\n# from django.contrib.auth.views import login\n\n# Recommended usage\nfrom django.contrib.auth.views import LoginView",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/2.1/releases/2.1/#features-removed-in-2-1",
+        "api": "django.db.models.permalink",
+        "package": "django.db.models",
+        "language": "Python",
+        "deprecated_in": "1.11",
+        "removed_in": "2.1",
+        "replaced_by": "django.urls.reverse",
+        "change_type": "API Removal",
+        "reason": "The `@permalink` decorator is removed. Use `django.urls.reverse()` within the method instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "# Removed usage\n# @permalink\n# def get_absolute_url(self):\n#     return ('view_name', [self.id])\n\n# Recommended usage\nfrom django.urls import reverse\ndef get_absolute_url(self):\n    return reverse('view_name', args=[self.id])",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/2.1/releases/2.1/#features-deprecated-in-2-1",
+        "api": "django.utils.http.cookie_date",
+        "package": "django.utils.http",
+        "language": "Python",
+        "deprecated_in": "2.1",
+        "removed_in": "3.0",
+        "replaced_by": "http_date",
+        "change_type": "API Deprecation",
+        "reason": "`cookie_date()` is deprecated in favor of `http_date()`, which follows the format of the latest RFC.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/2.1/releases/2.1/#features-deprecated-in-2-1",
+        "api": "ForceRHR",
+        "package": "django.contrib.gis",
+        "language": "Python",
+        "deprecated_in": "2.1",
+        "removed_in": "3.0",
+        "replaced_by": "ForcePolygonCW",
+        "change_type": "API Deprecation",
+        "reason": "The `ForceRHR` GIS function is deprecated in favor of the new `ForcePolygonCW` function.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/2.1/releases/2.1/#features-deprecated-in-2-1",
+        "api": "staticfiles",
+        "package": "django.templatetags",
+        "language": "Python (Template)",
+        "deprecated_in": "2.1",
+        "removed_in": "3.0",
+        "replaced_by": "static",
+        "change_type": "Template Tag Deprecation",
+        "reason": "`{% load staticfiles %}` and `{% load admin_static %}` are deprecated. Use `{% load static %}` instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "{% comment %} Deprecated usage {% endcomment %}\n{% load staticfiles %}\n\n{% comment %} Recommended usage {% endcomment %}\n{% load static %}",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/2.1/releases/2.1/#features-removed-in-2-1",
+        "api": "Widget.render",
+        "package": "django.forms",
+        "language": "Python",
+        "deprecated_in": "1.11",
+        "removed_in": "2.1",
+        "replaced_by": "renderer argument",
+        "change_type": "Argument Removal",
+        "reason": "Support for `Widget.render()` methods without the `renderer` argument is removed.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/2.0/releases/2.0/#features-removed-in-2-0",
+        "api": "django.core.urlresolvers",
+        "package": "django.core",
+        "language": "Python",
+        "deprecated_in": "1.10",
+        "removed_in": "2.0",
+        "replaced_by": "django.urls",
+        "change_type": "API Removal",
+        "reason": "The `django.core.urlresolvers` module is removed. Use `django.urls` instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "# Removed usage\n# from django.core.urlresolvers import reverse\n\n# Recommended usage\nfrom django.urls import reverse",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/2.0/releases/2.0/#features-removed-in-2-0",
+        "api": "on_delete",
+        "package": "django.db.models",
+        "language": "Python",
+        "deprecated_in": "1.9",
+        "removed_in": "2.0",
+        "replaced_by": "Required Argument",
+        "change_type": "Argument Change",
+        "reason": "The `on_delete` argument for `ForeignKey` and `OneToOneField` is now required. It no longer defaults to `CASCADE`.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "# Removed usage (implicit CASCADE)\n# field = models.ForeignKey(Model)\n\n# Recommended usage\nfield = models.ForeignKey(Model, on_delete=models.CASCADE)",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/2.0/releases/2.0/#features-deprecated-in-2-0",
+        "api": "django.shortcuts.render_to_response",
+        "package": "django.shortcuts",
+        "language": "Python",
+        "deprecated_in": "2.0",
+        "removed_in": "3.0",
+        "replaced_by": "django.shortcuts.render",
+        "change_type": "API Deprecation",
+        "reason": "`render_to_response()` is deprecated in favor of `render()`, which takes the request as the first argument and is more flexible.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "# Deprecated usage\nreturn render_to_response('template.html', {'context': 'value'})\n\n# Recommended usage\nreturn render(request, 'template.html', {'context': 'value'})",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/2.0/releases/2.0/#features-removed-in-2-0",
+        "api": "MIDDLEWARE_CLASSES",
+        "package": "django.conf.settings",
+        "language": "Python",
+        "deprecated_in": "1.10",
+        "removed_in": "2.0",
+        "replaced_by": "MIDDLEWARE",
+        "change_type": "Setting Removal",
+        "reason": "Support for the old-style `MIDDLEWARE_CLASSES` setting is removed. Use the new `MIDDLEWARE` setting.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/2.0/releases/2.0/#features-removed-in-2-0",
+        "api": "User.is_authenticated",
+        "package": "django.contrib.auth.models",
+        "language": "Python",
+        "deprecated_in": "1.10",
+        "removed_in": "2.0",
+        "replaced_by": "Property Access",
+        "change_type": "Behavior Change",
+        "reason": "Using `User.is_authenticated()` and `User.is_anonymous()` as methods is no longer supported. They must be treated as properties (without parentheses).",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "# Removed usage\n# if user.is_authenticated():\n\n# Recommended usage\nif user.is_authenticated:",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/2.0/releases/2.0/#features-removed-in-2-0",
+        "api": "assignment_tag",
+        "package": "django.template.Library",
+        "language": "Python",
+        "deprecated_in": "1.9",
+        "removed_in": "2.0",
+        "replaced_by": "simple_tag",
+        "change_type": "API Removal",
+        "reason": "The `assignment_tag` helper is removed. Use `simple_tag` which can now store results in a context variable.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/2.0/releases/2.0/#features-deprecated-in-2-0",
+        "api": "DEFAULT_CONTENT_TYPE",
+        "package": "django.conf.settings",
+        "language": "Python",
+        "deprecated_in": "2.0",
+        "removed_in": "3.0",
+        "replaced_by": "",
+        "change_type": "Setting Deprecation",
+        "reason": "The `DEFAULT_CONTENT_TYPE` setting is deprecated. It is obsolete since HTML5 has largely superseded XHTML.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.2/ref/django-admin/#usage",
+        "api": "django-admin",
+        "package": "django",
+        "language": "Python",
+        "deprecated_in": "4.2.0",
+        "removed_in": "",
+        "replaced_by": "manage.py",
+        "change_type": "Behavior Change",
+        "reason": "Behavior recommendation: `manage.py` is a preferred entry point due to its automatic handling of the `DJANGO_SETTINGS_MODULE` environment variable.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "No Examples"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.2/ref/checks/",
+        "api": "NullBooleanField",
+        "package": "django.db.models.fields",
+        "language": "Python",
+        "deprecated_in": "4.2.0",
+        "removed_in": "",
+        "replaced_by": "BooleanField",
+        "change_type": "API Deprecation",
+        "reason": "Enhance clarity and compatibility with database features. Switching to `BooleanField` allows support for null values without needing a separate field type.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "No Examples"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.2/ref/exceptions/#suspiciousoperation",
+        "api": "SuspiciousOperation",
+        "package": "django.core.exceptions",
+        "language": "Python",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The SuspiciousOperation exception was updated to be raised when too many files are submitted, enhancing security.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "No Examples"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.2/ref/migration-operations/#alterindextogether",
+        "api": "AlterIndexTogether",
+        "package": "django.db.migrations.operations",
+        "language": "Python",
+        "deprecated_in": "4.2.0",
+        "removed_in": "",
+        "replaced_by": "AddIndex, RemoveIndex",
+        "change_type": "API Deprecation",
+        "reason": "AlterIndexTogether is officially supported only for pre-Django 4.2 migrations. For future migrations, developers are encouraged to use AddIndex and RemoveIndex for better flexibility and compatibility.",
+        "has_examples": true,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.2/ref/settings/#csrf-cookie-masked",
+        "api": "CSRF_COOKIE_MASKED",
+        "package": "django.middleware.csrf",
+        "language": "Python",
+        "deprecated_in": "4.2.0",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "API Deprecation",
+        "reason": "The `CSRF_COOKIE_MASKED` setting will no longer be supported in favor of removing transitional behavior associated with masked cookies.",
+        "has_examples": true,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.2/ref/urls/",
+        "api": "re_path",
+        "package": "django.urls",
+        "language": "Python",
+        "deprecated_in": "2.2.25",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Prior to Django 2.2.25, `re_path` did not require a full match for a route ending with `$`. This behavior was changed to enforce stricter matching with `re.fullmatch()`.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "from django.db import models\nfrom django.views import View\n,\n,",
+                "output": "from django.urls import include, path\n\nurlpatterns = [\n    path(\"index/\", views.index, name=\"main-view\"),\n    path(\"bio/<username>/\", views.bio, name=\"bio\"),\n    path(\"articles/<slug:title>/\", views.article, name=\"article-detail\"),\n    path(\"articles/<slug:title>/<int:section>/\", views.section, name=\"article-section\"),\n    path(\"blog/\", include(\"blog.urls\")),\n]\n\n\nfrom django.urls import include, re_path\n\nurlpatterns = [\n    re_path(r\"^index/$\", views.index, name=\"index\"),\n    re_path(r\"^bio/(?P<username>\\w+)/$\", views.bio, name=\"bio\"),\n    re_path(r\"^blog/\", include(\"blog.urls\")),\n]\n\n\nfrom django.conf import settings\nfrom django.conf.urls.static import static\n\nurlpatterns = [\n    # ... the rest of your URLconf goes here ...\n] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.2/ref/utils/#django.utils.functional.cached_property",
+        "api": "cached_property",
+        "package": "django.utils.functional",
+        "language": "Python",
+        "deprecated_in": "3.6.0",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "API Deprecation",
+        "reason": "The 'name' parameter is unnecessary as of Python 3.6 and will no longer be supported.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "from django.db import models\nfrom django.views import View\nfeed = feedgenerator.Rss201rev2Feed(\ntitle=\"Poynter E-Media Tidbits\",\nlink=\"http://www.poynter.org/column.asp?id=31\",\ndescription=\"A group blog by the sharpest minds in online media/journalism/publishing.\",\nlanguage=\"en\",\n)\nfeed.add_item(\ntitle=\"Hello\",\nlink=\"http://www.holovaty.com/test/\",\ndescription=\"Testing.\",\n)\nwith open(\"test.rss\", \"w\") as fp:\nfeed.write(fp, \"utf-8\")\n",
+                "output": ""
+            },
+            {
+                "code": "from django.db import models\nfrom django.views import View\nfeed = feedgenerator.Rss201rev2Feed(\ntitle=\"Poynter E-Media Tidbits\",\nlink=\"http://www.poynter.org/column.asp?id=31\",\ndescription=\"A group blog by the sharpest minds in online media/journalism/publishing.\",\nlanguage=\"en\",\n)\nfeed.add_item(\ntitle=\"Hello\",\nlink=\"http://www.holovaty.com/test/\",\ndescription=\"Testing.\",\n)\nwith open(\"test.rss\", \"w\") as fp:\nfeed.write(fp, \"utf-8\")\n\n\n\n\n\n\n\n\n\n\n\n",
+                "output": "# the model\nclass Person(models.Model):\n    def friends(self):\n        # expensive computation\n        return friends\n\n\n# in the view:\nif person.friends():\n\n\n# the model\nclass Person(models.Model):\n    def friends(self):\n        # expensive computation\n        return friends\n\n\n# in the view:\nif person.friends():\n\n{% for friend in person.friends %}\n\n\n{% for friend in person.friends %}\n\n\nfrom django.utils.functional import cached_property\n\n\nclass Person(models.Model):\n    @cached_property\n    def friends(self):\n\n# in the view:\nif person.friends:\n\n\n# in the view:\nif person.friends:\n\n# clear it, requiring re-computation next time it's called\ndel person.friends  # or delattr(person, \"friends\")\n\n# set a value manually, that will persist on the instance until cleared\nperson.friends = [\"Huckleberry Finn\", \"Tom Sawyer\"]\n\n\n# clear it, requiring re-computation next time it's called\ndel person.friends  # or delattr(person, \"friends\")\n\n# set a value manually, that will persist on the instance until cleared\nperson.friends = [\"Huckleberry Finn\", \"Tom Sawyer\"]\n\nfriends = cached_property(get_friends)\n\n\nfriends = cached_property(get_friends)\n\nx = person.friends  # calls first time\ny = person.get_friends()  # calls again\nz = person.friends  # does not call\nx is z  # is True\n\n\nx = person.friends  # calls first time\ny = person.get_friends()  # calls again\nz = person.friends  # does not call\nx is z  # is True\n\n\nfrom django.utils.functional import keep_lazy, keep_lazy_text\n\n\ndef fancy_utility_function(s, *args, **kwargs):\n    # Do some conversion on string 's'\n\n\nfancy_utility_function = keep_lazy(str)(fancy_utility_function)\n\n\n# Or more succinctly:\n@keep_lazy(str)\ndef fancy_utility_function(s, *args, **kwargs):\n\n\nfrom django.utils.functional import keep_lazy, keep_lazy_text\n\n\n# Our previous example was:\n@keep_lazy(str)\ndef fancy_utility_function(s, *args, **kwargs):\n\n\n# Which can be rewritten as:\n@keep_lazy_text\ndef fancy_utility_function(s, *args, **kwargs):\n\nmark_safe(\n    \"%s <b>%s</b> %s\"\n    % (\n        some_html,\n        escape(some_text),\n        escape(some_other_text),\n    )\n)\n\n\nmark_safe(\n    \"%s <b>%s</b> %s\"\n    % (\n        some_html,\n        escape(some_text),\n        escape(some_other_text),\n    )\n)\n\nformat_html(\n    \"{} <b>{}</b> {}\",\n    mark_safe(some_html),\n    some_text,\n    some_other_text,\n)\n\n\nformat_html(\n    \"{} <b>{}</b> {}\",\n    mark_safe(some_html),\n    some_text,\n    some_other_text,\n)\n\nformat_html_join(\"\\n\", \"<li>{} {}</li>\", ((u.first_name, u.last_name) for u in users))\n\n\nformat_html_join(\"\\n\", \"<li>{} {}</li>\", ((u.first_name, u.last_name) for u in users))"
+            },
+            {
+                "code": "from django.db import models\nfrom django.views import View\njson_script({\"hello\": \"world\"}, element_id=\"hello-data\")",
+                "output": "'<script id=\"hello-data\" type=\"application/json\">{\"hello\": \"world\"}</script>'"
+            },
+            {
+                "code": "from django.db import models\nfrom django.views import View\njson_script({\"hello\": \"world\"}, element_id=\"hello-data\")",
+                "output": "'<script id=\"hello-data\" type=\"application/json\">{\"hello\": \"world\"}</script>'\n\nstrip_tags(value)\n\n\nstrip_tags(value)\n\n\nfrom django.utils.module_loading import import_string\n\nValidationError = import_string(\"django.core.exceptions.ValidationError\")\n\n\nfrom django.core.exceptions import ValidationError"
+            },
+            {
+                "code": "from django.db import models\nfrom django.views import View\nmystr = \"<b>Hello World</b>   \"",
+                "output": ""
+            },
+            {
+                "code": "from django.db import models\nfrom django.views import View\nmystr = mark_safe(mystr)\ntype(mystr)",
+                "output": "<class 'django.utils.safestring.SafeString'>"
+            },
+            {
+                "code": "from django.db import models\nfrom django.views import View\nmystr = mystr.strip()  # removing whitespace\ntype(mystr)",
+                "output": "<type 'str'>"
+            },
+            {
+                "code": "from django.db import models\nfrom django.views import View\nmystr = \"<b>Hello World</b>   \"",
+                "output": ""
+            },
+            {
+                "code": "from django.db import models\nfrom django.views import View\nmystr = mark_safe(mystr)\ntype(mystr)",
+                "output": "<class 'django.utils.safestring.SafeString'>"
+            },
+            {
+                "code": "from django.db import models\nfrom django.views import View\nmystr = mystr.strip()  # removing whitespace\ntype(mystr)\nslugify(\" Joel is a slug \")\nslugify(\" Joel is a slug \")",
+                "output": "<type 'str'>\n\n\nfrom django.utils.text import format_lazy\nfrom django.utils.translation import pgettext_lazy\n\nurlpatterns = [\n    path(\n        format_lazy(\"{person}/<int:pk>/\", person=pgettext_lazy(\"URL\", \"person\")),\n        PersonDetailView.as_view(),\n    ),\n]\n\n'joel-is-a-slug'\n\n\n'joel-is-a-slug'"
+            },
+            {
+                "code": "from django.db import models\nfrom django.views import View\nslugify(\"你好 World\", allow_unicode=True)",
+                "output": "'你好-world'"
+            },
+            {
+                "code": "from django.db import models\nfrom django.views import View\nslugify(\"你好 World\", allow_unicode=True)",
+                "output": "'你好-world'"
+            }
+        ],
+        "examples_count": 12,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/4.2/ref/validators/#emailvalidator",
+        "api": "EmailValidator",
+        "package": "django.core.validators",
+        "language": "Python",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Values longer than 320 characters are now considered invalid, improving consistency and adherence to email validation standards.",
+        "has_examples": true,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/5.2/ref/checks/",
+        "api": "IPAddressField",
+        "package": "django.db.models",
+        "language": "Python",
+        "deprecated_in": "5.1.0",
+        "removed_in": "5.2.0",
+        "replaced_by": "GenericIPAddressField",
+        "change_type": "API Removal",
+        "reason": "The field has been deprecated and subsequently removed for better consistency and to encourage use of GenericIPAddressField.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "No Examples"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/5.2/ref/django-admin/#runserver",
+        "api": "runserver",
+        "package": "django-admin",
+        "language": "Python",
+        "deprecated_in": "5.2.0",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "API Deprecation",
+        "reason": "The `runserver` command is intended for development and is unsuitable for use in production settings due to lack of security audits and performance testing.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "No Examples"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/5.2/ref/urls/#register_converter",
+        "api": "register_converter",
+        "package": "django.urls",
+        "language": "Python",
+        "deprecated_in": "5.2.0",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "API Deprecation",
+        "reason": "Overriding existing converters was identified as unnecessary and potentially confusing for developers.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "from django.db import models\nfrom django.views import View\n,\n,",
+                "output": "from django.urls import include, path\n\nurlpatterns = [\n    path(\"index/\", views.index, name=\"main-view\"),\n    path(\"bio/<username>/\", views.bio, name=\"bio\"),\n    path(\"articles/<slug:title>/\", views.article, name=\"article-detail\"),\n    path(\"articles/<slug:title>/<int:section>/\", views.section, name=\"article-section\"),\n    path(\"blog/\", include(\"blog.urls\")),\n]\n\n\nfrom django.urls import include, re_path\n\nurlpatterns = [\n    re_path(r\"^index/$\", views.index, name=\"index\"),\n    re_path(r\"^bio/(?P<username>\\w+)/$\", views.bio, name=\"bio\"),\n    re_path(r\"^blog/\", include(\"blog.urls\")),\n]\n\n\nfrom django.conf import settings\nfrom django.conf.urls.static import static\n\nurlpatterns = [\n    # ... the rest of your URLconf goes here ...\n] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/5.1/ref/applications/#django.apps.AppConfig.default",
+        "api": "django.apps.AppConfig.default",
+        "package": "django.apps",
+        "language": "Python",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The attribute behavior was updated to differentiate application configurations when multiple configurations are declared in apps.py for better user override behavior.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "from django.db import models\nfrom django.views import View\napps.get_app_config(\"admin\").verbose_name\n,\n,\n,\n,",
+                "output": "'Administration'\n\nINSTALLED_APPS = [\n    \"polls.apps.PollsAppConfig\",\n]\n\n\nINSTALLED_APPS = [\n    \"polls.apps.PollsAppConfig\",\n]\n\n# rock_n_roll/apps.py\n\nfrom django.apps import AppConfig\n\n\nclass RockNRollConfig(AppConfig):\n    name = \"rock_n_roll\"\n    verbose_name = \"Rock ’n’ roll\"\n\n\n# rock_n_roll/apps.py\n\nfrom django.apps import AppConfig\n\n\nclass RockNRollConfig(AppConfig):\n    name = \"rock_n_roll\"\n    verbose_name = \"Rock ’n’ roll\"\n\n\nfrom django.apps import apps as django_apps\n\n# anthology/apps.py\n\nfrom rock_n_roll.apps import RockNRollConfig\n\n\nclass JazzManoucheConfig(RockNRollConfig):\n    verbose_name = \"Jazz Manouche\"\n\n\n# anthology/settings.py\n\nINSTALLED_APPS = [\n    \"anthology.apps.JazzManoucheConfig\",\n    # ...\n]\n\n\n# anthology/apps.py\n\nfrom rock_n_roll.apps import RockNRollConfig\n\n\nclass JazzManoucheConfig(RockNRollConfig):\n    verbose_name = \"Jazz Manouche\"\n\n\n# anthology/settings.py\n\nINSTALLED_APPS = [\n    \"anthology.apps.JazzManoucheConfig\",\n    # ...\n]\n\n\nfrom django.apps import AppConfig\nfrom django.db.models.signals import pre_save\n\n\nclass RockNRollConfig(AppConfig):\n    # ...\n\n    def ready(self):\n        # importing model classes\n        from .models import MyModel  # or...\n\n        MyModel = self.get_model(\"MyModel\")\n\n        # registering signals with the model's string label\n        pre_save.connect(receiver, sender=\"app_label.MyModel\")\n\n\nclass LocationForm(forms.Form):\n    country = forms.ChoiceField(choices=[c.name for c in Country.objects.all()])\n\n\nclass LocationForm(forms.Form):\n    country = forms.ModelChoiceField(queryset=Country.objects.all())"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/5.1/ref/databases/#postgresql-notes",
+        "api": "psycopg2",
+        "package": "django.db.backends.postgresql",
+        "language": "Python",
+        "deprecated_in": "5.1.0",
+        "removed_in": "",
+        "replaced_by": "psycopg 3",
+        "change_type": "API Deprecation",
+        "reason": "psycopg2 is likely to be deprecated to make way for the improved functionality and performance provided by psycopg 3.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "from django.db import models\nfrom django.views import View\nUser.objects.create(username=\"alice\", pk=1)\n# The sequence hasn't been updated; its next value is 1.",
+                "output": "<User: alice>"
+            },
+            {
+                "code": "from django.db import models\nfrom django.views import View\nUser.objects.create(username=\"bob\")",
+                "output": "IntegrityError: duplicate key value violates unique constraint\n\"auth_user_pkey\" DETAIL:  Key (id)=(1) already exists."
+            },
+            {
+                "code": "from django.db import models\nfrom django.views import View\nUser.objects.create(username=\"alice\", pk=1)\n# The sequence hasn't been updated; its next value is 1.",
+                "output": "<User: alice>"
+            },
+            {
+                "code": "from django.db import models\nfrom django.views import View\nUser.objects.create(username=\"bob\")\n\n",
+                "output": "IntegrityError: duplicate key value violates unique constraint\n\"auth_user_pkey\" DETAIL:  Key (id)=(1) already exists.\n\nCREATE DATABASE <dbname> CHARACTER SET utf8;\n\n\nCREATE DATABASE <dbname> CHARACTER SET utf8;\n\n# settings.py\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.mysql\",\n        \"OPTIONS\": {\n            \"read_default_file\": \"/path/to/my.cnf\",\n        },\n    }\n}\n\n\n# settings.py\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.mysql\",\n        \"OPTIONS\": {\n            \"read_default_file\": \"/path/to/my.cnf\",\n        },\n    }\n}\n\n# my.cnf\n[client]\ndatabase = NAME\nuser = USER\npassword = PASSWORD\ndefault-character-set = utf8\n\n\n# my.cnf\n[client]\ndatabase = NAME\nuser = USER\npassword = PASSWORD\ndefault-character-set = utf8\n\nALTER TABLE <tablename> ENGINE=INNODB;\n\n\nALTER TABLE <tablename> ENGINE=INNODB;\n\n\"OPTIONS\": {\n    \"init_command\": \"SET default_storage_engine=INNODB\",\n}\n\n\n\"OPTIONS\": {\n    \"init_command\": \"SET default_storage_engine=INNODB\",\n}\n\nALTER TABLE `your_table` MODIFY `your_datetime_column` DATETIME(6)\n\n\nALTER TABLE `your_table` MODIFY `your_datetime_column` DATETIME(6)\n\n\"OPTIONS\": {\n    # ...\n    \"timeout\": 20,\n    # ...\n}\n\n\n\"OPTIONS\": {\n    # ...\n    \"timeout\": 20,\n    # ...\n}\n\n\"OPTIONS\": {\n    # ...\n    \"transaction_mode\": \"IMMEDIATE\",\n    # ...\n}\n\n\n\"OPTIONS\": {\n    # ...\n    \"transaction_mode\": \"IMMEDIATE\",\n    # ...\n}\n\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.sqlite3\",\n        # ...\n        \"OPTIONS\": {\n            \"init_command\": \"PRAGMA synchronous=3; PRAGMA cache_size=2000;\",\n        },\n    }\n}\n\n\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.sqlite3\",\n        # ...\n        \"OPTIONS\": {\n            \"init_command\": \"PRAGMA synchronous=3; PRAGMA cache_size=2000;\",\n        },\n    }\n}\n\nGRANT EXECUTE ON SYS.DBMS_LOB TO user;\nGRANT EXECUTE ON SYS.DBMS_RANDOM TO user;\n\n\nGRANT EXECUTE ON SYS.DBMS_LOB TO user;\nGRANT EXECUTE ON SYS.DBMS_RANDOM TO user;\n\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.oracle\",\n        \"NAME\": \"xe\",\n        \"USER\": \"a_user\",\n        \"PASSWORD\": \"a_password\",\n        \"HOST\": \"\",\n        \"PORT\": \"\",\n    }\n}\n\n\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.oracle\",\n        \"NAME\": \"xe\",\n        \"USER\": \"a_user\",\n        \"PASSWORD\": \"a_password\",\n        \"HOST\": \"\",\n        \"PORT\": \"\",\n    }\n}\n\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.oracle\",\n        \"NAME\": \"xe\",\n        \"USER\": \"a_user\",\n        \"PASSWORD\": \"a_password\",\n        \"HOST\": \"dbprod01ned.mycompany.com\",\n        \"PORT\": \"1540\",\n    }\n}\n\n\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.oracle\",\n        \"NAME\": \"xe\",\n        \"USER\": \"a_user\",\n        \"PASSWORD\": \"a_password\",\n        \"HOST\": \"dbprod01ned.mycompany.com\",\n        \"PORT\": \"1540\",\n    }\n}\n\n\"NAME\": \"localhost:1521/orclpdb1\"\n\n\n\"NAME\": \"localhost:1521/orclpdb1\"\n\n\"NAME\": (\n    \"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))\"\n    \"(CONNECT_DATA=(SERVICE_NAME=orclpdb1)))\"\n)\n\n\n\"NAME\": (\n    \"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))\"\n    \"(CONNECT_DATA=(SERVICE_NAME=orclpdb1)))\"\n)\n\n\"OPTIONS\": {\n    \"threaded\": True,\n}\n\n\n\"OPTIONS\": {\n    \"threaded\": True,\n}\n\n\"OPTIONS\": {\n    \"use_returning_into\": False,\n}\n\n\n\"OPTIONS\": {\n    \"use_returning_into\": False,\n}\n\n\nclass LegacyModel(models.Model):\n    class Meta:\n        db_table = '\"name_left_in_lowercase\"'\n\n\nclass ForeignModel(models.Model):\n    class Meta:\n        db_table = '\"OTHER_USER\".\"NAME_ONLY_SEEMS_OVER_30\"'\n\nmysite/\n    mydbengine/\n        __init__.py\n        base.py\n\n\nmysite/\n    mydbengine/\n        __init__.py\n        base.py\n\n\nfrom django.db.backends.postgresql import base, features\n\n\nclass DatabaseFeatures(features.DatabaseFeatures):\n    def allows_group_by_selected_pks_on_model(self, model):\n        return True\n\n\nclass DatabaseWrapper(base.DatabaseWrapper):\n    features_class = DatabaseFeatures\n\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"mydbengine\",\n        # ...\n    },\n}\n\n\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"mydbengine\",\n        # ...\n    },\n}"
+            }
+        ],
+        "examples_count": 4,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/5.1/topics/logging/",
+        "api": "django.contrib.auth",
+        "package": "django.contrib.auth",
+        "language": "Python",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Added logging for error scenarios when password reset emails cannot be delivered due to mail-sending exceptions.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "No Examples"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/5.1/ref/unicode/",
+        "api": "smart_str",
+        "package": "django.utils.encoding",
+        "language": "Python",
+        "deprecated_in": "5.1.0",
+        "removed_in": "",
+        "replaced_by": "force_str",
+        "change_type": "API Deprecation",
+        "reason": "smart_str preserves lazy translations, while force_str forces them to a string. For use cases where lazy translations must be converted to strings, force_str is recommended over smart_str.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "from django.db import models\nfrom django.views import View\nfrom urllib.parse import quote\nquote(\"Paris & Orléans\")\niri_to_uri(\"/favorites/François/%s\" % quote(\"Paris & Orléans\"))",
+                "output": "'Paris%20%26%20Orl%C3%A9ans'\n'/favorites/Fran%C3%A7ois/Paris%20%26%20Orl%C3%A9ans'"
+            },
+            {
+                "code": "from django.db import models\nfrom django.views import View\nuri_to_iri(\"/%E2%99%A5%E2%99%A5/?utf8=%E2%9C%93\")\nuri_to_iri(\"%A9hello%3Fworld\")",
+                "output": "'/♥♥/?utf8=✓'\n'%A9hello%3Fworld'"
+            },
+            {
+                "code": "from django.db import models\nfrom django.views import View\nuri_to_iri(\"/%E2%99%A5%E2%99%A5/?utf8=%E2%9C%93\")\nuri_to_iri(\"%A9hello%3Fworld\")\n",
+                "output": "'/♥♥/?utf8=✓'\n'%A9hello%3Fworld'\n\niri_to_uri(iri_to_uri(some_string)) == iri_to_uri(some_string)\nuri_to_iri(uri_to_iri(some_string)) == uri_to_iri(some_string)\n\n\niri_to_uri(iri_to_uri(some_string)) == iri_to_uri(some_string)\nuri_to_iri(uri_to_iri(some_string)) == uri_to_iri(some_string)\n\n\nfrom urllib.parse import quote\nfrom django.utils.encoding import iri_to_uri\n\n\ndef get_absolute_url(self):\n    url = \"/person/%s/?x=0&y=0\" % quote(self.location)\n    return iri_to_uri(url)\n\n\nfrom django.template import Template\n\nt2 = Template(\"This is a string template.\")\n\n\nimport sys\n\nsys.getfilesystemencoding()\n\nexport LANG=\"en_US.UTF-8\"\n\n\nexport LANG=\"en_US.UTF-8\"\n\n\ndef some_view(request):\n    # We know that the data must be encoded as KOI8-R (for some reason).\n    request.encoding = \"koi8-r\""
+            }
+        ],
+        "examples_count": 3,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/5.1/ref/views/#django.views.static.serve",
+        "api": "serve",
+        "package": "django.views.static",
+        "language": "Python",
+        "deprecated_in": "5.1.0",
+        "removed_in": "",
+        "replaced_by": "static()",
+        "change_type": "Behavior Change",
+        "reason": "The `serve()` view is not hardened for production use and is recommended exclusively for development purposes. Django provides the `static()` helper function to simplify URL configuration for static file serving.",
+        "has_examples": true,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/5.1/ref/settings/#forms-urlfield-assume-https",
+        "api": "FORMS_URLFIELD_ASSUME_HTTPS",
+        "package": "django.forms",
+        "language": "Python",
+        "deprecated_in": "5.1.0",
+        "removed_in": "",
+        "replaced_by": "URLField with explicit scheme setting",
+        "change_type": "API Deprecation",
+        "reason": "Transition toward using 'https' as the default scheme in URLField for better security. Allows developers to explicitly set the scheme where required instead of relying on transitional settings.",
+        "has_examples": true,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://docs.djangoproject.com/en/5.1/releases/5.1/#forms",
+        "api": "FORMS_URLFIELD_ASSUME_HTTPS",
+        "package": "django.conf.settings",
+        "language": "Python",
+        "deprecated_in": "5.1",
+        "removed_in": "6.0",
+        "replaced_by": "Default behavior (HTTPS)",
+        "change_type": "Setting Deprecation",
+        "reason": "This transitional setting (introduced in 5.0) is deprecated. Starting from Django 6.0, the default scheme for URLField will assume 'https' without the option to revert globally via settings.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    }
+]

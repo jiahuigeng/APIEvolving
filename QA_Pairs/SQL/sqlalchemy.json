@@ -1,0 +1,116 @@
+[
+  {
+    "source_url": "https://docs.sqlalchemy.org/en/14/core/sqlelement.html#sqlalchemy.sql.expression.or_",
+    "api": "or_",
+    "package": "sqlalchemy.sql.expression",
+    "language": "Python",
+    "deprecated_in": "1.4",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "The or_() element now requires that at least one argument is passed; creating the or_() construct with no arguments is deprecated, and will emit a deprecation warning while continuing to produce a blank SQL string.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sqlalchemy import or_\n\nstmt = select(users_table).where(\n    or_(users_table.c.name == \"wendy\", users_table.c.name == \"jack\")\n)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      },
+      {
+        "code": "from sqlalchemy import false\n\nor_criteria = or_(false(), *expressions)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 2,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.sqlalchemy.org/en/14/core/sqlelement.html#sqlalchemy.sql.expression.ColumnElement.anon_key_label",
+    "api": "anon_key_label",
+    "package": "sqlalchemy.sql.expression.ColumnElement",
+    "language": "Python",
+    "deprecated_in": "1.4",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "The ColumnElement.anon_key_label attribute is now private, and the public accessor is deprecated.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.sqlalchemy.org/en/14/core/sqlelement.html#sqlalchemy.sql.expression.ColumnElement.anon_label",
+    "api": "anon_label",
+    "package": "sqlalchemy.sql.expression.ColumnElement",
+    "language": "Python",
+    "deprecated_in": "1.4",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "The ColumnElement.anon_label attribute is now private, and the public accessor is deprecated.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.sqlalchemy.org/en/14/core/sqlelement.html#sqlalchemy.sql.expression.and_",
+    "api": "and_",
+    "package": "sqlalchemy.sql.expression",
+    "language": "Python",
+    "deprecated_in": "1.4",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "The and_() element now requires that at least one argument is passed; creating the and_() construct with no arguments is deprecated, and will emit a deprecation warning while continuing to produce a blank SQL string.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sqlalchemy import and_\n\nstmt = select(users_table).where(\n    and_(users_table.c.name == \"wendy\", users_table.c.enrolled == True)\n)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      },
+      {
+        "code": "from sqlalchemy import true\n\ncriteria = and_(true(), *expressions)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 2,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.sqlalchemy.org/en/14/core/sqlelement.html#sqlalchemy.sql.expression.bindparam",
+    "api": "bindparam",
+    "package": "sqlalchemy.sql.expression",
+    "language": "Python",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Feature Update",
+    "reason": "Updates across versions introduced new parameters: 'expanding' (Added in 1.2, updated in 1.3 to support empty lists) allows parameters to be treated as sequences for IN clauses. 'literal_execute' (Added in 1.4) allows bound parameters to be rendered as literals during the compile phase (post-compile), useful for LIMIT/OFFSET clauses.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sqlalchemy import bindparam\n\nstmt = select(users_table).where(\n    users_table.c.name == bindparam(\"username\")\n)\n\n# Execution\nresult = connection.execute(stmt, {\"username\": \"wendy\"})",
+        "output": "SELECT id, name FROM user WHERE name = :username",
+        "has_output": true,
+        "language": "python"
+      },
+      {
+        "code": "# Explicit use for UPDATE statements invoked multiple times\nstmt = (\n    users_table.update()\n    .where(users_table.c.name == bindparam(\"username\"))\n    .values(fullname=bindparam(\"fullname\"))\n)\n\nconnection.execute(\n    stmt,\n    [\n        {\"username\": \"wendy\", \"fullname\": \"Wendy Smith\"},\n        {\"username\": \"jack\", \"fullname\": \"Jack Jones\"},\n    ],\n)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 2,
+    "extraction_method": "Manual"
+  }
+]

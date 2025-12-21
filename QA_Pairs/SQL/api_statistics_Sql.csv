@@ -1,0 +1,18 @@
+Statistic,Count
+Total Unique Packages,7
+Total Unique APIs,41
+--- Package List ---,---
+PostgreSQL,
+PostgreSQL 18,
+PostgreSQL API,
+PostgreSQL Documentation,
+PostgreSQL SQL Commands,
+sqlalchemy.sql.expression,
+sqlalchemy.sql.expression.ColumnElement,
+--- Change Type Counts ---,---
+Change Type: Behavior Change,20
+Change Type: API Deprecation,13
+Change Type: Parameter Change,4
+Change Type: API Removal,1
+Change Type: API Replacement,1
+Change Type: Feature Update,1

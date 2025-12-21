@@ -1,0 +1,20 @@
+# Ignore everything by default
+/*
+
+# Keep essential root files
+!.gitignore
+!README.md
+
+# Allow QA_Pairs directory and all its contents
+!QA_Pairs/
+!QA_Pairs/**
+
+# Optional: keep license if you add one later
+!LICENSE
+
+# Optional: ignore common OS/editor junk inside QA_Pairs as needed
+# (These are redundant due to the global ignore above, but left for clarity)
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp

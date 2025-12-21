@@ -1,0 +1,196 @@
+[
+  {
+    "source_url": "https://pkg.go.dev/github.com/gin-gonic/gin@v1.9.1#CreateTestContext",
+    "api": "CreateTestContext",
+    "package": "github.com/gin-gonic/gin",
+    "language": "Go",
+    "change_type": "API Deprecation",
+    "reason": "Introduced in version v1.8.2, the replacement `CreateTestContextOnly` provides more clarity by emphasizing testing context creation independent of the engine.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://pkg.go.dev/github.com/gin-gonic/gin@v1.9.1#section-readme",
+    "api": "Gin Web Framework",
+    "package": "github.com/gin-gonic/gin",
+    "language": "Go",
+    "change_type": "API Deprecation",
+    "reason": "Enhancements in usability and flexibility of the framework by introducing new methods, offering better performance and streamlined functionality.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://pkg.go.dev/github.com/gin-gonic/gin@v1.9.1#Context.BindTOML",
+    "api": "Bind",
+    "package": "github.com/gin-gonic/gin",
+    "language": "Go",
+    "change_type": "API Deprecation",
+    "reason": "Improved functionality for binding data with better error handling and performance.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://pkg.go.dev/github.com/gin-gonic/gin@v1.9.1#readme-getting-started",
+    "api": "gin package",
+    "package": "github.com/gin-gonic/gin",
+    "language": "Go",
+    "change_type": "API Deprecation",
+    "reason": "AppEngine was deprecated to utilize TrustedPlatform for better header handling. It ensured better integration with cloud platforms like Google App Engine.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://github.com/gin-gonic/gin",
+    "api": "Gin web framework",
+    "package": "github.com/gin-gonic/gin",
+    "language": "Go",
+    "change_type": "API Deprecation",
+    "reason": "CustomRecovery was introduced to replace the older recovery mechanisms, providing more flexible and robust error handling for panic recovery. The improvement allows developers to specify custom recovery behavior.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "package main\n\nimport (\n\t\"github.com/gin-gonic/gin\"\n\t\"net/http\"\n\t\"fmt\"\n)\n\n\nimport (\n  \"net/http\"\n\n  \"github.com/gin-gonic/gin\"\n)\n",
+        "output": ""
+      },
+      {
+        "code": "package main\n\nimport (\n\t\"github.com/gin-gonic/gin\"\n\t\"net/http\"\n\t\"fmt\"\n)\nfunc main() {\n  // Create a Gin router with default middleware (logger and recovery)",
+        "output": ""
+      },
+      {
+        "code": "package main\n\nimport (\n\t\"github.com/gin-gonic/gin\"\n\t\"net/http\"\n\t\"fmt\"\n)\n  r := gin.Default()\n  \n  // Define a simple GET endpoint",
+        "output": ""
+      },
+      {
+        "code": "package main\n\nimport (\n\t\"github.com/gin-gonic/gin\"\n\t\"net/http\"\n\t\"fmt\"\n)\n  r.GET(\"/ping\", func(c *gin.Context) {\n    // Return JSON response",
+        "output": ""
+      },
+      {
+        "code": "package main\n\nimport (\n\t\"github.com/gin-gonic/gin\"\n\t\"net/http\"\n\t\"fmt\"\n)\n    c.JSON(http.StatusOK, gin.H{\n      \"message\": \"pong\",\n    })\n  })\n  \n  // Start server on port 8080 (default)\n  // Server will listen on 0.0.0.0:8080 (localhost:8080 on Windows)",
+        "output": ""
+      },
+      {
+        "code": "package main\n\nimport (\n\t\"github.com/gin-gonic/gin\"\n\t\"net/http\"\n\t\"fmt\"\n)\n  r.Run()\n}\ngo run main.go\n\ngo run main.go\n\n",
+        "output": ""
+      }
+    ],
+    "examples_count": 6,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://pkg.go.dev/github.com/gin-gonic/gin@v1.9.1#Engine.SetTrustedProxies",
+    "api": "SetTrustedProxies",
+    "package": "gin-gonic/gin",
+    "language": "Go",
+    "change_type": "Behavior Change",
+    "reason": "Improved security by allowing configuration of trusted proxies directly to better handle alternative client IP headers.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "package main\n\nimport (\n\t\"github.com/gin-gonic/gin\"\n\t\"net/http\"\n\t\"fmt\"\n)\n\n\nimport (\n  \"net/http\"\n\n  \"github.com/gin-gonic/gin\"\n)\n",
+        "output": ""
+      },
+      {
+        "code": "package main\n\nimport (\n\t\"github.com/gin-gonic/gin\"\n\t\"net/http\"\n\t\"fmt\"\n)\nfunc main() {\n  // Create a Gin router with default middleware (logger and recovery)",
+        "output": ""
+      },
+      {
+        "code": "package main\n\nimport (\n\t\"github.com/gin-gonic/gin\"\n\t\"net/http\"\n\t\"fmt\"\n)\n  r := gin.Default()\n  \n  // Define a simple GET endpoint",
+        "output": ""
+      },
+      {
+        "code": "package main\n\nimport (\n\t\"github.com/gin-gonic/gin\"\n\t\"net/http\"\n\t\"fmt\"\n)\n  r.GET(\"/ping\", func(c *gin.Context) {\n    // Return JSON response",
+        "output": ""
+      },
+      {
+        "code": "package main\n\nimport (\n\t\"github.com/gin-gonic/gin\"\n\t\"net/http\"\n\t\"fmt\"\n)\n    c.JSON(http.StatusOK, gin.H{\n      \"message\": \"pong\",\n    })\n  })\n  \n  // Start server on port 8080 (default)\n  // Server will listen on 0.0.0.0:8080 (localhost:8080 on Windows)",
+        "output": ""
+      },
+      {
+        "code": "package main\n\nimport (\n\t\"github.com/gin-gonic/gin\"\n\t\"net/http\"\n\t\"fmt\"\n)\n  r.Run()\n}\ngo run main.go\n\ngo run main.go\n\n",
+        "output": ""
+      }
+    ],
+    "examples_count": 6,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://gin-gonic.com/docs",
+    "api": "Mode",
+    "package": "github.com/gin-gonic/gin",
+    "language": "Go",
+    "change_type": "Behavior Change",
+    "reason": "Encapsulation of mode configuration to allow more explicit control over the framework's behavior.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://gin-gonic.com/docs/api/",
+    "api": "CreateTestContext(w http.ResponseWriter)",
+    "package": "github.com/gin-gonic/gin",
+    "language": "Go",
+    "change_type": "API Deprecation",
+    "reason": "To provide a more specific implementation allowing precise testing context setup for individual test cases.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://pkg.go.dev/github.com/gin-gonic/gin@v1.9.1#Context.ShouldBindBodyWith",
+    "api": "ShouldBindBodyWith",
+    "package": "github.com/gin-gonic/gin",
+    "language": "Go",
+    "change_type": "API Deprecation",
+    "reason": "The ShouldBindWith method provides better performance as it avoids storing request body into the context, which is deemed more efficient than storing for reuse.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://gin-gonic.com/docs",
+    "api": "gin-gonic/gin",
+    "package": "gin",
+    "language": "Go",
+    "change_type": "API Deprecation",
+    "reason": "The `AppEngine` field was deprecated in favor of using `TrustedPlatform` with the value `gin.PlatformGoogleAppEngine` for better integration with Google App Engine.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://gin-gonic.com/docs/",
+    "api": "Gin Framework APIs",
+    "package": "github.com/gin-gonic/gin",
+    "language": "Go",
+    "change_type": "API Deprecation",
+    "reason": "The 'AppEngine' boolean configuration was deprecated in favor of using `TrustedPlatform` with a value `gin.PlatformGoogleAppEngine`. This change allows better integration with Google App Engine and aligns with modern usage of platform-specific header configuration.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://pkg.go.dev/github.com/gin-gonic/gin@v1.9.1#CreateTestContext",
+    "api": "CreateTestContext(w)",
+    "package": "github.com/gin-gonic/gin",
+    "language": "Go",
+    "change_type": "API Deprecation",
+    "reason": "The method CreateTestContext was updated to provide additional functionality through CreateTestContextOnly by enabling context creation with an engine parameter.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  }
+]

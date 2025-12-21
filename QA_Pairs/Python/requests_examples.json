@@ -1,0 +1,172 @@
+[
+    {
+        "source_url": "https://requests.readthedocs.io/en/latest/api/#requests.Response.json",
+        "api": "Response.json",
+        "package": "requests",
+        "language": "Python",
+        "deprecated_in": "1.0.0",
+        "removed_in": "",
+        "replaced_by": "Response.json()",
+        "change_type": "Behavior Change",
+        "reason": "Changed from a property to a callable method. This allows raising exceptions if JSON decoding fails, rather than returning None or failing silently.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import requests\nr = requests.get('https://api.github.com/user')\n\n# Old Usage (v0.x)\n# data = r.json\n\n# New Usage (v1.0.0+)\ndata = r.json()",
+                "output": "{'login': '...', ...}"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://requests.readthedocs.io/en/latest/user/advanced/#proxies",
+        "api": "proxies",
+        "package": "requests",
+        "language": "Python",
+        "deprecated_in": "2.0.0",
+        "removed_in": "",
+        "replaced_by": "Proxies with schema",
+        "change_type": "Behavior Change",
+        "reason": "In Requests 2.0, proxies must include a scheme (e.g., http://). Providing a proxy URL without a scheme now raises a MissingSchema exception.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import requests\n\nproxies = {\n  \"http\": \"10.10.1.10:3128\",\n}\n\n# In 1.x this worked. In 2.x, this raises requests.exceptions.MissingSchema\n# requests.get(\"http://example.org\", proxies=proxies)\n\n# Correct 2.x usage:\nproxies['http'] = 'http://10.10.1.10:3128'\nrequests.get(\"http://example.org\", proxies=proxies)",
+                "output": "<Response [200]>"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://requests.readthedocs.io/en/latest/api/#requests.Session",
+        "api": "requests.session",
+        "package": "requests",
+        "language": "Python",
+        "deprecated_in": "1.0.0",
+        "removed_in": "",
+        "replaced_by": "requests.Session",
+        "change_type": "Refactoring",
+        "reason": "The main entry point for sessions is now the capitalized `Session` class. The lowercase `session()` function remains as a shortcut alias but usage of the class is preferred.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import requests\n\n# Preferred usage in v1.0+\ns = requests.Session()\ns.get('https://httpbin.org/cookies/set/sessioncookie/123456789')",
+                "output": "<Response [200]>"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://requests.readthedocs.io/en/latest/api/#requests.Response.content",
+        "api": "Response.content",
+        "package": "requests",
+        "language": "Python",
+        "deprecated_in": "1.0.0",
+        "removed_in": "",
+        "replaced_by": "bytes",
+        "change_type": "Behavior Change",
+        "reason": "In 1.0, the API split explicitly: `r.content` always returns bytes, and `r.text` always returns unicode. Previously behavior could be ambiguous based on encoding detection.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://requests.readthedocs.io/en/latest/api/#requests.Response.json",
+        "api": "Response.json",
+        "package": "requests",
+        "language": "Python",
+        "deprecated_in": "1.0.0",
+        "removed_in": "",
+        "replaced_by": "Response.json()",
+        "change_type": "Behavior Change",
+        "reason": "Changed from a property `r.json` to a callable method `r.json()`. This allows the method to raise exceptions on decoding errors.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import requests\nr = requests.get('https://api.github.com/user')\n\n# v0.x usage (Deprecated)\n# data = r.json\n\n# v1.0.0+ usage\ndata = r.json()",
+                "output": "{'login': '...'}"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://requests.readthedocs.io/en/latest/api/#requests.Session",
+        "api": "Session",
+        "package": "requests",
+        "language": "Python",
+        "deprecated_in": "1.0.0",
+        "removed_in": "",
+        "replaced_by": "Configuration after instantiation",
+        "change_type": "API Change",
+        "reason": "The `Session` constructor no longer accepts keyword arguments (headers, cookies, auth, etc.). You must instantiate the session first and then set attributes.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import requests\n\n# v0.x usage (Deprecated)\n# s = requests.session(headers={'x-test': 'true'})\n\n# v1.0.0+ usage\ns = requests.Session()\ns.headers.update({'x-test': 'true'})",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://requests.readthedocs.io/en/latest/user/advanced/#proxies",
+        "api": "proxies",
+        "package": "requests",
+        "language": "Python",
+        "deprecated_in": "2.0.0",
+        "removed_in": "",
+        "replaced_by": "Schema-required proxies",
+        "change_type": "Behavior Change",
+        "reason": "In v2.0, providing a proxy URL without a scheme (e.g., '10.10.1.10') raises a MissingSchema exception. You must provide 'http://10.10.1.10'.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "# v1.x allowed keys without schema\nproxies = {'http': '10.10.1.10:3128'}\n\n# v2.0 requires schema\nproxies = {'http': 'http://10.10.1.10:3128'}",
+                "output": "N/A"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://requests.readthedocs.io/en/latest/api/#requests.Response.json",
+        "api": "Response.json",
+        "package": "requests",
+        "language": "Python",
+        "deprecated_in": "1.0.0",
+        "removed_in": "",
+        "replaced_by": "Response.json()",
+        "change_type": "Behavior Change",
+        "reason": "Changed from a property to a callable method to allow raising exceptions on decoding errors.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "# v0.x (Deprecated)\n# data = r.json\n\n# v1.0.0+ (Current)\ndata = r.json()",
+                "output": "{'key': 'value'}"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://requests.readthedocs.io/en/latest/api/#requests.adapters.HTTPAdapter",
+        "api": "HTTPAdapter.get_connection",
+        "package": "requests.adapters",
+        "language": "Python",
+        "deprecated_in": "2.32.0",
+        "removed_in": "",
+        "replaced_by": "get_connection_with_tls_context",
+        "change_type": "Internal API Deprecation",
+        "reason": "The internal `get_connection` method in adapters is deprecated in favor of methods that better handle TLS contexts, aligning with urllib3 2.0+ changes.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    }
+]

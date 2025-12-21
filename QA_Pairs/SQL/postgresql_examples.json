@@ -1,0 +1,1233 @@
+[
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-alterdefaultprivileges.html",
+    "api": "ALTER DEFAULT PRIVILEGES",
+    "package": "PostgreSQL SQL Commands",
+    "language": "SQL",
+    "deprecated_in": "17",
+    "removed_in": "",
+    "replaced_by": "ALTER DEFAULT PRIVILEGES with ROUTINES keyword",
+    "change_type": "Behavior Change",
+    "reason": "Starting with PostgreSQL version 18, the SQL standard prefers the term 'ROUTINES' instead of 'FUNCTIONS' when addressing both functions and procedures together. This change aligns PostgreSQL's syntax with the SQL standard. In earlier releases, only the 'FUNCTIONS' keyword was allowed.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "ALTER DEFAULT PRIVILEGES IN SCHEMA myschema GRANT SELECT ON TABLES TO PUBLIC;\nALTER DEFAULT PRIVILEGES IN SCHEMA myschema GRANT INSERT ON TABLES TO webuser;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER DEFAULT PRIVILEGES IN SCHEMA myschema REVOKE SELECT ON TABLES FROM PUBLIC;\nALTER DEFAULT PRIVILEGES IN SCHEMA myschema REVOKE INSERT ON TABLES FROM webuser;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER DEFAULT PRIVILEGES FOR ROLE admin REVOKE EXECUTE ON FUNCTIONS FROM PUBLIC;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER DEFAULT PRIVILEGES IN SCHEMA public REVOKE EXECUTE ON FUNCTIONS FROM PUBLIC;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      }
+    ],
+    "examples_count": 4,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-abort.html",
+    "api": "ABORT",
+    "package": "PostgreSQL SQL Commands",
+    "language": "SQL",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "ROLLBACK",
+    "change_type": "Behavior Change",
+    "reason": "ABORT remains for historical reasons but is functionally identical to the standard SQL command ROLLBACK.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-altergroup.html",
+    "api": "ALTER GROUP",
+    "package": "PostgreSQL SQL Commands",
+    "language": "SQL",
+    "deprecated_in": "PostgreSQL 18",
+    "removed_in": "",
+    "replaced_by": "GRANT/REVOKE and ALTER ROLE",
+    "change_type": "API Deprecation",
+    "reason": "The functionality of ALTER GROUP has been generalized under the concept of roles, and similar operations can now be performed using GRANT/REVOKE or ALTER ROLE, which offer more flexibility and additional features.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-alterindex.html",
+    "api": "ALTER INDEX",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "ALTER TABLE (only for operations applying to indexes)",
+    "change_type": "API Deprecation",
+    "reason": "Simplification and unification of commands by treating ALTER INDEX as an alias for certain ALTER TABLE commands. This also standardizes operations across index-related commands.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "ALTER INDEX distributors RENAME TO suppliers;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER INDEX distributors SET TABLESPACE fasttablespace;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER INDEX distributors SET (fillfactor = 75);\nREINDEX INDEX distributors;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE INDEX coord_idx ON measured (x, y, (z + t));\nALTER INDEX coord_idx ALTER COLUMN 3 SET STATISTICS 1000;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      }
+    ],
+    "examples_count": 4,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-alter-subscription.html",
+    "api": "ALTER SUBSCRIPTION",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "16",
+    "removed_in": "18.0",
+    "replaced_by": "ALTER SUBSCRIPTION ... SET (subscription_parameter = value [, ... ])",
+    "change_type": "Parameter Change",
+    "reason": "The `ALTER SUBSCRIPTION ... REFRESH PUBLICATION` and `ALTER SUBSCRIPTION ... SET PUBLICATION` commands now include `two_phase` and `failover` properties for enhanced subscription management.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "Failed to fetch"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-altertable.html",
+    "api": "ALTER TABLE",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "17",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "Modification of sub-commands for better handling of table rewrites, metadata updates, and constraints across parent-child relationships. This includes improved handling of default values, index updates, identity columns, and constraints validations.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "ALTER TABLE distributors ADD COLUMN address varchar(30);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE measurements\n  ADD COLUMN mtime timestamp with time zone DEFAULT now();",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE transactions\n  ADD COLUMN status varchar(30) DEFAULT 'old',\n  ALTER COLUMN status SET default 'current';",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE distributors DROP COLUMN address RESTRICT;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE distributors\n    ALTER COLUMN address TYPE varchar(80),\n    ALTER COLUMN name TYPE varchar(100);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE foo\n    ALTER COLUMN foo_timestamp SET DATA TYPE timestamp with time zone\n    USING\n        timestamp with time zone 'epoch' + foo_timestamp * interval '1 second';",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE foo\n    ALTER COLUMN foo_timestamp DROP DEFAULT,\n    ALTER COLUMN foo_timestamp TYPE timestamp with time zone\n    USING\n        timestamp with time zone 'epoch' + foo_timestamp * interval '1 second',\n    ALTER COLUMN foo_timestamp SET DEFAULT now();",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE distributors RENAME COLUMN address TO city;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE distributors RENAME TO suppliers;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE distributors RENAME CONSTRAINT zipchk TO zip_check;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE distributors ALTER COLUMN street SET NOT NULL;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE distributors ALTER COLUMN street DROP NOT NULL;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE distributors ADD CONSTRAINT zipchk CHECK (char_length(zipcode) = 5);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE distributors ADD CONSTRAINT zipchk CHECK (char_length(zipcode) = 5) NO INHERIT;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE distributors DROP CONSTRAINT zipchk;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE ONLY distributors DROP CONSTRAINT zipchk;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE distributors ADD CONSTRAINT distfk FOREIGN KEY (address) REFERENCES addresses (address);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE distributors ADD CONSTRAINT distfk FOREIGN KEY (address) REFERENCES addresses (address) NOT VALID;\nALTER TABLE distributors VALIDATE CONSTRAINT distfk;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE distributors ADD CONSTRAINT dist_id_zipcode_key UNIQUE (dist_id, zipcode);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE distributors ADD PRIMARY KEY (dist_id);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE distributors SET TABLESPACE fasttablespace;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE myschema.distributors SET SCHEMA yourschema;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE UNIQUE INDEX CONCURRENTLY dist_id_temp_idx ON distributors (dist_id);\nALTER TABLE distributors DROP CONSTRAINT distributors_pkey,\n    ADD CONSTRAINT distributors_pkey PRIMARY KEY USING INDEX dist_id_temp_idx;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE measurement\n    ATTACH PARTITION measurement_y2016m07 FOR VALUES FROM ('2016-07-01') TO ('2016-08-01');",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE cities\n    ATTACH PARTITION cities_ab FOR VALUES IN ('a', 'b');",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE orders\n    ATTACH PARTITION orders_p4 FOR VALUES WITH (MODULUS 4, REMAINDER 3);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE cities\n    ATTACH PARTITION cities_partdef DEFAULT;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ALTER TABLE measurement\n    DETACH PARTITION measurement_y2015m12;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      }
+    ],
+    "examples_count": 28,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-alteruser.html",
+    "api": "ALTER USER",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "18",
+    "removed_in": "",
+    "replaced_by": "ALTER ROLE",
+    "change_type": "API Deprecation",
+    "reason": "Consolidation of functionality for user and role management, as users and roles are conceptually aligned under the 'ROLE' abstraction in PostgreSQL.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "ALTER USERrole_specification[ WITH ]option[ ... ]whereoptioncan be:SUPERUSER | NOSUPERUSER\n    | CREATEDB | NOCREATEDB\n    | CREATEROLE | NOCREATEROLE\n    | INHERIT | NOINHERIT\n    | LOGIN | NOLOGIN\n    | REPLICATION | NOREPLICATION\n    | BYPASSRLS | NOBYPASSRLS\n    | CONNECTION LIMITconnlimit| [ ENCRYPTED ] PASSWORD 'password' | PASSWORD NULL\n    | VALID UNTIL 'timestamp'\n\nALTER USERnameRENAME TOnew_nameALTER USER {role_specification| ALL } [ IN DATABASEdatabase_name] SETconfiguration_parameter{ TO | = } {value| DEFAULT }\nALTER USER {role_specification| ALL } [ IN DATABASEdatabase_name] SETconfiguration_parameterFROM CURRENT\nALTER USER {role_specification| ALL } [ IN DATABASEdatabase_name] RESETconfiguration_parameterALTER USER {role_specification| ALL } [ IN DATABASEdatabase_name] RESET ALLwhererole_specificationcan be:role_name| CURRENT_ROLE\n  | CURRENT_USER\n  | SESSION_USER",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-begin.html",
+    "api": "BEGIN",
+    "package": "PostgreSQL API",
+    "language": "SQL",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "START TRANSACTION",
+    "change_type": "Behavior Change",
+    "reason": "BEGIN was modified to align more closely with SQL standards as its functionality overlaps with START TRANSACTION. Both commands now offer equivalent functionality, reflecting PostgreSQL's effort to maintain compliance and improve consistency with the SQL-standard.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/current/sql-cluster.html",
+    "api": "CLUSTER",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "17",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "The syntax for the CLUSTER command was updated in PostgreSQL 18 to provide additional options and flexibility, replacing the simpler syntax used before PostgreSQL 17. This change ensures better compatibility for future developments and additional functionality.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-copy.html",
+    "api": "COPY",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "17",
+    "removed_in": "18.0",
+    "replaced_by": "COPY (SELECT * FROM table_name) TO '/path_to_file'",
+    "change_type": "Behavior Change",
+    "reason": "Improved compatibility and performance for advanced querying, such as copying rows from partitioned tables, inheritance child tables, or views.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "COPY (SELECT * FROM country WHERE country_name LIKE 'A%') TO '/usr1/proj/bray/sql/a_list_countries.copy';",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-createdomain.html",
+    "api": "CREATE DOMAIN",
+    "package": "PostgreSQL SQL Commands",
+    "language": "SQL",
+    "deprecated_in": "9.5",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "The firing order of CHECK constraints on domain types was previously unspecified. Starting from version 9.5, CHECK constraints are tested in alphabetical order by name for predictable behavior.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "CREATE DOMAIN us_postal_code AS TEXT\nCHECK(\n   VALUE ~ '^\\d{5}$'\nOR VALUE ~ '^\\d{5}-\\d{4}$'\n);\n\nCREATE TABLE us_snail_addy (\n  address_id SERIAL PRIMARY KEY,\n  street1 TEXT NOT NULL,\n  street2 TEXT,\n  street3 TEXT,\n  city TEXT NOT NULL,\n  postal us_postal_code NOT NULL\n);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-createeventtrigger.html",
+    "api": "CREATE EVENT TRIGGER",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "18",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "The keyword PROCEDURE was historically used but is now deprecated in favor of FUNCTION, because the referenced function must be classified as a function in PostgreSQL, not as a procedure.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-creategroup.html",
+    "api": "CREATE GROUP",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "CREATE ROLE",
+    "change_type": "API Deprecation",
+    "reason": "The CREATE GROUP statement is now considered redundant and has been aliased to CREATE ROLE for better compatibility and ease of use.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-createlanguage.html",
+    "api": "CREATE LANGUAGE",
+    "package": "PostgreSQL SQL Commands",
+    "language": "SQL",
+    "deprecated_in": "Pre-18",
+    "removed_in": "",
+    "replaced_by": "CREATE EXTENSION",
+    "change_type": "Behavior Change",
+    "reason": "The form of CREATE LANGUAGE without a handler function was deemed obsolete and replaced for backward compatibility and consistency with the handling of procedural languages packaged as extensions.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "CREATE FUNCTION plsample_call_handler() RETURNS language_handler\n    AS '$libdir/plsample'\n    LANGUAGE C;\nCREATE LANGUAGE plsample\n    HANDLER plsample_call_handler;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-createoperator.html",
+    "api": "CREATE OPERATOR",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "PostgreSQL 18",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The use of the keyword PROCEDURE has been deprecated due to its inconsistency with the requirement that it refers to a function (not a procedure). The keyword FUNCTION is recommended instead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-createprocedure.html",
+    "api": "CREATE PROCEDURE",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "CREATE FUNCTION (in certain cases, based on specific use cases)",
+    "change_type": "Behavior Change",
+    "reason": "The PostgreSQL implementation extends the CREATE PROCEDURE API for compatibility with the SQL standard but includes functionality overlapping with CREATE FUNCTION, which may require users to make distinctions between the two for specific procedural needs.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "CREATE PROCEDURE insert_data(a integer, b integer)\nLANGUAGE SQL\nAS $$\nINSERT INTO tbl VALUES (a);\nINSERT INTO tbl VALUES (b);\n$$;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE PROCEDURE insert_data(a integer, b integer)\nLANGUAGE SQL\nBEGIN ATOMIC\n  INSERT INTO tbl VALUES (a);\n  INSERT INTO tbl VALUES (b);\nEND;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      }
+    ],
+    "examples_count": 2,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-createrole.html",
+    "api": "CREATE ROLE",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "10",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "Prior to PostgreSQL 10, an empty string used for the PASSWORD parameter would result in ambiguous behavior that depended on the authentication method and version. Starting from PostgreSQL 10, an empty string explicitly sets the password to null, standardizing behavior.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "ExamplesCreate a role that can log in, but don't give it a password:CREATE ROLE jonathan LOGIN;Create a role with a password:CREATE USER davide WITH PASSWORD 'jw8s0F4';(CREATE USERis the same asCREATE ROLEexcept that it impliesLOGIN.)Create a role with a password that is valid until the end of 2004. After one second has ticked in 2005, the password is no longer valid.CREATE ROLE miriam WITH LOGIN PASSWORD 'jw8s0F4' VALID UNTIL '2005-01-01';Create a role that can create databases and manage roles:CREATE ROLE admin WITH CREATEDB CREATEROLE;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ExamplesCreate a role that can log in, but don't give it a password:CREATE ROLE jonathan LOGIN;Create a role with a password:CREATE USER davide WITH PASSWORD 'jw8s0F4';(CREATE USERis the same asCREATE ROLEexcept that it impliesLOGIN.)Create a role with a password that is valid until the end of 2004. After one second has ticked in 2005, the password is no longer valid.CREATE ROLE miriam WITH LOGIN PASSWORD 'jw8s0F4' VALID UNTIL '2005-01-01';Create a role that can create databases and manage roles:CREATE ROLE admin WITH CREATEDB CREATEROLE;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ExamplesCreate a role that can log in, but don't give it a password:CREATE ROLE jonathan LOGIN;Create a role with a password:CREATE USER davide WITH PASSWORD 'jw8s0F4';(CREATE USERis the same asCREATE ROLEexcept that it impliesLOGIN.)Create a role with a password that is valid until the end of 2004. After one second has ticked in 2005, the password is no longer valid.CREATE ROLE miriam WITH LOGIN PASSWORD 'jw8s0F4' VALID UNTIL '2005-01-01';Create a role that can create databases and manage roles:CREATE ROLE admin WITH CREATEDB CREATEROLE;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "ExamplesCreate a role that can log in, but don't give it a password:CREATE ROLE jonathan LOGIN;Create a role with a password:CREATE USER davide WITH PASSWORD 'jw8s0F4';(CREATE USERis the same asCREATE ROLEexcept that it impliesLOGIN.)Create a role with a password that is valid until the end of 2004. After one second has ticked in 2005, the password is no longer valid.CREATE ROLE miriam WITH LOGIN PASSWORD 'jw8s0F4' VALID UNTIL '2005-01-01';Create a role that can create databases and manage roles:CREATE ROLE admin WITH CREATEDB CREATEROLE;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      }
+    ],
+    "examples_count": 4,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-createrule.html",
+    "api": "CREATE RULE",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "CREATE OR REPLACE VIEW (preferred for redefining views)",
+    "change_type": "Behavior Change",
+    "reason": "CREATE RULE can be confusing due to its behavior as a command transformation system, especially when handling updates on views. CREATE OR REPLACE VIEW is recommended for simplicity and better performance.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-createtable.html",
+    "api": "CREATE TABLE",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "17",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "The GLOBAL and LOCAL keywords before TEMPORARY or TEMP are now deprecated as they currently have no effect. Future versions of PostgreSQL might adopt a standard-compliant interpretation of their meaning.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "CREATE TABLE films (\n    code        char(5) CONSTRAINT firstkey PRIMARY KEY,\n    title       varchar(40) NOT NULL,\n    did         integer NOT NULL,\n    date_prod   date,\n    kind        varchar(10),\n    len         interval hour to minute\n);\n\nCREATE TABLE distributors (\n     did    integer PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY,\n     name   varchar(40) NOT NULL CHECK (name <> '')\n);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE array_int (\n    vector  int[][]\n);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE films (\n    code        char(5),\n    title       varchar(40),\n    did         integer,\n    date_prod   date,\n    kind        varchar(10),\n    len         interval hour to minute,\n    CONSTRAINT production UNIQUE(date_prod)\n);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE distributors (\n    did     integer CHECK (did > 100),\n    name    varchar(40)\n);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE distributors (\n    did     integer,\n    name    varchar(40),\n    CONSTRAINT con1 CHECK (did > 100 AND name <> '')\n);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE films (\n    code        char(5),\n    title       varchar(40),\n    did         integer,\n    date_prod   date,\n    kind        varchar(10),\n    len         interval hour to minute,\n    CONSTRAINT code_title PRIMARY KEY(code,title)\n);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE distributors (\n    did     integer,\n    name    varchar(40),\n    PRIMARY KEY(did)\n);\n\nCREATE TABLE distributors (\n    did     integer PRIMARY KEY,\n    name    varchar(40)\n);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE distributors (\n    name      varchar(40) DEFAULT 'Luso Films',\n    did       integer DEFAULT nextval('distributors_serial'),\n    modtime   timestamp DEFAULT current_timestamp\n);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE distributors (\n    did     integer CONSTRAINT no_null NOT NULL,\n    name    varchar(40) NOT NULL\n);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE distributors (\n    did     integer,\n    name    varchar(40) UNIQUE\n);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE distributors (\n    did     integer,\n    name    varchar(40),\n    UNIQUE(name)\n);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE distributors (\n    did     integer,\n    name    varchar(40),\n    UNIQUE(name) WITH (fillfactor=70)\n)\nWITH (fillfactor=70);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE circles (\n    c circle,\n    EXCLUDE USING gist (c WITH &&)\n);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE cinemas (\n        id serial,\n        name text,\n        location text\n) TABLESPACE diskvol1;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TYPE employee_type AS (name text, salary numeric);\n\nCREATE TABLE employees OF employee_type (\n    PRIMARY KEY (name),\n    salary WITH OPTIONS DEFAULT 1000\n);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE measurement (\n    logdate         date not null,\n    peaktemp        int,\n    unitsales       int\n) PARTITION BY RANGE (logdate);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE measurement_year_month (\n    logdate         date not null,\n    peaktemp        int,\n    unitsales       int\n) PARTITION BY RANGE (EXTRACT(YEAR FROM logdate), EXTRACT(MONTH FROM logdate));",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE cities (\n    city_id      bigserial not null,\n    name         text not null,\n    population   bigint\n) PARTITION BY LIST (left(lower(name), 1));",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE orders (\n    order_id     bigint not null,\n    cust_id      bigint not null,\n    status       text\n) PARTITION BY HASH (order_id);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE measurement_y2016m07\n    PARTITION OF measurement (\n    unitsales DEFAULT 0\n) FOR VALUES FROM ('2016-07-01') TO ('2016-08-01');",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE measurement_ym_older\n    PARTITION OF measurement_year_month\n    FOR VALUES FROM (MINVALUE, MINVALUE) TO (2016, 11);\n\nCREATE TABLE measurement_ym_y2016m11\n    PARTITION OF measurement_year_month\n    FOR VALUES FROM (2016, 11) TO (2016, 12);\n\nCREATE TABLE measurement_ym_y2016m12\n    PARTITION OF measurement_year_month\n    FOR VALUES FROM (2016, 12) TO (2017, 01);\n\nCREATE TABLE measurement_ym_y2017m01\n    PARTITION OF measurement_year_month\n    FOR VALUES FROM (2017, 01) TO (2017, 02);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE cities_ab\n    PARTITION OF cities (\n    CONSTRAINT city_id_nonzero CHECK (city_id != 0)\n) FOR VALUES IN ('a', 'b');",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE cities_ab\n    PARTITION OF cities (\n    CONSTRAINT city_id_nonzero CHECK (city_id != 0)\n) FOR VALUES IN ('a', 'b') PARTITION BY RANGE (population);\n\nCREATE TABLE cities_ab_10000_to_100000\n    PARTITION OF cities_ab FOR VALUES FROM (10000) TO (100000);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE orders_p1 PARTITION OF orders\n    FOR VALUES WITH (MODULUS 4, REMAINDER 0);\nCREATE TABLE orders_p2 PARTITION OF orders\n    FOR VALUES WITH (MODULUS 4, REMAINDER 1);\nCREATE TABLE orders_p3 PARTITION OF orders\n    FOR VALUES WITH (MODULUS 4, REMAINDER 2);\nCREATE TABLE orders_p4 PARTITION OF orders\n    FOR VALUES WITH (MODULUS 4, REMAINDER 3);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE cities_partdef\n    PARTITION OF cities DEFAULT;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      }
+    ],
+    "examples_count": 25,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-createtableas.html",
+    "api": "CREATE TABLE AS",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "18",
+    "removed_in": "",
+    "replaced_by": "CREATE TABLE",
+    "change_type": "Parameter Change",
+    "reason": "Certain parameters within the CREATE TABLE AS command, such as `WITH OIDS` and `[ GLOBAL | LOCAL ]`, were deprecated or removed for compatibility reasons and adherence to modern standards.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "CREATE TABLE films_recent AS\n  SELECT * FROM films WHERE date_prod >= '2002-01-01';",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TABLE films2 AS\n  TABLE films;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "PREPARE recentfilms(date) AS\n  SELECT * FROM films WHERE date_prod > $1;\nCREATE TEMP TABLE films_recent ON COMMIT DROP AS\n  EXECUTE recentfilms('2002-01-01');",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      }
+    ],
+    "examples_count": 3,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-createuser.html",
+    "api": "CREATE USER",
+    "package": "PostgreSQL 18",
+    "language": "SQL",
+    "deprecated_in": "18",
+    "removed_in": "",
+    "replaced_by": "CREATE ROLE",
+    "change_type": "API Deprecation",
+    "reason": "CREATE USER is now an alias for CREATE ROLE. This change ensures consistency in defining database roles, with LOGIN assumed by default for CREATE USER and NOLOGIN assumed for CREATE ROLE.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-createtrigger.html",
+    "api": "CREATE TRIGGER",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "Not applicable",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "Adherence to SQL standards with certain PostgreSQL-specific extensions; changes in order of trigger execution and limitations in transition tables for column-specific updates.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "CREATE TRIGGER check_update\n    BEFORE UPDATE ON accounts\n    FOR EACH ROW\n    EXECUTE FUNCTION check_account_update();",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE OR REPLACE TRIGGER check_update\n    BEFORE UPDATE OF balance ON accounts\n    FOR EACH ROW\n    EXECUTE FUNCTION check_account_update();",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TRIGGER check_update\n    BEFORE UPDATE ON accounts\n    FOR EACH ROW\n    WHEN (OLD.balance IS DISTINCT FROM NEW.balance)\n    EXECUTE FUNCTION check_account_update();",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TRIGGER log_update\n    AFTER UPDATE ON accounts\n    FOR EACH ROW\n    WHEN (OLD.* IS DISTINCT FROM NEW.*)\n    EXECUTE FUNCTION log_account_update();",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TRIGGER view_insert\n    INSTEAD OF INSERT ON my_view\n    FOR EACH ROW\n    EXECUTE FUNCTION view_insert_row();",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TRIGGER transfer_insert\n    AFTER INSERT ON transfer\n    REFERENCING NEW TABLE AS inserted\n    FOR EACH STATEMENT\n    EXECUTE FUNCTION check_transfer_balances_to_zero();",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TRIGGER paired_items_update\n    AFTER UPDATE ON paired_items\n    REFERENCING NEW TABLE AS newtab OLD TABLE AS oldtab\n    FOR EACH ROW\n    EXECUTE FUNCTION check_matching_pairs();",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      }
+    ],
+    "examples_count": 7,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-createtype.html",
+    "api": "CREATE TYPE",
+    "package": "PostgreSQL Documentation",
+    "language": "SQL",
+    "deprecated_in": "8.2",
+    "removed_in": "",
+    "replaced_by": "Enhanced CREATE TYPE command with shell-type creation syntax",
+    "change_type": "API Deprecation",
+    "reason": "Simplification of the API for creating new base types and to avoid accidental catalog clutter due to implicit shell type creation from input function definitions.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "CREATE TYPE compfoo AS (f1 int, f2 text);\n\nCREATE FUNCTION getfoo() RETURNS SETOF compfoo AS $$\n    SELECT fooid, fooname FROM foo\n$$ LANGUAGE SQL;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TYPE bug_status AS ENUM ('new', 'open', 'closed');\n\nCREATE TABLE bug (\n    id serial,\n    description text,\n    status bug_status\n);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TYPE box;\n\nCREATE FUNCTION my_box_in_function(cstring) RETURNS box AS ... ;\nCREATE FUNCTION my_box_out_function(box) RETURNS cstring AS ... ;\n\nCREATE TYPE box (\n    INTERNALLENGTH = 16,\n    INPUT = my_box_in_function,\n    OUTPUT = my_box_out_function\n);\n\nCREATE TABLE myboxes (\n    id integer,\n    description box\n);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "CREATE TYPE bigobj (\n    INPUT = lo_filein, OUTPUT = lo_fileout,\n    INTERNALLENGTH = VARIABLE\n);\nCREATE TABLE big_objs (\n    id integer,\n    obj bigobj\n);",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      }
+    ],
+    "examples_count": 4,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-dropgroup.html",
+    "api": "DROP GROUP",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "17",
+    "removed_in": "18.0",
+    "replaced_by": "DROP ROLE",
+    "change_type": "API Removal",
+    "reason": "DROP GROUP is now an alias for DROP ROLE due to simplification and alignment with the design philosophy that groups are roles.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-droplanguage.html",
+    "api": "DROP LANGUAGE",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "9.1",
+    "removed_in": "",
+    "replaced_by": "DROP EXTENSION",
+    "change_type": "API Deprecation",
+    "reason": "Most procedural languages were converted into extensions starting with PostgreSQL 9.1. As a result, they should now be removed using DROP EXTENSION instead of DROP LANGUAGE.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-drop-owned.html",
+    "api": "DROP OWNED",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "REASSIGN OWNED",
+    "change_type": "",
+    "reason": "DROP OWNED is often used for preparing the removal of roles, but REASSIGN OWNED provides an alternative that deals with ownership reassignment without affecting privileges.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-end.html",
+    "api": "END",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "COMMIT",
+    "change_type": "Behavior Change",
+    "reason": "Standardization to align with SQL standard and enhance compatibility with other database systems.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-drop-user.html",
+    "api": "DROP USER",
+    "package": "PostgreSQL SQL Commands",
+    "language": "SQL",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "DROP ROLE",
+    "change_type": "API Replacement",
+    "reason": "Simplification and unification of commands for handling database roles, as the concept of roles subsumes users.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "Failed to fetch"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/current/sql-explain.html",
+    "api": "EXPLAIN",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "9.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "The syntax for EXPLAIN was updated in PostgreSQL 9.0 to support named options in any order, replacing the previous fixed-order syntax for options. This change provides more flexibility and extensibility for future features.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "EXPLAIN SELECT * FROM foo;\n\n                       QUERY PLAN\n---------------------------------------------------------\n Seq Scan on foo  (cost=0.00..155.00 rows=10000 width=4)\n(1 row)",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "EXPLAIN (FORMAT JSON) SELECT * FROM foo;\n           QUERY PLAN\n--------------------------------\n [                             +\n   {                           +\n     \"Plan\": {                 +\n       \"Node Type\": \"Seq Scan\",+\n       \"Relation Name\": \"foo\", +\n       \"Alias\": \"foo\",         +\n       \"Startup Cost\": 0.00,   +\n       \"Total Cost\": 155.00,   +\n       \"Plan Rows\": 10000,     +\n       \"Plan Width\": 4         +\n     }                         +\n   }                           +\n ]\n(1 row)",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "EXPLAIN SELECT * FROM foo WHERE i = 4;\n\n                         QUERY PLAN\n--------------------------------------------------------------\n Index Scan using fi on foo  (cost=0.00..5.98 rows=1 width=4)\n   Index Cond: (i = 4)\n(2 rows)",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "EXPLAIN (FORMAT YAML) SELECT * FROM foo WHERE i='4';\n          QUERY PLAN\n-------------------------------\n - Plan:                      +\n     Node Type: \"Index Scan\"  +\n     Scan Direction: \"Forward\"+\n     Index Name: \"fi\"         +\n     Relation Name: \"foo\"     +\n     Alias: \"foo\"             +\n     Startup Cost: 0.00       +\n     Total Cost: 5.98         +\n     Plan Rows: 1             +\n     Plan Width: 4            +\n     Index Cond: \"(i = 4)\"\n(1 row)",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "EXPLAIN (COSTS FALSE) SELECT * FROM foo WHERE i = 4;\n\n        QUERY PLAN\n----------------------------\n Index Scan using fi on foo\n   Index Cond: (i = 4)\n(2 rows)",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "EXPLAIN SELECT sum(i) FROM foo WHERE i < 10;\n\n                             QUERY PLAN\n-------------------------------------------------------------------​--\n Aggregate  (cost=23.93..23.93 rows=1 width=4)\n   ->  Index Scan using fi on foo  (cost=0.00..23.92 rows=6 width=4)\n         Index Cond: (i < 10)\n(3 rows)",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "PREPARE query(int, int) AS SELECT sum(bar) FROM test\n    WHERE id > $1 AND id < $2\n    GROUP BY foo;\n\nEXPLAIN ANALYZE EXECUTE query(100, 200);\n\n                                                       QUERY PLAN\n-------------------------------------------------------------------​------------------------------------------------------\n HashAggregate  (cost=10.77..10.87 rows=10 width=12) (actual time=0.043..0.044 rows=10.00 loops=1)\n   Group Key: foo\n   Batches: 1  Memory Usage: 24kB\n   Buffers: shared hit=4\n   ->  Index Scan using test_pkey on test  (cost=0.29..10.27 rows=99 width=8) (actual time=0.009..0.025 rows=99.00 loops=1)\n         Index Cond: ((id > 100) AND (id < 200))\n         Index Searches: 1\n         Buffers: shared hit=4\n Planning Time: 0.244 ms\n Execution Time: 0.073 ms\n(10 rows)",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "EXPLAIN (GENERIC_PLAN)\n  SELECT sum(bar) FROM test\n    WHERE id > $1 AND id < $2\n    GROUP BY foo;\n\n                                  QUERY PLAN\n-------------------------------------------------------------------​------------\n HashAggregate  (cost=26.79..26.89 rows=10 width=12)\n   Group Key: foo\n   ->  Index Scan using test_pkey on test  (cost=0.29..24.29 rows=500 width=8)\n         Index Cond: ((id > $1) AND (id < $2))\n(4 rows)",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "EXPLAIN (GENERIC_PLAN)\n  SELECT sum(bar) FROM test\n    WHERE id > $1::integer AND id < $2::integer\n    GROUP BY foo;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      }
+    ],
+    "examples_count": 9,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/static/sql-insert.html",
+    "api": "INSERT",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "MERGE",
+    "change_type": "Behavior Change",
+    "reason": "The SQL standard introduced the MERGE statement, which allows combining INSERT, UPDATE, and DELETE logic in a single statement.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "INSERT INTO films VALUES\n    ('UA502', 'Bananas', 105, '1971-07-13', 'Comedy', '82 minutes');",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "INSERT INTO films (code, title, did, date_prod, kind)\n    VALUES ('T_601', 'Yojimbo', 106, '1961-06-16', 'Drama');",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "INSERT INTO films VALUES\n    ('UA502', 'Bananas', 105, DEFAULT, 'Comedy', '82 minutes');\nINSERT INTO films (code, title, did, date_prod, kind)\n    VALUES ('T_601', 'Yojimbo', 106, DEFAULT, 'Drama');",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "INSERT INTO films DEFAULT VALUES;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "INSERT INTO films (code, title, did, date_prod, kind) VALUES\n    ('B6717', 'Tampopo', 110, '1985-02-10', 'Comedy'),\n    ('HG120', 'The Dinner Game', 140, DEFAULT, 'Comedy');",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "INSERT INTO films SELECT * FROM tmp_films WHERE date_prod < '2004-05-07';",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "INSERT INTO distributors (did, dname) VALUES (DEFAULT, 'XYZ Widgets')\n   RETURNING did;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "WITH upd AS (\n  UPDATE employees SET sales_count = sales_count + 1 WHERE id =\n    (SELECT sales_person FROM accounts WHERE name = 'Acme Corporation')\n    RETURNING *\n)\nINSERT INTO employees_log SELECT *, current_timestamp FROM upd;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "INSERT INTO distributors (did, dname)\n    VALUES (5, 'Gizmo Transglobal'), (6, 'Associated Computing, Inc')\n    ON CONFLICT (did) DO UPDATE SET dname = EXCLUDED.dname;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "INSERT INTO distributors (did, dname)\n    VALUES (5, 'Gizmo Transglobal'), (6, 'Associated Computing, Inc')\n    ON CONFLICT (did) DO UPDATE SET dname = EXCLUDED.dname\n    RETURNING old.did AS old_did, old.dname AS old_dname,\n              new.did AS new_did, new.dname AS new_dname;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "INSERT INTO distributors (did, dname) VALUES (7, 'Redline GmbH')\n    ON CONFLICT (did) DO NOTHING;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      }
+    ],
+    "examples_count": 11,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-reset.html",
+    "api": "RESET",
+    "package": "PostgreSQL SQL Commands",
+    "language": "SQL",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "SET configuration_parameter TO DEFAULT",
+    "change_type": "Behavior Change",
+    "reason": "To provide an alternative syntax with consistent behavior and clearer semantics for resetting runtime parameters.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "RESET timezone;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-revoke.html",
+    "api": "REVOKE",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "16",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "In PostgreSQL 16, dependent privileges were not tracked for grants of role membership, and thus the CASCADE option had no effect for role membership. This behavior was changed to ensure consistent privilege tracking.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "REVOKE INSERT ON films FROM PUBLIC;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "REVOKE ALL PRIVILEGES ON kinds FROM manuel;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "REVOKE admins FROM joe;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      }
+    ],
+    "examples_count": 3,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-select-into.html",
+    "api": "SELECT INTO",
+    "package": "PostgreSQL SQL Commands",
+    "language": "SQL",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "CREATE TABLE AS",
+    "change_type": "API Deprecation",
+    "reason": "SELECT INTO is less flexible compared to CREATE TABLE AS, which allows specifying properties like access method and tablespace.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "Failed to fetch"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-set.html",
+    "api": "SET",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "8.2",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "In PostgreSQL versions 8.0 through 8.2, the effects of `SET LOCAL` were canceled by releasing an earlier savepoint or exiting a PL/pgSQL exception block, which was considered unintuitive. This behavior has been changed to improve usability.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "SET search_path TO my_schema, public;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      },
+      {
+        "code": "SET datestyle TO postgres, dmy;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      }
+    ],
+    "examples_count": 2,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-start-transaction.html",
+    "api": "START TRANSACTION",
+    "package": "PostgreSQL SQL Commands",
+    "language": "SQL",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "BEGIN",
+    "change_type": "Behavior Change",
+    "reason": "For simplicity, compatibility with SQL standard, and historical usage, PostgreSQL allows both START TRANSACTION and BEGIN for initiating transaction blocks.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.postgresql.org/docs/18/sql-vacuum.html",
+    "api": "VACUUM",
+    "package": "PostgreSQL",
+    "language": "SQL",
+    "deprecated_in": "9.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The command syntax changed to allow the options to be specified in any order, rather than requiring a specific order.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "VACUUM (VERBOSE, ANALYZE) onek;",
+        "output": "",
+        "has_output": false,
+        "language": "sql"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  }
+]

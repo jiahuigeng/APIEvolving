@@ -1,0 +1,4189 @@
+[
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/apache/commons/logging/impl/package-summary.html",
+    "api": "SimpleLog",
+    "package": "org.apache.commons.logging.impl",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.apache.commons.logging.impl.NoOpLog",
+    "change_type": "API Deprecation",
+    "reason": "SimpleLog within spring-jcl is no longer functional and is effectively equivalent to NoOpLog. This decision was made likely for simplifying the Commons Logging implementation and improving compatibility with multiple logging implementations such as Log4J 2, SLF4J, and java.util.logging.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": " Name                    Last modified      Size  Description Parent Directory                             -   \n javadoc-api/            2025-09-11 07:04    -   \n kdoc-api/               2025-09-11 07:15    -   \n reference/              2023-08-08 20:37    -   \n",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/apache/commons/logging/package-summary.html",
+    "api": "LogFactoryService",
+    "package": "org.apache.commons.logging",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.apache.commons.logging.LogFactory",
+    "change_type": "API Deprecation",
+    "reason": "This API was only intended for use in a fallback scenario, and its usage is now deprecated in favor of better alternatives such as LogFactory.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "java.util.logging",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "jcl-over-slf4j",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "spring-jcl",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "jcl-over-slf4j",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "java.util.logging",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Log",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "LogFactory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "java.util.logging",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "spring-jcl",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "commons-logging",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "jcl-over-slf4j",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "java.util.logging",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "java.util.logging",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "LogFactory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Log",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 15,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/aot/agent/package-summary.html",
+    "api": "InstrumentedBridgeMethods",
+    "package": "org.springframework.aot.agent",
+    "language": "Java",
+    "deprecated_in": "6.0",
+    "removed_in": "6.1",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "This class is intended for use exclusively by the runtime-hints agent during bytecode instrumentation and is not meant to be part of the public API.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "RuntimeHints",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "RuntimeHints",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "RuntimeHints",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "RecordedInvocation",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "invocations recorded",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "RuntimeHintsAgent",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "RuntimeHints",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "RuntimeHintsAgent",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "RuntimeHints",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 9,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/config/package-summary.html",
+    "api": "PropertyPlaceholderConfigurer",
+    "package": "org.springframework.beans.factory.config",
+    "language": "Java",
+    "deprecated_in": "5.0",
+    "removed_in": "6.0",
+    "replaced_by": "org.springframework.beans.factory.config.PropertySourcesPlaceholderConfigurer",
+    "change_type": "API Deprecation",
+    "reason": "The newer 'PropertySourcesPlaceholderConfigurer' is more flexible and takes advantage of the 'Environment' and 'PropertySource' mechanisms introduced in later versions of Spring Framework.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "PlaceholderConfigurerSupport",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Value",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Environment",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySources",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertyPlaceholderConfigurer",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "property-placeholder",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertyPlaceholderConfigurer",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertiesLoaderSupport.setProperties(java.util.Properties)",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertiesLoaderSupport.setLocations(org.springframework.core.io.Resource...)",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "localOverride",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "false",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ConfigurableEnvironment",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ConfigurablePropertyResolver",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "post-processing",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySources",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Environment",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "setPropertySources(org.springframework.core.env.PropertySources)",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "processProperties(ConfigurableListableBeanFactory, ConfigurablePropertyResolver)",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Environment",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySources",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySources",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Environment",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySources",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Environment",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySources",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Environment",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "setPropertySources(org.springframework.core.env.PropertySources)",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "setPropertySources(org.springframework.core.env.PropertySources)",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ConfigurablePropertyResolver",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySourcesPropertyResolver",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PlaceholderConfigurerSupport",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "post-processing",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 37,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/support/package-summary.html",
+    "api": "PropertiesBeanDefinitionReader",
+    "package": "org.springframework.beans.factory.support",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "Spring's common bean definition formats",
+    "change_type": "API Deprecation",
+    "reason": "The API has been deprecated in favor of using more modern and widely adopted approaches like Spring's common bean definition formats.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "org.springframework.beans.factory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanFactory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "RootBeanDefinition",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanDefinition",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "GenericBeanDefinition",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "RootBeanDefinition",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ChildBeanDefinition",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanDefinitionReader",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanFactory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ConfigurableBeanFactory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanDefinitions",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanDefinition",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanDefinitionStoreException",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "DefaultListableBeanFactory.isAllowBeanDefinitionOverriding()",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "false",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Resource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "String",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanFactoryPostProcessor",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanNameGenerator",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanDefinitionReaderUtils.generateBeanName(BeanDefinition, BeanDefinitionRegistry)",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ConfigurableListableBeanFactory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanDefinitionRegistry",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "SingletonBeanRegistry",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "FactoryBean",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "DefaultSingletonBeanRegistry",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "AutowireCandidateResolver",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Repository<Customer>",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Supplier",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanDefinition",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "registered bean",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Properties",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "RegisteredBean",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanFactory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "MethodOverride",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanCreationException",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "AutowireCandidateResolver",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanDefinitionRegistry",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanFactory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 38,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/cache/annotation/package-summary.html",
+    "api": "CachingConfigurerSupport",
+    "package": "org.springframework.cache.annotation",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.springframework.cache.annotation.CachingConfigurer",
+    "change_type": "API Deprecation",
+    "reason": "Encouragement to directly implement CachingConfigurer for better flexibility and customization.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "CacheOperationSource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Configuration",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "CacheOperationSource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "CacheOperation",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "CacheAnnotationParser",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@CacheConfig",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "cache evict",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "cache put",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "AbstractCachingConfiguration",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "EnableCaching.mode()",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Configuration",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Configuration",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "EnableCaching",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "<cache:*>",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Configuration",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Caching",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Cacheable",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "CacheEvict",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "CachePut",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 19,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/cache/jcache/config/package-summary.html",
+    "api": "JCacheConfigurerSupport",
+    "package": "org.springframework.cache.jcache.config",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.springframework.cache.jcache.config.JCacheConfigurer",
+    "change_type": "API Deprecation",
+    "reason": "Streamlining the API to encourage direct implementation of JCacheConfigurer for flexibility and reduced overhead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/cglib/core/package-summary.html",
+    "api": "SpringNamingPolicy",
+    "package": "org.springframework.cglib.core",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.springframework.cglib.core.SpringCGLIBNamingPolicy",
+    "change_type": "Behavior Change",
+    "reason": "SpringSpecific NamingPolicy modified to include a 'SpringCGLIB' tag rather than CGLIB's default naming convention to better align with Spring Framework.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "DefaultNamingPolicy",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "NamingPolicy",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 2,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/package-summary.html",
+    "api": "ApplicationListener",
+    "package": "org.springframework.context",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.springframework.context.event.EventListener",
+    "change_type": "API Deprecation",
+    "reason": "Simplified event listener implementation using annotations for improved developer convenience and reduced boilerplate code.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/index/package-summary.html",
+    "api": "CandidateComponentsIndex",
+    "package": "org.springframework.context.index",
+    "language": "Java",
+    "deprecated_in": "6.0",
+    "removed_in": "6.1",
+    "replaced_by": "org.springframework.context.index.AOTEngine",
+    "change_type": "API Deprecation",
+    "reason": "Streamlining component indexing in favor of the more performant AOT engine",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/i18n/package-summary.html",
+    "api": "LocaleContextHolder",
+    "package": "org.springframework.context.i18n",
+    "language": "Java",
+    "deprecated_in": "6.0",
+    "removed_in": "6.1",
+    "replaced_by": "org.springframework.context.i18n.LocaleContextHolder",
+    "change_type": "Behavior Change",
+    "reason": "To enable compatibility with the Micrometer Context Propagation library",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "inheritable",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "true",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TimeZoneAwareLocaleContext",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TimeZoneAwareLocaleContext",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Locale.getDefault()",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "null",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "getLocaleContext()",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "LocaleContext.getLocale()",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Locale.getDefault()",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TimeZone.getDefault()",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "null",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "getLocaleContext()",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TimeZoneAwareLocaleContext.getTimeZone()",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TimeZoneAwareLocaleContext",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TimeZone.getDefault()",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 15,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/index/processor/package-summary.html",
+    "api": "CandidateComponentsIndexer",
+    "package": "org.springframework.context.index.processor",
+    "language": "Java",
+    "deprecated_in": "6.0",
+    "removed_in": "6.1",
+    "replaced_by": "org.springframework.context.index.processor.AOTCandidateComponentsIndexer",
+    "change_type": "API Deprecation",
+    "reason": "Enhanced capabilities and efficiency provided by the AOT (Ahead-of-Time) engine over the existing API.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "java.util.logging",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "java.util.logging",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TargetSourceCreator",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TargetSource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TargetSource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "RuntimeHints",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "RuntimeHintsAgent",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ServiceLoader",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "org.springframework.beans.factory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanFactory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "java.util.concurrent",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Configurable",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "LoadTimeWeaver",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Encoder",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Decoder",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "java.util.Date",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "java.time",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "java.lang.Number",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "javax.money",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Observation",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ClientHttpRequest",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ClientHttpResponse",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ClientHttpConnector",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Encoder",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Decoder",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ClientCodecConfigurer",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ServerCodecConfigurer",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "org.springframework.http.codec.json",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "HttpMessageConverter",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "observing",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ServerHttpRequest",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ServerHttpResponse",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "HttpHandler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "observing",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "org.springframework.jdbc.core",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "org.springframework.jms.core",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "MBeanServer",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "MBeanServer",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "RSocketRequester",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Message",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "MessageChannel",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TcpOperations",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TcpConnectionHandler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TcpConnection",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Environment",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "org.springframework.orm.hibernate5",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "org.springframework.orm.jpa",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "java.util.concurrent",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "jakarta.enterprise.concurrent",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Sql",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Rules",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Statements",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "RequestMatcher",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ResponseCreator",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "WebTestClient",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "WebTestClient",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "MockMvc",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "MockMvc",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "MockMvc",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "HtmlUnitDriver",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "RequestBuilder",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ResultMatcher",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ResultHandler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "MockMvcBuilder",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "java.util.Comparator",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "java.util.concurrent.Future",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "java.util.function",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "org.springframework.web.client",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "org.springframework.web.context",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "CorsProcessor",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "CorsProcessor",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "WebFilter",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "org.springframework.web.servlet.mvc.method",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "spring-webflux",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "DispatcherHandler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "RequestedContentTypeResolver",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "WebClient",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "org.springframework.http.client.reactive",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "org.springframework.web.reactive.function.client",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "org.springframework.web.reactive.function.server",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "WebHandler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "RequestCondition",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "RequestUpgradeStrategy",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "org.springframework.http.client.reactive",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "HttpHandler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "WebHandlerDecorator",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "WebSession",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "HttpExchange",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "org.springframework.web.servlet.function",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "org.springframework.web.method",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "org.springframework.web.method.annotation",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "WebSocketHandler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "WebSocketClient",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "AbstractSockJsService",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TransportHandler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "session",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "DefaultSockJsService",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TransportHandler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "SockJsService",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "WebSocketSession",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 101,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/package-summary.html",
+    "api": "Constants",
+    "package": "org.springframework.core",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "java.lang.Enum, java.util.Map",
+    "change_type": "API Deprecation",
+    "reason": "No longer needed as more robust and extensible solutions such as enums or maps are recommended.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/env/package-summary.html",
+    "api": "JOptCommandLinePropertySource",
+    "package": "org.springframework.core.env",
+    "language": "Java",
+    "deprecated_in": "6.0",
+    "removed_in": "6.1",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "No plans for a replacement, the API has been deprecated without an alternative.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "Environment",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Environment",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertyResolver",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Environment",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Map",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySources",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Environment",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Properties",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertyResolver",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PropertySources",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "CommandLinePropertySource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "CommandLineArgs",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Environment",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "MapPropertySource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 22,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/task/package-summary.html",
+    "api": "AsyncListenableTaskExecutor",
+    "package": "org.springframework.core.task",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "Improved API methods were introduced to streamline and enhance usability for asynchronous task execution.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "TaskExecutor",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Callable",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TaskExecutor",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TaskExecutor",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Runnable",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Runnable",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TaskExecutor",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TaskExecutor",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 8,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/dao/package-summary.html",
+    "api": "CannotSerializeTransactionException",
+    "package": "org.springframework.dao",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.springframework.dao.PessimisticLockingFailureException",
+    "change_type": "API Deprecation",
+    "reason": "The CannotSerializeTransactionException was deprecated in favor of PessimisticLockingFailureException or CannotAcquireLockException for better clarity and alignment with core JDBC/ORM support.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "WebTestClient",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/format/datetime/standard/package-summary.html",
+    "api": "InstantFormatter",
+    "package": "org.springframework.format.datetime.standard",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "Updated to support additional formatting options, including RFC_1123_DATE_TIME format commonly used for HTTP date header values.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "annotationProcessor",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/client/package-summary.html",
+    "api": "OkHttp3ClientHttpRequestFactory",
+    "package": "org.springframework.http.client",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "alternative ClientHttpRequestFactory implementations",
+    "change_type": "API Deprecation",
+    "reason": "Scheduled for removal in favor of alternative ClientHttpRequestFactory implementations",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "ClientHttpRequestFactory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "OkHttpClient",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "OkHttpClient",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ClientHttpRequest",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanFactory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "OkHttpClient",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "OkHttpClient",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ClientHttpRequestFactory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ClientHttpRequest",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ClientHttpRequest.execute()",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "DisposableBean",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanFactory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 12,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/client/reactive/package-summary.html",
+    "api": "ReactorResourceFactory",
+    "package": "org.springframework.http.client.reactive",
+    "language": "Java",
+    "deprecated_in": "6.0",
+    "removed_in": "6.1",
+    "replaced_by": "org.springframework.http.client.reactive.ReactorResourceFactory",
+    "change_type": "API Deprecation",
+    "reason": "Due to a package change; use ReactorResourceFactory from the new package",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "depends-on",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Autowired",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Primary",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Fallback",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "CustomAutowireConfigurer",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Resource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Value",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@PostConstruct",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@PreDestroy",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Bean",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Configuration",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "AnnotationConfigApplicationContext",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Bean",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Configuration",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "LoadTimeWeaver",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ApplicationContext",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanFactory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ProxyFactoryBean",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ProxyFactory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TargetSource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Transactional",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Transactional",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "SimpleJdbc",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "DataSource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@RequestParam",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@RequestHeader",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@CookieValue",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@ModelAttribute",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@SessionAttributes",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@SessionAttribute",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@RequestAttribute",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@RequestBody",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@ResponseBody",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@InitBinder",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "DispatcherHandler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Controller",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@RequestParam",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@RequestHeader",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@CookieValue",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@ModelAttribute",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@SessionAttributes",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@SessionAttribute",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@RequestAttribute",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@RequestBody",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "HttpEntity",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@ResponseBody",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ResponseEntity",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Model",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "DataBinder",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "retrieve()",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TestExecutionListener",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "WebApplicationContext",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@BootstrapWith",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@ContextConfiguration",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@WebAppConfiguration",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@ContextHierarchy",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@ContextCustomizerFactories",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@ActiveProfiles",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@TestPropertySource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@DynamicPropertySource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@TestBean",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@MockitoBean",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@MockitoSpyBean",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@DirtiesContext",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@TestExecutionListeners",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@RecordApplicationEvents",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Commit",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Rollback",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@BeforeTransaction",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@AfterTransaction",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Sql",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@SqlConfig",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@SqlMergeMode",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@SqlGroup",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@DisabledInAotMode",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ObjectName",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 76,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/package-summary.html",
+    "api": "LobRetrievalFailureException",
+    "package": "org.springframework.jdbc.support",
+    "language": "Java",
+    "deprecated_in": "6.0",
+    "removed_in": "6.1",
+    "replaced_by": "org.springframework.jdbc.support.LobHandler",
+    "change_type": "API Deprecation",
+    "reason": "Improved functionality and handling provided by LobHandler, making LobRetrievalFailureException obsolete.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/support/package-summary.html",
+    "api": "AbstractLobCreatingPreparedStatementCallback",
+    "package": "org.springframework.jdbc.core.support",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.springframework.jdbc.core.SqlValue",
+    "change_type": "API Deprecation",
+    "reason": "Promotes use of more modern and versatile SQL value objects for handling binary and character data.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);  // reusable object\n LobHandler lobHandler = new DefaultLobHandler();  // reusable object\n\n jdbcTemplate.execute(\n     \"INSERT INTO imagedb (image_name, content, description) VALUES (?, ?, ?)\",\n     new AbstractLobCreatingPreparedStatementCallback(lobHandler) {\n       protected void setValues(PreparedStatement ps, LobCreator lobCreator) throws SQLException {\n         ps.setString(1, name);\n         lobCreator.setBlobAsBinaryStream(ps, 2, contentStream, contentLength);\n         lobCreator.setClobAsString(ps, 3, description);\n       }\n     });\n ",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/support/xml/package-summary.html",
+    "api": "Jdbc4SqlXmlHandler",
+    "package": "org.springframework.jdbc.support.xml",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "java.sql.SQLXML",
+    "change_type": "API Deprecation",
+    "reason": "To encourage direct usage of SQLXML handling APIs for better performance and clarity",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": " Name                    Last modified      Size  Description Parent Directory                             -   \n javadoc-api/            2025-09-11 07:04    -   \n kdoc-api/               2025-09-11 07:15    -   \n reference/              2023-08-08 20:37    -   \n",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/support/lob/package-summary.html",
+    "api": "AbstractLobHandler",
+    "package": "org.springframework.jdbc.support.lob",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.springframework.jdbc.support.lob.CustomLobHandler",
+    "change_type": "API Deprecation",
+    "reason": "Enhanced APIs for handling large object data types (LOBs), providing more specialized and customizable functionality.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/messaging/handler/invocation/package-summary.html",
+    "api": "ListenableFutureReturnValueHandler",
+    "package": "org.springframework.messaging.handler.invocation",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "java.util.concurrent.CompletableFuture",
+    "change_type": "API Deprecation",
+    "reason": "Simplification and consolidation of async return value handling. `CompletableFuture` and `CompletionStage` provide more comprehensive functionality than `ListenableFuture`.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "ListenableFuture",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "CompletableFuture",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ListenableFuture",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "HandlerMethodReturnValueHandler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "AsyncHandlerMethodReturnValueHandler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ListenableFuture",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "SettableListenableFuture",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "HandlerMethodReturnValueHandler.supportsReturnType(org.springframework.core.MethodParameter)",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "true",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "AsyncHandlerMethodReturnValueHandler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "CompletableFuture",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "HandlerMethodReturnValueHandler.supportsReturnType(org.springframework.core.MethodParameter)",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "true",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 13,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/orm/hibernate5/package-summary.html",
+    "api": "org.springframework.orm.hibernate5",
+    "package": "org.springframework.orm.hibernate5",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.springframework.orm.hibernate6",
+    "change_type": "Behavior Change",
+    "reason": "Migration purpose, as Hibernate ORM 5.x is being replaced by Hibernate ORM 6.x for future compatibility.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "sessionFactory.getCurrentSession()",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "org.springframework.orm.hibernate5",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PersistenceExceptionTranslator",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "HibernateException",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "DataAccessException",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "HibernateOperations.execute(org.springframework.orm.hibernate5.HibernateCallback<T>)",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "org.springframework.dao",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "PlatformTransactionManager",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "SessionFactory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "FactoryBean",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "SessionFactory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Configuration",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "SpringSessionContext",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "DataSource",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Session",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Transaction",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanContainer",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ConfigurableListableBeanFactory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "flush()",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "FlushMode.MANUAL",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "CurrentSessionContext",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "SessionFactoryUtils",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Session",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 23,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/r2dbc/core/package-summary.html",
+    "api": "Parameter",
+    "package": "org.springframework.r2dbc.core",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "io.r2dbc.spi.Parameter",
+    "change_type": "API Deprecation",
+    "reason": "The `Parameter` API was deprecated in favor of `io.r2dbc.spi.Parameter`, which likely provides enhanced or preferred functionalities.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "Function",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Readable",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Row",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "OutParameters",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Mapping function",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "java.util.Map",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Function",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Connection",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "DatabaseClient",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Function",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Readable",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Row",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "OutParameters",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Statement",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Result",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "QueryOperation",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Supplier",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ExecuteFunction",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 18,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/annotation/package-summary.html",
+    "api": "AsyncConfigurerSupport",
+    "package": "org.springframework.scheduling.annotation",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.springframework.scheduling.annotation.AsyncConfigurer",
+    "change_type": "API Deprecation",
+    "reason": "AsyncConfigurerSupport has been deprecated in favor of directly implementing AsyncConfigurer for better flexibility and adherence to modern coding standards.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "java.util.concurrent",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "jakarta.enterprise.concurrent",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Configuration",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "AsyncExecutionInterceptor",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Executor",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Async",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Async",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Async",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "AsyncAnnotationAdvisor",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "AbstractAsyncConfiguration",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "EnableAsync.mode()",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Configuration",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Configuration",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "EnableAsync",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Executor",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "AsyncUncaughtExceptionHandler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "void",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "<task:*>",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "<task:*>",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Configuration",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Scheduled",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TaskScheduler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Scheduled",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Configuration",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ScheduledAnnotationBeanPostProcessor",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Scheduled",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@Configuration",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@EnableScheduling",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 28,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/config/package-summary.html",
+    "api": "ScheduledTaskRegistrar",
+    "package": "org.springframework.scheduling.config",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.springframework.scheduling.annotation.ScheduledTaskRegistrar",
+    "change_type": "API Deprecation",
+    "reason": "Redirects scheduling tasks to lifecycle-aware callback for enhanced flexibility and compatibility with singleton initialization.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "TaskScheduler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ScheduledTaskRegistrar",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@EnableAsync",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "SchedulingConfigurer",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Runnable",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "expression",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "CronTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "addFixedDelayTask(Runnable, Duration)",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "IntervalTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "addFixedRateTask(Runnable, Duration)",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Runnable",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "IntervalTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "DelayedTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Trigger",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TriggerTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "scheduleTasks()",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanFactory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "CronTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "IntervalTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "IntervalTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ObservationRegistry",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TaskScheduler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "null",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TriggerTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ScheduledTaskRegistrar",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "CronTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "IntervalTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "IntervalTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ObservationRegistry",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TaskScheduler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ScheduledExecutorService",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TaskScheduler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TaskScheduler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Trigger",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TriggerTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "addCronTask(Runnable, String)",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "expression",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Environment",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TaskScheduler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TaskScheduler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ScheduledExecutorService",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TaskScheduler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TaskScheduler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "null",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ObservationRegistry",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ObservationRegistry",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Trigger",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TriggerTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "<task:*>",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TriggerTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "CronTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "<task:*>",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "CronTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "IntervalTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "<task:*>",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "IntervalTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "IntervalTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "<task:*>",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "IntervalTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Trigger",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "TriggerTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Runnable",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "expression",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "expression",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "CRON_DISABLED",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "CronTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Runnable",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Runnable",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "IntervalTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "IntervalTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "DelayedTask",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ScheduledTaskRegistrar",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "scheduleTasks()",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "DisposableBean",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "BeanFactory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 75,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/util/package-summary.html",
+    "api": "JsonExpectationsHelper",
+    "package": "org.springframework.test.util",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.skyscreamer.jsonassert.JSONAssert",
+    "change_type": "API Deprecation",
+    "reason": "To encourage the use of either the JSONAssert library or the JsonComparator abstraction for more comprehensive and standardized JSON assertion capabilities.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/config/package-summary.html",
+    "api": "JtaTransactionManagerFactoryBean",
+    "package": "org.springframework.transaction.config",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.springframework.transaction.jta.JtaTransactionManager",
+    "change_type": "API Deprecation",
+    "reason": "Shift towards using direct JtaTransactionManager definitions for better clarity and simplicity.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "NamespaceHandler",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/support/package-summary.html",
+    "api": "TransactionSynchronizationAdapter",
+    "package": "org.springframework.transaction.support",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.springframework.transaction.TransactionSynchronization",
+    "change_type": "API Deprecation",
+    "reason": "To prefer default methods on the TransactionSynchronization interface for enhanced functionality and maintainability.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/ui/context/support/package-summary.html",
+    "api": "DelegatingThemeSource",
+    "package": "org.springframework.ui.context.support",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.springframework.ui.context.support.NewThemeSource",
+    "change_type": "API Deprecation",
+    "reason": "Simplification of UI customization and modern web standards.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/ui/context/package-summary.html",
+    "api": "HierarchicalThemeSource, Theme, ThemeSource",
+    "package": "org.springframework.ui.context",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "To align with modern practices and leverage CSS for styling, eliminating the need for specific theme-related APIs.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/util/package-summary.html",
+    "api": "MimeType.SpecificityComparator",
+    "package": "org.springframework.util",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "This API is deprecated and subject to removal in a future version without direct replacement.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": " Name                    Last modified      Size  Description Parent Directory                             -   \n javadoc-api/            2025-09-11 07:04    -   \n kdoc-api/               2025-09-11 07:15    -   \n reference/              2023-08-08 20:37    -   \n",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/util/comparator/package-summary.html",
+    "api": "ComparableComparator",
+    "package": "org.springframework.util.comparator",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "Comparator.naturalOrder()",
+    "change_type": "API Deprecation",
+    "reason": "This was deprecated to encourage usage of standard Java API implementations such as 'Comparator.naturalOrder()' for better integration and standardization.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/accept/package-summary.html",
+    "api": "PathExtensionContentNegotiationStrategy",
+    "package": "org.springframework.web.accept",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.springframework.web.accept.ParameterContentNegotiationStrategy, org.springframework.web.accept.HeaderContentNegotiationStrategy",
+    "change_type": "API Deprecation",
+    "reason": "This strategy has been marked as deprecated due to better alternatives available, such as using other content negotiation strategies (e.g., `ParameterContentNegotiationStrategy` or `HeaderContentNegotiationStrategy`). The deprecation encourages developers to transition to more flexible and modern approaches.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/client/support/package-summary.html",
+    "api": "RestTemplateAdapter",
+    "package": "org.springframework.web.client.support",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.springframework.web.client.RestClient",
+    "change_type": "API Deprecation",
+    "reason": "To better align with modern alternatives and encourage the use of `RestClient` for request execution.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/filter/reactive/package-summary.html",
+    "api": "ServerHttpObservationFilter",
+    "package": "org.springframework.web.filter.reactive",
+    "language": "Java",
+    "deprecated_in": "6.0",
+    "removed_in": "6.1",
+    "replaced_by": "org.springframework.web.reactive.WebHttpHandlerBuilder",
+    "change_type": "API Deprecation",
+    "reason": "The API is being deprecated in favor of using WebHttpHandlerBuilder for better or more modern functionality.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "WebFilter",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "observations",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ServerRequestObservationContext",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "context",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "request attribute",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ServerRequestObservationConvention",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "metadata",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "context",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "HttpRequestsObservationWebFilter",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ObservationRegistry",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "HttpRequestsObservationWebFilter",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ObservationRegistry",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "WebFilter",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "WebFilterChain",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "observation context",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "context",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "HttpRequestsObservationWebFilter",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ObservationRegistry",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "convention",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "HttpRequestsObservationWebFilter",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ObservationRegistry",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "observation context",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "WebFilter",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "WebFilter",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "WebFilterChain",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 25,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/reactive/function/client/package-summary.html",
+    "api": "ExchangeFilterFunctions.Credentials",
+    "package": "org.springframework.web.reactive.function.client",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.springframework.web.reactive.function.client.HttpHeaders.setBasicAuth",
+    "change_type": "API Deprecation",
+    "reason": "This API was deprecated to encourage usage of standard approaches for basic authentication via `HttpHeaders.setBasicAuth(String, String)` while building a request, instead of using custom implementations.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "Credentials",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Credentials",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ExchangeFilterFunctions.basicAuthentication()",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Credentials",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Credentials",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ExchangeFilterFunctions.basicAuthentication()",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 6,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/reactive/resource/package-summary.html",
+    "api": "WebJarsResourceResolver",
+    "package": "org.springframework.web.reactive.resource",
+    "language": "Java",
+    "deprecated_in": "6.0",
+    "removed_in": "6.1",
+    "replaced_by": "org.springframework.web.reactive.resource.LiteWebJarsResourceResolver",
+    "change_type": "API Deprecation",
+    "reason": "Simplification and improvement of functionality by moving towards LiteWebJarsResourceResolver, which achieves similar objectives more efficiently.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/service/invoker/package-summary.html",
+    "api": "HttpClientAdapter",
+    "package": "org.springframework.web.service.invoker",
+    "language": "Java",
+    "deprecated_in": "6.0",
+    "removed_in": "6.1",
+    "replaced_by": "org.springframework.web.service.invoker.ReactorHttpExchangeAdapter",
+    "change_type": "API Deprecation",
+    "reason": "The API is being deprecated to transition to a reactive programming model using ReactorHttpExchangeAdapter, which provides improved support for reactive HTTP client implementations.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/service/invoker/package-summary.html",
+    "api": "ThemeResolver",
+    "package": "org.springframework.web.servlet",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.springframework.web.servlet.ThemeResolver",
+    "change_type": "API Deprecation",
+    "reason": "Spring Framework encourages using CSS for styling themes as it offers better flexibility and modern design capabilities.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/package-summary.html",
+    "api": "LastModified",
+    "package": "org.springframework.web.servlet.mvc",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.springframework.web.bind.annotation.RequestMapping.checkNotModified",
+    "change_type": "API Deprecation",
+    "reason": "The LastModified API was deprecated in favor of using more modern and flexible alternatives such as 'checkNotModified' methods in WebRequest and annotated controller methods. These methods provide better integration with MVC workflows and HTTP response handling capabilities such as setting ETag and Last-Modified headers.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "checkNotModified",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "WebRequest",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "ResponseEntity",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "getLastModified",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "HandlerAdapter.getLastModified(javax.servlet.http.HttpServletRequest, java.lang.Object)",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "@RequestMapping",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "WebRequest.checkNotModified(long)",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "getLastModified",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "getLastModified",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 9,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/tags/package-summary.html",
+    "api": "ThemeTag",
+    "package": "org.springframework.web.servlet.tags",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "No direct replacement provided; likely deprecated due to minimal or outdated use and revised framework design decisions.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/resource/package-summary.html",
+    "api": "AbstractThemeResolver",
+    "package": "org.springframework.web.servlet.theme",
+    "language": "Java",
+    "deprecated_in": "6.0",
+    "removed_in": "6.1",
+    "replaced_by": "org.springframework.web.servlet.theme.CssThemeResolver",
+    "change_type": "API Deprecation",
+    "reason": "Encouragement for developers to utilize modern CSS-based approaches for theming, which are more flexible, scalable, and in line with current web development practices.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/tags/package-summary.html",
+    "api": "ResourceBundleViewResolver",
+    "package": "org.springframework.web.servlet.view",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.springframework.web.servlet.view.InternalResourceViewResolver",
+    "change_type": "API Deprecation",
+    "reason": "Simplification and preference for more modern and commonly used view resolver approaches in the Spring Framework.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/socket/sockjs/transport/package-summary.html",
+    "api": "SockJsService",
+    "package": "org.springframework.web.socket.sockjs.transport",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.springframework.web.socket.sockjs.transport.SockJsServiceImpl",
+    "change_type": "API Replacement",
+    "reason": "A basic implementation of SockJsService with support for SPI-based transport handling and session management.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": " Name                           Last modified      Size  Description Parent Directory                                    -   \n html/                          2023-05-05 00:45    -   \n",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/ResponseCookie.html",
+    "api": "CookieGenerator",
+    "package": "org.springframework.web.util",
+    "language": "Java",
+    "deprecated_in": "5.3",
+    "removed_in": "6.0",
+    "replaced_by": "org.springframework.http.ResponseCookie",
+    "change_type": "API Deprecation",
+    "reason": "The CookieGenerator API has been deprecated in favor of the ResponseCookie class, which provides updated functionality and aligns with modern web standards.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "MessageSourceResolvable",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "HttpServletRequest",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "byte array",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "HttpServletResponse",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "UriBuilderFactory",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "UriComponentsBuilder",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "JavaBeans Introspector",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "Strings",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "UriBuilder",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "UriComponents",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "UriComponentsBuilder.fromUriString(String, ParserType)",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "UriTemplate.expand(Map)",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "UriTemplate.expand(Object[])",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      },
+      {
+        "code": "UriTemplate.match(String)",
+        "output": "",
+        "has_output": false,
+        "language": "java"
+      }
+    ],
+    "examples_count": 14,
+    "extraction_method": "Manual"
+  }
+]
