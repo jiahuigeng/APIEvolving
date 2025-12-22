@@ -36,7 +36,7 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html",
-    "api": "read_excel",
+    "api": "pandas.read_excel",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "",
@@ -72,7 +72,7 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.ExcelFile.html",
-    "api": "ExcelFile",
+    "api": "pandas.ExcelFile",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "1.2.0",
@@ -145,23 +145,8 @@
     "extraction_method": "No Examples"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/",
-    "api": "Styler.to_html",
-    "package": "pandas.io.formats.style",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "",
-    "reason": "",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_latex.html",
-    "api": "to_latex",
+    "api": "pandas.DataFrame.to_latex",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "",
@@ -187,96 +172,56 @@
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.read_xml.html",
     "api": "pandas.read_xml",
     "package": "pandas",
+    "change_type": "Usage Deprecation",
+    "reason": "Passing XML literal strings directly to the function is deprecated. Users should wrap literal XML input in `io.StringIO` or `io.BytesIO` before passing it to `read_xml`.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "Manual",
     "language": "Python",
     "deprecated_in": "2.1.0",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "API Deprecation",
-    "reason": "To improve consistency and clarity when handling literal XML input by requiring explicit wrapping.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nxml = '''<?xml version='1.0' encoding='utf-8'?>\n<data xmlns=\"http://example.com\">\n<row>\n<shape>square</shape>\n<degrees>360</degrees>\n<sides>4.0</sides>\n</row>\n<row>\n<shape>circle</shape>\n<degrees>360</degrees>\n<sides/>\n</row>\n<row>\n<shape>triangle</shape>\n<degrees>180</degrees>\n<sides>3.0</sides>\n</row>\n</data>'''",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ndf = pd.read_xml(StringIO(xml))\ndf",
-        "output": "shape  degrees  sides\n0    square      360    4.0\n1    circle      360    NaN\n2  triangle      180    3.0"
-      },
-      {
-        "code": "import numpy as np\nxml = '''<?xml version='1.0' encoding='utf-8'?>\n<data>\n<row shape=\"square\" degrees=\"360\" sides=\"4.0\"/>\n<row shape=\"circle\" degrees=\"360\"/>\n<row shape=\"triangle\" degrees=\"180\" sides=\"3.0\"/>\n</data>'''",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ndf = pd.read_xml(StringIO(xml), xpath=\".//row\")\ndf",
-        "output": "shape  degrees  sides\n0    square      360    4.0\n1    circle      360    NaN\n2  triangle      180    3.0"
-      },
-      {
-        "code": "import numpy as np\nxml = '''<?xml version='1.0' encoding='utf-8'?>\n<doc:data xmlns:doc=\"https://example.com\">\n<doc:row>\n<doc:shape>square</doc:shape>\n<doc:degrees>360</doc:degrees>\n<doc:sides>4.0</doc:sides>\n</doc:row>\n<doc:row>\n<doc:shape>circle</doc:shape>\n<doc:degrees>360</doc:degrees>\n<doc:sides/>\n</doc:row>\n<doc:row>\n<doc:shape>triangle</doc:shape>\n<doc:degrees>180</doc:degrees>\n<doc:sides>3.0</doc:sides>\n</doc:row>\n</doc:data>'''",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ndf = pd.read_xml(StringIO(xml),\nxpath=\"//doc:row\",\nnamespaces={\"doc\": \"https://example.com\"})\ndf",
-        "output": "shape  degrees  sides\n0    square      360    4.0\n1    circle      360    NaN\n2  triangle      180    3.0"
-      },
-      {
-        "code": "import numpy as np\nxml_data = '''\n<data>\n<row>\n<index>0</index>\n<a>1</a>\n<b>2.5</b>\n<c>True</c>\n<d>a</d>\n<e>2019-12-31 00:00:00</e>\n</row>\n<row>\n<index>1</index>\n<b>4.5</b>\n<c>False</c>\n<d>b</d>\n<e>2019-12-31 00:00:00</e>\n</row>\n</data>\n'''",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ndf = pd.read_xml(StringIO(xml_data),\ndtype_backend=\"numpy_nullable\",\nparse_dates=[\"e\"])\ndf",
-        "output": "index     a    b      c  d          e\n0      0     1  2.5   True  a 2019-12-31\n1      1  <NA>  4.5  False  b 2019-12-31"
-      }
-    ],
-    "examples_count": 8,
-    "extraction_method": "Manual"
-  },
-  {
+    "removed_in": null,
+    "replaced_by": [
+        "io.StringIO",
+        "io.BytesIO"
+    ]
+},
+ {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.read_parquet.html",
     "api": "pandas.read_parquet",
     "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.0",
-    "removed_in": "",
-    "replaced_by": "dtype_backend with pyarrow",
     "change_type": "Parameter Change",
-    "reason": "The `use_nullable_dtypes` parameter was deprecated in version 2.0, marking it as experimental, with potential behavior changes for future support for additional dtypes using `pd.NA`. This change likely reflects a transition towards using `dtype_backend` with `pyarrow` as the preferred implementation for nullable dtypes.",
+    "reason": "The `use_nullable_dtypes` parameter has been deprecated since version 2.0. It was an experimental option used to force nullable dtypes. Users should now consider using the `dtype_backend` parameter (added in version 2.0) to control the backend data types (e.g., setting it to 'numpy_nullable' or 'pyarrow').",
     "has_examples": true,
     "examples": [
-      {
-        "code": "import numpy as np\noriginal_df = pd.DataFrame(\n{\"foo\": range(5), \"bar\": range(5, 10)}\n)\noriginal_df",
-        "output": "foo  bar\n0    0    5\n1    1    6\n2    2    7\n3    3    8\n4    4    9"
-      },
-      {
-        "code": "import numpy as np\ndf_parquet_bytes = original_df.to_parquet()\nfrom io import BytesIO",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nrestored_df = pd.read_parquet(BytesIO(df_parquet_bytes))\nrestored_df\nrestored_df.equals(original_df)",
-        "output": "foo  bar\n0    0    5\n1    1    6\n2    2    7\n3    3    8\n4    4    9\nTrue"
-      },
-      {
-        "code": "import numpy as np\nrestored_bar = pd.read_parquet(BytesIO(df_parquet_bytes), columns=[\"bar\"])\nrestored_bar\nrestored_bar.equals(original_df[['bar']])",
-        "output": "bar\n0    5\n1    6\n2    7\n3    8\n4    9\nTrue"
-      },
-      {
-        "code": "import numpy as np\nsel = [(\"foo\", \">\", 2)]",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nrestored_part = pd.read_parquet(BytesIO(df_parquet_bytes), filters=sel)\nrestored_part",
-        "output": "foo  bar\n0    3    8\n1    4    9"
-      }
+        {
+            "code": "original_df = pd.DataFrame(\n    {\"foo\": range(5), \"bar\": range(5, 10)}\n)\noriginal_df",
+            "output": "   foo  bar\n0    0    5\n1    1    6\n2    2    7\n3    3    8\n4    4    9"
+        },
+        {
+            "code": "df_parquet_bytes = original_df.to_parquet()\nfrom io import BytesIO\nrestored_df = pd.read_parquet(BytesIO(df_parquet_bytes))\nrestored_df",
+            "output": "   foo  bar\n0    0    5\n1    1    6\n2    2    7\n3    3    8\n4    4    9"
+        },
+        {
+            "code": "restored_bar = pd.read_parquet(BytesIO(df_parquet_bytes), columns=[\"bar\"])\nrestored_bar",
+            "output": "   bar\n0    5\n1    6\n2    7\n3    8\n4    9"
+        }
     ],
-    "examples_count": 6,
-    "extraction_method": "Manual"
-  },
+    "examples_count": 3,
+    "extraction_method": "Manual",
+    "language": "Python",
+    "deprecated_in": "2.0",
+    "removed_in": null,
+    "replaced_by": [
+        "dtype_backend"
+    ]
+},
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.read_gbq.html",
-    "api": "read_gbq",
+    "api": "pandas.read_gbq",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.2.0",
     "removed_in": "",
     "replaced_by": "pandas-gbq library for Google BigQuery operations",
     "change_type": "API Deprecation",
@@ -304,63 +249,11 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.pivot.html",
-    "api": "pivot",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "DataFrame.pivot_table",
-    "change_type": "Behavior Change",
-    "reason": "The pivot function does not support data aggregation and raises a ValueError for duplicate entries in index/column combinations. Users are encouraged to use DataFrame.pivot_table for scenarios where data aggregation or handling duplicates is required.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame({'foo': ['one', 'one', 'one', 'two', 'two',\n'two'],\n'bar': ['A', 'B', 'C', 'A', 'B', 'C'],\n'baz': [1, 2, 3, 4, 5, 6],\n'zoo': ['x', 'y', 'z', 'q', 'w', 't']})\ndf",
-        "output": "foo   bar  baz  zoo\n0   one   A    1    x\n1   one   B    2    y\n2   one   C    3    z\n3   two   A    4    q\n4   two   B    5    w\n5   two   C    6    t"
-      },
-      {
-        "code": "import numpy as np\ndf.pivot(index='foo', columns='bar', values='baz')",
-        "output": "bar  A   B   C\nfoo\none  1   2   3\ntwo  4   5   6"
-      },
-      {
-        "code": "import numpy as np\ndf.pivot(index='foo', columns='bar')['baz']",
-        "output": "bar  A   B   C\nfoo\none  1   2   3\ntwo  4   5   6"
-      },
-      {
-        "code": "import numpy as np\ndf.pivot(index='foo', columns='bar', values=['baz', 'zoo'])",
-        "output": "baz       zoo\nbar   A  B  C   A  B  C\nfoo\none   1  2  3   x  y  z\ntwo   4  5  6   q  w  t"
-      },
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame({\n\"lev1\": [1, 1, 1, 2, 2, 2],\n\"lev2\": [1, 1, 2, 1, 1, 2],\n\"lev3\": [1, 2, 1, 2, 1, 2],\n\"lev4\": [1, 2, 3, 4, 5, 6],\n\"values\": [0, 1, 2, 3, 4, 5]})\ndf",
-        "output": "lev1 lev2 lev3 lev4 values\n0   1    1    1    1    0\n1   1    1    2    2    1\n2   1    2    1    3    2\n3   2    1    2    4    3\n4   2    1    1    5    4\n5   2    2    2    6    5"
-      },
-      {
-        "code": "import numpy as np\ndf.pivot(index=\"lev1\", columns=[\"lev2\", \"lev3\"], values=\"values\")",
-        "output": "lev2    1         2\nlev3    1    2    1    2\nlev1\n1     0.0  1.0  2.0  NaN\n2     4.0  3.0  NaN  5.0"
-      },
-      {
-        "code": "import numpy as np\ndf.pivot(index=[\"lev1\", \"lev2\"], columns=[\"lev3\"], values=\"values\")",
-        "output": "lev3    1    2\nlev1  lev2\n   1     1  0.0  1.0\n         2  2.0  NaN\n   2     1  4.0  3.0\n         2  NaN  5.0"
-      },
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame({\"foo\": ['one', 'one', 'two', 'two'],\n\"bar\": ['A', 'A', 'B', 'C'],\n\"baz\": [1, 2, 3, 4]})\ndf",
-        "output": "foo bar  baz\n0  one   A    1\n1  one   A    2\n2  two   B    3\n3  two   C    4"
-      },
-      {
-        "code": "import numpy as np\ndf.pivot(index='foo', columns='bar', values='baz')\n",
-        "output": "Traceback (most recent call last):\nValueError: Index contains duplicate entries, cannot reshape"
-      }
-    ],
-    "examples_count": 9,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.pivot_table.html",
     "api": "pandas.pivot_table",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.2.0",
     "removed_in": "",
     "replaced_by": "",
     "change_type": "Parameter Change",
@@ -389,34 +282,6 @@
       }
     ],
     "examples_count": 5,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.notnull.html",
-    "api": "pandas.notnull",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "None",
-    "reason": "The documentation presents `pandas.notnull` as an active function (alias for `pandas.notna`). There is no indication of deprecation or usage discouragement in the provided images, although the examples utilize `pd.notna`.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "pd.notna('dog')\n# True\npd.notna(pd.NA)\n# False\npd.notna(np.nan)\n# False",
-        "output": ""
-      },
-      {
-        "code": "array = np.array([[1, np.nan, 3], [4, 5, np.nan]])\narray\n# array([[ 1., nan,  3.],\n#        [ 4.,  5., nan]])\npd.notna(array)\n# array([[ True, False,  True],\n#        [ True,  True, False]])",
-        "output": ""
-      },
-      {
-        "code": "index = pd.DatetimeIndex([\"2017-07-05\", \"2017-07-06\", None, \"2017-07-08\"])\nindex\n# DatetimeIndex(['2017-07-05', '2017-07-06', 'NaT', '2017-07-08'],\n#               dtype='datetime64[ns]', freq=None)\npd.notna(index)\n# array([ True,  True, False,  True])",
-        "output": ""
-      }
-    ],
-    "examples_count": 3,
     "extraction_method": "Manual"
   },
   {
@@ -473,10 +338,10 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html",
-    "api": "to_datetime",
+    "api": "pandas.to_datetime",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.0.0",
     "removed_in": "",
     "replaced_by": "The strict behavior became the default and passing it no longer has any effect.",
     "change_type": "Parameter Change",
@@ -532,7 +397,7 @@
     "api": "pandas.to_timedelta",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.2.0",
     "removed_in": "",
     "replaced_by": "other standards",
     "change_type": "Parameter Change",
@@ -562,9 +427,9 @@
     "language": "Python",
     "deprecated_in": "2.2.0",
     "removed_in": "",
-    "replaced_by": "iat and loc",
-    "change_type": "API Deprecation",
-    "reason": "The deprecation of `iloc` is aimed at clarifying the preferred integer-position indexing (`iat`) and label-based indexing (`loc`) for better UX and reduced ambiguity.",
+    "replaced_by": "",
+    "change_type": "Usage Deprecation",
+    "reason": "Returning a tuple from a callable (e.g., inside `.iloc[]`) is deprecated since version 2.2.0. Users should ensure callables return a list or numpy array instead.",
     "has_examples": true,
     "examples": [
       {
@@ -588,44 +453,29 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/2.3/reference/api/pandas.api.interchange.from_dataframe.html",
-    "api": "from_dataframe",
-    "package": "pandas.api.interchange",
-    "language": "Python",
-    "deprecated_in": "2.3.0",
-    "removed_in": "",
-    "replaced_by": "The new Arrow interfaces",
-    "change_type": "API Deprecation",
-    "reason": "Severe implementation issues in the interchange protocol, making its usage less reliable. The new Arrow interfaces are recommended for better performance and compatibility.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.values.html",
-    "api": "pandas.Series.values",
+    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.api.interchange.from_dataframe.html",
+    "api": "pandas.api.interchange.from_dataframe",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "Series.array, Series.to_numpy",
-    "change_type": "API Deprecation",
-    "reason": "To encourage usage of more explicit and consistent APIs (`Series.array` for direct access to the data, and `Series.to_numpy` for converting to a NumPy array), minimizing confusion around `values`.",
+    "deprecated_in": null,
+    "removed_in": null,
+    "replaced_by": null,
+    "change_type": "Behavior Change",
+    "reason": "From pandas 2.3 onwards, this function prioritizes the Arrow PyCapsule Interface, only falling back to the interchange protocol if that fails. Due to severe implementation issues with the interchange protocol, it is highly recommended to use the Arrow interfaces for new development.",
     "has_examples": true,
     "examples": [
-      {
-        "code": "import numpy as np\npd.Series([1, 2, 3]).values\npd.Series(list('aabc')).values\npd.Series(list('aabc')).values\npd.Series(list('aabc')).astype('category').values\npd.Series(list('aabc')).astype('category').values",
-        "output": "array([1, 2, 3])\n\narray(['a', 'a', 'b', 'c'], dtype=object)\n\n\narray(['a', 'a', 'b', 'c'], dtype=object)\n\n['a', 'a', 'b', 'c']\nCategories (3, object): ['a', 'b', 'c']\n\n\n['a', 'a', 'b', 'c']\nCategories (3, object): ['a', 'b', 'c']"
-      },
-      {
-        "code": "import numpy as np\npd.Series(pd.date_range('20130101', periods=3,\ntz='US/Eastern')).values",
-        "output": "array(['2013-01-01T05:00:00.000000000',\n       '2013-01-02T05:00:00.000000000',\n       '2013-01-03T05:00:00.000000000'], dtype='datetime64[ns]')"
-      }
+        {
+            "code": ">>> df_not_necessarily_pandas = pd.DataFrame({'A': [1, 2], 'B': [3, 4]})\n>>> interchange_object = df_not_necessarily_pandas.__dataframe__()\n>>> interchange_object.column_names()\nIndex(['A', 'B'], dtype='object')",
+            "output": ""
+        },
+        {
+            "code": ">>> df_pandas = (pd.api.interchange.from_dataframe\n...              (interchange_object.select_columns_by_name(['A'])))\n>>> df_pandas",
+            "output": "   A\n0  1\n1  2"
+        }
     ],
     "examples_count": 2,
     "extraction_method": "Manual"
-  },
+},
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.set_flags.html",
     "api": "pandas.Series.set_flags",
@@ -714,7 +564,7 @@
     "api": "pandas.Series.infer_objects",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "3.0.0",
+    "deprecated_in": "",
     "removed_in": "",
     "replaced_by": "The `copy` parameter will be obsolete for future versions.",
     "change_type": "Parameter Change",
@@ -732,21 +582,6 @@
     ],
     "examples_count": 2,
     "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/whatsnew.html",
-    "api": "pandas.Series.to_period",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "Behavior Change",
-    "reason": "The `copy` parameter behavior will change to adopt Copy-on-Write semantics by default. This means the method will defer copying and ignore the `copy` keyword entirely in future versions of pandas, aligning with the new Copy-on-Write mechanism.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.to_timestamp.html",
@@ -784,137 +619,7 @@
     "examples_count": 5,
     "extraction_method": "Manual"
   },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.xs.html",
-    "api": "pandas.Series.xs",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "MultiIndex Slicers",
-    "change_type": "Behavior Change",
-    "reason": "Improved functionality for handling MultiIndex slicing and setting operations, making `MultiIndex Slicers` a more versatile solution.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nd = {'num_legs': [4, 4, 2, 2],\n'num_wings': [0, 0, 2, 2],\n'class': ['mammal', 'mammal', 'mammal', 'bird'],\n'animal': ['cat', 'dog', 'bat', 'penguin'],\n'locomotion': ['walks', 'walks', 'flies', 'walks']}",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame(data=d)",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ndf = df.set_index(['class', 'animal', 'locomotion'])\ndf\ndf.xs('mammal')\ndf.xs('mammal')\ndf.xs(('mammal', 'dog', 'walks'))\ndf.xs(('mammal', 'dog', 'walks'))",
-        "output": "num_legs  num_wings\nclass  animal  locomotion\nmammal cat     walks              4          0\n       dog     walks              4          0\n       bat     flies              2          2\nbird   penguin walks              2          2\n\n                   num_legs  num_wings\nanimal locomotion\ncat    walks              4          0\ndog    walks              4          0\nbat    flies              2          2\n\n\n                   num_legs  num_wings\nanimal locomotion\ncat    walks              4          0\ndog    walks              4          0\nbat    flies              2          2\n\nnum_legs     4\nnum_wings    0\nName: (mammal, dog, walks), dtype: int64\n\n\nnum_legs     4\nnum_wings    0\nName: (mammal, dog, walks), dtype: int64"
-      },
-      {
-        "code": "import numpy as np\ndf.xs('cat', level=1)",
-        "output": "num_legs  num_wings\nclass  locomotion\nmammal walks              4          0"
-      },
-      {
-        "code": "import numpy as np\ndf.xs('cat', level=1)\ndf.xs(('bird', 'walks'),\nlevel=[0, 'locomotion'])\ndf.xs(('bird', 'walks'),\nlevel=[0, 'locomotion'])",
-        "output": "num_legs  num_wings\nclass  locomotion\nmammal walks              4          0\n\n         num_legs  num_wings\nanimal\npenguin         2          2\n\n\n         num_legs  num_wings\nanimal\npenguin         2          2"
-      },
-      {
-        "code": "import numpy as np\ndf.xs('num_wings', axis=1)",
-        "output": "class   animal   locomotion\nmammal  cat      walks         0\n        dog      walks         0\n        bat      flies         2\nbird    penguin  walks         2\nName: num_wings, dtype: int64"
-      }
-    ],
-    "examples_count": 6,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/pandas-docs/version/2.3.3/reference/api/pandas.Series.div.html",
-    "api": "pandas.Series.div",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.3.3",
-    "removed_in": "",
-    "replaced_by": "series / other operation",
-    "change_type": "Behavior Change",
-    "reason": "The `pandas.Series.div` function's behavior is updated for better consistency and readability, aligned with the `series / other` operation. Additionally, it now supports the substitution of missing data with a `fill_value` parameter for more robust computation.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\na = pd.Series([1, 1, 1, np.nan], index=['a', 'b', 'c', 'd'])\na",
-        "output": "a    1.0\nb    1.0\nc    1.0\nd    NaN\ndtype: float64"
-      },
-      {
-        "code": "import numpy as np\nb = pd.Series([1, np.nan, 1, np.nan], index=['a', 'b', 'd', 'e'])\nb",
-        "output": "a    1.0\nb    NaN\nd    1.0\ne    NaN\ndtype: float64"
-      },
-      {
-        "code": "import numpy as np\na.divide(b, fill_value=0)",
-        "output": "a    1.0\nb    inf\nc    inf\nd    0.0\ne    NaN\ndtype: float64"
-      }
-    ],
-    "examples_count": 3,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.mod.html",
-    "api": "Series.mod",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "",
-    "reason": "",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\na = pd.Series([1, 1, 1, np.nan], index=['a', 'b', 'c', 'd'])\na",
-        "output": "a    1.0\nb    1.0\nc    1.0\nd    NaN\ndtype: float64"
-      },
-      {
-        "code": "import numpy as np\nb = pd.Series([1, np.nan, 1, np.nan], index=['a', 'b', 'd', 'e'])\nb",
-        "output": "a    1.0\nb    NaN\nd    1.0\ne    NaN\ndtype: float64"
-      },
-      {
-        "code": "import numpy as np\na.mod(b, fill_value=0)",
-        "output": "a    0.0\nb    NaN\nc    NaN\nd    0.0\ne    NaN\ndtype: float64"
-      }
-    ],
-    "examples_count": 3,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/whatsnew/v2.0.0.html",
-    "api": "pandas.Series.product",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.0.0",
-    "removed_in": "",
-    "replaced_by": "DataFrame.prod with axis=None",
-    "change_type": "Behavior Change",
-    "reason": "The behavior of `DataFrame.prod` with `axis=None` is deprecated to simplify the API and ensure consistent calculation across axes. Future behavior will compute results over both axes and return a scalar.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.agg.html",
-    "api": "pandas.Series.agg",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "None",
-    "reason": "The documentation states that `agg` is an alias for `aggregate` and explicitly says 'Use the alias'. There is no indication of deprecation; it is a standard, active method.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "s = pd.Series([1, 2, 3, 4])\ns.agg('min')\n# 1\ns.agg(['min', 'max'])\n# min    1\n# max    4\n# dtype: int64",
-        "output": ""
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
+
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.apply.html",
     "api": "pandas.Series.apply",
@@ -923,7 +628,7 @@
     "deprecated_in": "2.1.0",
     "removed_in": "",
     "replaced_by": "ser.astype(object).apply()",
-    "change_type": "API Deprecation",
+    "change_type": "Parameter Change",
     "reason": "The `convert_dtype` parameter has been deprecated to ensure clarity and maintainability. Users are encouraged to use explicit type conversion using `ser.astype(object).apply()` if `convert_dtype=False` functionality is required.",
     "has_examples": true,
     "examples": [
@@ -1024,7 +729,7 @@
     "api": "pandas.Series.rolling",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.1.0",
     "removed_in": "",
     "replaced_by": "",
     "change_type": "Parameter Change",
@@ -1089,12 +794,12 @@
   },
   {
     "source_url": "https://pandas.pydata.org/pandas-docs/version/2.3.3/reference/api/pandas.Series.between.html",
-    "api": "Series.between",
+    "api": "pandas.Series.between",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "1.3.0",
     "removed_in": "",
-    "replaced_by": "The `inclusive` parameter",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "The `inclusive` parameter was added in version 1.3.0 to provide more flexibility in specifying whether boundaries are included or excluded.",
     "has_examples": true,
@@ -1116,50 +821,11 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.max.html",
-    "api": "pandas.Series.max",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "The addition of the 'numeric_only' parameter",
-    "change_type": "Parameter Change",
-    "reason": "The addition of the 'numeric_only' parameter to improve clarity in specifying valid columns for aggregation.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nidx = pd.MultiIndex.from_arrays([\n['warm', 'warm', 'cold', 'cold'],\n['dog', 'falcon', 'fish', 'spider']],\nnames=['blooded', 'animal'])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ns = pd.Series([4, 2, 0, 8], name='legs', index=idx)\ns\ns.max()\ns.max()",
-        "output": "blooded  animal\nwarm     dog       4\n         falcon    2\ncold     fish      0\n         spider    8\nName: legs, dtype: int64\n\n8\n\n\n8"
-      }
-    ],
-    "examples_count": 2,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/whatsnew/v2.0.0.html",
-    "api": "pandas.Series.prod",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.0.0",
-    "removed_in": "",
-    "replaced_by": "pass `axis=0` explicitly or omit the `axis` parameter",
-    "change_type": "Behavior Change",
-    "reason": "The behavior of `DataFrame.prod` with `axis=None` is deprecated. In future versions, it will reduce over both axes and return a scalar. To retain the old behavior, users are advised to pass `axis=0` explicitly or omit the `axis` parameter.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.pct_change.html",
     "api": "pandas.Series.pct_change",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.1",
     "removed_in": "",
     "replaced_by": "",
     "change_type": "Parameter Change",
@@ -1248,8 +914,8 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.std.html",
-    "api": "std",
-    "package": "pandas.Series",
+    "api": "pandas.Series.std",
+    "package": "pandas",  
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
@@ -1271,70 +937,15 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/pandas-docs/version/2.3.3/reference/api/pandas.Series.sum.html",
-    "api": "pandas.Series.sum",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.3.3",
-    "removed_in": "",
-    "replaced_by": "DataFrame.sum(axis=None) will reduce over both axes and return a scalar.",
-    "change_type": "Behavior Change",
-    "reason": "The behavior for `DataFrame.sum(axis=None)` is being deprecated to align the behavior with the scalar reduction behavior seen in similar libraries and functions. In a future version, it will reduce over both axes and return a scalar.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nidx = pd.MultiIndex.from_arrays([\n['warm', 'warm', 'cold', 'cold'],\n['dog', 'falcon', 'fish', 'spider']],\nnames=['blooded', 'animal'])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ns = pd.Series([4, 2, 0, 8], name='legs', index=idx)\ns\ns.sum()\ns.sum()",
-        "output": "blooded  animal\nwarm     dog       4\n         falcon    2\ncold     fish      0\n         spider    8\nName: legs, dtype: int64\n\n14\n\n\n14"
-      },
-      {
-        "code": "import numpy as np\npd.Series([], dtype=\"float64\").sum()  # min_count=0 is the default",
-        "output": "0.0"
-      },
-      {
-        "code": "import numpy as np\npd.Series([], dtype=\"float64\").sum(min_count=1)",
-        "output": "nan"
-      },
-      {
-        "code": "import numpy as np\npd.Series([], dtype=\"float64\").sum(min_count=1)\npd.Series([np.nan]).sum()\npd.Series([np.nan]).sum()",
-        "output": "nan\n\n0.0\n\n\n0.0"
-      },
-      {
-        "code": "import numpy as np\npd.Series([np.nan]).sum(min_count=1)",
-        "output": "nan"
-      }
-    ],
-    "examples_count": 6,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/whatsnew/v2.3.0.html",
-    "api": "pandas.Series.var",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.3.0",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "Behavior Change",
-    "reason": "Behavior of DataFrame.var with axis=None is deprecated to clarify handling across axes.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.align.html",
     "api": "pandas.Series.align",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.1",
     "removed_in": "",
     "replaced_by": "",
     "change_type": "Parameter Change",
-    "reason": "Simplification and alignment with future Copy-on-Write functionality",
+    "reason": "Multiple parameters have been deprecated since version 2.1: `method`, `limit`, `fill_axis`, and `broadcast_axis`. Additionally, a warning notes that the `copy` keyword will change behavior in pandas 3.0 due to the introduction of Copy-on-Write (CoW).",
     "has_examples": true,
     "examples": [
       {
@@ -1363,10 +974,10 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.first.html",
-    "api": "first",
+    "api": "pandas.Series.first",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.1",
     "removed_in": "",
     "replaced_by": ".loc",
     "change_type": "API Deprecation",
@@ -1390,7 +1001,7 @@
     "api": "pandas.Series.last",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.1",
     "removed_in": "",
     "replaced_by": "creating a mask and filtering using .loc",
     "change_type": "API Deprecation",
@@ -1506,95 +1117,11 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.sample.html",
-    "api": "pandas.Series.sample",
-    "package": "pandas",
+    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.truncate.html",
+    "api": "pandas.Series.truncate",
+    "package": "pandas",  
     "language": "Python",
     "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "The `ignore_index` parameter",
-    "change_type": "Parameter Change",
-    "reason": "The `ignore_index` parameter was added to provide functionality for resetting index labels when sampling objects.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame({'num_legs': [2, 4, 8, 0],\n'num_wings': [2, 0, 0, 0],\n'num_specimen_seen': [10, 2, 1, 8]},\nindex=['falcon', 'dog', 'spider', 'fish'])\ndf",
-        "output": "num_legs  num_wings  num_specimen_seen\nfalcon         2          2                 10\ndog            4          0                  2\nspider         8          0                  1\nfish           0          0                  8"
-      },
-      {
-        "code": "import numpy as np\ndf['num_legs'].sample(n=3, random_state=1)",
-        "output": "fish      0\nspider    8\nfalcon    2\nName: num_legs, dtype: int64"
-      },
-      {
-        "code": "import numpy as np\ndf.sample(frac=0.5, replace=True, random_state=1)",
-        "output": "num_legs  num_wings  num_specimen_seen\ndog          4          0                  2\nfish         0          0                  8"
-      },
-      {
-        "code": "import numpy as np\ndf.sample(frac=2, replace=True, random_state=1)",
-        "output": "num_legs  num_wings  num_specimen_seen\ndog            4          0                  2\nfish           0          0                  8\nfalcon         2          2                 10\nfalcon         2          2                 10\nfish           0          0                  8\ndog            4          0                  2\nfish           0          0                  8\ndog            4          0                  2"
-      },
-      {
-        "code": "import numpy as np\ndf.sample(n=2, weights='num_specimen_seen', random_state=1)",
-        "output": "num_legs  num_wings  num_specimen_seen\nfalcon         2          2                 10\nfish           0          0                  8"
-      }
-    ],
-    "examples_count": 5,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/pandas-docs/version/2.3.3/reference/api/pandas.Series.mask.html",
-    "api": "mask",
-    "package": "pandas.Series",
-    "language": "Python",
-    "deprecated_in": "2.3.3",
-    "removed_in": "",
-    "replaced_by": "DataFrame.where()",
-    "change_type": "Behavior Change",
-    "reason": "The `mask` function can now align the axis with `cond`, filling misaligned index positions with default values, changing its behavior to better align with `DataFrame.where()`.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ns = pd.Series(range(5))\ns.where(s > 0)\ns.mask(s > 0)",
-        "output": "0    NaN\n1    1.0\n2    2.0\n3    3.0\n4    4.0\ndtype: float64\n0    0.0\n1    NaN\n2    NaN\n3    NaN\n4    NaN\ndtype: float64"
-      },
-      {
-        "code": "import numpy as np\ns = pd.Series(range(5))",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nt = pd.Series([True, False])\ns.where(t, 99)\ns.mask(t, 99)",
-        "output": "0     0\n1    99\n2    99\n3    99\n4    99\ndtype: int64\n0    99\n1     1\n2    99\n3    99\n4    99\ndtype: int64"
-      },
-      {
-        "code": "import numpy as np\nt = pd.Series([True, False])\ns.where(t, 99)\ns.mask(t, 99)\ns.where(s > 1, 10)\ns.mask(s > 1, 10)\ns.where(s > 1, 10)\ns.mask(s > 1, 10)",
-        "output": "0     0\n1    99\n2    99\n3    99\n4    99\ndtype: int64\n0    99\n1     1\n2    99\n3    99\n4    99\ndtype: int64\n\n0    10\n1    10\n2    2\n3    3\n4    4\ndtype: int64\n0     0\n1     1\n2    10\n3    10\n4    10\ndtype: int64\n\n\n0    10\n1    10\n2    2\n3    3\n4    4\ndtype: int64\n0     0\n1     1\n2    10\n3    10\n4    10\ndtype: int64"
-      },
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame(np.arange(10).reshape(-1, 2), columns=['A', 'B'])\ndf",
-        "output": "A  B\n0  0  1\n1  2  3\n2  4  5\n3  6  7\n4  8  9"
-      },
-      {
-        "code": "import numpy as np\nm = df % 3 == 0\ndf.where(m, -df)",
-        "output": "A  B\n0  0 -1\n1 -2  3\n2 -4 -5\n3  6 -7\n4 -8  9"
-      },
-      {
-        "code": "import numpy as np\ndf.where(m, -df) == np.where(m, df, -df)",
-        "output": "A     B\n0  True  True\n1  True  True\n2  True  True\n3  True  True\n4  True  True"
-      },
-      {
-        "code": "import numpy as np\ndf.where(m, -df) == df.mask(~m, -df)",
-        "output": "A     B\n0  True  True\n1  True  True\n2  True  True\n3  True  True\n4  True  True"
-      }
-    ],
-    "examples_count": 8,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/pandas-docs/version/2.3.3/reference/api/pandas.Series.truncate.html",
-    "api": "truncate",
-    "package": "pandas.Series",
-    "language": "Python",
-    "deprecated_in": "2.3.3",
     "removed_in": "",
     "replaced_by": "The explicit `copy` keyword is no longer required.",
     "change_type": "Behavior Change",
@@ -1642,7 +1169,7 @@
     "api": "pandas.Series.backfill",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "2.3.3",
+    "deprecated_in": "2.0",
     "removed_in": "",
     "replaced_by": "pandas.Series.bfill",
     "change_type": "API Deprecation",
@@ -1691,7 +1218,7 @@
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
-    "replaced_by": "The introduction of the 'limit_area' parameter",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "The introduction of the 'limit_area' parameter allows for more control over where NaN values are filled, and the 'downcast' parameter has been deprecated as part of streamlining functionality.",
     "has_examples": true,
@@ -1749,26 +1276,6 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.isnull.html",
-    "api": "pandas.Series.isnull",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "None",
-    "reason": "The documentation identifies `Series.isnull` as an alias for `Series.isna`. There is no indication of deprecation or usage discouragement in the provided images.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "ser = pd.Series([5, 6, np.nan])\nser.isnull()\n# 0    False\n# 1    False\n# 2     True\n# dtype: bool",
-        "output": ""
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.notnull.html",
     "api": "pandas.Series.notnull",
     "package": "pandas",
@@ -1801,7 +1308,7 @@
     "api": "pandas.Series.fillna",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.1.0",
     "removed_in": "",
     "replaced_by": "the corresponding dedicated methods for clarity and better API usage",
     "change_type": "Parameter Change",
@@ -1852,7 +1359,7 @@
     "api": "pandas.Series.replace",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "2.3.3",
+    "deprecated_in": "2.1.0",
     "removed_in": "",
     "replaced_by": "",
     "change_type": "Parameter Change",
@@ -1928,26 +1435,6 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.swaplevel.html",
-    "api": "pandas.Series.swaplevel",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "The `copy` keyword changes behavior in pandas 3.0 with the introduction of the Copy-on-Write mechanism.",
-    "change_type": "Behavior Change",
-    "reason": "The `copy` keyword changes behavior in pandas 3.0 with the introduction of the Copy-on-Write mechanism. This aims to improve performance and memory efficiency by deferring the copy operation.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ns = pd.Series(\n[\"A\", \"B\", \"A\", \"C\"],\nindex=[\n[\"Final exam\", \"Final exam\", \"Coursework\", \"Coursework\"],\n[\"History\", \"Geography\", \"History\", \"Geography\"],\n[\"January\", \"February\", \"March\", \"April\"],\n],\n)\ns\ns.swaplevel()\ns.swaplevel()\ns.swaplevel(0)\ns.swaplevel(0)\ns.swaplevel(0, 1)\ns.swaplevel(0, 1)",
-        "output": "Final exam  History     January      A\n            Geography   February     B\nCoursework  History     March        A\n            Geography   April        C\ndtype: object\n\nFinal exam  January     History         A\n            February    Geography       B\nCoursework  March       History         A\n            April       Geography       C\ndtype: object\n\n\nFinal exam  January     History         A\n            February    Geography       B\nCoursework  March       History         A\n            April       Geography       C\ndtype: object\n\nJanuary     History     Final exam      A\nFebruary    Geography   Final exam      B\nMarch       History     Coursework      A\nApril       Geography   Coursework      C\ndtype: object\n\n\nJanuary     History     Final exam      A\nFebruary    Geography   Final exam      B\nMarch       History     Coursework      A\nApril       Geography   Coursework      C\ndtype: object\n\nHistory     Final exam  January         A\nGeography   Final exam  February        B\nHistory     Coursework  March           A\nGeography   Coursework  April           C\ndtype: object\n\n\nHistory     Final exam  January         A\nGeography   Final exam  February        B\nHistory     Coursework  March           A\nGeography   Coursework  April           C\ndtype: object"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.ravel.html",
     "api": "Series.ravel",
     "package": "pandas",
@@ -1978,51 +1465,11 @@
     "extraction_method": "No Examples"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.asfreq.html",
-    "api": "pandas.Series.asfreq",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "resample()",
-    "change_type": "Behavior Change",
-    "reason": "The `resample()` method is now preferred for operations that need aggregations or transformations on different frequencies as it allows for more flexibility and advanced operations.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nindex = pd.date_range('1/1/2000', periods=4, freq='min')",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nseries = pd.Series([0.0, None, 2.0, 3.0], index=index)",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame({'s': series})\ndf",
-        "output": "s\n2000-01-01 00:00:00    0.0\n2000-01-01 00:01:00    NaN\n2000-01-01 00:02:00    2.0\n2000-01-01 00:03:00    3.0"
-      },
-      {
-        "code": "import numpy as np\ndf.asfreq(freq='30s')",
-        "output": "s\n2000-01-01 00:00:00    0.0\n2000-01-01 00:00:30    NaN\n2000-01-01 00:01:00    NaN\n2000-01-01 00:01:30    NaN\n2000-01-01 00:02:00    2.0\n2000-01-01 00:02:30    NaN\n2000-01-01 00:03:00    3.0"
-      },
-      {
-        "code": "import numpy as np\ndf.asfreq(freq='30s', fill_value=9.0)",
-        "output": "s\n2000-01-01 00:00:00    0.0\n2000-01-01 00:00:30    9.0\n2000-01-01 00:01:00    NaN\n2000-01-01 00:01:30    9.0\n2000-01-01 00:02:00    2.0\n2000-01-01 00:02:30    9.0\n2000-01-01 00:03:00    3.0"
-      },
-      {
-        "code": "import numpy as np\ndf.asfreq(freq='30s', method='bfill')",
-        "output": "s\n2000-01-01 00:00:00    0.0\n2000-01-01 00:00:30    NaN\n2000-01-01 00:01:00    NaN\n2000-01-01 00:01:30    2.0\n2000-01-01 00:02:00    2.0\n2000-01-01 00:02:30    3.0\n2000-01-01 00:03:00    3.0"
-      }
-    ],
-    "examples_count": 6,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.tz_convert.html",
     "api": "pandas.Series.tz_convert",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "3.0",
+    "deprecated_in": "",
     "removed_in": "",
     "replaced_by": "",
     "change_type": "Behavior Change",
@@ -2049,7 +1496,7 @@
     "deprecated_in": "2.0.0",
     "removed_in": "",
     "replaced_by": "frame.T.resample(...)",
-    "change_type": "API Deprecation",
+    "change_type": "Parameter Change",
     "reason": "This parameter `axis` was deprecated; users are encouraged to use `frame.T.resample(...)` instead for clearer syntax and functionality improvements.",
     "has_examples": true,
     "examples": [
@@ -2202,14 +1649,6 @@
         "output": "2000-10-01 23:18:00     0\n2000-10-01 23:35:00    18\n2000-10-01 23:52:00    27\n2000-10-02 00:09:00    39\n2000-10-02 00:26:00    24\nFreq: 17min, dtype: int64"
       },
       {
-        "code": "import numpy as np\nts.resample('17min', origin='epoch').sum()",
-        "output": "2000-10-01 23:18:00     0\n2000-10-01 23:35:00    18\n2000-10-01 23:52:00    27\n2000-10-02 00:09:00    39\n2000-10-02 00:26:00    24\nFreq: 17min, dtype: int64"
-      },
-      {
-        "code": "import numpy as np\nts.resample('17min', origin='2000-01-01').sum()",
-        "output": "2000-10-01 23:24:00     3\n2000-10-01 23:41:00    15\n2000-10-01 23:58:00    45\n2000-10-02 00:15:00    45\nFreq: 17min, dtype: int64"
-      },
-      {
         "code": "import numpy as np\nts.resample('17min', origin='2000-01-01').sum()",
         "output": "2000-10-01 23:24:00     3\n2000-10-01 23:41:00    15\n2000-10-01 23:58:00    45\n2000-10-02 00:15:00    45\nFreq: 17min, dtype: int64"
       },
@@ -2218,28 +1657,8 @@
         "output": "2000-10-01 23:30:00     9\n2000-10-01 23:47:00    21\n2000-10-02 00:04:00    54\n2000-10-02 00:21:00    24\nFreq: 17min, dtype: int64"
       },
       {
-        "code": "import numpy as np\nts.resample('17min', origin='start').sum()",
-        "output": "2000-10-01 23:30:00     9\n2000-10-01 23:47:00    21\n2000-10-02 00:04:00    54\n2000-10-02 00:21:00    24\nFreq: 17min, dtype: int64"
-      },
-      {
-        "code": "import numpy as np\nts.resample('17min', offset='23h30min').sum()",
-        "output": "2000-10-01 23:30:00     9\n2000-10-01 23:47:00    21\n2000-10-02 00:04:00    54\n2000-10-02 00:21:00    24\nFreq: 17min, dtype: int64"
-      },
-      {
-        "code": "import numpy as np\nts.resample('17min', offset='23h30min').sum()",
-        "output": "2000-10-01 23:30:00     9\n2000-10-01 23:47:00    21\n2000-10-02 00:04:00    54\n2000-10-02 00:21:00    24\nFreq: 17min, dtype: int64"
-      },
-      {
         "code": "import numpy as np\nts.resample('17min', origin='end').sum()",
         "output": "2000-10-01 23:35:00     0\n2000-10-01 23:52:00    18\n2000-10-02 00:09:00    27\n2000-10-02 00:26:00    63\nFreq: 17min, dtype: int64"
-      },
-      {
-        "code": "import numpy as np\nts.resample('17min', origin='end').sum()",
-        "output": "2000-10-01 23:35:00     0\n2000-10-01 23:52:00    18\n2000-10-02 00:09:00    27\n2000-10-02 00:26:00    63\nFreq: 17min, dtype: int64"
-      },
-      {
-        "code": "import numpy as np\nts.resample('17min', origin='end_day').sum()",
-        "output": "2000-10-01 23:38:00     3\n2000-10-01 23:55:00    15\n2000-10-02 00:12:00    45\n2000-10-02 00:29:00    45\nFreq: 17min, dtype: int64"
       },
       {
         "code": "import numpy as np\nts.resample('17min', origin='end_day').sum()",
@@ -2254,7 +1673,7 @@
     "api": "pandas.Series.tz_localize",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "3.0.0",
+    "deprecated_in": "",
     "removed_in": "",
     "replaced_by": "Copy-on-Write will be enabled by default, transitioning to a lazy copy mechanism",
     "change_type": "Behavior Change",
@@ -2306,26 +1725,6 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.dt.dayofweek.html",
-    "api": "pandas.Series.dt.dayofweek",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "Alias Introduction",
-    "reason": "",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ns = pd.date_range('2016-12-31', '2017-01-08', freq='D').to_series()\ns.dt.dayofweek",
-        "output": "2016-12-31    5\n2017-01-01    6\n2017-01-02    0\n2017-01-03    1\n2017-01-04    2\n2017-01-05    3\n2017-01-06    4\n2017-01-07    5\n2017-01-08    6\nFreq: D, dtype: int32"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.dt.to_pydatetime.html",
     "api": "pandas.Series.dt.to_pydatetime",
     "package": "pandas",
@@ -2354,34 +1753,14 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.sparse.sp_values.html",
-    "api": "pandas.Series.sparse.sp_values",
+    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.plot.box.html",
+    "api": "pandas.Series.plot.box",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
     "replaced_by": "",
-    "change_type": "None",
-    "reason": "The documentation describes `pandas.Series.sparse.sp_values` as a standard property returning an ndarray of non-fill values. There is no indication of deprecation or usage discouragement in the provided image.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "from pandas.arrays import SparseArray\ns = SparseArray([0, 0, 1, 0, 2], fill_value=0)\ns.sp_values",
-        "output": "array([1, 2])"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.plot.box.html",
-    "api": "plot.box",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "1.4.0",
-    "removed_in": "",
-    "replaced_by": "The parameter `by` now enables groupings based on the specified column or sequence.",
-    "change_type": "Behavior Change",
+    "change_type": "Parameter Change",
     "reason": "The parameter `by` previously did not perform any groupings. In version 1.4.0, its behavior was updated to enable groupings based on the specified column or sequence.",
     "has_examples": true,
     "examples": [
@@ -2418,10 +1797,10 @@
     "api": "pandas.Series.plot.hist",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "1.4.0",
+    "deprecated_in": "",
     "removed_in": "",
-    "replaced_by": "grouping by columns",
-    "change_type": "Behavior Change",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
     "reason": "The `by` parameter behavior was updated in version 1.4.0 to allow grouping by columns, whereas previously it was silently ignored.",
     "has_examples": true,
     "examples": [
@@ -2458,10 +1837,10 @@
     "api": "pandas.Series.to_latex",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "2.3.3",
+    "deprecated_in": "2.0.0",
     "removed_in": "",
-    "replaced_by": "Styler implementation via jinja2 templating",
-    "change_type": "API Behavior Change",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
     "reason": "Refactored to use the Styler implementation via jinja2 templating to enhance flexibility and maintainability.",
     "has_examples": true,
     "examples": [
@@ -2478,50 +1857,11 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/whatsnew/v2.3.3.html",
-    "api": "iloc",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.3.3",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "API Deprecation",
-    "reason": "The `iloc` method is being deprecated as part of changes to streamline DataFrame indexing methods and reduce redundancy.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/pandas-docs/version/2.3.3/reference/api/pandas.DataFrame.values.html",
-    "api": "pandas.DataFrame.values",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.3.3",
-    "removed_in": "",
-    "replaced_by": "DataFrame.to_numpy",
-    "change_type": "API Deprecation",
-    "reason": "The DataFrame.values API is deprecated to encourage users to explicitly select the desired behavior by using `DataFrame.to_numpy`, which provides a clearer interface and avoids potential confusion with dtype handling.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame({'age':    [ 3,  29],\n'height': [94, 170],\n'weight': [31, 115]})\ndf\ndf.dtypes\ndf.values",
-        "output": "age  height  weight\n0    3      94      31\n1   29     170     115\nage       int64\nheight    int64\nweight    int64\ndtype: object\narray([[  3,  94,  31],\n       [ 29, 170, 115]])"
-      },
-      {
-        "code": "import numpy as np\ndf2 = pd.DataFrame([('parrot',   24.0, 'second'),\n('lion',     80.5, 1),\n('monkey', np.nan, None)],\ncolumns=('name', 'max_speed', 'rank'))\ndf2.dtypes\ndf2.values",
-        "output": "name          object\nmax_speed    float64\nrank          object\ndtype: object\narray([['parrot', 24.0, 'second'],\n       ['lion', 80.5, 1],\n       ['monkey', nan, None]], dtype=object)"
-      }
-    ],
-    "examples_count": 2,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.astype.html",
-    "api": "astype",
-    "package": "pandas.DataFrame",
+    "api": "pandas.DataFrame.astype",
+    "package": "pandas",
     "language": "Python",
-    "deprecated_in": "3.0",
+    "deprecated_in": "",
     "removed_in": "",
     "replaced_by": "The `copy` parameter will adapt the Copy-on-Write mechanism for optimization.",
     "change_type": "Behavior Change",
@@ -2562,7 +1902,7 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.set_flags.html",
-    "api": "set_flags",
+    "api": "pandas.DataFrame.set_flags",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "",
@@ -2590,8 +1930,8 @@
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "",
-    "removed_in": "future releases",
-    "replaced_by": "Copy-on-Write functionality",
+    "removed_in": "",
+    "replaced_by": "",
     "change_type": "Behavior Change",
     "reason": "The `copy` keyword will change behavior due to the introduction of Copy-on-Write functionality. This improvement will allow for lazy copy mechanisms, making the workflow more efficient. Additionally, the `copy` keyword is planned for removal in future releases.",
     "has_examples": true,
@@ -2630,12 +1970,12 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.copy.html",
-    "api": "DataFrame.copy",
+    "api": "pandas.DataFrame.copy",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
-    "replaced_by": "Copy-on-Write mechanism for shallow copying",
+    "replaced_by": "",
     "change_type": "Behavior Change",
     "reason": "Introduction of Copy-on-Write mechanism for shallow copying to ensure changes to original or copied data are isolated and do not affect each other.",
     "has_examples": true,
@@ -2717,268 +2057,8 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iterrows.html",
-    "api": "DataFrame.iterrows",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "itertuples",
-    "change_type": "Performance Optimization",
-    "reason": "Using `iterrows` does not preserve dtypes across rows, which can lead to inconsistent behavior and performance degradation. `itertuples` provides a faster and more efficient alternative while preserving dtypes.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame([[1, 1.5]], columns=['int', 'float'])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nrow = next(df.iterrows())[1]\nrow",
-        "output": "int      1.0\nfloat    1.5\nName: 0, dtype: float64"
-      },
-      {
-        "code": "import numpy as np\nprint(row['int'].dtype)",
-        "output": "float64"
-      },
-      {
-        "code": "import numpy as np\nprint(df['int'].dtype)",
-        "output": "int64"
-      }
-    ],
-    "examples_count": 4,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/pandas-docs/version/2.3/reference/api/pandas.DataFrame.xs.html",
-    "api": "xs",
-    "package": "pandas.DataFrame",
-    "language": "Python",
-    "deprecated_in": "2.3.0",
-    "removed_in": "",
-    "replaced_by": "MultiIndex Slicers",
-    "change_type": "Behavior Change",
-    "reason": "The `xs` method cannot be used to set values, while MultiIndex Slicers provide a superset of `xs` functionality for accessing and modifying MultiIndex values.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nd = {'num_legs': [4, 4, 2, 2],\n'num_wings': [0, 0, 2, 2],\n'class': ['mammal', 'mammal', 'mammal', 'bird'],\n'animal': ['cat', 'dog', 'bat', 'penguin'],\n'locomotion': ['walks', 'walks', 'flies', 'walks']}",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame(data=d)",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ndf = df.set_index(['class', 'animal', 'locomotion'])\ndf\ndf.xs('mammal')\ndf.xs('mammal')\ndf.xs(('mammal', 'dog', 'walks'))\ndf.xs(('mammal', 'dog', 'walks'))",
-        "output": "num_legs  num_wings\nclass  animal  locomotion\nmammal cat     walks              4          0\n       dog     walks              4          0\n       bat     flies              2          2\nbird   penguin walks              2          2\n\n                   num_legs  num_wings\nanimal locomotion\ncat    walks              4          0\ndog    walks              4          0\nbat    flies              2          2\n\n\n                   num_legs  num_wings\nanimal locomotion\ncat    walks              4          0\ndog    walks              4          0\nbat    flies              2          2\n\nnum_legs     4\nnum_wings    0\nName: (mammal, dog, walks), dtype: int64\n\n\nnum_legs     4\nnum_wings    0\nName: (mammal, dog, walks), dtype: int64"
-      },
-      {
-        "code": "import numpy as np\ndf.xs('cat', level=1)",
-        "output": "num_legs  num_wings\nclass  locomotion\nmammal walks              4          0"
-      },
-      {
-        "code": "import numpy as np\ndf.xs('cat', level=1)\ndf.xs(('bird', 'walks'),\nlevel=[0, 'locomotion'])\ndf.xs(('bird', 'walks'),\nlevel=[0, 'locomotion'])",
-        "output": "num_legs  num_wings\nclass  locomotion\nmammal walks              4          0\n\n         num_legs  num_wings\nanimal\npenguin         2          2\n\n\n         num_legs  num_wings\nanimal\npenguin         2          2"
-      },
-      {
-        "code": "import numpy as np\ndf.xs('num_wings', axis=1)",
-        "output": "class   animal   locomotion\nmammal  cat      walks         0\n        dog      walks         0\n        bat      flies         2\nbird    penguin  walks         2\nName: num_wings, dtype: int64"
-      }
-    ],
-    "examples_count": 6,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.__add__.html",
-    "api": "DataFrame.__add__",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "DataFrame.add(axis='index')",
-    "change_type": "Behavior Change",
-    "reason": "Alignment behavior when adding Series with the same index as the DataFrame was clarified; index-wise alignment must be explicitly invoked using DataFrame.add(axis='index').",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame({'height': [1.5, 2.6], 'weight': [500, 800]},\nindex=['elk', 'moose'])\ndf\ndf[['height', 'weight']] + 1.5\ndf[['height', 'weight']] + 1.5\ndf[['height', 'weight']] + [0.5, 1.5]\ndf[['height', 'weight']] + [0.5, 1.5]\ndf[['height', 'weight']] + {'height': 0.5, 'weight': 1.5}\ndf[['height', 'weight']] + {'height': 0.5, 'weight': 1.5}",
-        "output": "height  weight\nelk       1.5     500\nmoose     2.6     800\n\n       height  weight\nelk       3.0   501.5\nmoose     4.1   801.5\n\n\n       height  weight\nelk       3.0   501.5\nmoose     4.1   801.5\n\n       height  weight\nelk       2.0   501.5\nmoose     3.1   801.5\n\n\n       height  weight\nelk       2.0   501.5\nmoose     3.1   801.5\n\n       height  weight\nelk       2.0   501.5\nmoose     3.1   801.5\n\n\n       height  weight\nelk       2.0   501.5\nmoose     3.1   801.5"
-      },
-      {
-        "code": "import numpy as np\ns1 = pd.Series([0.5, 1.5], index=['weight', 'height'])\ndf[['height', 'weight']] + s1",
-        "output": "height  weight\nelk       3.0   500.5\nmoose     4.1   800.5"
-      },
-      {
-        "code": "import numpy as np\ns2 = pd.Series([0.5, 1.5], index=['elk', 'moose'])\ndf[['height', 'weight']] + s2",
-        "output": "elk  height  moose  weight\nelk    NaN     NaN    NaN     NaN\nmoose  NaN     NaN    NaN     NaN"
-      },
-      {
-        "code": "import numpy as np\ndf[['height', 'weight']].add(s2, axis='index')",
-        "output": "height  weight\nelk       2.0   500.5\nmoose     4.1   801.5"
-      },
-      {
-        "code": "import numpy as np\nother = pd.DataFrame({'height': [0.2, 0.4, 0.6]},\nindex=['elk', 'moose', 'deer'])\ndf[['height', 'weight']] + other",
-        "output": "height  weight\ndeer      NaN     NaN\nelk       1.7     NaN\nmoose     3.0     NaN"
-      }
-    ],
-    "examples_count": 5,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rdiv.html",
-    "api": "pandas.DataFrame.rdiv",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "",
-    "reason": "",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame({'angles': [0, 3, 4],\n'degrees': [360, 180, 360]},\nindex=['circle', 'triangle', 'rectangle'])\ndf\ndf + 1\ndf + 1\ndf.add(1)\ndf.add(1)\ndf.div(10)\ndf.div(10)\ndf.rdiv(10)\ndf.rdiv(10)\ndf - [1, 2]\ndf - [1, 2]",
-        "output": "angles  degrees\ncircle          0      360\ntriangle        3      180\nrectangle       4      360\n\n           angles  degrees\ncircle          1      361\ntriangle        4      181\nrectangle       5      361\n\n\n           angles  degrees\ncircle          1      361\ntriangle        4      181\nrectangle       5      361\n\n           angles  degrees\ncircle          1      361\ntriangle        4      181\nrectangle       5      361\n\n\n           angles  degrees\ncircle          1      361\ntriangle        4      181\nrectangle       5      361\n\n           angles  degrees\ncircle        0.0     36.0\ntriangle      0.3     18.0\nrectangle     0.4     36.0\n\n\n           angles  degrees\ncircle        0.0     36.0\ntriangle      0.3     18.0\nrectangle     0.4     36.0\n\n             angles   degrees\ncircle          inf  0.027778\ntriangle   3.333333  0.055556\nrectangle  2.500000  0.027778\n\n\n             angles   degrees\ncircle          inf  0.027778\ntriangle   3.333333  0.055556\nrectangle  2.500000  0.027778\n\n           angles  degrees\ncircle         -1      358\ntriangle        2      178\nrectangle       3      358\n\n\n           angles  degrees\ncircle         -1      358\ntriangle        2      178\nrectangle       3      358"
-      },
-      {
-        "code": "import numpy as np\ndf.sub([1, 2], axis='columns')",
-        "output": "angles  degrees\ncircle         -1      358\ntriangle        2      178\nrectangle       3      358"
-      },
-      {
-        "code": "import numpy as np\ndf.sub(pd.Series([1, 1, 1], index=['circle', 'triangle', 'rectangle']),\naxis='index')",
-        "output": "angles  degrees\ncircle         -1      359\ntriangle        2      179\nrectangle       3      359"
-      },
-      {
-        "code": "import numpy as np\ndf.sub(pd.Series([1, 1, 1], index=['circle', 'triangle', 'rectangle']),\naxis='index')\ndf.mul({'angles': 0, 'degrees': 2})\ndf.mul({'angles': 0, 'degrees': 2})",
-        "output": "angles  degrees\ncircle         -1      359\ntriangle        2      179\nrectangle       3      359\n\n            angles  degrees\ncircle           0      720\ntriangle         0      360\nrectangle        0      720\n\n\n            angles  degrees\ncircle           0      720\ntriangle         0      360\nrectangle        0      720"
-      },
-      {
-        "code": "import numpy as np\ndf.mul({'circle': 0, 'triangle': 2, 'rectangle': 3}, axis='index')",
-        "output": "angles  degrees\ncircle           0        0\ntriangle         6      360\nrectangle       12     1080"
-      },
-      {
-        "code": "import numpy as np\nother = pd.DataFrame({'angles': [0, 3, 4]},\nindex=['circle', 'triangle', 'rectangle'])\nother",
-        "output": "angles\ncircle          0\ntriangle        3\nrectangle       4"
-      },
-      {
-        "code": "import numpy as np\nother = pd.DataFrame({'angles': [0, 3, 4]},\nindex=['circle', 'triangle', 'rectangle'])\nother\ndf * other\ndf * other",
-        "output": "angles\ncircle          0      NaN\ntriangle        9      NaN\nrectangle      16      NaN\n\n\n           angles  degrees\ncircle          0      NaN\ntriangle        9      NaN\nrectangle      16      NaN"
-      },
-      {
-        "code": "import numpy as np\ndf.mul(other, fill_value=0)",
-        "output": "angles  degrees\ncircle          0      0.0\ntriangle        9      0.0\nrectangle      16      0.0"
-      },
-      {
-        "code": "import numpy as np\ndf_multindex = pd.DataFrame({'angles': [0, 3, 4, 4, 5, 6],\n'degrees': [360, 180, 360, 360, 540, 720]},\nindex=[['A', 'A', 'A', 'B', 'B', 'B'],\n['circle', 'triangle', 'rectangle',\n'square', 'pentagon', 'hexagon']])\ndf_multindex",
-        "output": "angles  degrees\nA circle          0      360\n  triangle        3      180\n  rectangle       4      360\nB square          4      360\n  pentagon        5      540\n  hexagon         6      720"
-      },
-      {
-        "code": "import numpy as np\ndf.div(df_multindex, level=1, fill_value=0)",
-        "output": "angles  degrees\nA circle        NaN      1.0\n  triangle      1.0      1.0\n  rectangle     1.0      1.0\nB square        0.0      0.0\n  pentagon      0.0      0.0\n  hexagon       0.0      0.0"
-      }
-    ],
-    "examples_count": 10,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rpow.html",
-    "api": "DataFrame.rpow",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "",
-    "reason": "",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame({'angles': [0, 3, 4],\n'degrees': [360, 180, 360]},\nindex=['circle', 'triangle', 'rectangle'])\ndf\ndf + 1\ndf + 1\ndf.add(1)\ndf.add(1)\ndf.div(10)\ndf.div(10)\ndf.rdiv(10)\ndf.rdiv(10)\ndf - [1, 2]\ndf - [1, 2]",
-        "output": "angles  degrees\ncircle          0      360\ntriangle        3      180\nrectangle       4      360\n\n           angles  degrees\ncircle          1      361\ntriangle        4      181\nrectangle       5      361\n\n\n           angles  degrees\ncircle          1      361\ntriangle        4      181\nrectangle       5      361\n\n           angles  degrees\ncircle          1      361\ntriangle        4      181\nrectangle       5      361\n\n\n           angles  degrees\ncircle          1      361\ntriangle        4      181\nrectangle       5      361\n\n           angles  degrees\ncircle        0.0     36.0\ntriangle      0.3     18.0\nrectangle     0.4     36.0\n\n\n           angles  degrees\ncircle        0.0     36.0\ntriangle      0.3     18.0\nrectangle     0.4     36.0\n\n             angles   degrees\ncircle          inf  0.027778\ntriangle   3.333333  0.055556\nrectangle  2.500000  0.027778\n\n\n             angles   degrees\ncircle          inf  0.027778\ntriangle   3.333333  0.055556\nrectangle  2.500000  0.027778\n\n           angles  degrees\ncircle         -1      358\ntriangle        2      178\nrectangle       3      358\n\n\n           angles  degrees\ncircle         -1      358\ntriangle        2      178\nrectangle       3      358"
-      },
-      {
-        "code": "import numpy as np\ndf.sub([1, 2], axis='columns')",
-        "output": "angles  degrees\ncircle         -1      358\ntriangle        2      178\nrectangle       3      358"
-      },
-      {
-        "code": "import numpy as np\ndf.sub(pd.Series([1, 1, 1], index=['circle', 'triangle', 'rectangle']),\naxis='index')",
-        "output": "angles  degrees\ncircle         -1      359\ntriangle        2      179\nrectangle       3      359"
-      },
-      {
-        "code": "import numpy as np\ndf.sub(pd.Series([1, 1, 1], index=['circle', 'triangle', 'rectangle']),\naxis='index')\ndf.mul({'angles': 0, 'degrees': 2})\ndf.mul({'angles': 0, 'degrees': 2})",
-        "output": "angles  degrees\ncircle         -1      359\ntriangle        2      179\nrectangle       3      359\n\n            angles  degrees\ncircle           0      720\ntriangle         0      360\nrectangle        0      720\n\n\n            angles  degrees\ncircle           0      720\ntriangle         0      360\nrectangle        0      720"
-      },
-      {
-        "code": "import numpy as np\ndf.mul({'circle': 0, 'triangle': 2, 'rectangle': 3}, axis='index')",
-        "output": "angles  degrees\ncircle           0        0\ntriangle         6      360\nrectangle       12     1080"
-      },
-      {
-        "code": "import numpy as np\nother = pd.DataFrame({'angles': [0, 3, 4]},\nindex=['circle', 'triangle', 'rectangle'])\nother",
-        "output": "angles\ncircle          0\ntriangle        3\nrectangle       4"
-      },
-      {
-        "code": "import numpy as np\nother = pd.DataFrame({'angles': [0, 3, 4]},\nindex=['circle', 'triangle', 'rectangle'])\nother\ndf * other\ndf * other",
-        "output": "angles\ncircle          0      NaN\ntriangle        9      NaN\nrectangle      16      NaN\n\n           angles  degrees\ncircle          0      NaN\ntriangle        9      NaN\nrectangle      16      NaN"
-      },
-      {
-        "code": "import numpy as np\ndf.mul(other, fill_value=0)",
-        "output": "angles  degrees\ncircle          0      0.0\ntriangle        9      0.0\nrectangle      16      0.0"
-      },
-      {
-        "code": "import numpy as np\ndf_multindex = pd.DataFrame({'angles': [0, 3, 4, 4, 5, 6],\n'degrees': [360, 180, 360, 360, 540, 720]},\nindex=[['A', 'A', 'A', 'B', 'B', 'B'],\n['circle', 'triangle', 'rectangle',\n'square', 'pentagon', 'hexagon']])\ndf_multindex",
-        "output": "angles  degrees\nA circle          0      360\n  triangle        3      180\n  rectangle       4      360\nB square          4      360\n  pentagon        5      540\n  hexagon         6      720"
-      },
-      {
-        "code": "import numpy as np\ndf.div(df_multindex, level=1, fill_value=0)",
-        "output": "angles  degrees\nA circle        NaN      1.0\n  triangle      1.0      1.0\n  rectangle     1.0      1.0\nB square        0.0      0.0\n  pentagon      0.0      0.0\n  hexagon       0.0      0.0"
-      }
-    ],
-    "examples_count": 10,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.map.html",
-    "api": "pandas.DataFrame.map",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.1.0",
-    "removed_in": "",
-    "replaced_by": "DataFrame.applymap",
-    "change_type": "API Deprecation",
-    "reason": "To unify the API and avoid redundancy, `DataFrame.applymap` was deprecated and renamed to `DataFrame.map`. The new method simplifies functionality and naming conventions.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame([[1, 2.12], [3.356, 4.567]])\ndf\ndf.map(lambda x: len(str(x)))\ndf.map(lambda x: len(str(x)))",
-        "output": "0      1\n0  1.000  2.120\n1  3.356  4.567\n\n   0  1\n0  3  4\n1  5  5\n\n\n   0  1\n0  3  4\n1  5  5"
-      },
-      {
-        "code": "import numpy as np\ndf_copy = df.copy()",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ndf_copy.iloc[0, 0] = pd.NA",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ndf_copy.map(lambda x: len(str(x)), na_action='ignore')",
-        "output": "0  1\n0  NaN  4\n1  5.0  5"
-      },
-      {
-        "code": "import numpy as np\ndf.map(round, ndigits=1)",
-        "output": "0    1\n0  1.0  2.1\n1  3.4  4.6"
-      },
-      {
-        "code": "import numpy as np\ndf.map(round, ndigits=1)\ndf.map(lambda x: x**2)\ndf.map(lambda x: x**2)\ndf ** 2\ndf ** 2",
-        "output": "0    1\n0  1.0  2.1\n1  3.4  4.6\n\n           0          1\n0   1.000000   4.494400\n1  11.262736  20.857489\n\n\n           0          1\n0   1.000000   4.494400\n1  11.262736  20.857489\n\n           0          1\n0   1.000000   4.494400\n1  11.262736  20.857489\n\n\n           0          1\n0   1.000000   4.494400\n1  11.262736  20.857489"
-      }
-    ],
-    "examples_count": 6,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/whatsnew/v2.1.0.html#deprecations",
-    "api": "DataFrame.applymap",
+    "api": "pandas.DataFrame.applymap",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "2.1.0",
@@ -2992,39 +2072,11 @@
     "extraction_method": "No Examples"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.aggregate.html",
-    "api": "pandas.DataFrame.aggregate",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "None",
-    "reason": "The documentation notes that `agg` is an alias for `aggregate` and encourages using the alias. However, `aggregate` itself is a standard, fully supported method with no deprecation warnings.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame([[1, 2, 3],\n[4, 5, 6],\n[7, 8, 9],\n[np.nan, np.nan, np.nan]],\ncolumns=['A', 'B', 'C'])\ndf.agg(['sum', 'min'])\ndf.agg(['sum', 'min'])\ndf.agg({'A' : ['sum', 'min'], 'B' : ['min', 'max']})\ndf.agg({'A' : ['sum', 'min'], 'B' : ['min', 'max']})",
-        "output": "A     B     C\nsum  12.0  15.0  18.0\nmin   1.0   2.0   3.0\n\n\n        A     B     C\nsum  12.0  15.0  18.0\nmin   1.0   2.0   3.0\n\n        A    B\nsum  12.0  NaN\nmin   1.0  2.0\nmax   NaN  8.0\n\n\n        A    B\nsum  12.0  NaN\nmin   1.0  2.0\nmax   NaN  8.0"
-      },
-      {
-        "code": "import numpy as np\ndf.agg(x=('A', 'max'), y=('B', 'min'), z=('C', 'mean'))",
-        "output": "A    B    C\nx  7.0  NaN  NaN\ny  NaN  2.0  NaN\nz  NaN  NaN  6.0"
-      },
-      {
-        "code": "import numpy as np\ndf.agg(\"mean\", axis=\"columns\")",
-        "output": "0    2.0\n1    5.0\n2    8.0\n3    NaN\ndtype: float64"
-      }
-    ],
-    "examples_count": 3,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rolling.html",
     "api": "pandas.DataFrame.rolling",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.1.0",
     "removed_in": "",
     "replaced_by": "encouraging users to transpose the DataFrame rather than relying on axis-specific rolling window calculations",
     "change_type": "Parameter Change",
@@ -3104,10 +2156,10 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.corr.html",
-    "api": "DataFrame.corr",
+    "api": "pandas.DataFrame.corr",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "2.0.0",
+    "deprecated_in": "",
     "removed_in": "",
     "replaced_by": "",
     "change_type": "Parameter Change",
@@ -3140,7 +2192,7 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.prod.html",
-    "api": "DataFrame.prod",
+    "api": "pandas.DataFrame.prod",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "",
@@ -3204,7 +2256,7 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sem.html",
-    "api": "DataFrame.sem",
+    "api": "pandas.DataFrame.sem",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "",
@@ -3258,7 +2310,7 @@
     "api": "pandas.DataFrame.rank",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "2.3.3",
+    "deprecated_in": "2.0.0",
     "removed_in": "",
     "replaced_by": "",
     "change_type": "Parameter Change",
@@ -3299,7 +2351,7 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.var.html",
-    "api": "DataFrame.var",
+    "api": "pandas.DataFrame.var",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "",
@@ -3362,59 +2414,11 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.value_counts.html",
-    "api": "pandas.DataFrame.value_counts",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "Series.value_counts",
-    "change_type": "Behavior Change",
-    "reason": "The method's behavior was extended to handle additional parameters and address NA value handling. The documentation emphasizes the distinctions for better clarity, aligning with `Series.value_counts`.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame({'num_legs': [2, 4, 4, 6],\n'num_wings': [2, 0, 0, 0]},\nindex=['falcon', 'dog', 'cat', 'ant'])\ndf\ndf.value_counts()\ndf.value_counts()",
-        "output": "num_legs  num_wings\nfalcon         2          2\ndog            4          0\ncat            4          0\nant            6          0\n\nnum_legs  num_wings\n4         0            2\n2         2            1\n6         0            1\nName: count, dtype: int64\n\n\nnum_legs  num_wings\n4         0            2\n2         2            1\n6         0            1\nName: count, dtype: int64"
-      },
-      {
-        "code": "import numpy as np\ndf.value_counts(sort=False)",
-        "output": "num_legs  num_wings\n2         2            1\n4         0            2\n6         0            1\nName: count, dtype: int64"
-      },
-      {
-        "code": "import numpy as np\ndf.value_counts(ascending=True)",
-        "output": "num_legs  num_wings\n2         2            1\n6         0            1\n4         0            2\nName: count, dtype: int64"
-      },
-      {
-        "code": "import numpy as np\ndf.value_counts(normalize=True)",
-        "output": "num_legs  num_wings\n4         0            0.50\n2         2            0.25\n6         0            0.25\nName: proportion, dtype: float64"
-      },
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame({'first_name': ['John', 'Anne', 'John', 'Beth'],\n'middle_name': ['Smith', pd.NA, pd.NA, 'Louise']})\ndf",
-        "output": "first_name middle_name\n0       John       Smith\n1       Anne        <NA>\n2       John        <NA>\n3       Beth      Louise"
-      },
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame({'first_name': ['John', 'Anne', 'John', 'Beth'],\n'middle_name': ['Smith', pd.NA, pd.NA, 'Louise']})\ndf\ndf.value_counts()\ndf.value_counts()",
-        "output": "first_name middle_name\n0       John       Smith\n1       Anne        <NA>\n2       John        <NA>\n3       Beth      Louise\n\nfirst_name  middle_name\nBeth        Louise         1\nJohn        Smith          1\nName: count, dtype: int64\n\n\nfirst_name  middle_name\nBeth        Louise         1\nJohn        Smith          1\nName: count, dtype: int64"
-      },
-      {
-        "code": "import numpy as np\ndf.value_counts(dropna=False)",
-        "output": "first_name  middle_name\nAnne        NaN            1\nBeth        Louise         1\nJohn        Smith          1\n            NaN            1\nName: count, dtype: int64"
-      },
-      {
-        "code": "import numpy as np\ndf.value_counts(dropna=False)\ndf.value_counts(\"first_name\")\ndf.value_counts(\"first_name\")",
-        "output": "first_name  middle_name\nAnne        NaN            1\nBeth        Louise         1\nJohn        Smith          1\n            NaN            1\nName: count, dtype: int64\n\nfirst_name\nJohn    2\nAnne    1\nBeth    1\nName: count, dtype: int64\n\n\nfirst_name\nJohn    2\nAnne    1\nBeth    1\nName: count, dtype: int64"
-      }
-    ],
-    "examples_count": 8,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.align.html",
-    "api": "DataFrame.align",
+    "api": "pandas.DataFrame.align",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "3.0.0",
+    "deprecated_in": "2.1",
     "removed_in": "",
     "replaced_by": "",
     "change_type": "Parameter Change",
@@ -3505,28 +2509,13 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/whatsnew/v3.0.0.html#changes-to-the-copy-parameter",
-    "api": "pandas.DataFrame.reindex",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "3.0.0",
-    "removed_in": "",
-    "replaced_by": "The `copy` parameter will change its behavior to support the new Copy-on-Write mechanism by default.",
-    "change_type": "Parameter Change",
-    "reason": "The `copy` parameter will change its behavior to support the new Copy-on-Write mechanism by default. It introduces lazy copying to optimize performance. The `copy` parameter is expected to be removed in future versions of pandas.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.reindex_like.html",
     "api": "pandas.DataFrame.reindex_like",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
-    "replaced_by": "The `copy` parameter will change behavior to use the Copy-on-Write mechanism by default.",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "The `copy` parameter will change behavior to use the Copy-on-Write mechanism by default, making lazy copying the standard practice. This improves performance and memory efficiency by deferring unnecessary copies.",
     "has_examples": true,
@@ -3554,7 +2543,7 @@
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
-    "replaced_by": "The `copy` parameter behavior will change to enable Copy-on-Write by default.",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "The `copy` parameter behavior will change to enable Copy-on-Write by default, introducing a lazy copy mechanism for performance improvements. In a subsequent future version, the `copy` parameter will be removed entirely.",
     "has_examples": true,
@@ -3601,7 +2590,7 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.set_axis.html",
-    "api": "DataFrame.set_axis",
+    "api": "pandas.DataFrame.set_axis",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "",
@@ -3632,7 +2621,7 @@
     "api": "pandas.DataFrame.bfill",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.2.0",
     "removed_in": "",
     "replaced_by": "",
     "change_type": "Parameter Change",
@@ -3661,12 +2650,12 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.backfill.html",
-    "api": "backfill",
+    "api": "pandas.DataFrame.backfill",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "2.0",
     "removed_in": "",
-    "replaced_by": "bfill",
+    "replaced_by": "DataFrame.bfill",
     "change_type": "API Deprecation",
     "reason": "To streamline the API and reduce redundancy, `backfill` was deprecated in favor of `bfill`, which serves the same purpose.",
     "has_examples": false,
@@ -3681,7 +2670,7 @@
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
-    "replaced_by": "The `copy` parameter will change behavior as pandas transitions to a Copy-on-Write mechanism.",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "The `copy` parameter will change behavior as pandas transitions to a Copy-on-Write mechanism, enabling lazy copying to improve performance. The `copy` keyword will eventually be removed in a future version.",
     "has_examples": true,
@@ -3747,39 +2736,11 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.isnull.html",
-    "api": "DataFrame.isnull",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "Behavior Change",
-    "reason": "Consolidation and standardization of naming conventions across pandas to ensure uniformity and clarity.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame(dict(age=[5, 6, np.nan],\nborn=[pd.NaT, pd.Timestamp('1939-05-27'),\npd.Timestamp('1940-04-25')],\nname=['Alfred', 'Batman', ''],\ntoy=[None, 'Batmobile', 'Joker']))\ndf\ndf.isna()\ndf.isna()",
-        "output": "age       born    name        toy\n0  5.0        NaT  Alfred       None\n1  6.0 1939-05-27  Batman  Batmobile\n2  NaN 1940-04-25              Joker\n\n     age   born   name    toy\n0  False   True  False   True\n1  False  False  False  False\n2   True  False  False  False\n\n\n     age   born   name    toy\n0  False   True  False   True\n1  False  False  False  False\n2   True  False  False  False"
-      },
-      {
-        "code": "import numpy as np\nser = pd.Series([5, 6, np.nan])\nser",
-        "output": "0    5.0\n1    6.0\n2    NaN\ndtype: float64"
-      },
-      {
-        "code": "import numpy as np\nser = pd.Series([5, 6, np.nan])\nser\nser.isna()\nser.isna()",
-        "output": "0    5.0\n1    6.0\n2    NaN\ndtype: float64\n\n0    False\n1    False\n2     True\ndtype: bool\n\n\n0    False\n1    False\n2     True\ndtype: bool"
-      }
-    ],
-    "examples_count": 3,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.interpolate.html",
     "api": "pandas.DataFrame.interpolate",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.1.0",
     "removed_in": "",
     "replaced_by": "",
     "change_type": "Parameter Change",
@@ -3821,7 +2782,7 @@
     "language": "Python",
     "deprecated_in": "2.1.0",
     "removed_in": "",
-    "replaced_by": "ffill or bfill",
+    "replaced_by": "",
     "change_type": "API Deprecation",
     "reason": "The values 'backfill' and 'bfill' for the 'method' parameter were deprecated for consistency; users are encouraged to use 'ffill' or 'bfill' instead of 'backfill'. This simplifies understanding and aligns with pandas' naming conventions.",
     "has_examples": true,
@@ -3851,41 +2812,13 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/pandas-docs/version/2.3.3/reference/api/pandas.DataFrame.notnull.html",
-    "api": "DataFrame.notnull",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.3.3",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "Alias Assignment",
-    "reason": "Standardized API terminology for missing/non-missing values following consistent naming conventions.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame(dict(age=[5, 6, np.nan],\nborn=[pd.NaT, pd.Timestamp('1939-05-27'),\npd.Timestamp('1940-04-25')],\nname=['Alfred', 'Batman', ''],\ntoy=[None, 'Batmobile', 'Joker']))\ndf\ndf.notna()\ndf.notna()",
-        "output": "age       born    name        toy\n0  5.0        NaT  Alfred       None\n1  6.0 1939-05-27  Batman  Batmobile\n2  NaN 1940-04-25              Joker\n\n     age   born  name    toy\n0   True  False  True  False\n1   True   True  True   True\n2  False   True  True   True\n\n\n     age   born  name    toy\n0   True  False  True  False\n1   True   True  True   True\n2  False   True  True   True"
-      },
-      {
-        "code": "import numpy as np\nser = pd.Series([5, 6, np.nan])\nser",
-        "output": "0    5.0\n1    6.0\n2    NaN\ndtype: float64"
-      },
-      {
-        "code": "import numpy as np\nser = pd.Series([5, 6, np.nan])\nser\nser.notna()\nser.notna()",
-        "output": "0    5.0\n1    6.0\n2    NaN\ndtype: float64\n\n0     True\n1     True\n2    False\ndtype: bool\n\n\n0     True\n1     True\n2    False\ndtype: bool"
-      }
-    ],
-    "examples_count": 3,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.pad.html",
     "api": "pandas.DataFrame.pad",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "2.0",
     "removed_in": "",
-    "replaced_by": "ffill",
+    "replaced_by": "DataFrame.ffill",
     "change_type": "API Deprecation",
     "reason": "The pad method is deprecated in favor of the more standard ffill method, which serves the same functionality but follows clearer nomenclature.",
     "has_examples": false,
@@ -3895,10 +2828,10 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.replace.html",
-    "api": "replace",
+    "api": "pandas.DataFrame.replace",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.1.0",
     "removed_in": "",
     "replaced_by": "",
     "change_type": "Parameter Change",
@@ -3975,10 +2908,10 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.pivot_table.html",
-    "api": "pivot_table",
+    "api": "pandas.DataFrame.pivot_table",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.2.0",
     "removed_in": "",
     "replaced_by": "",
     "change_type": "Parameter Change",
@@ -4010,23 +2943,8 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/2.3/reference/api/pandas.DataFrame.stack.html",
-    "api": "pandas.DataFrame.stack",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.3.0",
-    "removed_in": "",
-    "replaced_by": "future_stack=True",
-    "change_type": "Behavior Change",
-    "reason": "To replace the current implementation with a more reliable and updated version (future_stack=True) for improved functionality and consistency.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.swapaxes.html",
-    "api": "swapaxes",
+    "api": "pandas.DataFrame.swapaxes",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "2.1.0",
@@ -4040,33 +2958,13 @@
     "extraction_method": "No Examples"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.T.html",
-    "api": "pandas.DataFrame.T",
+    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.transpose.html",
+    "api": "pandas.DataFrame.transpose",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
     "replaced_by": "",
-    "change_type": "",
-    "reason": "",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame({'col1': [1, 2], 'col2': [3, 4]})\ndf\ndf.T\ndf.T",
-        "output": "col1  col2\n0     1     3\n1     2     4\n\n      0  1\ncol1  1  2\ncol2  3  4\n\n\n      0  1\ncol1  1  2\ncol2  3  4"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.transpose.html",
-    "api": "DataFrame.transpose",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "The `copy` keyword will change behavior, adopting a lazy copy mechanism (Copy-on-Write) to improve performance and simplify memory management.",
     "change_type": "Behavior Change",
     "reason": "The `copy` keyword will change behavior, adopting a lazy copy mechanism (Copy-on-Write) to improve performance and simplify memory management.",
     "has_examples": true,
@@ -4108,65 +3006,13 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/pandas-docs/version/2.3.3/reference/api/pandas.DataFrame.join.html",
-    "api": "DataFrame.join",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.3.3",
-    "removed_in": "",
-    "replaced_by": "more intuitive API for joining DataFrames and handling key-based operations",
-    "change_type": "Behavior Change",
-    "reason": "Improved functionality and flexibility for joining DataFrames and handling key-based operations using more intuitive API.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame({'key': ['K0', 'K1', 'K2', 'K3', 'K4', 'K5'],\n'A': ['A0', 'A1', 'A2', 'A3', 'A4', 'A5']})\ndf\ndf",
-        "output": "key   A\n0  K0  A0\n1  K1  A1\n2  K2  A2\n3  K3  A3\n4  K4  A4\n5  K5  A5\n\n\n  key   A\n0  K0  A0\n1  K1  A1\n2  K2  A2\n3  K3  A3\n4  K4  A4\n5  K5  A5"
-      },
-      {
-        "code": "import numpy as np\nother = pd.DataFrame({'key': ['K0', 'K1', 'K2'],\n'B': ['B0', 'B1', 'B2']})",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nother = pd.DataFrame({'key': ['K0', 'K1', 'K2'],\n'B': ['B0', 'B1', 'B2']})\nother\nother",
-        "output": "key   B\n0  K0  B0\n1  K1  B1\n2  K2  B2\n\n\n  key   B\n0  K0  B0\n1  K1  B1\n2  K2  B2"
-      },
-      {
-        "code": "import numpy as np\ndf.join(other, lsuffix='_caller', rsuffix='_other')",
-        "output": "key_caller   A key_other    B\n0         K0  A0        K0   B0\n1         K1  A1        K1   B1\n2         K2  A2        K2   B2\n3         K3  A3       NaN  NaN\n4         K4  A4       NaN  NaN\n5         K5  A5       NaN  NaN"
-      },
-      {
-        "code": "import numpy as np\ndf.join(other, lsuffix='_caller', rsuffix='_other')\ndf.set_index('key').join(other.set_index('key'))\ndf.set_index('key').join(other.set_index('key'))",
-        "output": "key_caller   A key_other    B\n0         K0  A0        K0   B0\n1         K1  A1        K1   B1\n2         K2  A2        K2   B2\n3         K3  A3       NaN  NaN\n4         K4  A4       NaN  NaN\n5         K5  A5       NaN  NaN\n\n      A    B\nkey\nK0   A0   B0\nK1   A1   B1\nK2   A2   B2\nK3   A3  NaN\nK4   A4  NaN\nK5   A5  NaN\n\n\n      A    B\nkey\nK0   A0   B0\nK1   A1   B1\nK2   A2   B2\nK3   A3  NaN\nK4   A4  NaN\nK5   A5  NaN"
-      },
-      {
-        "code": "import numpy as np\ndf.join(other.set_index('key'), on='key')",
-        "output": "key   A    B\n0  K0  A0   B0\n1  K1  A1   B1\n2  K2  A2   B2\n3  K3  A3  NaN\n4  K4  A4  NaN\n5  K5  A5  NaN"
-      },
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame({'key': ['K0', 'K1', 'K1', 'K3', 'K0', 'K1'],\n'A': ['A0', 'A1', 'A2', 'A3', 'A4', 'A5']})",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame({'key': ['K0', 'K1', 'K1', 'K3', 'K0', 'K1'],\n'A': ['A0', 'A1', 'A2', 'A3', 'A4', 'A5']})\ndf\ndf",
-        "output": "key   A\n0  K0  A0\n1  K1  A1\n2  K1  A2\n3  K3  A3\n4  K0  A4\n5  K1  A5\n\n\n  key   A\n0  K0  A0\n1  K1  A1\n2  K1  A2\n3  K3  A3\n4  K0  A4\n5  K1  A5"
-      },
-      {
-        "code": "import numpy as np\ndf.join(other.set_index('key'), on='key', validate='m:1')",
-        "output": "key   A    B\n0  K0  A0   B0\n1  K1  A1   B1\n2  K1  A2   B1\n3  K3  A3  NaN\n4  K0  A4   B0\n5  K1  A5   B1"
-      }
-    ],
-    "examples_count": 9,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html",
     "api": "pandas.DataFrame.merge",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
-    "replaced_by": "The `copy` keyword behavior was updated to use a lazy copy mechanism by enabling Copy-on-Write functionality.",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "The `copy` keyword behavior was updated to use a lazy copy mechanism by enabling Copy-on-Write functionality. This is for improved performance and memory efficiency. The `copy` keyword will eventually be removed in future versions.",
     "has_examples": true,
@@ -4224,36 +3070,8 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.asof.html",
-    "api": "pandas.DataFrame.asof",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "",
-    "reason": "",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ns = pd.Series([1, 2, np.nan, 4], index=[10, 20, 30, 40])\ns\ns.asof(20)\ns.asof(20)\ns.asof([5, 20])\ns.asof([5, 20])\ns.asof(30)\ns.asof(30)",
-        "output": "10    1.0\n20    2.0\n30    NaN\n40    4.0\ndtype: float64\n\n2.0\n\n\n2.0\n\n5     NaN\n20    2.0\ndtype: float64\n\n\n5     NaN\n20    2.0\ndtype: float64\n\n2.0\n\n\n2.0"
-      },
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame({'a': [10., 20., 30., 40., 50.],\n'b': [None, None, None, None, 500]},\nindex=pd.DatetimeIndex(['2018-02-27 09:01:00',\n'2018-02-27 09:02:00',\n'2018-02-27 09:03:00',\n'2018-02-27 09:04:00',\n'2018-02-27 09:05:00']))\ndf.asof(pd.DatetimeIndex(['2018-02-27 09:03:30',\n'2018-02-27 09:04:30']))",
-        "output": "a   b\n2018-02-27 09:03:30 NaN NaN\n2018-02-27 09:04:30 NaN NaN"
-      },
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame({'a': [10., 20., 30., 40., 50.],\n'b': [None, None, None, None, 500]},\nindex=pd.DatetimeIndex(['2018-02-27 09:01:00',\n'2018-02-27 09:02:00',\n'2018-02-27 09:03:00',\n'2018-02-27 09:04:00',\n'2018-02-27 09:05:00']))\ndf.asof(pd.DatetimeIndex(['2018-02-27 09:03:30',\n'2018-02-27 09:04:30']))\ndf.asof(pd.DatetimeIndex(['2018-02-27 09:03:30',\n'2018-02-27 09:04:30']),\nsubset=['a'])\ndf.asof(pd.DatetimeIndex(['2018-02-27 09:03:30',\n'2018-02-27 09:04:30']),\nsubset=['a'])",
-        "output": "a   b\n2018-02-27 09:03:30 NaN NaN\n2018-02-27 09:04:30 NaN NaN\n\n                        a   b\n2018-02-27 09:03:30  30.0 NaN\n2018-02-27 09:04:30  40.0 NaN\n\n\n                        a   b\n2018-02-27 09:03:30  30.0 NaN\n2018-02-27 09:04:30  40.0 NaN"
-      }
-    ],
-    "examples_count": 3,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_period.html",
-    "api": "to_period",
+    "api": "pandas.DataFrame.to_period",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "",
@@ -4279,8 +3097,8 @@
     "deprecated_in": "2.0.0",
     "removed_in": "",
     "replaced_by": "",
-    "change_type": "API Deprecation",
-    "reason": "Improved design to ensure consistent API usage and better handling of axis-level operations.",
+    "change_type": "Parameter Change",
+    "reason": "The `axis` parameter has been deprecated since version 2.0.0. Resampling along the columns (axis=1) is no longer directly supported. The documentation explicitly advises users to transpose the DataFrame (using `frame.T.resample(...)`) to achieve the same effect.",
     "has_examples": true,
     "examples": [
       {
@@ -4290,10 +3108,6 @@
       {
         "code": "import numpy as np\nseries = pd.Series(range(9), index=index)\nseries\nseries.resample('3min').sum()\nseries.resample('3min').sum()",
         "output": "2000-01-01 00:00:00    0\n2000-01-01 00:01:00    1\n2000-01-01 00:02:00    2\n2000-01-01 00:03:00    3\n2000-01-01 00:04:00    4\n2000-01-01 00:05:00    5\n2000-01-01 00:06:00    6\n2000-01-01 00:07:00    7\n2000-01-01 00:08:00    8\nFreq: min, dtype: int64\n\n2000-01-01 00:00:00     3\n2000-01-01 00:03:00    12\n2000-01-01 00:06:00    21\nFreq: 3min, dtype: int64\n\n\n2000-01-01 00:00:00     3\n2000-01-01 00:03:00    12\n2000-01-01 00:06:00    21\nFreq: 3min, dtype: int64"
-      },
-      {
-        "code": "import numpy as np\nseries.resample('3min', label='right').sum()",
-        "output": "2000-01-01 00:03:00     3\n2000-01-01 00:06:00    12\n2000-01-01 00:09:00    21\nFreq: 3min, dtype: int64"
       },
       {
         "code": "import numpy as np\nseries.resample('3min', label='right').sum()",
@@ -4320,18 +3134,6 @@
         "output": "2012    1\n2013    2\nFreq: Y-DEC, dtype: int64"
       },
       {
-        "code": "import numpy as np\ns.resample(\"Q\", convention=\"start\").asfreq()",
-        "output": "2012Q1    1.0\n2012Q2    NaN\n2012Q3    NaN\n2012Q4    NaN\n2013Q1    2.0\n2013Q2    NaN\n2013Q3    NaN\n2013Q4    NaN\nFreq: Q-DEC, dtype: float64"
-      },
-      {
-        "code": "import numpy as np\nq = pd.Series(\n[1, 2, 3, 4], index=pd.period_range(\"2018-01-01\", freq=\"Q\", periods=4)\n)\nq",
-        "output": "2018Q1    1\n2018Q2    2\n2018Q3    3\n2018Q4    4\nFreq: Q-DEC, dtype: int64"
-      },
-      {
-        "code": "import numpy as np\nq.resample(\"M\", convention=\"end\").asfreq()",
-        "output": "2018-03    1.0\n2018-04    NaN\n2018-05    NaN\n2018-06    2.0\n2018-07    NaN\n2018-08    NaN\n2018-09    3.0\n2018-10    NaN\n2018-11    NaN\n2018-12    4.0\nFreq: M, dtype: float64"
-      },
-      {
         "code": "import numpy as np\nq = pd.Series(\n[1, 2, 3, 4], index=pd.period_range(\"2018-01-01\", freq=\"Q\", periods=4)\n)\nq",
         "output": "2018Q1    1\n2018Q2    2\n2018Q3    3\n2018Q4    4\nFreq: Q-DEC, dtype: int64"
       },
@@ -4357,26 +3159,6 @@
       },
       {
         "code": "import numpy as np\nd = {'price': [10, 11, 9, 13, 14, 18, 17, 19],\n'volume': [50, 60, 40, 100, 50, 100, 40, 50]}",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame(d)",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ndf['week_starting'] = pd.date_range('01/01/2018',\nperiods=8,\nfreq='W')\ndf",
-        "output": "price  volume week_starting\n0     10      50    2018-01-07\n1     11      60    2018-01-14\n2      9      40    2018-01-21\n3     13     100    2018-01-28\n4     14      50    2018-02-04\n5     18     100    2018-02-11\n6     17      40    2018-02-18\n7     19      50    2018-02-25"
-      },
-      {
-        "code": "import numpy as np\ndf.resample('ME', on='week_starting').mean()",
-        "output": "price  volume\nweek_starting\n2018-01-31     10.75    62.5\n2018-02-28     17.00    60.0"
-      },
-      {
-        "code": "import numpy as np\ndays = pd.date_range('1/1/2000', periods=4, freq='D')",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nd2 = {'price': [10, 11, 9, 13, 14, 18, 17, 19],\n'volume': [50, 60, 40, 100, 50, 100, 40, 50]}",
         "output": ""
       },
       {
@@ -4390,14 +3172,6 @@
       {
         "code": "import numpy as np\ndays = pd.date_range('1/1/2000', periods=4, freq='D')",
         "output": ""
-      },
-      {
-        "code": "import numpy as np\nd2 = {'price': [10, 11, 9, 13, 14, 18, 17, 19],\n'volume': [50, 60, 40, 100, 50, 100, 40, 50]}",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ndf2 = pd.DataFrame(\nd2,\nindex=pd.MultiIndex.from_product(\n[days, ['morning', 'afternoon']]\n)\n)\ndf2",
-        "output": "price  volume\n2000-01-01 morning       10      50\n           afternoon     11      60\n2000-01-02 morning        9      40\n           afternoon     13     100\n2000-01-03 morning       14      50\n           afternoon     18     100\n2000-01-04 morning       17      40\n           afternoon     19      50"
       },
       {
         "code": "import numpy as np\ndf2.resample('D', level=0).sum()",
@@ -4416,14 +3190,6 @@
         "output": "2000-10-01 23:30:00     0\n2000-10-01 23:37:00     3\n2000-10-01 23:44:00     6\n2000-10-01 23:51:00     9\n2000-10-01 23:58:00    12\n2000-10-02 00:05:00    15\n2000-10-02 00:12:00    18\n2000-10-02 00:19:00    21\n2000-10-02 00:26:00    24\nFreq: 7min, dtype: int64"
       },
       {
-        "code": "import numpy as np\nstart, end = '2000-10-01 23:30:00', '2000-10-02 00:30:00'",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nrng = pd.date_range(start, end, freq='7min')",
-        "output": ""
-      },
-      {
         "code": "import numpy as np\nts = pd.Series(np.arange(len(rng)) * 3, index=rng)\nts\nts.resample('17min').sum()\nts.resample('17min').sum()",
         "output": "2000-10-01 23:30:00     0\n2000-10-01 23:37:00     3\n2000-10-01 23:44:00     6\n2000-10-01 23:51:00     9\n2000-10-01 23:58:00    12\n2000-10-02 00:05:00    15\n2000-10-02 00:12:00    18\n2000-10-02 00:19:00    21\n2000-10-02 00:26:00    24\nFreq: 7min, dtype: int64\n\n2000-10-01 23:14:00     0\n2000-10-01 23:31:00     9\n2000-10-01 23:48:00    21\n2000-10-02 00:05:00    54\n2000-10-02 00:22:00    24\nFreq: 17min, dtype: int64\n\n\n2000-10-01 23:14:00     0\n2000-10-01 23:31:00     9\n2000-10-01 23:48:00    21\n2000-10-02 00:05:00    54\n2000-10-02 00:22:00    24\nFreq: 17min, dtype: int64"
       },
@@ -4432,20 +3198,8 @@
         "output": "2000-10-01 23:18:00     0\n2000-10-01 23:35:00    18\n2000-10-01 23:52:00    27\n2000-10-02 00:09:00    39\n2000-10-02 00:26:00    24\nFreq: 17min, dtype: int64"
       },
       {
-        "code": "import numpy as np\nts.resample('17min', origin='epoch').sum()",
-        "output": "2000-10-01 23:18:00     0\n2000-10-01 23:35:00    18\n2000-10-01 23:52:00    27\n2000-10-02 00:09:00    39\n2000-10-02 00:26:00    24\nFreq: 17min, dtype: int64"
-      },
-      {
         "code": "import numpy as np\nts.resample('17min', origin='2000-01-01').sum()",
         "output": "2000-10-01 23:24:00     3\n2000-10-01 23:41:00    15\n2000-10-01 23:58:00    45\n2000-10-02 00:15:00    45\nFreq: 17min, dtype: int64"
-      },
-      {
-        "code": "import numpy as np\nts.resample('17min', origin='2000-01-01').sum()",
-        "output": "2000-10-01 23:24:00     3\n2000-10-01 23:41:00    15\n2000-10-01 23:58:00    45\n2000-10-02 00:15:00    45\nFreq: 17min, dtype: int64"
-      },
-      {
-        "code": "import numpy as np\nts.resample('17min', origin='start').sum()",
-        "output": "2000-10-01 23:30:00     9\n2000-10-01 23:47:00    21\n2000-10-02 00:04:00    54\n2000-10-02 00:21:00    24\nFreq: 17min, dtype: int64"
       },
       {
         "code": "import numpy as np\nts.resample('17min', origin='start').sum()",
@@ -4456,37 +3210,25 @@
         "output": "2000-10-01 23:30:00     9\n2000-10-01 23:47:00    21\n2000-10-02 00:04:00    54\n2000-10-02 00:21:00    24\nFreq: 17min, dtype: int64"
       },
       {
-        "code": "import numpy as np\nts.resample('17min', offset='23h30min').sum()",
-        "output": "2000-10-01 23:30:00     9\n2000-10-01 23:47:00    21\n2000-10-02 00:04:00    54\n2000-10-02 00:21:00    24\nFreq: 17min, dtype: int64"
-      },
-      {
         "code": "import numpy as np\nts.resample('17min', origin='end').sum()",
         "output": "2000-10-01 23:35:00     0\n2000-10-01 23:52:00    18\n2000-10-02 00:09:00    27\n2000-10-02 00:26:00    63\nFreq: 17min, dtype: int64"
-      },
-      {
-        "code": "import numpy as np\nts.resample('17min', origin='end').sum()",
-        "output": "2000-10-01 23:35:00     0\n2000-10-01 23:52:00    18\n2000-10-02 00:09:00    27\n2000-10-02 00:26:00    63\nFreq: 17min, dtype: int64"
-      },
-      {
-        "code": "import numpy as np\nts.resample('17min', origin='end_day').sum()",
-        "output": "2000-10-01 23:38:00     3\n2000-10-01 23:55:00    15\n2000-10-02 00:12:00    45\n2000-10-02 00:29:00    45\nFreq: 17min, dtype: int64"
       },
       {
         "code": "import numpy as np\nts.resample('17min', origin='end_day').sum()",
         "output": "2000-10-01 23:38:00     3\n2000-10-01 23:55:00    15\n2000-10-02 00:12:00    45\n2000-10-02 00:29:00    45\nFreq: 17min, dtype: int64"
       }
     ],
-    "examples_count": 48,
+    "examples_count": 30,
     "extraction_method": "Manual"
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_timestamp.html",
-    "api": "to_timestamp",
+    "api": "pandas.DataFrame.to_timestamp",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "3.0.0",
+    "deprecated_in": "",
     "removed_in": "",
-    "replaced_by": "The `copy` keyword will be ignored.",
+    "replaced_by": "",
     "change_type": "Behavior Change",
     "reason": "The `copy` keyword will change behavior in pandas 3.0 due to the introduction of Copy-on-Write. This improvement aims to enable a lazy copy mechanism and simplify API usage by ignoring the `copy` keyword. The keyword will subsequently be removed in future versions.",
     "has_examples": true,
@@ -4510,19 +3252,15 @@
       {
         "code": "import numpy as np\ndf2 = pd.DataFrame(data=d, index=idx)",
         "output": ""
-      },
-      {
-        "code": "import numpy as np\ndf2 = df2.to_timestamp(freq='M')\ndf2\ndf2.index",
-        "output": "col1   col2\n2023-01-31     1      3\n2024-01-31     2      4\nDatetimeIndex(['2023-01-31', '2024-01-31'], dtype='datetime64[ns]', freq=None)"
       }
     ],
-    "examples_count": 6,
+    "examples_count": 5,
     "extraction_method": "Manual"
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.tz_convert.html",
-    "api": "tz_convert",
-    "package": "pandas.DataFrame",
+    "api": "pandas.DataFrame.tz_convert",
+    "package": "pandas",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
@@ -4545,12 +3283,12 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.tz_localize.html",
-    "api": "DataFrame.tz_localize",
+    "api": "pandas.DataFrame.tz_localize",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
-    "replaced_by": "copy parameter will switch to a lazy copy mechanism (Copy-on-Write) by default",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "The `copy` parameter will switch to a lazy copy mechanism (Copy-on-Write) by default, enabling improvements in performance while deferring unnecessary copies. This ensures better resource utilization and aligns with the future vision of pandas.",
     "has_examples": true,
@@ -4590,23 +3328,19 @@
       {
         "code": "import numpy as np\ns.tz_localize('Europe/Warsaw', nonexistent='shift_backward')",
         "output": "2015-03-29 01:59:59.999999999+01:00    0\n2015-03-29 03:30:00+02:00              1\ndtype: int64"
-      },
-      {
-        "code": "import numpy as np\ns.tz_localize('Europe/Warsaw', nonexistent=pd.Timedelta('1h'))",
-        "output": "2015-03-29 03:30:00+02:00    0\n2015-03-29 03:30:00+02:00    1\ndtype: int64"
       }
     ],
-    "examples_count": 10,
+    "examples_count": 9,
     "extraction_method": "Manual"
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.box.html",
-    "api": "DataFrame.plot.box",
+    "api": "pandas.DataFrame.plot.box",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
-    "replaced_by": "The `by` parameter",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "The `by` parameter was previously silently ignored, and now explicitly enables groupings.",
     "has_examples": true,
@@ -4641,12 +3375,12 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.hist.html",
-    "api": "DataFrame.plot.hist",
+    "api": "pandas.DataFrame.plot.hist",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "1.4.0",
+    "deprecated_in": "",
     "removed_in": "",
-    "replaced_by": "The 'by' parameter",
+    "replaced_by": "",
     "change_type": "Behavior Change",
     "reason": "The 'by' parameter was previously silently ignored, which made no groupings. Starting from version 1.4.0, this parameter has been explicitly used for grouping data.",
     "has_examples": true,
@@ -4687,8 +3421,8 @@
     "deprecated_in": "2.1.0",
     "removed_in": "",
     "replaced_by": "",
-    "change_type": "API Deprecation",
-    "reason": "Passing a DataFrame to `from_records` is deprecated to streamline and clarify API behavior.",
+    "change_type": "Parameter Change",
+    "reason": "Passing a DataFrame object as the `data` argument to `from_records` has been deprecated since version 2.1.0. The method is intended for converting structured ndarrays or sequences of tuples/dicts, not for copying existing DataFrames.",
     "has_examples": true,
     "examples": [
       {
@@ -4718,9 +3452,9 @@
     "language": "Python",
     "deprecated_in": "2.2.0",
     "removed_in": "",
-    "replaced_by": "pandas_gbq library",
+    "replaced_by": "pandas_gbq.to_gbq",
     "change_type": "API Deprecation",
-    "reason": "To encourage the use of the dedicated `pandas_gbq` library for Google BigQuery-related functionalities, which is better suited for these operations.",
+    "reason": "This method has been deprecated since version 2.2.0. The documentation explicitly instructs users to use `pandas_gbq.to_gbq` instead, as the functionality is being moved out of the core pandas library into the dedicated `pandas-gbq` package.",
     "has_examples": true,
     "examples": [
       {
@@ -4744,63 +3478,13 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://data-apis.org/dataframe-protocol/latest/index.html",
-    "api": "DataFrame.__dataframe__",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "Parameter Change",
-    "reason": "The `nan_as_null` parameter has been deprecated and has no effect, indicating a simplification or the removal of unnecessary functionality. This change is likely to align the API with standard practices or simplify usage.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/whatsnew/v2.0.0.html",
-    "api": "pandas.Timestamp.dayofweek",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.0.0",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "Behavior Change",
-    "reason": "Standardization and consistency in naming conventions across methods.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.daysinmonth.html",
-    "api": "pandas.Timestamp.daysinmonth",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "None",
-    "reason": "The documentation presents `daysinmonth` without any deprecation warnings. Although the example uses the underscore version `days_in_month`, the API itself is not marked as deprecated or discouraged in the provided image.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import pandas as pd\nts = pd.Timestamp(2020, 3, 14)\nts.days_in_month",
-        "output": "31"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_latex.html",
     "api": "pandas.DataFrame.to_latex",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
-    "replaced_by": "Styler.to_latex",
+    "replaced_by": "",
     "change_type": "Behavior Change",
     "reason": "Refactored to use Styler implementation via jinja2 templating for improved flexibility and conditional formatting support. Users are advised to switch to `Styler.to_latex`, which offers more features and updates.",
     "has_examples": true,
@@ -4818,90 +3502,15 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/pandas-docs/version/2.3.3/reference/api/pandas.Timestamp.tz.html",
-    "api": "Timestamp.tz",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.3.3",
-    "removed_in": "",
-    "replaced_by": "tzinfo",
-    "change_type": "API Deprecation",
-    "reason": "The 'Timestamp.tz' property is retained as an alias for 'Timestamp.tzinfo' for consistency and clarity in naming. Users are encouraged to use the more explicit 'tzinfo'.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nts = pd.Timestamp(1584226800, unit='s', tz='Europe/Stockholm')\nts.tz",
-        "output": "<DstTzInfo 'Europe/Stockholm' CET+1:00:00 STD>"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/whatsnew/v2.0.0.html#deprecations",
-    "api": "pandas.Timestamp.weekofyear",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.0.0",
-    "removed_in": "",
-    "replaced_by": "isocalendar().week",
-    "change_type": "API Deprecation",
-    "reason": "The 'weekofyear' property was deprecated to align with ISO standards, moving towards clearer and consistent naming. Using 'isocalendar().week' ensures compliance with industry practices.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.strptime.html",
-    "api": "Timestamp.strptime",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "pd.to_datetime",
-    "change_type": "API Removal",
-    "reason": "The function is not implemented in the pandas library and raises a NotImplementedError when invoked. Users are directed to use the more versatile `pd.to_datetime` method for parsing datetime strings.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\npd.Timestamp.strptime(\"2023-01-01\", \"%d/%m/%y\")",
-        "output": "Traceback (most recent call last):\nNotImplementedError"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.to_numpy.html",
-    "api": "pandas.Timestamp.to_numpy",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "API Alias",
-    "reason": "To align with standard naming conventions and ensure uniformity across APIs.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nts = pd.Timestamp('2020-03-14T15:32:52.192548651')\nts.to_numpy()\npd.NaT.to_numpy()\npd.NaT.to_numpy()",
-        "output": "numpy.datetime64('2020-03-14T15:32:52.192548651')\n\nnumpy.datetime64('NaT')\n\n\nnumpy.datetime64('NaT')"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.html",
-    "api": "Timedelta",
+    "api": "pandas.Timedelta",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.2.0",
     "removed_in": "",
     "replaced_by": "",
     "change_type": "Parameter Change",
-    "reason": "To standardize the unit values for better consistency and alignment with common naming conventions.",
+    "reason": "Specific unit aliases ('H', 'T', 'S', 'L', 'U', 'N') have been deprecated since version 2.2.0. The documentation explicitly instructs users to use the standard lowercase abbreviations ('h', 'min', 's', 'ms', 'us', 'ns') instead.",
     "has_examples": true,
     "examples": [
       {
@@ -4918,7 +3527,7 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.first.html",
-    "api": "DataFrame.first",
+    "api": "pandas.DataFrame.first",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "2.1",
@@ -4941,94 +3550,11 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.to_numpy.html",
-    "api": "pandas.Timedelta.to_numpy",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "Timedelta.to_timedelta64",
-    "change_type": "Alias Addition",
-    "reason": "The method `Timedelta.to_numpy` was introduced as an alias for `Timedelta.to_timedelta64`. This ensures compatibility and consistency with other pandas methods like `Series.to_numpy`.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ntd = pd.Timedelta('3D')\ntd\ntd.to_numpy()",
-        "output": "Timedelta('3 days 00:00:00')\nnumpy.timedelta64(259200000000000,'ns')"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Period.dayofweek.html",
-    "api": "pandas.Period.dayofweek",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "Behavior Change",
-    "reason": "To standardize naming conventions and improve API clarity by aligning method names more precisely with their functions.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nper = pd.Period('2017-12-31 22:00', 'h')\nper.day_of_week",
-        "output": "6"
-      },
-      {
-        "code": "import numpy as np\nper = pd.Period('2017-12-31 22:00', '4h')\nper.day_of_week\nper.start_time.day_of_week",
-        "output": "6\n6"
-      },
-      {
-        "code": "import numpy as np\nper = pd.Period('2018-01', 'M')\nper.day_of_week\nper.end_time.day_of_week",
-        "output": "2\n2"
-      }
-    ],
-    "examples_count": 3,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Period.daysinmonth.html",
-    "api": "pandas.Period.daysinmonth",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "days_in_month",
-    "change_type": "Behavior Change",
-    "reason": "Standardization: There appears to be a redundant naming convention issue where `daysinmonth` is similar in functionality to the existing `days_in_month`. To align with consistent naming conventions, the use of `days_in_month` is encouraged.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\np = pd.Period(\"2018-03-11\", freq='h')\np.daysinmonth",
-        "output": "31"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/whatsnew/v2.3.3.html",
-    "api": "pandas.Period.weekday",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.3.3",
-    "removed_in": "",
-    "replaced_by": "dayofweek",
-    "change_type": "Behavior Change",
-    "reason": "Alias for consistency with the naming convention of other APIs, such as `dayofweek`.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://pandas.pydata.org/pandas-docs/version/2.3.3/reference/api/pandas.arrays.StringArray.html",
-    "api": "StringArray",
-    "package": "pandas.arrays",
+    "api": "pandas.arrays.StringArray",
+    "package": "pandas",
     "language": "Python",
-    "deprecated_in": "2.3.3",
+    "deprecated_in": "",
     "removed_in": "",
     "replaced_by": "",
     "change_type": "Parameter Change",
@@ -5057,8 +3583,8 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.api.types.is_categorical_dtype.html",
-    "api": "is_categorical_dtype",
-    "package": "pandas.api.types",
+    "api": "pandas.api.types.is_categorical_dtype",
+    "package": "pandas",
     "language": "Python",
     "deprecated_in": "2.2.0",
     "removed_in": "",
@@ -5077,8 +3603,8 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.api.types.is_datetime64tz_dtype.html",
-    "api": "is_datetime64tz_dtype",
-    "package": "pandas.api.types",
+    "api": "pandas.api.types.is_datetime64tz_dtype",
+    "package": "pandas",
     "language": "Python",
     "deprecated_in": "2.1.0",
     "removed_in": "",
@@ -5113,8 +3639,8 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.api.types.is_int64_dtype.html",
-    "api": "is_int64_dtype",
-    "package": "pandas.api.types",
+    "api": "pandas.api.types.is_int64_dtype",
+    "package": "pandas",  
     "language": "Python",
     "deprecated_in": "2.1.0",
     "removed_in": "",
@@ -5141,8 +3667,8 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.api.types.is_interval_dtype.html",
-    "api": "is_interval_dtype",
-    "package": "pandas.api.types",
+    "api": "pandas.api.types.is_interval_dtype",
+    "package": "pandas",  
     "language": "Python",
     "deprecated_in": "2.2.0",
     "removed_in": "",
@@ -5161,41 +3687,6 @@
       }
     ],
     "examples_count": 2,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/whatsnew/v2.3.3.html",
-    "api": "pandas.Index.values",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.3.3",
-    "removed_in": "",
-    "replaced_by": "Index.array, Index.to_numpy()",
-    "change_type": "API Deprecation",
-    "reason": "The pandas.Index.values API was deprecated to provide users with more explicit alternatives for accessing index data. Using `Index.array` provides a reference to the underlying data, while `Index.to_numpy()` explicitly returns a NumPy array for efficient operations.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Index.is_.html",
-    "api": "Index.is_",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "is",
-    "change_type": "Behavior Change",
-    "reason": "Introduced to provide a more flexible and faster behavior compared to 'is', enabling checks through views. Distinct from 'Index.identical', which includes metadata checks.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nidx1 = pd.Index(['1', '2', '3'])\nidx1.is_(idx1.view())\nidx1.is_(idx1.copy())\nidx1.is_(idx1.copy())",
-        "output": "True\n\nFalse\n\n\nFalse"
-      }
-    ],
-    "examples_count": 1,
     "extraction_method": "Manual"
   },
   {
@@ -5259,9 +3750,9 @@
     "api": "pandas.Index.is_interval",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "2.3.3",
+    "deprecated_in": "2.0.0",
     "removed_in": "",
-    "replaced_by": "the `dtype` property of the `Index` class",
+    "replaced_by": "isinstance(index.dtype, pd.IntervalDtype)",
     "change_type": "API Deprecation",
     "reason": "The method `is_interval` was deprecated because it is more consistent to directly utilize the `dtype` property of the `Index` class for assessing interval types, aligning with the modern usage patterns in the pandas library.",
     "has_examples": true,
@@ -5280,12 +3771,12 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Index.is_integer.html",
-    "api": "is_integer",
+    "api": "pandas.Index.is_integer",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "2.0.0",
     "removed_in": "",
-    "replaced_by": "more generic dtype-checking utilities from pandas API types",
+    "replaced_by": "pandas.api.types.is_integer_dtype",
     "change_type": "API Deprecation",
     "reason": "The function was deprecated to encourage use of more generic dtype-checking utilities from pandas API types for better consistency and extensibility.",
     "has_examples": true,
@@ -5349,7 +3840,7 @@
     "language": "Python",
     "deprecated_in": "2.0.0",
     "removed_in": "",
-    "replaced_by": "pandas.api.types",
+    "replaced_by": "pandas.api.types.is_object_dtype",
     "change_type": "API Deprecation",
     "reason": "Consolidation of dtype-checking methods in the `pandas.api.types` module for better clarity and consistency.",
     "has_examples": true,
@@ -5381,7 +3872,7 @@
     "language": "Python",
     "deprecated_in": "2.0.0",
     "removed_in": "",
-    "replaced_by": "pandas.api.types",
+    "replaced_by": "pandas.api.types.is_float_dtype",
     "change_type": "API Deprecation",
     "reason": "The method was deprecated to standardize functionality and promote usage of the `pandas.api.types` module, which provides more general and reusable methods for type checking.",
     "has_examples": true,
@@ -5411,7 +3902,7 @@
     "api": "pandas.Index.fillna",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.1.0",
     "removed_in": "",
     "replaced_by": "",
     "change_type": "Parameter Change",
@@ -5451,158 +3942,15 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.get_loc.html",
-    "api": "MultiIndex.get_loc",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "MultiIndex.get_locs()",
-    "change_type": "Behavior Change",
-    "reason": "To clarify usage when working with slices, lists, boolean masks, or sequences of labels, as those are better handled by MultiIndex.get_locs().",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nmi = pd.MultiIndex.from_arrays([list('abb'), list('def')])\nmi.get_loc('b')\nmi.get_loc('b')\nmi.get_loc(('b', 'e'))\nmi.get_loc(('b', 'e'))",
-        "output": "slice(1, 3, None)\n\n\nslice(1, 3, None)\n\n1\n\n\n1"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/whatsnew/v2.1.0.html",
-    "api": "pandas.DatetimeIndex",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.1.0",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "Parameter Change",
-    "reason": "Simplification of the API by deprecating less commonly used parameters.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.dayofweek.html",
-    "api": "pandas.DatetimeIndex.dayofweek",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "",
-    "reason": "",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ns = pd.date_range('2016-12-31', '2017-01-08', freq='D').to_series()\ns.dt.dayofweek",
-        "output": "2016-12-31    5\n2017-01-01    6\n2017-01-02    0\n2017-01-03    1\n2017-01-04    2\n2017-01-05    3\n2017-01-06    4\n2017-01-07    5\n2017-01-08    6\nFreq: D, dtype: int32"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/whatsnew/v2.2.0.html#deprecations",
-    "api": "TimedeltaIndex",
+    "api": "pandas.TimedeltaIndex",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "2.2.0",
     "removed_in": "",
     "replaced_by": "pd.to_timedelta",
-    "change_type": "API Deprecation",
+    "change_type": "Parameter Change",
     "reason": "The `TimedeltaIndex` construction using the `unit` parameter was deprecated to streamline API usage and recommend more explicit methods like `pd.to_timedelta`.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/version/2.3.3/reference/pandas.PeriodIndex.html",
-    "api": "pandas.PeriodIndex",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.3.3",
-    "removed_in": "",
-    "replaced_by": "PeriodIndex.from_fields",
-    "change_type": "API Deprecation",
-    "reason": "The direct use of individual parameters (e.g., year, month, day, etc.) was replaced by `PeriodIndex.from_fields` for better modularity and consistency in creating PeriodIndex objects.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/2.3.3/reference/api/pandas.PeriodIndex.days_in_month.html",
-    "api": "pandas.PeriodIndex.days_in_month",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.3.3",
-    "removed_in": "",
-    "replaced_by": "'daysinmonth'",
-    "change_type": "Behavior Change",
-    "reason": "Alternative naming convention introduced for API consistency; 'daysinmonth' provides a more concise format.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.PeriodIndex.daysinmonth.html",
-    "api": "pandas.PeriodIndex.daysinmonth",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "Behavior Change",
-    "reason": "To standardize naming and improve consistency with other APIs in `pandas` which use underscores for better readability.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nperiod = pd.period_range('2020-1-1 00:00', '2020-3-1 00:00', freq='M')",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ns = pd.Series(period)\ns\ns.dt.days_in_month",
-        "output": "0   2020-01\n1   2020-02\n2   2020-03\ndtype: period[M]\n0    31\n1    29\n2    31\ndtype: int64"
-      },
-      {
-        "code": "import numpy as np\nidx = pd.PeriodIndex([\"2023-01\", \"2023-02\", \"2023-03\"], freq=\"M\")\nidx.days_in_month   # It can be also entered as `daysinmonth`",
-        "output": "Index([31, 28, 31], dtype='int64')"
-      }
-    ],
-    "examples_count": 3,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/whatsnew/v2.3.0.html#periodindex-week-deprecation",
-    "api": "pandas.PeriodIndex.week",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.3.0",
-    "removed_in": "",
-    "replaced_by": "weekofyear",
-    "change_type": "API Deprecation",
-    "reason": "The `week` property was identified as redundant and inconsistent with naming conventions. The `weekofyear` property serves as a better-named equivalent.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/2.3.3/reference/api/pandas.PeriodIndex.weekofyear.html",
-    "api": "pandas.PeriodIndex.weekofyear",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.3.3",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "",
-    "reason": "",
     "has_examples": false,
     "examples": [],
     "examples_count": 0,
@@ -5634,7 +3982,7 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Index.is_object.html",
-    "api": "Index.is_object",
+    "api": "pandas.Index.is_object",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "2.0.0",
@@ -5693,30 +4041,6 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Index.rename.html",
-    "api": "pandas.Index.rename",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "set_names",
-    "change_type": "Parameter Change",
-    "reason": "The API was updated to allow partial name changes by level through the `set_names` method. This improves flexibility when working with MultiIndex objects.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nidx = pd.Index(['A', 'C', 'A', 'B'], name='score')\nidx.rename('grade')",
-        "output": "Index(['A', 'C', 'A', 'B'], dtype='object', name='grade')"
-      },
-      {
-        "code": "import numpy as np\nidx = pd.MultiIndex.from_product([['python', 'cobra'],\n[2018, 2019]],\nnames=['kind', 'year'])\nidx\nidx.rename(['species', 'year'])\nidx.rename('species')",
-        "output": "MultiIndex([('python', 2018),\n            ('python', 2019),\n            ( 'cobra', 2018),\n            ( 'cobra', 2019)],\n           names=['kind', 'year'])\nMultiIndex([('python', 2018),\n            ('python', 2019),\n            ( 'cobra', 2018),\n            ( 'cobra', 2019)],\n           names=['species', 'year'])\nTraceback (most recent call last):\nTypeError: Must pass list-like as `names`."
-      }
-    ],
-    "examples_count": 2,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Index.set_names.html",
     "api": "pandas.Index.set_names",
     "package": "pandas",
@@ -5753,37 +4077,13 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/pandas-docs/version/2.3/reference/api/pandas.IntervalIndex.values.html",
-    "api": "pandas.IntervalIndex.values",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.3.0",
-    "removed_in": "",
-    "replaced_by": "Index.array or Index.to_numpy()",
-    "change_type": "API Deprecation",
-    "reason": "The `pandas.IntervalIndex.values` API is deprecated in favor of `Index.array` or `Index.to_numpy()` methods, which provide more clarity on whether a reference to the underlying data or a NumPy array is required.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nidx = pd.Index([1, 2, 3])\nidx\nidx.values",
-        "output": "Index([1, 2, 3], dtype='int64')\narray([1, 2, 3])"
-      },
-      {
-        "code": "import numpy as np\nidx = pd.interval_range(start=0, end=5)\nidx.values",
-        "output": "<IntervalArray>\n[(0, 1], (1, 2], (2, 3], (3, 4], (4, 5]]\nLength: 5, dtype: interval[int64, right]"
-      }
-    ],
-    "examples_count": 2,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.html",
     "api": "pandas.DatetimeIndex.normalize",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.1.0",
     "removed_in": "",
-    "replaced_by": "more explicit code patterns to enhance clarity and reduce ambiguity in parameter usage",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "The `normalize` parameter has been deprecated in favor of more explicit code patterns to enhance clarity and reduce ambiguity in parameter usage.",
     "has_examples": true,
@@ -5797,74 +4097,11 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.dayofyear.html",
-    "api": "pandas.DatetimeIndex.dayofyear",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "None",
-    "reason": "The documentation presents `pandas.DatetimeIndex.dayofyear` as a standard property. There is no indication of deprecation, usage discouragement, or behavior change in the provided image.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ns = pd.Series([\"1/1/2020 10:00:00+00:00\", \"2/1/2020 11:00:00+00:00\"])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ns = pd.to_datetime(s)\ns\ns.dt.dayofyear",
-        "output": "0   2020-01-01 10:00:00+00:00\n1   2020-02-01 11:00:00+00:00\ndtype: datetime64[ns, UTC]\n0    1\n1   32\ndtype: int32"
-      },
-      {
-        "code": "import numpy as np\nidx = pd.DatetimeIndex([\"1/1/2020 10:00:00+00:00\",\n\"2/1/2020 11:00:00+00:00\"])\nidx.dayofyear",
-        "output": "Index([1, 32], dtype='int32')"
-      }
-    ],
-    "examples_count": 3,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/whatsnew/v2.2.0.html#periodindex-deprecations",
-    "api": "PeriodIndex",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.2.0",
-    "removed_in": "",
-    "replaced_by": "PeriodIndex.from_fields",
-    "change_type": "API Deprecation",
-    "reason": "Attributes for constructing indices directly (e.g., year, month, etc.) are deprecated to encourage usage of PeriodIndex.from_fields for better modularity and readability.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.PeriodIndex.week.html",
-    "api": "PeriodIndex.weekofyear",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "week",
-    "change_type": "API Deprecation",
-    "reason": "The alias `weekofyear` is deprecated and replaced by `week` for consistency across the API.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nidx = pd.PeriodIndex([\"2023-01\", \"2023-02\", \"2023-03\"], freq=\"M\")\nidx.week  # It can be written `weekofyear`",
-        "output": "Index([5, 9, 13], dtype='int64')"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.window.rolling.Rolling.quantile.html",
     "api": "pandas.core.window.rolling.Rolling.quantile",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.1.0",
     "removed_in": "",
     "replaced_by": "",
     "change_type": "Parameter Change",
@@ -5892,9 +4129,9 @@
     "api": "pandas.core.window.expanding.Expanding.quantile",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.1.0",
     "removed_in": "",
-    "replaced_by": "The parameter name 'quantile' will be renamed to 'q' in future versions for consistency across the API.",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "The parameter name 'quantile' will be renamed to 'q' in future versions for consistency across the API.",
     "has_examples": true,
@@ -5916,11 +4153,11 @@
     "api": "pandas.core.groupby.DataFrameGroupBy.get_group",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "2.3.3",
+    "deprecated_in": "2.1.0",
     "removed_in": "",
-    "replaced_by": "existing indexing methods (`iloc`)",
-    "change_type": "API Deprecation",
-    "reason": "Simplify usage by relying on existing indexing methods (`iloc`) and avoid redundancy in functionality.",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "Deprecated parameter obj since version 2.1.0: The obj is deprecated and will be removed in a future version. Do df.iloc[gb.indices.get(name)] instead of gb.get_group(name, obj=df).",
     "has_examples": true,
     "examples": [
       {
@@ -5957,12 +4194,12 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.get_group.html",
-    "api": "SeriesGroupBy.get_group()",
-    "package": "pandas.core.groupby",
+    "api": "pandas.core.groupby.SeriesGroupBy.get_group",
+    "package": "pandas",
     "language": "Python",
     "deprecated_in": "2.1.0",
     "removed_in": "",
-    "replaced_by": "DataFrame.iloc and the internal indices dictionary",
+    "replaced_by": "",
     "change_type": "API Deprecation",
     "reason": "The `obj` parameter is no longer necessary as users can achieve the same functionality using `DataFrame.iloc` and the internal `indices` dictionary.",
     "has_examples": true,
@@ -6004,7 +4241,7 @@
     "api": "pandas.core.groupby.SeriesGroupBy.apply",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.2.0",
     "removed_in": "",
     "replaced_by": "",
     "change_type": "Parameter Change",
@@ -6041,12 +4278,12 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.apply.html",
-    "api": "apply",
-    "package": "pandas.core.groupby.DataFrameGroupBy",
+    "api": "pandas.core.groupby.DataFrameGroupBy.apply",
+    "package": "pandas",
     "language": "Python",
     "deprecated_in": "2.2.0",
     "removed_in": "",
-    "replaced_by": "Only `False` will be allowed in a future version.",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "The `include_groups` parameter behavior was updated, and setting it to `True` is deprecated to ensure better future compatibility. Only `False` will be allowed in a future version.",
     "has_examples": true,
@@ -6078,9 +4315,9 @@
     "language": "Python",
     "deprecated_in": "2.1.0",
     "removed_in": "",
-    "replaced_by": "Alternative aggregation methods should be used.",
-    "change_type": "API Deprecation",
-    "reason": "Passing a dictionary to specify aggregation functions has been deprecated to simplify the API and improve consistency. Dictionaries will raise an error in a future version.",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "Deprecated parameter func since version 2.1.0: Passing a dictionary to specify aggregation functions has been deprecated to simplify the API and improve consistency. Dictionaries will raise an error in a future version.",
     "has_examples": true,
     "examples": [
       {
@@ -6093,7 +4330,7 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.agg.html",
-    "api": "DataFrameGroupBy.agg",
+    "api": "pandas.core.groupby.DataFrameGroupBy.agg",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "",
@@ -6117,14 +4354,14 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.aggregate.html",
-    "api": "SeriesGroupBy.aggregate",
-    "package": "pandas.core.groupby",
+    "api": "pandas.core.groupby.SeriesGroupBy.aggregate",
+    "package": "pandas",  
     "language": "Python",
     "deprecated_in": "2.1.0",
     "removed_in": "",
-    "replaced_by": "use of lists for consistent aggregation behavior",
-    "change_type": "API Deprecation",
-    "reason": "Passing a dictionary for aggregations is deprecated and will raise an error in a future version of pandas. This change aims to streamline the API by encouraging the use of lists for consistent aggregation behavior.",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "Deprecated parameter func since version 2.1.0: Passing a dictionary is deprecated and will raise in a future version of pandas. Pass a list of aggregations instead.",
     "has_examples": true,
     "examples": [
       {
@@ -6140,7 +4377,7 @@
     "api": "pandas.core.groupby.DataFrameGroupBy.aggregate",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "2.3.3",
+    "deprecated_in": "",
     "removed_in": "",
     "replaced_by": "",
     "change_type": "Behavior Change",
@@ -6161,13 +4398,13 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.diff.html",
-    "api": "DataFrameGroupBy.diff",
+    "api": "pandas.core.groupby.DataFrameGroupBy.diff",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "2.1.0",
     "removed_in": "",
     "replaced_by": "",
-    "change_type": "API Deprecation",
+    "change_type": "Parameter Change",
     "reason": "The axis keyword is deemed unnecessary for axis=1 operations. Direct operation on the underlying object provides better clarity and functionality.",
     "has_examples": true,
     "examples": [
@@ -6201,7 +4438,7 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.fillna.html",
-    "api": "DataFrameGroupBy.fillna",
+    "api": "pandas.core.groupby.DataFrameGroupBy.fillna",
     "package": "pandas",
     "language": "Python",
     "deprecated_in": "2.2.0",
@@ -6241,14 +4478,14 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.idxmax.html",
-    "api": "DataFrameGroupBy.idxmax",
-    "package": "pandas.core.groupby",
+    "api": "pandas.core.groupby.DataFrameGroupBy.idxmax",
+    "package": "pandas",
     "language": "Python",
     "deprecated_in": "2.1.0",
     "removed_in": "",
     "replaced_by": "",
-    "change_type": "API Deprecation",
-    "reason": "Simplify API interface and reduce reliance on redundant parameters.",
+    "change_type": "Parameter Change",
+    "reason": "Deprecated parameter axis since version 2.1.0: For axis=1, operate on the underlying object instead. Otherwise the axis keyword is not necessary.",
     "has_examples": true,
     "examples": [
       {
@@ -6265,12 +4502,12 @@
   },
   {
     "source_url": "https://pandas.pydata.org/pandas-docs/version/2.3.3/reference/api/pandas.core.groupby.DataFrameGroupBy.idxmin.html",
-    "api": "DataFrameGroupBy.idxmin",
+    "api": "pandas.core.groupby.DataFrameGroupBy.idxmin",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "2.3.3",
+    "deprecated_in": "2.2.0",
     "removed_in": "",
-    "replaced_by": "The `axis` keyword",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "Simplify usage: The `axis` keyword is deprecated for clarity and consistency when operating on specific data structures.",
     "has_examples": true,
@@ -6289,8 +4526,8 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.mean.html",
-    "api": "DataFrameGroupBy.mean",
-    "package": "pandas.core.groupby",
+    "api": "pandas.core.groupby.DataFrameGroupBy.mean",
+    "package": "pandas",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
@@ -6309,8 +4546,8 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.max.html",
-    "api": "DataFrameGroupBy.max",
-    "package": "pandas.core.groupby",
+    "api": "pandas.core.groupby.DataFrameGroupBy.max",
+    "package": "pandas",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
@@ -6417,13 +4654,13 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.resample.html",
-    "api": "DataFrameGroupBy.resample",
-    "package": "pandas.core.groupby",
+    "api": "pandas.core.groupby.DataFrameGroupBy.resample",
+    "package": "pandas",  
     "language": "Python",
     "deprecated_in": "2.2.0",
     "removed_in": "",
-    "replaced_by": "Only the value False will be allowed in a future version of pandas.",
-    "change_type": "API Deprecation",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
     "reason": "Setting `include_groups` to True is deprecated. Only the value False will be allowed in a future version of pandas.",
     "has_examples": true,
     "examples": [
@@ -6464,9 +4701,9 @@
     "api": "pandas.core.groupby.DataFrameGroupBy.rank",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.1.0",
     "removed_in": "",
-    "replaced_by": "operate directly on the underlying object instead for clarity and better maintainability",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "The `axis` parameter for axis=1 is no longer necessary. Users are encouraged to operate directly on the underlying object instead for clarity and better maintainability.",
     "has_examples": true,
@@ -6481,13 +4718,13 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.skew.html",
-    "api": "skew",
-    "package": "pandas.core.groupby.DataFrameGroupBy",
+    "api": "pandas.core.groupby.DataFrameGroupBy.skew",
+    "package": "pandas",  
     "language": "Python",
     "deprecated_in": "2.1.0",
     "removed_in": "",
-    "replaced_by": "operate directly on the underlying object instead of using the axis keyword",
-    "change_type": "API Deprecation",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
     "reason": "For axis=1, operate directly on the underlying object instead of using the axis keyword, as it simplifies the interface. Aggregation across both axes with axis=None is now clarified.",
     "has_examples": true,
     "examples": [
@@ -6517,12 +4754,12 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.shift.html",
-    "api": "DataFrameGroupBy.shift",
-    "package": "pandas.core.groupby",
+    "api": "pandas.core.groupby.DataFrameGroupBy.shift",
+    "package": "pandas",    
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.1.0",
     "removed_in": "",
-    "replaced_by": "The operation now handles the underlying object directly.",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "The 'axis' parameter was deprecated for `axis=1`, and the operation now handles the underlying object directly. `freq` now raises a ValueError when used alongside `axis=1`.",
     "has_examples": true,
@@ -6553,8 +4790,8 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.sum.html",
-    "api": "DataFrameGroupBy.sum",
-    "package": "pandas.core.groupby",
+    "api": "pandas.core.groupby.DataFrameGroupBy.sum",
+    "package": "pandas",  
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
@@ -6589,12 +4826,12 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.take.html",
-    "api": "DataFrameGroupBy.take",
-    "package": "pandas.core.groupby",
+    "api": "pandas.core.groupby.DataFrameGroupBy.take",
+    "package": "pandas",      
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.1.0",
     "removed_in": "",
-    "replaced_by": "operating directly on the underlying object",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "The `axis=1` parameter was deprecated to encourage operating directly on the underlying object instead. For other cases, the parameter was deemed unnecessary.",
     "has_examples": true,
@@ -6616,7 +4853,7 @@
     "api": "pandas.core.groupby.SeriesGroupBy.diff",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.1.0",
     "removed_in": "",
     "replaced_by": "",
     "change_type": "Parameter Change",
@@ -6653,13 +4890,13 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.groupby.html",
-    "api": "SeriesGroupBy.fillna",
-    "package": "pandas.core.groupby",
+    "api": "pandas.core.groupby.SeriesGroupBy.fillna",
+    "package": "pandas",  
     "language": "Python",
     "deprecated_in": "2.1.0",
     "removed_in": "",
-    "replaced_by": "SeriesGroupBy.ffill or SeriesGroupBy.bfill for forward/backward filling or Series.fillna for filling with a single value",
-    "change_type": "API Deprecation",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
     "reason": "This method is deprecated to streamline functionality. Users are encouraged to use more specific methods (e.g., SeriesGroupBy.ffill or SeriesGroupBy.bfill for forward/backward filling or Series.fillna for filling with a single value). The deprecated method also had performance considerations when using the `value` argument.",
     "has_examples": false,
     "examples": [],
@@ -6668,8 +4905,8 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.max.html",
-    "api": "SeriesGroupBy.max",
-    "package": "pandas.core.groupby",
+    "api": "pandas.core.groupby.SeriesGroupBy.max",
+    "package": "pandas",  
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
@@ -6709,7 +4946,7 @@
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
-    "replaced_by": "The `numeric_only` parameter now defaults to `False`.",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "The `numeric_only` parameter no longer accepts `None` and now defaults to `False`, providing clearer default behavior and improving consistency.",
     "has_examples": true,
@@ -6804,8 +5041,8 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.prod.html",
-    "api": "SeriesGroupBy.prod",
-    "package": "pandas.core.groupby",
+    "api": "pandas.core.groupby.SeriesGroupBy.prod",
+    "package": "pandas",  
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
@@ -6840,12 +5077,12 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.resample.html",
-    "api": "SeriesGroupBy.resample",
-    "package": "pandas.core.groupby",
+    "api": "pandas.core.groupby.SeriesGroupBy.resample",
+    "package": "pandas",    
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.2.0",
     "removed_in": "",
-    "replaced_by": "include_groups=False",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "The `include_groups=True` parameter behavior is deprecated due to potential errors or unintended results when including groupings. Future versions will only support `include_groups=False`.",
     "has_examples": true,
@@ -6887,7 +5124,7 @@
     "api": "pandas.core.groupby.SeriesGroupBy.shift",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "2.3.0",
+    "deprecated_in": "2.1.0",
     "removed_in": "",
     "replaced_by": "",
     "change_type": "Parameter Change",
@@ -6919,28 +5156,13 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/docs/",
-    "api": "SeriesGroupBy.skew",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "Operations on axis=1 for groupby are instead suggested to be performed directly on the underlying object.",
-    "change_type": "Parameter Change",
-    "reason": "The `axis` parameter is no longer necessary, as it is only used for compatibility with DataFrame. Operations on axis=1 for groupby are instead suggested to be performed directly on the underlying object.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.rank.html",
     "api": "pandas.core.groupby.SeriesGroupBy.rank",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.1.0",
     "removed_in": "",
-    "replaced_by": "The axis parameter was deemed unnecessary.",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "The 'axis' parameter is deprecated for axis=1 usage and updated to operate on the underlying object. For other cases, the axis parameter was deemed unnecessary.",
     "has_examples": true,
@@ -6991,12 +5213,12 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.take.html",
-    "api": "SeriesGroupBy.take",
-    "package": "pandas.core.groupby",
+    "api": "pandas.core.groupby.SeriesGroupBy.take",
+    "package": "pandas",  
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.1.0",
     "removed_in": "",
-    "replaced_by": "Users are advised to operate on the underlying object when using `axis=1`.",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "The `axis` parameter became unnecessary for SeriesGroupBy. Users are advised to operate on the underlying object when using `axis=1`.",
     "has_examples": true,
@@ -7020,7 +5242,7 @@
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
-    "replaced_by": "subplots, xlabel, and ylabel parameters",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "Introduction of `subplots`, `xlabel`, and `ylabel` parameters to improve plot configurability.",
     "has_examples": true,
@@ -7067,13 +5289,13 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.resample.Resampler.get_group.html",
-    "api": "Resampler.get_group",
-    "package": "pandas.core.resample",
+    "api": "pandas.core.resample.Resampler.get_group",
+    "package": "pandas",
     "language": "Python",
     "deprecated_in": "2.1.0",
     "removed_in": "",
-    "replaced_by": "indices attribute",
-    "change_type": "API Deprecation",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
     "reason": "The `obj` parameter is deprecated to streamline the API usage and provide a more direct alternative through the `indices` attribute.",
     "has_examples": true,
     "examples": [
@@ -7110,45 +5332,13 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://pandas.pydata.org/pandas-docs/version/2.3.3/reference/api/pandas.core.resample.Resampler.apply.html",
-    "api": "pandas.core.resample.Resampler.apply",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "2.3.3",
-    "removed_in": "",
-    "replaced_by": "aggregate (or its alias agg)",
-    "change_type": "Parameter Change",
-    "reason": "The `apply` method is mentioned to have aggregation functionality that overlaps with the `aggregate` method. The updated recommendation is to use `aggregate` (or its alias `agg`) for clarity in aggregation operations.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ns = pd.Series([1, 2, 3, 4, 5],\nindex=pd.date_range('20130101', periods=5, freq='s'))\ns",
-        "output": "2013-01-01 00:00:00    1\n2013-01-01 00:00:01    2\n2013-01-01 00:00:02    3\n2013-01-01 00:00:03    4\n2013-01-01 00:00:04    5\nFreq: s, dtype: int64"
-      },
-      {
-        "code": "import numpy as np\nr = s.resample('2s')",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nr = s.resample('2s')\nr.agg(\"sum\")\nr.agg(\"sum\")\nr.agg(['sum', 'mean', 'max'])\nr.agg(['sum', 'mean', 'max'])\nr.agg({'result': lambda x: x.mean() / x.std(),\n'total': \"sum\"})\nr.agg({'result': lambda x: x.mean() / x.std(),\n'total': \"sum\"})",
-        "output": "2013-01-01 00:00:00    3\n2013-01-01 00:00:02    7\n2013-01-01 00:00:04    5\nFreq: 2s, dtype: int64\n\n\n2013-01-01 00:00:00    3\n2013-01-01 00:00:02    7\n2013-01-01 00:00:04    5\nFreq: 2s, dtype: int64\n\n                     sum  mean  max\n2013-01-01 00:00:00    3   1.5    2\n2013-01-01 00:00:02    7   3.5    4\n2013-01-01 00:00:04    5   5.0    5\n\n\n                     sum  mean  max\n2013-01-01 00:00:00    3   1.5    2\n2013-01-01 00:00:02    7   3.5    4\n2013-01-01 00:00:04    5   5.0    5\n\n                       result  total\n2013-01-01 00:00:00  2.121320      3\n2013-01-01 00:00:02  4.949747      7\n2013-01-01 00:00:04       NaN      5\n\n\n                       result  total\n2013-01-01 00:00:00  2.121320      3\n2013-01-01 00:00:02  4.949747      7\n2013-01-01 00:00:04       NaN      5"
-      },
-      {
-        "code": "import numpy as np\nr.agg(average=\"mean\", total=\"sum\")",
-        "output": "average  total\n2013-01-01 00:00:00      1.5      3\n2013-01-01 00:00:02      3.5      7\n2013-01-01 00:00:04      5.0      5"
-      }
-    ],
-    "examples_count": 4,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://pandas.pydata.org/pandas-docs/version/2.3.3/reference/api/pandas.core.resample.Resampler.interpolate.html",
     "api": "pandas.core.resample.Resampler.interpolate",
     "package": "pandas",
     "language": "Python",
-    "deprecated_in": "2.3.3",
+    "deprecated_in": "2.1.0",
     "removed_in": "",
-    "replaced_by": "encourage users to explicitly handle dtype conversions",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "The `downcast` parameter was deprecated to streamline the API and encourage users to explicitly handle dtype conversions.",
     "has_examples": true,
@@ -7171,10 +5361,10 @@
   },
   {
     "source_url": "https://pandas.pydata.org/pandas-docs/version/2.3.3/reference/api/pandas.core.resample.Resampler.median.html",
-    "api": "Resampler.median",
-    "package": "pandas.core.resample",
+    "api": "pandas.core.resample.Resampler.median",
+    "package": "pandas",
     "language": "Python",
-    "deprecated_in": "2.3.3",
+    "deprecated_in": "",
     "removed_in": "",
     "replaced_by": "",
     "change_type": "Parameter Change",
@@ -7215,8 +5405,8 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.resample.Resampler.prod.html",
-    "api": "Resampler.prod",
-    "package": "pandas.core.resample",
+    "api": "pandas.core.resample.Resampler.prod",
+    "package": "pandas",  
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
@@ -7235,8 +5425,8 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.core.resample.Resampler.sum.html",
-    "api": "Resampler.sum",
-    "package": "pandas.core.resample",
+    "api": "pandas.core.resample.Resampler.sum",
+    "package": "pandas",    
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
@@ -7255,8 +5445,8 @@
   },
   {
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.io.formats.style.Styler.html",
-    "api": "Styler",
-    "package": "pandas.io.formats.style",
+    "api": "pandas.io.formats.style.Styler",
+    "package": "pandas",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
@@ -7275,38 +5465,6 @@
       }
     ],
     "examples_count": 2,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.io.formats.style.Styler.map_index.html",
-    "api": "Styler.map_index",
-    "package": "pandas.io.formats.style",
-    "language": "Python",
-    "deprecated_in": "2.1.0",
-    "removed_in": "",
-    "replaced_by": "Styler.map_index",
-    "change_type": "API Deprecation",
-    "reason": "Styler.applymap_index was renamed to Styler.map_index for consistency and better readability.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame([[1,2], [3,4]], index=[\"A\", \"B\"])\ndef color_b(s):\nreturn \"background-color: yellow;\" if v == \"B\" else None\ndf.style.map_index(color_b)",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nmidx = pd.MultiIndex.from_product([['ix', 'jy'], [0, 1], ['x3', 'z4']])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame([np.arange(8)], columns=midx)\ndef highlight_x(v):\nreturn \"background-color: yellow;\" if \"x\" in v else None",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ndf.style.map_index(highlight_x, axis=\"columns\", level=[0, 2])\n",
-        "output": ""
-      }
-    ],
-    "examples_count": 4,
     "extraction_method": "Manual"
   },
   {
@@ -7340,53 +5498,6 @@
     ],
     "examples_count": 4,
     "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.io.formats.style.Styler.export.html",
-    "api": "pandas.io.formats.style.Styler.export",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "",
-    "reason": "This method enables exporting non-data dependent styling attributes from one Styler object and applying them to another Styler. The functionality extension is specifically designed to omit objects dependent on data, offering greater flexibility when styling different DataFrames.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nstyler = pd.DataFrame([[1, 2], [3, 4]]).style",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nstyler2 = pd.DataFrame([[9, 9, 9]]).style",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nstyler.hide(axis=0).highlight_max(axis=1)",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nexport = styler.export()\nstyler2.use(export)",
-        "output": ""
-      }
-    ],
-    "examples_count": 4,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/pandas-docs/version/2.3.3/pandas.errors.UnsupportedFunctionCall.html",
-    "api": "UnsupportedFunctionCall",
-    "package": "pandas.errors",
-    "language": "Python",
-    "deprecated_in": "2.3.3",
-    "removed_in": "",
-    "replaced_by": "A pandas-specific approach",
-    "change_type": "Behavior Change",
-    "reason": "Direct numpy operations are not valid with pandas groupby objects. A pandas-specific approach is required.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
   },
   {
     "source_url": "https://pandas.pydata.org/docs/whatsnew/v0.9.0.html",

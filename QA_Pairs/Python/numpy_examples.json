@@ -3,6 +3,10 @@
     "source_url": "https://numpy.org/doc/2.3/reference/generated/numpy.ndarray.shape.html",
     "api": "numpy.ndarray.shape",
     "package": "NumPy",
+    "language": "Python",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
     "change_type": "API Usage Discouraged",
     "reason": "Setting `arr.shape` is discouraged and may be deprecated in the future. Using `ndarray.reshape` is the preferred approach.",
     "has_examples": true,
@@ -34,7 +38,11 @@
   {
     "source_url": "https://numpy.org/doc/2.3/reference/generated/numpy.ndarray.dtype.html",
     "api": "numpy.ndarray.dtype",
-    "package": "numpy",
+    "package": "NumPy",
+    "language": "Python",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
     "change_type": "API Usage Discouraged",
     "reason": "Setting `arr.dtype` is discouraged and may be deprecated in the future. Setting will replace the `dtype` without modifying the memory. Use `ndarray.view` or `ndarray.astype` instead.",
     "has_examples": true,
@@ -80,125 +88,13 @@
   "extraction_method": "Manual"
   },
   {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ndarray.T.html",
-    "api": "numpy.ndarray.T",
-    "package": "NumPy",
-    "change_type": "Behavior Change",
-    "reason": "Clarification of API behavior; `ndarray.T` is functionally equivalent to `transpose()` but may be less explicit for some users. No removal or deprecation is indicated.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ndarray.copy.html",
-    "api": "numpy.ndarray.copy",
-    "package": "NumPy",
-    "change_type": "Behavior Change",
-    "reason": "This function differs from `numpy.copy` by defaulting to `order='C'` and passing sub-classes through, which allows more flexible handling of array memory layout and subclasses.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nx = np.array([[1,2,3],[4,5,6]], order='F')",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ny = x.copy()",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ny = x.copy()\nx.fill(0)\nx.fill(0)\nx\nx\ny\ny\ny.flags['C_CONTIGUOUS']\ny.flags['C_CONTIGUOUS']",
-        "output": "array([[0, 0, 0],\n       [0, 0, 0]])\n\n\narray([[0, 0, 0],\n       [0, 0, 0]])\n\narray([[1, 2, 3],\n       [4, 5, 6]])\n\n\narray([[1, 2, 3],\n       [4, 5, 6]])\n\nTrue\n\n\nTrue"
-      },
-      {
-        "code": "import numpy as np\na = np.array([1, 'm', [2, 3, 4]], dtype=object)",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nb = a.copy()",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nb[2][0] = 10\na",
-        "output": "array([1, 'm', list([10, 3, 4])], dtype=object)"
-      },
-      {
-        "code": "import numpy as np\na = np.array([1, 'm', [2, 3, 4]], dtype=object)",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nb = a.copy()",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nb[2][0] = 10\na\nimport copy",
-        "output": "array([1, 'm', list([10, 3, 4])], dtype=object)"
-      },
-      {
-        "code": "import numpy as np\na = np.array([1, 'm', [2, 3, 4]], dtype=object)",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nc = copy.deepcopy(a)",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nc[2][0] = 10\nc\na\nimport copy",
-        "output": "array([1, 'm', list([10, 3, 4])], dtype=object)\narray([1, 'm', list([2, 3, 4])], dtype=object)"
-      },
-      {
-        "code": "import numpy as np\na = np.array([1, 'm', [2, 3, 4]], dtype=object)",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nc = copy.deepcopy(a)",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nc[2][0] = 10\nc\na",
-        "output": "array([1, 'm', list([10, 3, 4])], dtype=object)\narray([1, 'm', list([2, 3, 4])], dtype=object)"
-      }
-    ],
-    "examples_count": 15,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ndarray.squeeze.html",
-    "api": "numpy.ndarray.squeeze",
-    "package": "NumPy",
-    "change_type": "Behavior Change",
-    "reason": "To provide a more consistent API by transitioning certain operations from methods to functions.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ndarray.repeat.html",
-    "api": "numpy.ndarray.repeat",
-    "package": "numpy",
-    "change_type": "Behavior Change",
-    "reason": "Unified documentation suggests referring users to the equivalent function `numpy.repeat` for clarity and to promote consistent usage across the NumPy API.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ndarray.put.html",
-    "api": "numpy.ndarray.put",
-    "package": "NumPy",
-    "change_type": "Behavior Change",
-    "reason": "The `numpy.ndarray.put` method was updated to encourage users to use the equivalent standalone function `numpy.put` for consistency and broader compatibility.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ndarray.partition.html",
     "api": "numpy.ndarray.partition",
-    "package": "numpy",
+    "package": "NumPy",
+    "language": "Python",
+    "deprecated_in": "1.22.0",
+    "removed_in": "",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "Passing booleans as indices to the `kth` parameter was deprecated to ensure consistent behavior with other NumPy APIs and to reduce ambiguity in the type of arguments.",
     "has_examples": true,
@@ -210,211 +106,6 @@
     ],
     "examples_count": 1,
     "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ndarray.searchsorted.html",
-    "api": "numpy.ndarray.searchsorted",
-    "package": "NumPy",
-    "change_type": "Behavior Change",
-    "reason": "Consolidation of functionality into a more generic global function (numpy.searchsorted), ensuring consistency and reducing redundancy in the API design.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ndarray.nonzero.html",
-    "api": "numpy.ndarray.nonzero",
-    "package": "NumPy",
-    "change_type": "Behavior Change",
-    "reason": "The documentation suggests using `numpy.nonzero` function, emphasizing it for full documentation, potentially indicating a preference for the function over the `ndarray.nonzero` method.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ndarray.diagonal.html",
-    "api": "numpy.ndarray.diagonal",
-    "package": "NumPy",
-    "change_type": "Behavior Change",
-    "reason": "The behavior was changed to return a read-only view instead of a copy for performance and memory optimization. A read-only restriction was introduced to ensure data consistency, which may be removed in future versions.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ndarray.min.html",
-    "api": "numpy.ndarray.min",
-    "package": "NumPy",
-    "change_type": "Behavior Change",
-    "reason": "Standardization to encourage usage of the equivalent function `numpy.amin` for clarity and consistency across the API.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ndarray.max.html",
-    "api": "numpy.ndarray.max",
-    "package": "numpy",
-    "change_type": "Behavior Change",
-    "reason": "The documentation indicates that 'numpy.ndarray.max' method is equivalent to the 'numpy.amax' function, suggesting a preference for the latter for comprehensive details. There is no explicit information about deprecation or removal.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/v2.3/reference/generated/numpy.ndarray.conj.html",
-    "api": "numpy.ndarray.conj",
-    "package": "NumPy",
-    "change_type": "",
-    "reason": "",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/2.3/reference/generated/numpy.ndarray.round.html",
-    "api": "numpy.ndarray.round",
-    "package": "NumPy",
-    "change_type": "Behavior Change",
-    "reason": "Encourage users to use the equivalent function `numpy.around` for better consistency across the library.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ndarray.trace.html",
-    "api": "numpy.ndarray.trace",
-    "package": "NumPy",
-    "change_type": "Behavior Change",
-    "reason": "Streamline API behavior by recommending the equivalent standalone function for consistent usage across the NumPy system.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ndarray.mean.html",
-    "api": "numpy.ndarray.mean",
-    "package": "NumPy",
-    "change_type": "",
-    "reason": "",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ndarray.var.html",
-    "api": "numpy.ndarray.var",
-    "package": "NumPy",
-    "change_type": "Behavior Change",
-    "reason": "To clearly differentiate between the method (`ndarray.var`) and the function (`numpy.var`), allowing users to refer directly to the equivalent function.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/arrays.ndarray.html#numpy.ndarray.std",
-    "api": "numpy.ndarray.std",
-    "package": "numpy",
-    "change_type": "Behavior Change",
-    "reason": "Moved functionality to a function-level API for consistency across packages and easier usage.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ndarray.prod.html",
-    "api": "numpy.ndarray.prod",
-    "package": "NumPy",
-    "change_type": "Behavior Change",
-    "reason": "The equivalent standalone function `numpy.prod` is preferred for clarity, while `numpy.ndarray.prod` retains its method-based approach for array objects.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ndarray.all.html",
-    "api": "numpy.ndarray.all",
-    "package": "numpy",
-    "change_type": "",
-    "reason": "",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/v2.3/reference/generated/numpy.generic.T.html",
-    "api": "numpy.generic.T",
-    "package": "numpy",
-    "change_type": "Behavior Change",
-    "reason": "The documentation suggests users refer to `ndarray.T`, indicating that `numpy.generic.T` is identical to its array counterpart and may have shifted focus toward promoting `ndarray` for uniformity.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
- {
-  "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.generic.squeeze.html",
-  "api": "numpy.generic.squeeze",
-  "package": "NumPy",
-  "language": "Python",
-  "deprecated_in": "",
-  "removed_in": "",
-  "replaced_by": "",
-  "change_type": "None",
-  "reason": "The documentation purely references `ndarray.squeeze` for implementation details because the behaviors are identical. There is no indication of deprecation, usage discouragement, or behavior change in the provided images.",
-  "has_examples": false,
-  "examples": [],
-  "examples_count": 0,
-  "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.matrix.A.html",
-    "api": "numpy.matrix.A",
-    "package": "numpy",
-    "change_type": "",
-    "reason": "Promoting the use of `numpy.ndarray` over `numpy.matrix` as `numpy.matrix` is generally discouraged in modern NumPy applications.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nx = np.matrix(np.arange(12).reshape((3,4))); x\nx.getA()",
-        "output": "matrix([[ 0,  1,  2,  3],\n        [ 4,  5,  6,  7],\n        [ 8,  9, 10, 11]])\narray([[ 0,  1,  2,  3],\n       [ 4,  5,  6,  7],\n       [ 8,  9, 10, 11]])"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-  "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.matrix.I.html",
-  "api": "numpy.matrix.I",
-  "package": "NumPy",
-  "language": "Python",
-  "deprecated_in": "",
-  "removed_in": "",
-  "replaced_by": "numpy.linalg.inv",
-  "change_type": "API Usage Discouraged",
-  "reason": "The `numpy.matrix` class and its attributes are generally discouraged in favor of `numpy.ndarray`. While this specific page lacks a warning box, it points to `linalg.inv` as the alternative.",
-  "has_examples": true,
-  "examples": [
-    {
-      "code": "import numpy as np\nm = np.matrix('[1, 2; 3, 4]'); m\nm.getI()\nm.getI() * m",
-      "output": "matrix([[1, 2],\n        [3, 4]])\nmatrix([[-2. ,  1. ],\n        [ 1.5, -0.5]])\nmatrix([[ 1.,  0.], # may vary\n        [ 0.,  1.]])"
-    }
-  ],
-  "examples_count": 1,
-  "extraction_method": "Manual"
   },
   {
   "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.matrix.html",
@@ -441,41 +132,9 @@
   "extraction_method": "Manual"
   },
   {
-  "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.bmat.html",
-  "api": "numpy.bmat",
-  "package": "NumPy",
-  "language": "Python",
-  "deprecated_in": "",
-  "removed_in": "",
-  "replaced_by": "numpy.block",
-  "change_type": "API Usage Discouraged",
-  "reason": "`numpy.bmat` creates a `matrix` object, which is generally discouraged in favor of `ndarray`. The documentation suggests using `numpy.block` as a generalization for N-d arrays that returns standard `ndarrays`.",
-  "has_examples": true,
-  "examples": [
-    {
-      "code": "import numpy as np\nA = np.asmatrix('1 1; 1 1')\nB = np.asmatrix('2 2; 2 2')\nC = np.asmatrix('3 4; 5 6')\nD = np.asmatrix('7 8; 9 0')",
-      "output": ""
-    },
-    {
-      "code": "np.bmat([[A, B], [C, D]])",
-      "output": "matrix([[1, 1, 2, 2],\n        [1, 1, 2, 2],\n        [3, 4, 7, 8],\n        [5, 6, 9, 0]])"
-    },
-    {
-      "code": "np.bmat(np.r_[np.c_[A, B], np.c_[C, D]])",
-      "output": "matrix([[1, 1, 2, 2],\n        [1, 1, 2, 2],\n        [3, 4, 7, 8],\n        [5, 6, 9, 0]])"
-    },
-    {
-      "code": "np.bmat('A,B; C,D')",
-      "output": "matrix([[1, 1, 2, 2],\n        [1, 1, 2, 2],\n        [3, 4, 7, 8],\n        [5, 6, 9, 0]])"
-    }
-  ],
-  "examples_count": 4,
-  "extraction_method": "Manual"
-  },
-  {
   "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.char.array.html",
   "api": "numpy.char.array",
-  "package": "numpy",
+  "package": "NumPy",
   "language": "Python",
   "deprecated_in": "",
   "removed_in": "",
@@ -495,7 +154,7 @@
   {
   "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.char.chararray.html",
   "api": "numpy.char.chararray",
-  "package": "numpy.char",
+  "package": "NumPy",
   "language": "Python",
   "deprecated_in": "",
   "removed_in": "",
@@ -517,115 +176,9 @@
   "extraction_method": "Manual"
   },
   {
-  "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.masked_array.html",
-  "api": "numpy.ma.masked_array",
-  "package": "numpy.ma",
-  "language": "Python",
-  "deprecated_in": "",
-  "removed_in": "",
-  "replaced_by": "",
-  "change_type": "None",
-  "reason": "The documentation identifies `numpy.ma.masked_array` as an alias for `numpy.ma.MaskedArray`. There is no indication of deprecation, warning, or behavior change in the provided images.",
-  "has_examples": false,
-  "examples": [],
-  "examples_count": 0,
-  "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.any.html",
-    "api": "numpy.ma.any",
-    "package": "NumPy",
-    "change_type": "Behavior Change",
-    "reason": "To align functionality between masked arrays and ndarrays.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.getmask.html",
-    "api": "getmask",
-    "package": "numpy.ma",
-    "change_type": "Behavior Change",
-    "reason": "To ensure a consistent return value of boolean arrays, `getmaskarray` was introduced as a more predictable alternative for cases where a full array of booleans is required.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\na = ma.masked_equal([[1,2],[3,4]], 2)\na\nma.getmask(a)\na.mask\na.mask",
-        "output": "masked_array(\n  data=[[1, --],\n        [3, 4]],\n  mask=[[False,  True],\n        [False, False]],\n  fill_value=2)\narray([[False,  True],\n       [False, False]])\n\narray([[False,  True],\n       [False, False]])\n\n\narray([[False,  True],\n       [False, False]])"
-      },
-      {
-        "code": "import numpy as np\nb = ma.masked_array([[1,2],[3,4]])\nb\nma.nomask",
-        "output": "masked_array(\n  data=[[1, 2],\n        [3, 4]],\n  mask=False,\n  fill_value=999999)\nFalse"
-      },
-      {
-        "code": "import numpy as np\nma.getmask(b) == ma.nomask",
-        "output": "True"
-      },
-      {
-        "code": "import numpy as np\nb.mask == ma.nomask",
-        "output": "True"
-      },
-      {
-        "code": "import numpy as np\nb = ma.masked_array([[1,2],[3,4]])\nb\nma.nomask",
-        "output": "masked_array(\n  data=[[1, 2],\n        [3, 4]],\n  mask=False,\n  fill_value=999999)\nFalse"
-      },
-      {
-        "code": "import numpy as np\nma.getmask(b) == ma.nomask",
-        "output": "True"
-      },
-      {
-        "code": "import numpy as np\nb.mask == ma.nomask",
-        "output": "True"
-      }
-    ],
-    "examples_count": 7,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.isMA.html",
-    "api": "numpy.ma.isMA",
-    "package": "numpy.ma",
-    "change_type": "",
-    "reason": "",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\na = np.eye(3, 3)\na",
-        "output": "array([[ 1.,  0.,  0.],\n       [ 0.,  1.,  0.],\n       [ 0.,  0.,  1.]])"
-      },
-      {
-        "code": "import numpy as np\nm = ma.masked_values(a, 0)\nm\nma.isMaskedArray(a)\nma.isMaskedArray(m)\nma.isMaskedArray([0, 1, 2])",
-        "output": "masked_array(\n  data=[[1.0, --, --],\n        [--, 1.0, --],\n        [--, --, 1.0]],\n  mask=[[False,  True,  True],\n        [ True, False,  True],\n        [ True,  True, False]],\n  fill_value=0.0)\nFalse\nTrue\nFalse"
-      }
-    ],
-    "examples_count": 2,
-    "extraction_method": "Manual"
-  },
- {
-  "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.isarray.html",
-  "api": "numpy.ma.isarray",
-  "package": "numpy.ma",
-  "language": "Python",
-  "deprecated_in": "",
-  "removed_in": "",
-  "replaced_by": "",
-  "change_type": "None",
-  "reason": "The documentation describes `numpy.ma.isarray` as a standard function to test for MaskedArray instances. Although it is an alias for `isMaskedArray`, there is no indication of deprecation, usage discouragement, or behavior change in the provided images.",
-  "has_examples": true,
-  "examples": [
-    {
-      "code": "import numpy as np\nimport numpy.ma as ma\na = np.eye(3, 3)\nm = ma.masked_values(a, 0)\nma.isMaskedArray(a)\nma.isMaskedArray(m)\nma.isMaskedArray([0, 1, 2])",
-      "output": "False\nTrue\nFalse"
-    }
-  ],
-  "examples_count": 1,
-  "extraction_method": "Manual"
-  },
-  {
   "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.in1d.html",
   "api": "numpy.ma.in1d",
-  "package": "numpy.ma",
+  "package": "NumPy",
   "language": "Python",
   "deprecated_in": "",
   "removed_in": "",
@@ -643,125 +196,9 @@
   "extraction_method": "Manual"
   },
   {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.isin.html",
-    "api": "numpy.ma.isin",
-    "package": "NumPy",
-    "change_type": "",
-    "reason": "",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nelement = np.ma.array([1, 2, 3, 4, 5, 6])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\ntest_elements = [0, 2]",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.ma.isin(element, test_elements)",
-        "output": "masked_array(data=[False,  True, False, False, False, False],\n             mask=False,\n       fill_value=True)"
-      }
-    ],
-    "examples_count": 3,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.unique.html",
-    "api": "numpy.ma.unique",
-    "package": "numpy",
-    "change_type": "Behavior Change",
-    "reason": "Standardizing behavior across NumPy APIs to align masked array operations with ndarray operations.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\na = [1, 2, 1000, 2, 3]",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nmask = [0, 0, 1, 0, 0]",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nmasked_a = np.ma.masked_array(a, mask)\nmasked_a",
-        "output": "masked_array(data=[1, 2, --, 2, 3],\n            mask=[False, False,  True, False, False],\n    fill_value=999999)"
-      },
-      {
-        "code": "import numpy as np\nnp.ma.unique(masked_a)",
-        "output": "masked_array(data=[1, 2, 3, --],\n            mask=[False, False, False,  True],\n    fill_value=999999)"
-      },
-      {
-        "code": "import numpy as np\nnp.ma.unique(masked_a, return_index=True)",
-        "output": "(masked_array(data=[1, 2, 3, --],\n            mask=[False, False, False,  True],\n    fill_value=999999), array([0, 1, 4, 2]))"
-      },
-      {
-        "code": "import numpy as np\nnp.ma.unique(masked_a, return_inverse=True)",
-        "output": "(masked_array(data=[1, 2, 3, --],\n            mask=[False, False, False,  True],\n    fill_value=999999), array([0, 1, 3, 1, 2]))"
-      },
-      {
-        "code": "import numpy as np\nnp.ma.unique(masked_a, return_index=True, return_inverse=True)",
-        "output": "(masked_array(data=[1, 2, 3, --],\n            mask=[False, False, False,  True],\n    fill_value=999999), array([0, 1, 4, 2]), array([0, 1, 3, 1, 2]))"
-      }
-    ],
-    "examples_count": 7,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.reshape.html",
-    "api": "numpy.ma.reshape",
-    "package": "numpy",
-    "change_type": "Behavior Change",
-    "reason": "Consolidation of functionality into the `MaskedArray` class for consistency and alignment with object-oriented design.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\na = np.ma.array([1, 2, 3, 4])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.ma.reshape(a, (2, 2))",
-        "output": "masked_array(\n  data=[[1, 2],\n        [3, 4]],\n  mask=False,\n  fill_value=999999)"
-      },
-      {
-        "code": "import numpy as np\nb = np.ma.array([[1, 2], [3, 4]])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.ma.reshape(b, (1, 4))",
-        "output": "masked_array(data=[[1, 2, 3, 4]],\n             mask=False,\n       fill_value=999999)"
-      },
-      {
-        "code": "import numpy as np\nb = np.ma.array([[1, 2], [3, 4]])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.ma.reshape(b, (1, 4))",
-        "output": "masked_array(data=[[1, 2, 3, 4]],\n             mask=False,\n       fill_value=999999)"
-      },
-      {
-        "code": "import numpy as np\nc = np.ma.array([1, 2, 3, 4], mask=[False, True, False, False])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.ma.reshape(c, (2, 2))",
-        "output": "masked_array(\n  data=[[1, --],\n        [3, 4]],\n  mask=[[False,  True],\n        [False, False]],\n  fill_value=999999)"
-      },
-      {
-        "code": "import numpy as np\nc = np.ma.array([1, 2, 3, 4], mask=[False, True, False, False])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.ma.reshape(c, (2, 2))",
-        "output": "masked_array(\n  data=[[1, --],\n        [3, 4]],\n  mask=[[False,  True],\n        [False, False]],\n  fill_value=999999)"
-      }
-    ],
-    "examples_count": 10,
-    "extraction_method": "Manual"
-  },
-  {
   "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.MaskedArray.resize.html",
   "api": "numpy.ma.MaskedArray.resize",
-  "package": "numpy",
+  "package": "NumPy",
   "language": "Python",
   "deprecated_in": "",
   "removed_in": "",
@@ -774,43 +211,13 @@
   "extraction_method": "No Examples"
   },
   {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.swapaxes.html",
-    "api": "numpy.ma.swapaxes",
-    "package": "numpy.ma",
-    "change_type": "Behavior Change",
-    "reason": "Align functionality and documentation with its equivalent function in the main NumPy module for consistency.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.MaskedArray.swapaxes.html",
-    "api": "numpy.ma.MaskedArray.swapaxes",
-    "package": "numpy.ma",
-    "change_type": "Behavior Change",
-    "reason": "Simplification and alignment with the core NumPy API.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.MaskedArray.squeeze.html",
-    "api": "ma.MaskedArray.squeeze",
-    "package": "numpy.ma",
-    "change_type": "",
-    "reason": "",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.expand_dims.html",
     "api": "numpy.ma.expand_dims",
-    "package": "numpy",
-    "change_type": "Behavior Change",
+    "package": "NumPy",
+    "deprecated_in": "1.13.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
     "reason": "Passing an axis where axis > a.ndim is treated as axis == a.ndim, and passing axis < -a.ndim - 1 is treated as axis == 0. This behavior was deprecated to prevent ambiguity and improve consistency in API usage.",
     "has_examples": true,
     "examples": [
@@ -823,20 +230,8 @@
         "output": "array([[1, 2]])\n(1, 2)"
       },
       {
-        "code": "import numpy as np\ny = np.expand_dims(x, axis=0)\ny\ny.shape",
-        "output": "array([[1, 2]])\n(1, 2)"
-      },
-      {
         "code": "import numpy as np\ny = np.expand_dims(x, axis=1)\ny\ny.shape",
         "output": "array([[1],\n       [2]])\n(2, 1)"
-      },
-      {
-        "code": "import numpy as np\ny = np.expand_dims(x, axis=1)\ny\ny.shape",
-        "output": "array([[1],\n       [2]])\n(2, 1)"
-      },
-      {
-        "code": "import numpy as np\ny = np.expand_dims(x, axis=(0, 1))\ny",
-        "output": "array([[[1, 2]]])"
       },
       {
         "code": "import numpy as np\ny = np.expand_dims(x, axis=(0, 1))\ny",
@@ -847,313 +242,21 @@
         "output": "array([[[1],\n        [2]]])"
       },
       {
-        "code": "import numpy as np\ny = np.expand_dims(x, axis=(2, 0))\ny",
-        "output": "array([[[1],\n        [2]]])"
-      },
-      {
-        "code": "import numpy as np\nnp.newaxis is None",
-        "output": "True"
-      },
-      {
         "code": "import numpy as np\nnp.newaxis is None",
         "output": "True"
       }
     ],
-    "examples_count": 11,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable",
-    "api": "numpy.ma.concatenate",
-    "package": "NumPy",
-    "change_type": "",
-    "reason": "",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.append.html",
-    "api": "numpy.ma.append",
-    "package": "numpy.ma",
-    "change_type": "",
-    "reason": "",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\na = ma.masked_values([1, 2, 3], 2)",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nb = ma.masked_values([[4, 5, 6], [7, 8, 9]], 7)\nma.append(a, b)",
-        "output": "masked_array(data=[1, --, 3, 4, 5, 6, --, 8, 9],\n             mask=[False,  True, False, False, False, False,  True, False,\n                   False],\n       fill_value=999999)"
-      }
-    ],
-    "examples_count": 2,
-    "extraction_method": "Manual"
-  },
-  {
-  "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.mask_cols.html",
-  "api": "numpy.ma.mask_cols",
-  "package": "numpy",
-  "language": "Python",
-  "deprecated_in": "",
-  "removed_in": "",
-  "replaced_by": "",
-  "change_type": "None",
-  "reason": "The documentation describes this function as a shortcut to `mask_rowcols` with `axis` equal to 1. There is no indication of deprecation or usage discouragement.",
-  "has_examples": true,
-  "examples": [
-    {
-      "code": "import numpy as np\na = np.zeros((3, 3), dtype=int)\na[1, 1] = 1\na = np.ma.masked_equal(a, 1)\nnp.ma.mask_cols(a)",
-      "output": "masked_array(\n  data=[[0, --, 0],\n        [0, --, 0],\n        [0, --, 0]],\n  mask=[[False,  True, False],\n        [False,  True, False],\n        [False,  True, False]],\n  fill_value=1)"
-    }
-  ],
-  "examples_count": 1,
-  "extraction_method": "Manual"
-  }, 
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.masked_less.html",
-    "api": "numpy.ma.masked_less",
-    "package": "numpy",
-    "change_type": "Behavior Change",
-    "reason": "Improved clarity and flexibility by standardizing masking operations under `masked_where`.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\na = np.arange(4)\na\nma.masked_less(a, 2)",
-        "output": "array([0, 1, 2, 3])\nmasked_array(data=[--, --, 2, 3],\n             mask=[ True,  True, False, False],\n       fill_value=999999)"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.masked_not_equal.html",
-    "api": "numpy.ma.masked_not_equal",
-    "package": "numpy.ma",
-    "change_type": "",
-    "reason": "",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\na = np.arange(4)\na\nma.masked_not_equal(a, 2)",
-        "output": "array([0, 1, 2, 3])\nmasked_array(data=[--, --, 2, --],\n             mask=[ True,  True, False,  True],\n       fill_value=999999)"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.masked_outside.html",
-    "api": "masked_outside",
-    "package": "numpy.ma",
-    "change_type": "Behavior Change",
-    "reason": "Modification to provide a shortcut for masking values outside a specified interval using existing functionality.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nx = [0.31, 1.2, 0.01, 0.2, -0.4, -1.1]\nma.masked_outside(x, -0.3, 0.3)\nma.masked_outside(x, 0.3, -0.3)\nma.masked_outside(x, 0.3, -0.3)",
-        "output": "masked_array(data=[--, --, 0.01, 0.2, --, --],\n             mask=[ True,  True, False, False,  True,  True],\n       fill_value=1e+20)\n\nmasked_array(data=[--, --, 0.01, 0.2, --, --],\n             mask=[ True,  True, False, False,  True,  True],\n       fill_value=1e+20)\n\n\nmasked_array(data=[--, --, 0.01, 0.2, --, --],\n             mask=[ True,  True, False, False,  True,  True],\n       fill_value=1e+20)"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.compress_cols.html",
-    "api": "compress_cols",
-    "package": "numpy.ma",
-    "change_type": "Behavior Change",
-    "reason": "compress_cols is equivalent to np.ma.compress_rowcols with axis=1. This unification simplifies the API structure.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\na = np.ma.array(np.arange(9).reshape(3, 3), mask=[[1, 0, 0],\n[1, 0, 0],\n[0, 0, 0]])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.ma.compress_cols(a)",
-        "output": "array([[1, 2],\n       [4, 5],\n       [7, 8]])"
-      }
-    ],
-    "examples_count": 2,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.corrcoef.html",
-    "api": "numpy.ma.corrcoef",
-    "package": "NumPy",
-    "change_type": "Parameter Change",
-    "reason": "The 'bias' and 'ddof' parameters were accepted but had no effect on the return values of the function, making them redundant. They were deprecated for clarity and backward compatibility.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nx = np.ma.array([[0, 1], [1, 1]], mask=[0, 1, 0, 1])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.ma.corrcoef(x)",
-        "output": "masked_array(\n  data=[[--, --],\n        [--, --]],\n  mask=[[ True,  True],\n        [ True,  True]],\n  fill_value=1e+20,\n  dtype=float64)"
-      }
-    ],
-    "examples_count": 2,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.cumprod.html",
-    "api": "numpy.ma.cumprod",
-    "package": "NumPy",
-    "change_type": "Behavior Change",
-    "reason": "Enhanced consistency across APIs by recommending the equivalent function for non-masked arrays.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.cumsum.html",
-    "api": "numpy.ma.cumsum",
-    "package": "numpy",
-    "change_type": "",
-    "reason": "The function provides specialized behavior for masked arrays, but users are encouraged to utilize the general numpy.cumsum function for broader compatibility.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nmarr = np.ma.array(np.arange(10), mask=[0,0,0,1,1,1,0,0,0,0])\nmarr.cumsum()",
-        "output": "masked_array(data=[0, 1, 3, --, --, --, 9, 16, 24, 33],\n             mask=[False, False, False,  True,  True,  True, False, False,\n                   False, False],\n       fill_value=999999)"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.prod.html",
-    "api": "numpy.ma.prod",
-    "package": "numpy.ma",
-    "change_type": "Behavior Change",
-    "reason": "Unified functionality with `numpy.prod` for consistency across masked arrays and standard ndarrays.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.sum.html",
-    "api": "numpy.ma.sum",
-    "package": "numpy.ma",
-    "change_type": "",
-    "reason": "",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nx = np.ma.array([[1,2,3],[4,5,6],[7,8,9]], mask=[0] + [1,0]*4)\nx\nx.sum()",
-        "output": "masked_array(\n  data=[[1, --, 3],\n        [--, 5, --],\n        [7, --, 9]],\n  mask=[[False,  True, False],\n        [ True, False,  True],\n        [False,  True, False]],\n  fill_value=999999)\n25"
-      },
-      {
-        "code": "import numpy as np\nx.sum(axis=1)",
-        "output": "masked_array(data=[4, 5, 16],\n             mask=[False, False, False],\n       fill_value=999999)"
-      },
-      {
-        "code": "import numpy as np\nx.sum(axis=0)",
-        "output": "masked_array(data=[8, 5, 12],\n             mask=[False, False, False],\n       fill_value=999999)"
-      },
-      {
-        "code": "import numpy as np\nprint(type(x.sum(axis=0, dtype=np.int64)[0]))",
-        "output": "<class 'numpy.int64'>"
-      }
-    ],
-    "examples_count": 4,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.MaskedArray.mean.html",
-    "api": "numpy.ma.MaskedArray.mean",
-    "package": "numpy",
-    "change_type": "Behavior Change",
-    "reason": "Updated documentation to align with numpy.mean, behavior remains consistent but emphasizes masked entries being ignored and non-finite elements being masked.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\na = np.ma.array([1,2,3], mask=[False, False, True])\na\na.mean()",
-        "output": "masked_array(data=[1, 2, --],\n             mask=[False, False,  True],\n       fill_value=999999)\n1.5"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.trace.html",
-    "api": "numpy.ma.trace",
-    "package": "numpy",
-    "change_type": "Behavior Change",
-    "reason": "Consolidation of array functions under a unified namespace to simplify usage and documentation.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.transpose.html",
-    "api": "ma.transpose",
-    "package": "numpy.ma",
-    "change_type": "",
-    "reason": "",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nx = ma.arange(4).reshape((2,2))",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nx[1, 1] = ma.masked\nx\nma.transpose(x)\nma.transpose(x)",
-        "output": "masked_array(\n  data=[[0, 1],\n        [2, --]],\n  mask=[[False, False],\n        [False,  True]],\n  fill_value=999999)\n\nmasked_array(\n  data=[[0, 2],\n        [1, --]],\n  mask=[[False, False],\n        [False,  True]],\n  fill_value=999999)\n\n\nmasked_array(\n  data=[[0, 2],\n        [1, --]],\n  mask=[[False, False],\n        [False,  True]],\n  fill_value=999999)"
-      }
-    ],
-    "examples_count": 2,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.MaskedArray.trace.html",
-    "api": "numpy.ma.MaskedArray.trace",
-    "package": "numpy",
-    "change_type": "",
-    "reason": "",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.MaskedArray.transpose.html",
-    "api": "numpy.ma.MaskedArray.transpose",
-    "package": "numpy",
-    "change_type": "",
-    "reason": "",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\na = np.array([[1, 2], [3, 4]])\na\na.transpose()\na.transpose((1, 0))\na.transpose(1, 0)",
-        "output": "array([[1, 2],\n       [3, 4]])\narray([[1, 3],\n       [2, 4]])\narray([[1, 3],\n       [2, 4]])\narray([[1, 3],\n       [2, 4]])"
-      },
-      {
-        "code": "import numpy as np\na = np.array([1, 2, 3, 4])\na\na.transpose()",
-        "output": "array([1, 2, 3, 4])\narray([1, 2, 3, 4])"
-      },
-      {
-        "code": "import numpy as np\na = np.array([1, 2, 3, 4])\na\na.transpose()",
-        "output": "array([1, 2, 3, 4])\narray([1, 2, 3, 4])"
-      }
-    ],
-    "examples_count": 3,
+    "examples_count": 6,
     "extraction_method": "Manual"
   },
   {
     "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.around.html",
     "api": "numpy.ma.around",
     "package": "NumPy",
-    "change_type": "Alias Creation",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Alias Definition",
     "reason": "To provide clearer API aliasing and streamline usage.",
     "has_examples": false,
     "examples": [],
@@ -1182,384 +285,6 @@
     }
   ],
   "examples_count": 2,
-  "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.MaskedArray.clip.html",
-    "api": "MaskedArray.clip",
-    "package": "numpy.ma",
-    "change_type": "Behavior Change",
-    "reason": "Unified functionality with `numpy.clip` to standardize and simplify API usage.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.MaskedArray.round.html",
-    "api": "numpy.ma.MaskedArray.round",
-    "package": "numpy.ma",
-    "change_type": "Behavior Change",
-    "reason": "Align functionality with `numpy.around` for unified behavior across similar APIs in NumPy.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nx = ma.array([1.35, 2.5, 1.5, 1.75, 2.25, 2.75],\nmask=[0, 0, 0, 1, 0, 0])\nma.round(x)",
-        "output": "masked_array(data=[1.0, 2.0, 2.0, --, 2.0, 3.0],\n             mask=[False, False, False,  True, False, False],\n        fill_value=1e+20)"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/v2.3/reference/generated/numpy.ma.setdiff1d.html",
-    "api": "numpy.ma.setdiff1d",
-    "package": "NumPy",
-    "change_type": "Behavior Change",
-    "reason": "Introduced as an equivalent function in the masked array module, ensuring compatibility with masked arrays and aligning functionality with the ndarray version.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-  "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.amax.html",
-  "api": "numpy.ma.amax",
-  "package": "numpy.ma",
-  "language": "Python",
-  "deprecated_in": "",
-  "removed_in": "",
-  "replaced_by": "",
-  "change_type": "None",
-  "reason": "The documentation identifies `numpy.ma.amax` as an alias of `numpy.ma.max`. There is no indication of deprecation, usage discouragement, or behavior change in the provided image.",
-  "has_examples": false,
-  "examples": [],
-  "examples_count": 0,
-  "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.amin.html",
-    "api": "numpy.ma.amin",
-    "package": "numpy.ma",
-    "change_type": "Parameter Change",
-    "reason": "The alias 'amin' for 'min' was clarified for consistency within the NumPy masked array module and the behavior of universal functions.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.convolve.html",
-    "api": "numpy.ma.convolve",
-    "package": "numpy",
-    "change_type": "",
-    "reason": "",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.put.html",
-    "api": "numpy.ma.put",
-    "package": "numpy.ma",
-    "change_type": "Behavior Change",
-    "reason": "The function is stated to be equivalent to MaskedArray.put and is referred to that method for details, suggesting a shift in emphasis or preference towards using MaskedArray.put directly.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\na = np.ma.array([1, 2, 3, 4], mask=[False, True, False, False])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.ma.put(a, [1, 3], [10, 30])\na",
-        "output": "masked_array(data=[ 1, 10,  3, 30],\n             mask=False,\n       fill_value=999999)"
-      },
-      {
-        "code": "import numpy as np\nb = np.ma.array([[1, 2], [3, 4]], mask=[[False, True], [False, False]])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.ma.put(b, [[0, 1], [1, 0]], [[10, 20], [30, 40]])\nb",
-        "output": "masked_array(\n  data=[[40, 30],\n        [ 3,  4]],\n  mask=False,\n  fill_value=999999)"
-      },
-      {
-        "code": "import numpy as np\nb = np.ma.array([[1, 2], [3, 4]], mask=[[False, True], [False, False]])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.ma.put(b, [[0, 1], [1, 0]], [[10, 20], [30, 40]])\nb",
-        "output": "masked_array(\n  data=[[40, 30],\n        [ 3,  4]],\n  mask=False,\n  fill_value=999999)"
-      }
-    ],
-    "examples_count": 6,
-    "extraction_method": "Manual"
-  },
- {
-  "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.where.html",
-  "api": "numpy.ma.where",
-  "package": "numpy",
-  "language": "Python",
-  "deprecated_in": "",
-  "removed_in": "",
-  "replaced_by": "",
-  "change_type": "None",
-  "reason": "The documentation presents `numpy.ma.where` as a standard function for masked arrays. There is no indication of deprecation, usage discouragement, or behavior change in the provided images.",
-  "has_examples": true,
-  "examples": [
-    {
-      "code": "import numpy as np\nx = np.ma.array(np.arange(9.).reshape(3, 3), mask=[[0, 1, 0],\n                                                   [1, 0, 1],\n                                                   [0, 1, 0]])\nnp.ma.where(x > 5, x, -3.1416)",
-      "output": "masked_array(\n  data=[[-3.1416, --, -3.1416],\n        [--, -3.1416, --],\n        [6.0, --, 8.0]],\n  mask=[[False,  True, False],\n        [ True, False,  True],\n        [False,  True, False]],\n  fill_value=1e+20)"
-    }
-  ],
-  "examples_count": 1,
-  "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.around.html",
-    "api": "numpy.around",
-    "package": "NumPy",
-    "change_type": "Behavior Change",
-    "reason": "NumPy `around` is an alias for `round` and maintains equivalent behavior. This clarification serves to streamline understanding between the two APIs and their functionalities.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.cumulative_sum.html",
-    "api": "numpy.cumulative_sum",
-    "package": "NumPy",
-    "change_type": "Behavior Change",
-    "reason": "numpy.cumulative_sum was introduced as an Array API-compatible alternative to numpy.cumsum, offering functionality to include an initial value and better compliance with the Array API standard.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\na = np.array([1, 2, 3, 4, 5, 6])\na",
-        "output": "array([1, 2, 3, 4, 5, 6])"
-      },
-      {
-        "code": "import numpy as np\nnp.cumulative_sum(a)",
-        "output": "array([ 1,  3,  6, 10, 15, 21])"
-      },
-      {
-        "code": "import numpy as np\nnp.cumulative_sum(a, dtype=float)  # specifies type of output value(s)",
-        "output": "array([  1.,   3.,   6.,  10.,  15.,  21.])"
-      },
-      {
-        "code": "import numpy as np\nb = np.array([[1, 2, 3], [4, 5, 6]])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.cumulative_sum(b,axis=0)  # sum over rows for each of the 3 columns",
-        "output": "array([[1, 2, 3],\n       [5, 7, 9]])"
-      },
-      {
-        "code": "import numpy as np\nnp.cumulative_sum(b,axis=1)  # sum over columns for each of the 2 rows",
-        "output": "array([[ 1,  3,  6],\n       [ 4,  9, 15]])"
-      },
-      {
-        "code": "import numpy as np\nb = np.array([[1, 2, 3], [4, 5, 6]])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.cumulative_sum(b,axis=0)  # sum over rows for each of the 3 columns",
-        "output": "array([[1, 2, 3],\n       [5, 7, 9]])"
-      },
-      {
-        "code": "import numpy as np\nnp.cumulative_sum(b,axis=1)  # sum over columns for each of the 2 rows",
-        "output": "array([[ 1,  3,  6],\n       [ 4,  9, 15]])"
-      },
-      {
-        "code": "import numpy as np\nc = np.array([1, 2e-9, 3e-9] * 1000000)",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.cumulative_sum(c)[-1]\nc.sum()",
-        "output": "1000000.0050045159\n1000000.0050000029"
-      },
-      {
-        "code": "import numpy as np\nc = np.array([1, 2e-9, 3e-9] * 1000000)",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.cumulative_sum(c)[-1]\nc.sum()",
-        "output": "1000000.0050045159\n1000000.0050000029"
-      }
-    ],
-    "examples_count": 13,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.cumulative_prod.html",
-    "api": "numpy.cumulative_prod",
-    "package": "NumPy",
-    "change_type": "Parameter Change",
-    "reason": "Improved compatibility with the Array API standard and enhanced functionality by supporting the `include_initial` parameter, which was not present in numpy.cumprod.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\na = np.array([1, 2, 3])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.cumulative_prod(a)  # intermediate results 1, 1*2\n# total product 1*2*3 = 6",
-        "output": "array([1, 2, 6])"
-      },
-      {
-        "code": "import numpy as np\na = np.array([1, 2, 3, 4, 5, 6])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.cumulative_prod(a, dtype=float) # specify type of output",
-        "output": "array([   1.,    2.,    6.,   24.,  120.,  720.])"
-      },
-      {
-        "code": "import numpy as np\nb = np.array([[1, 2, 3], [4, 5, 6]])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.cumulative_prod(b, axis=0)",
-        "output": "array([[ 1,  2,  3],\n       [ 4, 10, 18]])"
-      },
-      {
-        "code": "import numpy as np\nb = np.array([[1, 2, 3], [4, 5, 6]])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.cumulative_prod(b, axis=0)",
-        "output": "array([[ 1,  2,  3],\n       [ 4, 10, 18]])"
-      },
-      {
-        "code": "import numpy as np\nnp.cumulative_prod(b, axis=1)",
-        "output": "array([[  1,   2,   6],\n       [  4,  20, 120]])"
-      },
-      {
-        "code": "import numpy as np\nnp.cumulative_prod(b, axis=1)",
-        "output": "array([[  1,   2,   6],\n       [  4,  20, 120]])"
-      }
-    ],
-    "examples_count": 10,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.cumprod.html",
-    "api": "numpy.cumprod",
-    "package": "NumPy",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "None",
-    "reason": "The documentation lists `cumulative_prod` as an Array API compatible alternative, but there is no indication that `numpy.cumprod` itself is deprecated, discouraged, or has changed behavior.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\na = np.array([1,2,3])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.cumprod(a) # intermediate results 1, 1*2\n# total product 1*2*3 = 6",
-        "output": "array([1, 2, 6])"
-      },
-      {
-        "code": "import numpy as np\na = np.array([[1, 2, 3], [4, 5, 6]])",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.cumprod(a, dtype=float) # specify type of output",
-        "output": "array([   1.,    2.,    6.,   24.,  120.,  720.])"
-      },
-      {
-        "code": "import numpy as np\nnp.cumprod(a, axis=0)",
-        "output": "array([[ 1,  2,  3],\n       [ 4, 10, 18]])"
-      },
-      {
-        "code": "import numpy as np\nnp.cumprod(a,axis=1)",
-        "output": "array([[  1,   2,   6],\n       [  4,  20, 120]])"
-      }
-    ],
-    "examples_count": 6,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.cumsum.html",
-    "api": "numpy.cumsum",
-    "package": "numpy",
-    "change_type": "Behavior Change",
-    "reason": "Modular arithmetic behavior in integer types and floating-point roundoff differences in summation operations.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\na = np.array([[1,2,3], [4,5,6]])\na",
-        "output": "array([[1, 2, 3],\n       [4, 5, 6]])"
-      },
-      {
-        "code": "import numpy as np\nnp.cumsum(a)",
-        "output": "array([ 1,  3,  6, 10, 15, 21])"
-      },
-      {
-        "code": "import numpy as np\nnp.cumsum(a, dtype=float)     # specifies type of output value(s)",
-        "output": "array([  1.,   3.,   6.,  10.,  15.,  21.])"
-      },
-      {
-        "code": "import numpy as np\nnp.cumsum(a,axis=0)      # sum over rows for each of the 3 columns",
-        "output": "array([[1, 2, 3],\n       [5, 7, 9]])"
-      },
-      {
-        "code": "import numpy as np\nnp.cumsum(a,axis=1)      # sum over columns for each of the 2 rows",
-        "output": "array([[ 1,  3,  6],\n       [ 4,  9, 15]])"
-      },
-      {
-        "code": "import numpy as np\nnp.cumsum(a,axis=0)      # sum over rows for each of the 3 columns",
-        "output": "array([[1, 2, 3],\n       [5, 7, 9]])"
-      },
-      {
-        "code": "import numpy as np\nnp.cumsum(a,axis=1)      # sum over columns for each of the 2 rows",
-        "output": "array([[ 1,  3,  6],\n       [ 4,  9, 15]])"
-      },
-      {
-        "code": "import numpy as np\nb = np.array([1, 2e-9, 3e-9] * 1000000)\nb.cumsum()[-1]\nb.sum()",
-        "output": "1000000.0050045159\n1000000.0050000029"
-      },
-      {
-        "code": "import numpy as np\nb = np.array([1, 2e-9, 3e-9] * 1000000)\nb.cumsum()[-1]\nb.sum()",
-        "output": "1000000.0050045159\n1000000.0050000029"
-      }
-    ],
-    "examples_count": 9,
-    "extraction_method": "Manual"
-  },
- {
-  "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.cross.html",
-  "api": "numpy.cross",
-  "package": "NumPy",
-  "language": "Python",
-  "deprecated_in": "2.0.0",
-  "removed_in": "",
-  "replaced_by": "numpy.linalg.cross",
-  "change_type": "API Deprecation",
-  "reason": "Dimension-2 input arrays were deprecated in NumPy 2.0.0. Users needing this functionality are advised to use a custom function or `numpy.linalg.cross` for 3-element vectors.",
-  "has_examples": true,
-  "examples": [
-    {
-      "code": "import numpy as np\nx = [1, 2, 3]\ny = [4, 5, 6]\nnp.cross(x, y)",
-      "output": "array([-3,  6, -3])"
-    },
-    {
-      "code": "x = [1, 2]\ny = [4, 5, 6]\nnp.cross(x, y)",
-      "output": "array([12, -6, -3])"
-    },
-    {
-      "code": "x = [1, 2]\ny = [4, 5]\nnp.cross(x, y)",
-      "output": "array(-3)"
-    },
-    {
-      "code": "x = np.array([[1,2,3], [4,5,6]])\ny = np.array([[4,5,6], [1,2,3]])\nnp.cross(x, y)",
-      "output": "array([[-3,  6, -3],\n       [ 3, -6,  3]])"
-    }
-  ],
-  "examples_count": 4,
   "extraction_method": "Manual"
   },
   {
@@ -1663,40 +388,10 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.i0.html",
-    "api": "i0",
-    "package": "numpy",
-    "change_type": "Performance Optimization",
-    "reason": "The scipy implementation is a proper ufunc written in C, and offers significantly better performance than numpy.i0.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nnp.i0(0.)",
-        "output": "array(1.0)"
-      },
-      {
-        "code": "import numpy as np\nnp.i0([0, 1, 2, 3])",
-        "output": "array([1.        , 1.26606588, 2.2795853 , 4.88079259])"
-      }
-    ],
-    "examples_count": 2,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.true_divide.html",
-    "api": "numpy.true_divide",
-    "package": "NumPy",
-    "change_type": "API Deprecation",
-    "reason": "The `numpy.true_divide` function is effectively an alias for `numpy.divide`, making the distinction unnecessary and encouraging standardization.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.mod.html",
-    "api": "mod",
-    "package": "numpy",
+    "api": "numpy.mod",
+    "package": "NumPy",
+    "language": "Python",
     "change_type": "Behavior Change",
     "reason": "The behavior aligns with Python's modulus operator (`%`) but differs from MATLAB's `rem` function and C's `%` operator for floor division behavior. It aims for consistent mathematical behavior and functional equivalence.",
     "has_examples": true,
@@ -1719,42 +414,6 @@
       }
     ],
     "examples_count": 4,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.conjugate.html",
-    "api": "numpy.conj",
-    "package": "NumPy",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "None",
-    "reason": "The documentation identifies `numpy.true_divide` as an alias for `numpy.divide`. There is no indication of deprecation, usage discouragement, or behavior change in the provided images.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nnp.conjugate(1+2j)",
-        "output": "(1-2j)"
-      },
-      {
-        "code": "import numpy as np\nx = np.eye(2) + 1j * np.eye(2)",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.conjugate(x)",
-        "output": "array([[ 1.-1.j,  0.-0.j],\n       [ 0.-0.j,  1.-1.j]])"
-      },
-      {
-        "code": "import numpy as np\nx = np.eye(2) + 1j * np.eye(2)",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.conjugate(x)",
-        "output": "array([[ 1.-1.j,  0.-0.j],\n       [ 0.-0.j,  1.-1.j]])"
-      }
-    ],
-    "examples_count": 5,
     "extraction_method": "Manual"
   },
   {
@@ -1782,75 +441,10 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.in1d.html",
-    "api": "numpy.in1d",
-    "package": "NumPy",
-    "language": "Python",
-    "deprecated_in": "2.0.0",
-    "removed_in": "",
-    "replaced_by": "numpy.isin",
-    "change_type": "API Deprecation",
-    "reason": "np.in1d has been deprecated. Use np.isin instead.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ntest = np.array([0, 1, 2, 5, 0])\nstates = [0, 2]\nnp.in1d(test, states)",
-        "output": "array([ True, False,  True, False,  True])"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/2.0/release/2.0.0-notes.html#deprecations",
-    "api": "numpy.row_stack",
-    "package": "NumPy",
-    "language": "Python",
-    "deprecated_in": "2.0.0",
-    "removed_in": "",
-    "replaced_by": "numpy.vstack",
-    "change_type": "API Deprecation",
-    "reason": "Alias np.row_stack has been deprecated. Use np.vstack directly.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\na = np.array([1, 2, 3])\nb = np.array([4, 5, 6])\nnp.row_stack((a, b))",
-        "output": "array([[1, 2, 3],\n       [4, 5, 6]])"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.amax.html",
-    "api": "amax",
-    "package": "numpy",
-    "change_type": "Behavior Change",
-    "reason": "The `amax` function is considered an alias for `max` as it provides identical functionality. Aligning it further with `numpy.max` ensures consistency in naming conventions across the NumPy API.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-  "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.amin.html",
-  "api": "numpy.amin",
-  "package": "NumPy",
-  "language": "Python",
-  "deprecated_in": "",
-  "removed_in": "",
-  "replaced_by": "",
-  "change_type": "None",
-  "reason": "The documentation identifies `numpy.amin` as an alias of `numpy.min`. There is no indication of deprecation, usage discouragement, or behavior change in the provided image.",
-  "has_examples": false,
-  "examples": [],
-  "examples_count": 0,
-  "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://numpy.org/doc/2.3/reference/generated/numpy.sqrt.html",
     "api": "numpy.sqrt",
-    "package": "numpy",
+    "package": "NumPy",
+    "language": "Python",
     "change_type": "Behavior Change",
     "reason": "To provide a consistent approach for calculating square roots of negative reals and complex numbers. The default numpy.sqrt returns NaN for negative reals and a complex array for complex inputs, while numpy.emath.sqrt handles negative reals by returning a complex result.",
     "has_examples": true,
@@ -1877,46 +471,6 @@
       }
     ],
     "examples_count": 5,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.divide.html",
-    "api": "numpy.divide",
-    "package": "NumPy",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "None",
-    "reason": "The documentation notes that `numpy.true_divide` is an alias for `numpy.divide`, but `numpy.divide` itself is a standard, active function. There is no indication of deprecation or usage discouragement.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\nnp.divide(2.0, 4.0)",
-        "output": "0.5"
-      },
-      {
-        "code": "import numpy as np\nx1 = np.arange(9.0).reshape((3, 3))",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nx2 = np.arange(3.0)",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nnp.divide(x1, x2)",
-        "output": "array([[nan, 1. , 1. ],\n       [inf, 4. , 2.5],\n       [inf, 7. , 4. ]])"
-      },
-      {
-        "code": "import numpy as np\nx1 = np.arange(9.0).reshape((3, 3))",
-        "output": ""
-      },
-      {
-        "code": "import numpy as np\nx2 = 2 * np.ones(3)\nx1 / x2",
-        "output": "array([[0. , 0.5, 1. ],\n       [1.5, 2. , 2.5],\n       [3. , 3.5, 4. ]])"
-      }
-    ],
-    "examples_count": 6,
     "extraction_method": "Manual"
   },
   {
