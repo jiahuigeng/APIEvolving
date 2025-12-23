@@ -16,7 +16,7 @@
   },
   {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/DeviceSpec",
-    "api": "DeviceSpec",
+    "api": "tf.DeviceSpec",
     "package": "tensorflow",
     "language": "Python",
     "deprecated_in": "2.x",
@@ -46,8 +46,8 @@
   },
   {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/RegisterGradient",
-    "api": "RegisterGradient",
-    "package": "tf",
+    "api": "tf.RegisterGradient",
+    "package": "tensorflow",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
@@ -108,8 +108,8 @@
   },
   {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/TensorArray",
-    "api": "TensorArray",
-    "package": "tf",
+    "api": "tf.TensorArray",
+    "package": "tensorflow",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
@@ -122,28 +122,13 @@
     "extraction_method": "No Examples"
   },
   {
-    "source_url": "https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/ops/gradients.py",
-    "api": "tf.UnconnectedGradients",
-    "package": "tf.compat.v1",
-    "language": "Python",
-    "deprecated_in": "v2.16.1",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "API Deprecation",
-    "reason": "Introduced compat aliases to provide a migration path from TensorFlow v1 to v2, and included a more flexible gradient computation option.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://github.com/tensorflow/tensorflow",
     "api": "tf.boolean_mask",
-    "package": "TensorFlow",
+    "package": "tensorflow",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
-    "replaced_by": "tf.ragged.boolean_mask",
+    "replaced_by": "",
     "change_type": "Behavior Change",
     "reason": "To accommodate both dense and ragged tensors while preserving masked dimensions for enhanced functionality.",
     "has_examples": true,
@@ -159,28 +144,13 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://github.com/tensorflow/tensorflow/blob/v2.16.1/tensorflow/core/util/tensor_slice_reader.cc",
-    "api": "tf.Variable.SaveSliceInfo",
-    "package": "tf",
-    "language": "python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.experimental.dtensor.DVariable.SaveSliceInfo",
-    "change_type": "API Deprecation",
-    "reason": "The API is not public and is subject to change. Users are encouraged to use the experimental `tf.experimental.dtensor.DVariable.SaveSliceInfo` for similar functionality.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "Failed to fetch"
-  },
-  {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/bitcast",
     "api": "tf.bitcast",
     "package": "tensorflow",
-    "language": "python",
+    "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
-    "replaced_by": "tf.cast",
+    "replaced_by": "",
     "change_type": "Behavior Change",
     "reason": "The behavior of `tf.bitcast` differs from `tf.cast` when casting a real data type to a complex data type. `tf.cast` initializes the imaginary part to 0, whereas `tf.bitcast` leads to an invalid operation if sizes of input and output types are incompatible, leading to errors on certain operations.",
     "has_examples": false,
@@ -189,69 +159,9 @@
     "extraction_method": "No Examples"
   },
   {
-    "source_url": "https://github.com/tensorflow/tensorflow/blob/v2.16.1/tensorflow/python/ops/variables.py",
-    "api": "VariableSynchronization",
-    "package": "tf",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.VariableSynchronization",
-    "change_type": "Behavior Change",
-    "reason": "Simplified synchronization options for distributed strategies. Migration guide provided for compatibility.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/broadcast_dynamic_shape",
-    "api": "tf.broadcast_dynamic_shape",
-    "package": "tf",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.broadcast_dynamic_shape",
-    "change_type": "API Deprecation",
-    "reason": "The API has a compat alias `tf.compat.v1.broadcast_dynamic_shape` provided for migration purposes. It is likely deprecated to encourage users to transition to newer API versions per TensorFlow's migration guide.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/broadcast_static_shape",
-    "api": "tf.broadcast_static_shape",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "unknown",
-    "removed_in": "unknown",
-    "replaced_by": "tf.compat.v1.broadcast_static_shape",
-    "change_type": "API Deprecation",
-    "reason": "Compatibility reasons; newer function tf.compat.v1.broadcast_static_shape should be used for migration in TensorFlow v1 compatibility mode.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/broadcast_to",
-    "api": "tf.broadcast_to",
-    "package": "tensorflow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.broadcast_to",
-    "change_type": "API Standardization",
-    "reason": "As part of the transition from TensorFlow v1 to v2, the `tf.broadcast_to` function was moved under the `tf.compat.v1` namespace for backward compatibility. This maintains functionality for users working with TensorFlow v1, while encouraging migration to TensorFlow v2 API.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/case",
     "api": "tf.case",
-    "package": "TensorFlow",
+    "package": "tensorflow",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
@@ -271,50 +181,13 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://github.com/tensorflow/tensorflow/blob/main/tensorflow/python/ops/casting_ops.py",
-    "api": "tf.cast",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.dtypes.cast",
-    "change_type": "API Deprecation",
-    "reason": "Standardization of API naming conventions for consistency and clarity.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "Failed to fetch"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/conv2d_backprop_input_v2",
-    "api": "conv2d_backprop_input_v2",
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/control_dependencies",
+    "api": "tf.control_dependencies",
     "package": "tensorflow",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
-    "replaced_by": "conv2d_backprop_input",
-    "change_type": "API Deprecation",
-    "reason": "Streamlining API namespace and providing a simpler method for computing gradients of convolutions.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.conv2d_backprop_input_v2(input:Annotated[Any,TV_Conv2DBackpropInputV2_T],filter:Annotated[Any,TV_Conv2DBackpropInputV2_T],out_backprop:Annotated[Any,TV_Conv2DBackpropInputV2_T],strides,padding:str,use_cudnn_on_gpu:bool=True,explicit_paddings=[],data_format:str='NHWC',dilations=[1,1,1,1],name=None)->Annotated[Any,TV_Conv2DBackpropInputV2_T]",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/control_dependencies",
-    "api": "tf.control_dependencies",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "2.0.0",
-    "removed_in": "",
-    "replaced_by": "Automatic control dependencies using eager execution or Autograph-supported `tf.function`",
+    "replaced_by": "",
     "change_type": "Behavior Change",
     "reason": "In TensorFlow 2, eager execution is enabled by default, making manual control dependencies less necessary. The change ensures operations are executed in the expected order automatically, reducing code verbosity and improving usability.",
     "has_examples": true,
@@ -332,11 +205,11 @@
   {
     "source_url": "https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/ops/constant_op.py",
     "api": "tf.constant",
-    "package": "TensorFlow",
+    "package": "tensorflow",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
-    "replaced_by": "tf.convert_to_tensor",
+    "replaced_by": "",
     "change_type": "Behavior Change",
     "reason": "tf.constant embeds values in a Const node in graphs, which fails for symbolic tensors. Developers are advised to use tf.convert_to_tensor for symbolic tensor support.",
     "has_examples": false,
@@ -345,39 +218,9 @@
     "extraction_method": "Failed to fetch"
   },
   {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/edit_distance",
-    "api": "edit_distance",
-    "package": "tf",
-    "language": "Python",
-    "deprecated_in": "v1 (available as `tf.compat.v1.edit_distance` in TensorFlow v2)",
-    "removed_in": "Not yet removed",
-    "replaced_by": "tf.edit_distance",
-    "change_type": "API Deprecation",
-    "reason": "TensorFlow transitioned from v1 to v2 with a focus on simplicity and usability. Many TensorFlow v1 APIs, including `tf.compat.v1.edit_distance`, were deprecated in favor of more intuitive and simplified APIs in TensorFlow v2.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/dynamic_stitch",
-    "api": "tf.dynamic_stitch",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.dynamic_stitch",
-    "change_type": "Behavior Change",
-    "reason": "Transition to TensorFlow 2 compatibility updates led to changes in API behavior.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/foldl",
     "api": "tf.foldl",
-    "package": "TensorFlow",
+    "package": "tensorflow",
     "language": "Python",
     "deprecated_in": "v2.16.1",
     "removed_in": "",
@@ -390,33 +233,11 @@
     "extraction_method": "No Examples"
   },
   {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/signal/fftnd",
-    "api": "tf.fftnd",
-    "package": "tensorflow.signal",
-    "language": "Python",
-    "deprecated_in": "v2.11.0",
-    "removed_in": "",
-    "replaced_by": "tf.signal.fftnd",
-    "change_type": "API Deprecation",
-    "reason": "Consolidated FFT operations into the `tensorflow.signal` package to improve organization and clarity.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.signal.fftnd(input_tensor,fft_length=None,axes=None,norm=None,name=None)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://github.com/tensorflow/tensorflow/releases/tag/v2.16.1",
-    "api": "foldr",
-    "package": "tf",
+    "api": "tf.foldr",
+    "package": "tensorflow",
     "language": "Python",
-    "deprecated_in": "v2.16.1",
+    "deprecated_in": "2.16.1",
     "removed_in": "",
     "replaced_by": "tf.nest.map_structure(tf.stop_gradient)",
     "change_type": "Parameter Change",
@@ -454,7 +275,7 @@
   {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/function",
     "api": "tf.function",
-    "package": "TensorFlow",
+    "package": "tensorflow",
     "language": "Python",
     "deprecated_in": "2.16.1",
     "removed_in": "",
@@ -489,28 +310,13 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/get_static_value",
-    "api": "tf.get_static_value",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.get_static_value (for migration to TensorFlow v2.x)",
-    "change_type": "API Deprecation",
-    "reason": "Transition from TensorFlow v1 to v2 streamlined certain APIs for better usability and performance optimization. Users are encouraged to use the updated TF 2 APIs or tf.compat.v1 APIs for backward compatibility.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://github.com/tensorflow/tensorflow",
     "api": "tf.gather_nd",
-    "package": "tf",
+    "package": "tensorflow",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
-    "replaced_by": "tf.gather",
+    "replaced_by": "",
     "change_type": "Behavior Change",
     "reason": "To handle out-of-bound indices differently on GPU, storing '0' instead of raising an error, while maintaining error raising behavior on CPU.",
     "has_examples": true,
@@ -528,7 +334,7 @@
   {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/guarantee_const",
     "api": "tf.guarantee_const",
-    "package": "tf",
+    "package": "tensorflow",
     "language": "Python",
     "deprecated_in": "v2.16.1",
     "removed_in": "",
@@ -552,7 +358,7 @@
     "api": "tf.gradients",
     "package": "tensorflow",
     "language": "Python",
-    "deprecated_in": "v2.0",
+    "deprecated_in": "2.0",
     "removed_in": "",
     "replaced_by": "tf.GradientTape",
     "change_type": "API Deprecation",
@@ -570,61 +376,9 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/signal/ifftnd",
-    "api": "ifftnd",
-    "package": "tf.spectral",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.signal.ifftnd",
-    "change_type": "API Deprecation",
-    "reason": "The `ifftnd` API was moved to `tf.signal` package as part of the TensorFlow refactoring efforts to organize signal processing functions.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.signal.ifftnd(input_tensor,fft_length=None,axes=None,norm=None,name=None)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/versions/r2.16/api_docs/python/tf/load_op_library",
-    "api": "tf.load_op_library",
-    "package": "tf",
-    "language": "Python",
-    "deprecated_in": "v2.0",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.load_op_library",
-    "change_type": "API Deprecation",
-    "reason": "TensorFlow transitioned to eager execution by default starting from v2.0, so APIs from v1.x were moved to `tf.compat.v1` namespace to allow backward compatibility.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "Failed to fetch"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/guide/migrate",
-    "api": "tf.compat.v1.load_library",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "2.0.0",
-    "removed_in": "",
-    "replaced_by": "tf.load_library",
-    "change_type": "API Deprecation",
-    "reason": "Align with TensorFlow's API evolution and encourage migration to newer capabilities.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/make_tensor_proto",
-    "api": "make_tensor_proto",
-    "package": "tf",
+    "api": "tf.make_tensor_proto",
+    "package": "tensorflow",
     "language": "Python",
     "deprecated_in": "2.0",
     "removed_in": "",
@@ -644,43 +398,6 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/identity_n",
-    "api": "identity_n",
-    "package": "tf",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.identity_n",
-    "change_type": "API Deprecation",
-    "reason": "To migrate users to TensorFlow 2.x while maintaining backward compatibility with TensorFlow 1.x features.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.identity_n(input,name=None)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/meshgrid",
-    "api": "meshgrid",
-    "package": "tensorflow",
-    "language": "Python",
-    "deprecated_in": "v1.14",
-    "removed_in": "",
-    "replaced_by": "tf.meshgrid (TensorFlow v2.16.1)",
-    "change_type": "API Deprecation",
-    "reason": "Migration to TensorFlow v2 with updated APIs for better usability and alignment with modern framework designs.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/numpy_function",
     "api": "tf.numpy_function",
     "package": "tensorflow",
@@ -688,7 +405,7 @@
     "deprecated_in": "",
     "removed_in": "",
     "replaced_by": "tf.py_function",
-    "change_type": "API Deprecation",
+    "change_type": "API Usage Discouraged",
     "reason": "Known limitations such as acquiring the Python Global Interpreter Lock (GIL), lack of serialization support in tf.SavedModel, incompatibility with XLA, and inability to take gradients make tf.numpy_function unsuitable for production use.",
     "has_examples": true,
     "examples": [
@@ -703,48 +420,11 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/norm",
-    "api": "tf.norm",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.linalg.norm",
-    "change_type": "API Deprecation",
-    "reason": "Consolidation of norm computation APIs and alignment with linalg conventions.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.norm(tensor,ord='euclidean',axis=None,keepdims=None,name=None)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/parallel_stack",
-    "api": "parallel_stack",
-    "package": "tf",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "stack",
-    "change_type": "Performance Optimization",
-    "reason": "The `parallel_stack` API provides a performance advantage over `stack` in scenarios where input tensors can be processed in parallel, as it does not require all inputs to be precomputed before the operation begins.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/map_fn",
     "api": "tf.map_fn",
     "package": "tensorflow",
     "language": "python",
-    "deprecated_in": "v2.16.1",
+    "deprecated_in": "2.16.1",
     "removed_in": "",
     "replaced_by": "fn_output_signature",
     "change_type": "Parameter Change",
@@ -755,71 +435,11 @@
     "extraction_method": "No Examples"
   },
   {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/print",
-    "api": "print",
-    "package": "tf",
-    "language": "Python",
-    "deprecated_in": "v2.0",
-    "removed_in": "",
-    "replaced_by": "tf.print",
-    "change_type": "API Deprecation",
-    "reason": "Unified printing API with better performance and flexibility in TensorFlow 2.x.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/rank",
-    "api": "tf.rank",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.rank",
-    "change_type": "API Compatibility Alias",
-    "reason": "tf.compat.v1.rank is an alias provided for migration purposes to maintain compatibility with TensorFlow v1 code.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/reverse",
-    "api": "tf.reverse",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "v2.0.0",
-    "removed_in": "v2.16.1",
-    "replaced_by": "tf.compat.v1.reverse_v2",
-    "change_type": "API Deprecation",
-    "reason": "The original versions `tf.compat.v1.reverse` and `tf.compat.v1.manip.reverse` were deprecated in favor of `tf.reverse`. The new API supports more data types and additional dimensions, increasing usability and performance.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/roll",
-    "api": "tf.roll",
-    "package": "tensorflow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.manip.roll, tf.compat.v1.roll",
-    "change_type": "API Duplication",
-    "reason": "Introduction of compatibility APIs for migration purposes to support older versions (TensorFlow v1).",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/scan",
     "api": "tf.scan",
-    "package": "TensorFlow",
+    "package": "tensorflow",
     "language": "Python",
-    "deprecated_in": "v2.16.1",
+    "deprecated_in": "2.16.1",
     "removed_in": "",
     "replaced_by": "tf.nest.map_structure(tf.stop_gradient)",
     "change_type": "Parameter Change",
@@ -830,50 +450,13 @@
     "extraction_method": "No Examples"
   },
   {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/shape_n",
-    "api": "shape_n",
-    "package": "tf (TensorFlow)",
-    "language": "Python",
-    "deprecated_in": "v2.0.0 (for tf.compat.v1.shape_n)",
-    "removed_in": "",
-    "replaced_by": "tf.shape_n (TensorFlow v2.x)",
-    "change_type": "API Deprecation",
-    "reason": "Migration to TensorFlow v2.x for better performance and consistency across the framework. The new API provides faster shape computation for multiple tensors.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.shape_n(input,out_type=tf.dtypes.int32,name=None)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/slice",
-    "api": "tf.slice",
-    "package": "tensorflow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.Tensor.__getitem__",
-    "change_type": "API Deprecation",
-    "reason": "To simplify tensor slicing and provide a more Pythonic syntax for better code readability.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://github.com/tensorflow/tensorflow/blob/v2.16.1/tensorflow/python/ops/array_ops.py",
     "api": "tf.squeeze",
-    "package": "TensorFlow",
+    "package": "tensorflow",
     "language": "Python",
-    "deprecated_in": "TensorFlow v2.0",
+    "deprecated_in": "2.0",
     "removed_in": "",
-    "replaced_by": "tf.squeeze without `squeeze_dims` parameter",
+    "replaced_by": "",
     "change_type": "Parameter Change",
     "reason": "Simplification of API by removing the `squeeze_dims` argument in favor of `axis` for better alignment with TensorFlow's API standards and consistency.",
     "has_examples": false,
@@ -882,112 +465,9 @@
     "extraction_method": "No Examples"
   },
   {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/stop_gradient",
-    "api": "tf.stop_gradient",
-    "package": "tensorflow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.stop_gradient",
-    "change_type": "API Deprecation",
-    "reason": "The API was moved to the `compat.v1` module to maintain backward compatibility while encouraging users to migrate to TensorFlow 2.X.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.stop_gradient(input,name=None)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/switch_case",
-    "api": "tf.switch_case",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.switch_case",
-    "change_type": "Behavior Change",
-    "reason": "Improved efficiency for selecting branches and aligning implementation with C++-style switch/case semantics.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.switch_case(branch_index,branch_fns,default=None,name='switch_case')",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/strided_slice",
-    "api": "tf.strided_slice",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.Tensor.getitem, tf.Variable.getitem (NumPy-style slicing syntax)",
-    "change_type": "Behavior Change",
-    "reason": "Encourage users to adopt more Pythonic and NumPy-inspired slicing syntax for tensor operations, simplifying code readability and usability.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.strided_slice(input_,begin,end,strides=None,begin_mask=0,end_mask=0,ellipsis_mask=0,new_axis_mask=0,shrink_axis_mask=0,var=None,name=None)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://tensorflow.org/api_docs/python/tf/tensor_scatter_nd_add",
-    "api": "tensor_scatter_nd_add",
-    "package": "tensorflow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.tensor_scatter_nd_add",
-    "change_type": "",
-    "reason": "Introduction of migration compatibility aliases to support users moving from TensorFlow v1 to TensorFlow v2.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.tensor_scatter_nd_add(tensor:Annotated[Any,TV_TensorScatterAdd_T],indices:Annotated[Any,TV_TensorScatterAdd_Tindices],updates:Annotated[Any,TV_TensorScatterAdd_T],name=None)->Annotated[Any,TV_TensorScatterAdd_T]",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/transpose",
-    "api": "tf.transpose",
-    "package": "tensorflow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.linalg.matrix_transpose",
-    "change_type": "Parameter Change",
-    "reason": "Providing a shorthand to matrix transpose for cleaner code and improved readability when dealing with linear algebra operations.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/truncatediv",
     "api": "tf.truncatediv",
-    "package": "tf (TensorFlow)",
+    "package": "tensorflow",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
@@ -1007,93 +487,11 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/tuple",
-    "api": "tf.tuple",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "v2.0",
-    "removed_in": "Not removed",
-    "replaced_by": "tf.group and automatic control dependencies in TensorFlow 2",
-    "change_type": "API Deprecation",
-    "reason": "TensorFlow 2 introduced eager execution and Autograph, which automatically determines the execution order, making `tf.tuple` unnecessary for most use cases.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/unravel_index",
-    "api": "tf.unravel_index",
-    "package": "tensorflow",
-    "language": "Python",
-    "deprecated_in": "v1.x (in favor of tf.compat.v1.unravel_index)",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.unravel_index",
-    "change_type": "API Deprecation",
-    "reason": "The TensorFlow library moved to a new version structure (v2.x) with updated APIs. Some functions from v1.x were either deprecated or moved to the `tf.compat.v1` module for compatibility purposes.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://github.com/tensorflow/tensorflow",
-    "api": "tf.unique_with_counts",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.unique_with_counts",
-    "change_type": "",
-    "reason": "",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": ">>>importtensorflowastf>>>tf.add(1,2).numpy()3>>>hello=tf.constant('Hello, TensorFlow!')>>>hello.numpy()b'Hello, TensorFlow!'",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/ops/array_ops.py#L1137",
-    "api": "tf.unstack",
-    "package": "tensorflow",
-    "language": "Python",
-    "deprecated_in": "No deprecation information available.",
-    "removed_in": "No removal information available.",
-    "replaced_by": "No replacement information available.",
-    "change_type": "No change information available.",
-    "reason": "No reason provided.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/vectorized_map",
-    "api": "tf.vectorized_map",
-    "package": "tensorflow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.vectorized_map",
-    "change_type": "Parameter Change",
-    "reason": "The tf.compat.v1.vectorized_map is provided as a compatibility alias for migration to codebases using TensorFlow v1.x.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/while_loop",
     "api": "tf.while_loop",
     "package": "tensorflow",
     "language": "Python",
-    "deprecated_in": "v2.16.1",
+    "deprecated_in": "2.16.1",
     "removed_in": "",
     "replaced_by": "tf.nest.map_structure(tf.stop_gradient, tf.while_loop)",
     "change_type": "Parameter Change",
@@ -1104,223 +502,15 @@
     "extraction_method": "No Examples"
   },
   {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/where",
-    "api": "tf.where",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.where_v2",
-    "change_type": "Behavior Change",
-    "reason": "Improved broadcasting behavior and support for complex tensors in the updated API.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.where(condition,x=None,y=None,name=None)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/debugging/Assert",
-    "api": "tf.debugging.Assert",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "Not deprecated",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.Assert",
-    "change_type": "Behavior Change",
-    "reason": "Migration for TensorFlow v1 compatibility and encouragement to adapt TensorFlow v2 functionality.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.debugging.Assert(condition,data,summarize=None,name=None)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/autograph/to_code",
-    "api": "tf.autograph.to_code",
-    "package": "tensorflow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.autograph.to_graph",
-    "change_type": "Performance Optimization",
-    "reason": "The `tf.autograph.to_graph` API provides better functionality for generating TensorFlow computation graphs, which are more efficient for execution compared to directly retrieving source code.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/autograph/set_verbosity",
-    "api": "tf.autograph.set_verbosity",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.autograph.set_verbosity",
-    "change_type": "Behavior Change",
-    "reason": "The API was updated to emphasize migration paths for users transitioning from TensorFlow v1 to v2. The `tf.compat.v1.autograph.set_verbosity` serves as a compatibility alias for those relying on the older TensorFlow v1 functionality.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/autograph/to_graph",
     "api": "tf.autograph.to_graph",
-    "package": "tf.autograph",
+    "package": "tensorflow",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
     "replaced_by": "tf.function",
-    "change_type": "Behavior Change",
+    "change_type": "API Usage Discouraged",
     "reason": "The tf.function API provides higher-level functionality, including caching, variable management, and wrapping Python callable functions into TensorFlow operations while internally using tf.autograph.to_graph.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/debugging/disable_traceback_filtering",
-    "api": "tf.debugging.disable_traceback_filtering",
-    "package": "tf.debugging",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.debugging.enable_traceback_filtering",
-    "change_type": "Behavior Change",
-    "reason": "To provide developers with an option to debug TensorFlow-internal issues by exposing all frames in exception stack traces.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.debugging.disable_traceback_filtering()",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://github.com/tensorflow/tensorflow/commit/4b9b4e960aec94d91e4f61e9835d20c51db062ec",
-    "api": "tf.debugging.disable_check_numerics",
-    "package": "tf.debugging",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "None (can still use tf.compat.v1.debugging.disable_check_numerics for backward compatibility)",
-    "change_type": "Behavior Change",
-    "reason": "To provide better compatibility and support simplified migration paths for users transitioning between TensorFlow versions.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "Failed to fetch"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/image/resize",
-    "api": "tf.image.ResizeMethod",
-    "package": "tensorflow.image",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.image.resize",
-    "change_type": "API Deprecation",
-    "reason": "Promotes using `tf.image.resize` for more flexibility and enhanced functionality in handling image resizing across multiple methods.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.image.resize(images,size,method=ResizeMethod.BILINEAR,preserve_aspect_ratio=False,antialias=False,name=None)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://github.com/tensorflow/tensorflow/blob/v2.16.1/tensorflow/python/ops/image_ops_impl.py#L124",
-    "api": "tf.image.adjust_gamma",
-    "package": "tensorflow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.image.adjust_gamma",
-    "change_type": "API Deprecation",
-    "reason": "Migration guide suggests compatibility alias for transitioning from TensorFlow v1 to v2.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/image/adjust_saturation",
-    "api": "adjust_saturation",
-    "package": "tf.image",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.image.adjust_saturation",
-    "change_type": "Parameter Change",
-    "reason": "Migration to TensorFlow v2 caused changes in API behavior to support eager execution and align with TensorFlow 2 ecosystem.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/image/central_crop",
-    "api": "tf.image.central_crop",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.image.central_crop (for migration)",
-    "change_type": "API Deprecation",
-    "reason": "The `tf.image.central_crop` API was modified to encourage users to transition to `tf.compat.v1.image.central_crop` during migration to TensorFlow v2. This aligns with TensorFlow's move towards eager execution and the updated v2 API standards.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://github.com/tensorflow/tensorflow/blob/v2.16.1/tensorflow/python/ops/image_ops_impl.py",
-    "api": "tf.image.flip_up_down",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.image.flip_up_down (for migration)",
-    "change_type": "",
-    "reason": "",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/image/flip_left_right",
-    "api": "tf.image.flip_left_right",
-    "package": "tf.image",
-    "language": "Python",
-    "deprecated_in": "2.0",
-    "removed_in": "",
-    "replaced_by": "tf.reverse",
-    "change_type": "API Deprecation",
-    "reason": "The newer alternative `tf.reverse` offers greater flexibility and supports flipping along multiple axes. The original API `tf.image.flip_left_right` is limited to flipping along the width dimension only.",
     "has_examples": false,
     "examples": [],
     "examples_count": 0,
@@ -1329,12 +519,12 @@
   {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/image/random_brightness",
     "api": "tf.image.random_brightness",
-    "package": "tensorflow.image",
+    "package": "tensorflow",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
     "replaced_by": "tf.image.stateless_random_brightness",
-    "change_type": "Behavior Change",
+    "change_type": "API Usage Discouraged",
     "reason": "To guarantee deterministic results when given the same seed, regardless of how many times the function is called and independent of global seed settings.",
     "has_examples": false,
     "examples": [],
@@ -1342,54 +532,14 @@
     "extraction_method": "No Examples"
   },
   {
-    "source_url": "https://github.com/tensorflow/tensorflow/releases/tag/v2.16.1",
-    "api": "tf.image.per_image_standardization",
-    "package": "tensorflow.image",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.image.per_image_standardization (for migration purposes)",
-    "change_type": "",
-    "reason": "",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.estimatorThe tf.estimator API is removed.To continue using tf.estimator, you will need to use TF 2.15 or an earlier version.",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      },
-      {
-        "code": "tf.liteAdded support forstablehlo.gather.Added support forstablehlo.add.Added support forstablehlo.multiply.Added support forstablehlo.maximum.Added support forstablehlo.minimum.Added boolean parameter support fortfl.gather_nd.C API:New API functions:tensorflow/lite/c/c_api_experimental.h:TfLiteInterpreterGetVariableTensorCountTfLiteInterpreterGetVariableTensorTfLiteInterpreterGetBufferHandleTfLiteInterpreterSetBufferHandletensorflow/lite/c/c_api_opaque.h:TfLiteOpaqueTensorSetAllocationTypeToDynamicAPI functions promoted from experimental to stable:tensorflow/lite/c/c_api.h:TfLiteInterpreterOptionsEnableCancellationTfLiteInterpreterCancelC++ API:New virtual methods in thetflite::SimpleDelegateInterfaceclass intensorflow/lite/delegates/utils/simple_delegate.h,and likewise in thetflite::SimpleOpaqueDelegateInterfaceclass intensorflow/lite/delegates/utils/simple_opaque_delegate.h:CopyFromBufferHandleCopyToBufferHandleFreeBufferHandle",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      },
-      {
-        "code": "tf.train.CheckpointOptionsAddedexperimental_skip_slot_variables(a boolean option) to skip restoring of optimizer slot variables in a checkpoint.",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      },
-      {
-        "code": "tf.saved_model.SaveOptionsSaveOptionsnow takes a new argument calledexperimental_debug_stripper. When enabled, this strips the debug nodes from both the node defs and the function defs of the graph. Note that this currently only strips theAssertnodes from the graph and converts them intoNoOps instead.",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 4,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/image/random_crop",
     "api": "tf.image.random_crop",
-    "package": "tf.image",
+    "package": "tensorflow",
     "language": "Python",
-    "deprecated_in": "v2.16.1",
+    "deprecated_in": "2.16.1",
     "removed_in": "",
     "replaced_by": "tf.image.stateless_random_crop",
-    "change_type": "API Deprecation",
+    "change_type": "API Usage Discouraged",
     "reason": "To provide deterministic results independent of global seed settings and improve reproducibility.",
     "has_examples": false,
     "examples": [],
@@ -1399,12 +549,12 @@
   {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/image/random_contrast",
     "api": "tf.image.random_contrast",
-    "package": "tensorflow.image",
+    "package": "tensorflow",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
     "replaced_by": "tf.image.stateless_random_contrast",
-    "change_type": "Behavior Change",
+    "change_type": "API Usage Discouraged",
     "reason": "To guarantee deterministic results independent of global seed settings.",
     "has_examples": false,
     "examples": [],
@@ -1412,54 +562,14 @@
     "extraction_method": "No Examples"
   },
   {
-    "source_url": "https://github.com/tensorflow/tensorflow/releases/tag/v2.16.1",
-    "api": "tf.image.non_max_suppression_padded",
-    "package": "tensorflow.image",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.image.non_max_suppression_with_scores",
-    "change_type": "Parameter Change",
-    "reason": "The new API `tf.image.non_max_suppression_with_scores` provides additional functionality, such as returning suppression scores alongside valid indices, improving the usability and flexibility of the operation.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.estimatorThe tf.estimator API is removed.To continue using tf.estimator, you will need to use TF 2.15 or an earlier version.",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      },
-      {
-        "code": "tf.liteAdded support forstablehlo.gather.Added support forstablehlo.add.Added support forstablehlo.multiply.Added support forstablehlo.maximum.Added support forstablehlo.minimum.Added boolean parameter support fortfl.gather_nd.C API:New API functions:tensorflow/lite/c/c_api_experimental.h:TfLiteInterpreterGetVariableTensorCountTfLiteInterpreterGetVariableTensorTfLiteInterpreterGetBufferHandleTfLiteInterpreterSetBufferHandletensorflow/lite/c/c_api_opaque.h:TfLiteOpaqueTensorSetAllocationTypeToDynamicAPI functions promoted from experimental to stable:tensorflow/lite/c/c_api.h:TfLiteInterpreterOptionsEnableCancellationTfLiteInterpreterCancelC++ API:New virtual methods in thetflite::SimpleDelegateInterfaceclass intensorflow/lite/delegates/utils/simple_delegate.h,and likewise in thetflite::SimpleOpaqueDelegateInterfaceclass intensorflow/lite/delegates/utils/simple_opaque_delegate.h:CopyFromBufferHandleCopyToBufferHandleFreeBufferHandle",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      },
-      {
-        "code": "tf.train.CheckpointOptionsAddedexperimental_skip_slot_variables(a boolean option) to skip restoring of optimizer slot variables in a checkpoint.",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      },
-      {
-        "code": "tf.saved_model.SaveOptionsSaveOptionsnow takes a new argument calledexperimental_debug_stripper. When enabled, this strips the debug nodes from both the node defs and the function defs of the graph. Note that this currently only strips theAssertnodes from the graph and converts them intoNoOps instead.",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 4,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/image/random_flip_up_down",
     "api": "tf.image.random_flip_up_down",
-    "package": "tensorflow.image",
+    "package": "tensorflow",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
     "replaced_by": "tf.image.stateless_random_flip_up_down",
-    "change_type": "Behavior Change",
+    "change_type": "API Usage Discouraged",
     "reason": "To provide deterministic results based on seed value, independent of function invocation count or global seed settings.",
     "has_examples": false,
     "examples": [],
@@ -1468,13 +578,13 @@
   },
   {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/image/random_flip_left_right",
-    "api": "random_flip_left_right",
-    "package": "tf.image",
+    "api": "tf.image.random_flip_left_right",
+    "package": "tensorflow",
     "language": "Python",
-    "deprecated_in": "Not applicable",
-    "removed_in": "Not applicable",
+    "deprecated_in": "",
+    "removed_in": "",
     "replaced_by": "tf.image.stateless_random_flip_left_right",
-    "change_type": "Behavior Change",
+    "change_type": "API Usage Discouraged",
     "reason": "The update was made to allow deterministic results when using a seed. The new `stateless_random_flip_left_right` guarantees reproducibility independent of global seed settings and the number of times the function is called.",
     "has_examples": false,
     "examples": [],
@@ -1484,34 +594,27 @@
   {
     "source_url": "https://github.com/tensorflow/tensorflow",
     "api": "tf.image.random_jpeg_quality",
-    "package": "tf.image",
+    "package": "tensorflow",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
     "replaced_by": "tf.image.stateless_random_jpeg_quality",
-    "change_type": "Behavior Change",
+    "change_type": "API Usage Discouraged",
     "reason": "The updated API guarantees deterministic results with the same seed, regardless of how many times the function is called or any global seed settings.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": ">>>importtensorflowastf>>>tf.add(1,2).numpy()3>>>hello=tf.constant('Hello, TensorFlow!')>>>hello.numpy()b'Hello, TensorFlow!'",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
     "extraction_method": "Manual"
   },
   {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/image/random_saturation",
     "api": "tf.image.random_saturation",
-    "package": "tf.image",
+    "package": "tensorflow",
     "language": "Python",
-    "deprecated_in": "Not deprecated",
+    "deprecated_in": "",
     "removed_in": "",
-    "replaced_by": "",
-    "change_type": "Behavior Change",
+    "replaced_by": "tf.image.stateless_random_saturation",
+    "change_type": "API Usage Discouraged",
     "reason": "To ensure determinism in random operations across multiple function calls and independent of global seed settings.",
     "has_examples": false,
     "examples": [],
@@ -1520,13 +623,13 @@
   },
   {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/image/random_hue",
-    "api": "random_hue",
-    "package": "tf.image",
+    "api": "tf.image.random_hue",
+    "package": "tensorflow",
     "language": "Python",
-    "deprecated_in": "v2.16.0",
+    "deprecated_in": "",
     "removed_in": "",
-    "replaced_by": "stateless_random_hue",
-    "change_type": "API Deprecation",
+    "replaced_by": "tf.image.stateless_random_hue",
+    "change_type": "API Usage Discouraged",
     "reason": "Improved deterministic behavior when using the seed parameter.",
     "has_examples": false,
     "examples": [],
@@ -1534,66 +637,14 @@
     "extraction_method": "No Examples"
   },
   {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/image/rgb_to_grayscale",
-    "api": "tf.image.rgb_to_grayscale",
-    "package": "tensorflow.image",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.image.rgb_to_grayscale",
-    "change_type": "Compat Aliases for Migration",
-    "reason": "Part of TensorFlow API migration to version 2.x. The function was moved to tf.compat.v1 for backward compatibility as TensorFlow transitioned to version 2.x.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.image.rgb_to_grayscale(images,name=None)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/image/rgb_to_hsv",
-    "api": "rgb_to_hsv",
-    "package": "tf.image",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.image.rgb_to_hsv (for compatibility)",
-    "change_type": "",
-    "reason": "",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://github.com/tensorflow/tensorflow/releases/tag/v2.16.0",
-    "api": "tf.image.ssim_multiscale",
-    "package": "tf.image",
-    "language": "Python",
-    "deprecated_in": "tf.compat.v1.image.ssim_multiscale (Deprecated in TensorFlow v2.x)",
-    "removed_in": "",
-    "replaced_by": "tf.image.ssim_multiscale (non-compat version for TensorFlow v2.x)",
-    "change_type": "API Deprecation",
-    "reason": "Migration to TensorFlow 2.x with eager execution and functional style APIs",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "Failed to fetch"
-  },
-  {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/image/sample_distorted_bounding_box",
-    "api": "sample_distorted_bounding_box",
-    "package": "tf.image",
+    "api": "tf.image.sample_distorted_bounding_box",
+    "package": "tensorflow",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
-    "replaced_by": "stateless_sample_distorted_bounding_box",
-    "change_type": "Behavior Change",
+    "replaced_by": "tf.image.stateless_sample_distorted_bounding_box",
+    "change_type": "API Usage Discouraged",
     "reason": "To provide deterministic results independent of the number of function calls and global seed settings for reproducibility.",
     "has_examples": true,
     "examples": [
@@ -1608,634 +659,12 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://github.com/tensorflow/tensorflow/tree/master/tensorflow/python/ops/image_ops_impl.py",
-    "api": "tf.image.stateless_random_hue",
-    "package": "image",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.image.adjust_hue",
-    "change_type": "Behavior Change",
-    "reason": "The function ensures deterministic behavior based on a given seed, independent of global seed settings. Additionally, it provides improved functionality compared to tf.image.adjust_hue().",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/image/total_variation",
-    "api": "tf.image.total_variation",
-    "package": "tf.image",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.image.total_variation",
-    "change_type": "API Compatibility",
-    "reason": "Migration to TensorFlow 2 required compatibility with TensorFlow 1 APIs. The `tf.compat.v1.image.total_variation` alias was introduced to maintain compatibility for users who are migrating from TensorFlow 1.x.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.image.total_variation(images,name=None)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/io/RaggedFeature",
-    "api": "tf.io.RaggedFeature.RowLengths",
-    "package": "tensorflow.io",
-    "language": "Python",
-    "deprecated_in": "v2.16.1",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.io.RaggedFeature.RowLengths",
-    "change_type": "API Deprecation",
-    "reason": "The API was marked as deprecated to encourage migration to its compatibility alias `tf.compat.v1.io.RaggedFeature.RowLengths`.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/io/FixedLenSequenceFeature",
-    "api": "tf.io.FixedLenSequenceFeature",
-    "package": "tensorflow",
-    "language": "Python",
-    "deprecated_in": "v1.x (via tf.compat.v1.FixedLenSequenceFeature)",
-    "removed_in": "",
-    "replaced_by": "tf.io.FixedLenSequenceFeature (TensorFlow v2.x)",
-    "change_type": "API Deprecation",
-    "reason": "Migration to TensorFlow v2.x for improved usability and consistency within the TensorFlow framework. The API was updated to better align with TensorFlow's eager execution model.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.io.FixedLenSequenceFeature(shape,dtype,allow_missing=False,default_value=None)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/guide/migrate",
-    "api": "tf.io.FixedLenFeature",
-    "package": "io",
-    "language": "Python",
-    "deprecated_in": "v2.0.0",
-    "removed_in": "",
-    "replaced_by": "tf.io.FixedLenSequenceFeature",
-    "change_type": "API Deprecation",
-    "reason": "Updated to support parsing sequences of fixed-length features instead of singular fixed-length features, increasing flexibility for input pipelines.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://github.com/tensorflow/tensorflow/releases/tag/v2.16.1",
-    "api": "tf.io.RaggedFeature.UniformRowLength",
-    "package": "tensorflow",
-    "language": "python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.io.RaggedFeature.UniformRowLength",
-    "change_type": "API Deprecation",
-    "reason": "Simplify migration efforts and maintain backward compatibility.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.estimatorThe tf.estimator API is removed.To continue using tf.estimator, you will need to use TF 2.15 or an earlier version.",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      },
-      {
-        "code": "tf.liteAdded support forstablehlo.gather.Added support forstablehlo.add.Added support forstablehlo.multiply.Added support forstablehlo.maximum.Added support forstablehlo.minimum.Added boolean parameter support fortfl.gather_nd.C API:New API functions:tensorflow/lite/c/c_api_experimental.h:TfLiteInterpreterGetVariableTensorCountTfLiteInterpreterGetVariableTensorTfLiteInterpreterGetBufferHandleTfLiteInterpreterSetBufferHandletensorflow/lite/c/c_api_opaque.h:TfLiteOpaqueTensorSetAllocationTypeToDynamicAPI functions promoted from experimental to stable:tensorflow/lite/c/c_api.h:TfLiteInterpreterOptionsEnableCancellationTfLiteInterpreterCancelC++ API:New virtual methods in thetflite::SimpleDelegateInterfaceclass intensorflow/lite/delegates/utils/simple_delegate.h,and likewise in thetflite::SimpleOpaqueDelegateInterfaceclass intensorflow/lite/delegates/utils/simple_opaque_delegate.h:CopyFromBufferHandleCopyToBufferHandleFreeBufferHandle",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      },
-      {
-        "code": "tf.train.CheckpointOptionsAddedexperimental_skip_slot_variables(a boolean option) to skip restoring of optimizer slot variables in a checkpoint.",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      },
-      {
-        "code": "tf.saved_model.SaveOptionsSaveOptionsnow takes a new argument calledexperimental_debug_stripper. When enabled, this strips the debug nodes from both the node defs and the function defs of the graph. Note that this currently only strips theAssertnodes from the graph and converts them intoNoOps instead.",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 4,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/io/RaggedFeature",
-    "api": "tf.io.RaggedFeature.RowStarts",
-    "package": "tensorflow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.io.RaggedFeature.RowStarts",
-    "change_type": "API Deprecation",
-    "reason": "The API was moved to the `tf.compat.v1` namespace as part of the transition to TensorFlow 2.x, where `compat.v1` includes functionalities from TensorFlow 1.x for backward compatibility.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/io/SparseFeature",
-    "api": "SparseFeature",
-    "package": "tf.io",
-    "language": "Python",
-    "deprecated_in": "v2.16.1",
-    "removed_in": "",
-    "replaced_by": "VarLenFeature",
-    "change_type": "API Deprecation",
-    "reason": "SparseFeature is less simple and versatile compared to VarLenFeature for parsing sparse tensors.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.io.SparseFeature(index_key,value_key,dtype,size,already_sorted=False)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/io/decode_gif",
-    "api": "tf.io.decode_gif",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "v2.0.0",
-    "removed_in": "",
-    "replaced_by": "tf.io.decode_image",
-    "change_type": "API Deprecation",
-    "reason": "GIF images with frame or transparency compression were not supported, and `tf.io.decode_image` provides a cleaner solution for decoding multiple image formats.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.io.decode_gif(contents:Annotated[Any,_atypes.String],name=None)->Annotated[Any,_atypes.UInt8]",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/io/decode_base64",
-    "api": "decode_base64",
-    "package": "tf.io",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.decode_base64, tf.compat.v1.io.decode_base64",
-    "change_type": "Behavior Change",
-    "reason": "The API's behavior has been updated to support migration. Compat aliases were added to facilitate transition from TensorFlow v1 to v2.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.io.decode_base64(input:Annotated[Any,_atypes.String],name=None)->Annotated[Any,_atypes.String]",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/io/VarLenFeature",
-    "api": "tf.io.VarLenFeature",
-    "package": "tf.io",
-    "language": "Python",
-    "deprecated_in": "v2.0.0",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.VarLenFeature, tf.compat.v1.io.VarLenFeature (for backward compatibility)",
-    "change_type": "API Deprecation",
-    "reason": "To promote the use of TensorFlow 2.x functionalities and discourage reliance on deprecated APIs from TensorFlow 1.x. TensorFlow 2.x simplifies the API and encourages the use of eager execution.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.io.VarLenFeature(dtype)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/io/decode_bmp",
-    "api": "tf.io.decode_bmp",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.image.decode_bmp",
-    "change_type": "API Deprecation",
-    "reason": "Consolidation of image decoding functions under the `tf.image` package to improve API organization and consistency.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.io.decode_bmp(contents:Annotated[Any,_atypes.String],channels:int=0,name=None)->Annotated[Any,_atypes.UInt8]",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/io/decode_compressed",
-    "api": "tf.io.decode_compressed",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.decode_compressed",
-    "change_type": "API Deprecation",
-    "reason": "Migration from TensorFlow v1 to TensorFlow v2 for compatibility and modernization.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.io.decode_compressed(bytes:Annotated[Any,_atypes.String],compression_type:str='',name=None)->Annotated[Any,_atypes.String]",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/io/TFRecordWriter",
-    "api": "tf.io.TFRecordWriter",
-    "package": "TensorFlow v2.16.1",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.io.TFRecordWriter",
-    "change_type": "API Deprecation",
-    "reason": "The API was moved to the `tf.compat.v1` module as part of TensorFlow 2's transition to eager execution and to provide backward compatibility for TensorFlow 1.x users.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.io.TFRecordWriter(path,options=None)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/io/decode_image",
-    "api": "tf.io.decode_image",
-    "package": "tensorflow",
-    "language": "python",
-    "deprecated_in": "Not Applicable",
-    "removed_in": "",
-    "replaced_by": "tf.image.decode_image",
-    "change_type": "Behavior Change",
-    "reason": "The API was modified for better alignment and consistency with namespaces and structured functionalities across TensorFlow's APIs.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.io.decode_image(contents,channels=None,dtype=tf.dtypes.uint8,name=None,expand_animations=True)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/io/decode_and_crop_jpeg",
-    "api": "tf.io.decode_and_crop_jpeg",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "v2.16.1",
-    "removed_in": "",
-    "replaced_by": "tf.image.decode_and_crop_jpeg",
-    "change_type": "API Deprecation",
-    "reason": "Unification of image-related APIs under tf.image namespace for consistency and clarity.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.io.decode_and_crop_jpeg(contents:Annotated[Any,_atypes.String],crop_window:Annotated[Any,_atypes.Int32],channels:int=0,ratio:int=1,fancy_upscaling:bool=True,try_recover_truncated:bool=False,acceptable_fraction:float=1,dct_method:str='',name=None)->Annotated[Any,_atypes.UInt8]",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/io/decode_jpeg",
-    "api": "tf.io.decode_jpeg",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "v2.16.1",
-    "removed_in": "",
-    "replaced_by": "tf.io.decode_image",
-    "change_type": "API Deprecation",
-    "reason": "Consolidation of JPEG, PNG, and GIF decoding functionalities into a single interface to improve API clarity and usability.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.io.decode_jpeg(contents:Annotated[Any,_atypes.String],channels:int=0,ratio:int=1,fancy_upscaling:bool=True,try_recover_truncated:bool=False,acceptable_fraction:float=1,dct_method:str='',name=None)->Annotated[Any,_atypes.UInt8]",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/io/extract_jpeg_shape",
-    "api": "tf.io.extract_jpeg_shape",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "Not specified",
-    "removed_in": "Not specified",
-    "replaced_by": "tf.image.extract_jpeg_shape",
-    "change_type": "API Deprecation",
-    "reason": "Consolidation of image-related APIs under one package for better organization and clarity.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.io.extract_jpeg_shape(contents:Annotated[Any,_atypes.String],output_type:TV_ExtractJpegShape_output_type=tf.dtypes.int32,name=None)->Annotated[Any,TV_ExtractJpegShape_output_type]",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/io/encode_png",
-    "api": "encode_png",
-    "package": "tf.io",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.image.encode_png",
-    "change_type": "API Deprecation",
-    "reason": "The API was deprecated in favor of tf.image.encode_png for better package organization and consistency.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.io.encode_png(image,compression=-1,name=None)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/io/encode_base64",
-    "api": "encode_base64",
-    "package": "tf.io",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.encode_base64, tf.compat.v1.io.encode_base64 (for migration)",
-    "change_type": "",
-    "reason": "",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.io.encode_base64(input:Annotated[Any,_atypes.String],pad:bool=False,name=None)->Annotated[Any,_atypes.String]",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/io/deserialize_many_sparse",
-    "api": "tf.io.deserialize_many_sparse",
-    "package": "tensorflow.io",
-    "language": "Python",
-    "deprecated_in": "v2.16",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.deserialize_many_sparse",
-    "change_type": "API Deprecation",
-    "reason": "Migration to ensure compatibility with TensorFlow's v2 namespace and promote the use of more modern APIs.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.io.deserialize_many_sparse(serialized_sparse,dtype,rank=None,name=None)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/image/encode_jpeg",
-    "api": "tf.io.encode_jpeg",
-    "package": "tensorflow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.image.encode_jpeg",
-    "change_type": "API Deprecation",
-    "reason": "The `tf.io.encode_jpeg` API has been moved and is now accessible under `tf.image.encode_jpeg`. This change ensures better organization and grouping of image-related functions.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.io.encode_jpeg(image:Annotated[Any,_atypes.UInt8],format:str='',quality:int=95,progressive:bool=False,optimize_size:bool=False,chroma_downsampling:bool=True,density_unit:str='in',x_density:int=300,y_density:int=300,xmp_metadata:str='',name=None)->Annotated[Any,_atypes.String]",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/io/is_jpeg",
-    "api": "tf.io.is_jpeg",
-    "package": "tf.io",
-    "language": "Python",
-    "deprecated_in": "Unspecified",
-    "removed_in": "Unspecified",
-    "replaced_by": "tf.image.is_jpeg",
-    "change_type": "API Deprecation",
-    "reason": "Improved organization within the TensorFlow library, aligning image-related operations under a single namespace.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.io.is_jpeg(contents,name=None)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/io/parse_tensor",
-    "api": "tf.io.parse_tensor",
-    "package": "tensorflow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.io.parse_tensor, tf.compat.v1.parse_tensor",
-    "change_type": "API Deprecation",
-    "reason": "Migration to the v2 API for better usability and to support TensorFlow's long-term development goals.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.io.parse_tensor(serialized:Annotated[Any,_atypes.String],out_type:TV_ParseTensor_out_type,name=None)->Annotated[Any,TV_ParseTensor_out_type]",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/io/parse_single_example",
-    "api": "tf.io.parse_single_example",
-    "package": "tf.io",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.io.parse_example",
-    "change_type": "Behavior Change",
-    "reason": "Improved performance when batching Example protos due to changes in behavior for dense and sparse tensors.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/versions/r2.16/api_docs/python/tf/io/encode_proto",
-    "api": "tf.io.encode_proto",
-    "package": "tf.io",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.io.encode_proto",
-    "change_type": "Parameter Change",
-    "reason": "Simplification of API and improved usability for updated TensorFlow versions. Compatibility aliases provided for migration support.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "Failed to fetch"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/io/write_file",
-    "api": "tf.io.write_file",
-    "package": "tf.io",
-    "language": "Python",
-    "deprecated_in": "Not applicable",
-    "removed_in": "Not applicable",
-    "replaced_by": "",
-    "change_type": "",
-    "reason": "",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.io.write_file(filename:Annotated[Any,_atypes.String],contents:Annotated[Any,_atypes.String],name=None)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/add_n",
-    "api": "tf.math.add_n",
-    "package": "TensorFlow v2.16.1",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.reduce_sum",
-    "change_type": "Performance Optimization",
-    "reason": "While `tf.reduce_sum` performs the same mathematical operation, `tf.add_n` is optimized for summing tensors directly, which can be more efficient compared to `tf.reduce_sum`. The latter stacks tensors into a single tensor before summing, which may be unnecessary and less performant in some scenarios.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/io/write_graph",
-    "api": "tf.io.write_graph",
-    "package": "tensorflow",
-    "language": "python",
-    "deprecated_in": "v2.x (exact version unknown)",
-    "removed_in": "",
-    "replaced_by": "tf.saved_model.save",
-    "change_type": "API Deprecation",
-    "reason": "Simplification and consolidation of graph and model-saving APIs into a unified method.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.io.write_graph(graph_or_graph_def,logdir,name,as_text=True)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://arxiv.org/abs/2206.14286",
-    "api": "approx_min_k",
-    "package": "tf.math",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.nn.approx_min_k (alias), tf.compat.v1.math.approx_min_k (compat alias), tf.compat.v1.nn.approx_min_k (compat alias)",
-    "change_type": "Alias Addition",
-    "reason": "Compatibility for migration and ease of use with alternate implementations.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/accumulate_n",
     "api": "tf.math.accumulate_n",
-    "package": "TensorFlow",
+    "package": "tensorflow",
     "language": "Python",
-    "deprecated_in": "v2.16.0",
-    "removed_in": "Future version (unspecified)",
+    "deprecated_in": "2.16.0",
+    "removed_in": "",
     "replaced_by": "tf.math.add_n",
     "change_type": "API Deprecation",
     "reason": "tf.math.accumulate_n is deprecated because tf.math.add_n offers nearly identical functionality while being more efficient in summing tensors directly.",
@@ -2245,58 +674,14 @@
     "extraction_method": "No Examples"
   },
   {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/approx_max_k",
-    "api": "tf.math.approx_max_k",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.nn.approx_max_k",
-    "change_type": "Parameter Change",
-    "reason": "Consolidation of functionality and migration to the `tf.nn` namespace for better clarity and alignment.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.math.approx_max_k(operand,k,reduction_dimension=-1,recall_target=0.95,reduction_input_size_override=-1,aggregate_to_topk=True,name=None)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/asinh",
-    "api": "tf.math.asinh",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.asinh",
-    "change_type": "API Deprecation",
-    "reason": "Transition from TensorFlow v1 to v2, emphasizing the migration to eager execution and compatibility utilities for older APIs under `tf.compat.v1`.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.math.asinh(x:Annotated[Any,tf.raw_ops.Any],name=None)->Annotated[Any,tf.raw_ops.Any]",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
     "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/bessel_i0",
     "api": "tf.math.bessel_i0",
-    "package": "tf.math",
+    "package": "tensorflow",
     "language": "Python",
     "deprecated_in": "",
     "removed_in": "",
     "replaced_by": "tf.math.special.i0e",
-    "change_type": "Performance Optimization",
+    "change_type": "API Usage Discouraged",
     "reason": "The API documentation states that tf.math.bessel_i0 has been replaced with tf.math.special.i0e due to numerical stability improvements.",
     "has_examples": true,
     "examples": [
@@ -2311,239 +696,857 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/atan",
-    "api": "tf.math.atan",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.atan",
-    "change_type": "API Deprecation",
-    "reason": "Consolidation of naming conventions across TensorFlow operations to provide simpler and more consistent aliases.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://github.com/tensorflow/tensorflow/blob/v2.16.1/tensorflow/python/ops/math_ops.py",
-    "api": "tf.math.bessel_i1e",
-    "package": "tf.math",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.math.special.bessel_i1e",
-    "change_type": "API Deprecation",
-    "reason": "Update to align with namespace convention and improve organization of special functions under `tf.math.special`.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://github.com/tensorflow/tensorflow",
-    "api": "tf.math.bessel_i1",
-    "package": "tensorflow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.math.special.bessel_i1e",
-    "change_type": "API Deprecation",
-    "reason": "The modified Bessel function i1(x) is less numerically stable compared to the i1e(x) function.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": ">>>importtensorflowastf>>>tf.add(1,2).numpy()3>>>hello=tf.constant('Hello, TensorFlow!')>>>hello.numpy()b'Hello, TensorFlow!'",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/argmin",
-    "api": "tf.math.argmin",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.argmin",
-    "change_type": "Main Alias Update",
-    "reason": "To consolidate API references under the canonical namespace `tf` for easier navigation and consistency.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/digamma",
-    "api": "tf.math.digamma",
-    "package": "tensorflow",
-    "language": "python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.digamma",
-    "change_type": "API Deprecation",
-    "reason": "Transition to TensorFlow v2 framework with `tf.compat.v1` used for backward compatibility.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.math.digamma(x:Annotated[Any,tf.raw_ops.Any],name=None)->Annotated[Any,tf.raw_ops.Any]",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/cos",
-    "api": "tf.math.cos",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.cos",
-    "change_type": "API Replacement",
-    "reason": "The TensorFlow API underwent restructuring to simplify and standardize the API. `tf.math.cos` remains active, but the alias `tf.compat.v1.cos` is provided for backward compatibility with TensorFlow v1.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.math.cos(x:Annotated[Any,tf.raw_ops.Any],name=None)->Annotated[Any,tf.raw_ops.Any]",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/conj",
-    "api": "tf.math.conj",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.conj",
-    "change_type": "API Deprecation",
-    "reason": "Migration for compatibility with newer versions of TensorFlow (v2).",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
     "source_url": "https://github.com/tensorflow/tensorflow/releases",
-    "api": "tf.math.divide",
-    "package": "tf.math",
+    "api": "tf.lite",
+    "package": "tensorflow",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.20.0",
     "removed_in": "",
-    "replaced_by": "tf.divide",
+    "replaced_by": "LiteRT",
     "change_type": "API Deprecation",
-    "reason": "Unified naming conventions for TensorFlow APIs to avoid redundancy and ensure consistency.",
+    "reason": "tf.lite is being deprecated in favor of the new LiteRT repository, and the duplicated source code will be removed from the TensorFlow repository.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/Print",
+    "api": "tf.compat.v1.Print",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.13.0",
+    "removed_in": "",
+    "replaced_by": "tf.print",
+    "change_type": "API Deprecation",
+    "reason": "This API was designed for TensorFlow v1 and is deprecated. Users should use `tf.print` instead, which supports eager execution and `tf.function` in TensorFlow v2.",
     "has_examples": true,
     "examples": [
       {
-        "code": "tf.liteC API:An optional, fourth parameter was addedTfLiteOperatorCreateas a step forward towards a cleaner API forTfLiteOperator. FunctionTfLiteOperatorCreatewas added recently, in TensorFlow Lite version 2.17.0, released on 7/11/2024, and we do not expect there will be much code using this function yet. Any code breakages can be easily resolved by passing nullptr as the new, 4th parameter.",
+        "code": "sess = tf.compat.v1.Session()\nwith sess.as_default():\n    tensor = tf.range(10)\n    print_op = tf.print(tensor)\n    with tf.control_dependencies([print_op]):\n        out = tf.add(tensor, tensor)\n    sess.run(out)",
         "output": "",
         "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/all_variables",
+    "api": "tf.compat.v1.all_variables",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.0.0",
+    "removed_in": "",
+    "replaced_by": "tf.global_variables",
+    "change_type": "API Deprecation",
+    "reason": "This function is deprecated and will be removed after 2017-03-02. Users are instructed to use tf.global_variables instead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/arg_max",
+    "api": "tf.compat.v1.arg_max",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.0.0",
+    "removed_in": "",
+    "replaced_by": "tf.math.argmax",
+    "change_type": "API Deprecation",
+    "reason": "This function is deprecated. Users are instructed to use tf.math.argmax instead.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "import tensorflow as tf\na = [1, 10, 26.9, 2.8, 166.32, 62.3]\nb = tf.math.argmax(input = a)\nc = tf.keras.backend.eval(b)\n# c = 4\n# here a[4] = 166.32 which is the largest element of a across axis 0",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/arg_min",
+    "api": "tf.compat.v1.arg_min",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.0.0",
+    "removed_in": "",
+    "replaced_by": "tf.math.argmin",
+    "change_type": "API Deprecation",
+    "reason": "THIS FUNCTION IS DEPRECATED. It will be removed in a future version. Instructions for updating: Use tf.math.argmin instead.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "import tensorflow as tf\na = [1, 10, 26.9, 2.8, 166.32, 62.3]\nb = tf.math.argmin(input = a)\nc = tf.keras.backend.eval(b)\n# c = 0\n# here a[0] = 1 which is the smallest element of a across axis 0",
+        "output": "c = 0",
+        "has_output": true,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/batch_gather",
+    "api": "tf.compat.v1.batch_gather",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.13.0",
+    "removed_in": "",
+    "replaced_by": "tf.gather",
+    "change_type": "API Deprecation",
+    "reason": "THIS FUNCTION IS DEPRECATED. It will be removed after 2017-10-25. Instructions for updating: tf.batch_gather is deprecated, please use tf.gather with batch_dims=tf.rank(indices) - 1 instead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/batch_scatter_update",
+    "api": "tf.compat.v1.batch_scatter_update",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.12.0",
+    "removed_in": "",
+    "replaced_by": "Variable.batch_scatter_update",
+    "change_type": "API Deprecation",
+    "reason": "THIS FUNCTION IS DEPRECATED. It will be removed after 2018-11-29. Instructions for updating: Use the batch_scatter_update method of Variable instead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/clip_by_average_norm",
+    "api": "tf.compat.v1.clip_by_average_norm",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.0.0",
+    "removed_in": "",
+    "replaced_by": "tf.clip_by_norm",
+    "change_type": "API Deprecation",
+    "reason": "THIS FUNCTION IS DEPRECATED. It will be removed in a future version. Instructions for updating: clip_by_average_norm is deprecated in TensorFlow 2.0. Please use clip_by_norm(t, clip_norm * tf.cast(tf.size(t), tf.float32), name) instead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/cond",
+    "api": "tf.compat.v1.cond",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.13.0",
+    "removed_in": "",
+    "replaced_by": "true_fn/false_fn arguments",
+    "change_type": "Parameter Change",
+    "reason": "SOME ARGUMENTS ARE DEPRECATED: (fn1, fn2). They will be removed in a future version. Instructions for updating: fn1/fn2 are deprecated in favor of the true_fn/false_fn arguments.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "x = tf.constant(2)\ny = tf.constant(5)\ndef f1(): return tf.multiply(x, 17)\ndef f2(): return tf.add(y, 23)\nr = tf.cond(tf.less(x, y), f1, f2)\n# r is set to f1().\n# Operations in f2 (e.g., tf.add) are not executed.",
+        "output": "r is set to f1().",
+        "has_output": true,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/count_nonzero",
+    "api": "tf.compat.v1.count_nonzero",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.12.0",
+    "removed_in": "",
+    "replaced_by": "keepdims/axis arguments",
+    "change_type": "Parameter Change",
+    "reason": "SOME ARGUMENTS ARE DEPRECATED: (keep_dims, reduction_indices). They will be removed in a future version. Instructions for updating: keep_dims is deprecated, use keepdims instead; reduction_indices is deprecated, use axis instead.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "x = tf.constant([[0, 1, 0], [1, 1, 0]])\ntf.math.count_nonzero(x)  # 3\ntf.math.count_nonzero(x, 0)  # [1, 2, 0]\ntf.math.count_nonzero(x, 1)  # [1, 2]\ntf.math.count_nonzero(x, 1, keepdims=True)  # [[1], [2]]\ntf.math.count_nonzero(x, [0, 1])  # 3",
+        "output": "3\n[1, 2, 0]\n[1, 2]\n[[1], [2]]\n3",
+        "has_output": true,
         "language": "python"
       },
       {
-        "code": "tf.dataAdd optionalsynchronousargument tomap, to specify that themapshould run synchronously, as opposed to be parallelizable whenoptions.experimental_optimization.map_parallelization=True. This saves memory compared to settingnum_parallel_calls=1.Add optionaluse_unbounded_threadpoolargument tomap, to specify that themapshould use an unbounded threadpool instead of the default pool that is based on the number of cores on the machine. This can improve throughput for map functions which perform IO or otherwise release the CPU.Addtf.data.experimental.get_model_prototo allow users to peek into the analytical model inside of a dataset iterator.",
+        "code": "x = tf.constant([\"\", \"a\", \"  \", \"b\", \"\"])\ntf.math.count_nonzero(x) # 3, with \"a\", \"  \", and \"b\" as nonzero strings.",
+        "output": "3",
+        "has_output": true,
+        "language": "python"
+      }
+    ],
+    "examples_count": 2,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/count_up_to",
+    "api": "tf.compat.v1.count_up_to",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.14.0",
+    "removed_in": "",
+    "replaced_by": "Dataset.range",
+    "change_type": "API Deprecation",
+    "reason": "THIS FUNCTION IS DEPRECATED. It will be removed in a future version. Instructions for updating: Prefer Dataset.range instead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/create_partitioned_variables",
+    "api": "tf.compat.v1.create_partitioned_variables",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.0.0",
+    "removed_in": "",
+    "replaced_by": "tf.get_variable with a partitioner",
+    "change_type": "API Deprecation",
+    "reason": "THIS FUNCTION IS DEPRECATED. It will be removed in a future version. Instructions for updating: Use tf.get_variable with a partitioner set.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/decode_raw",
+    "api": "tf.compat.v1.decode_raw",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.14.0",
+    "removed_in": "",
+    "replaced_by": "input_bytes",
+    "change_type": "Parameter Change",
+    "reason": "The 'bytes' argument is deprecated and will be removed in a future version. Users should use 'input_bytes' instead.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "tf.compat.v1.decode_raw(\n    input_bytes=None, out_type=None, little_endian=True, name=None, bytes=None\n)",
         "output": "",
         "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/disable_resource_variables",
+    "api": "tf.compat.v1.disable_resource_variables",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.14.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "This function is deprecated because non-resource variables are not supported in the long term. If code specifically needs this function to work properly, users are asked to file a bug.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "tf.compat.v1.disable_resource_variables() -> None",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/div",
+    "api": "tf.compat.v1.div",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.0.0",
+    "removed_in": "",
+    "replaced_by": "tf.divide or tf.math.divide",
+    "change_type": "API Deprecation",
+    "reason": "This function is deprecated in favor of tf.divide or tf.math.divide, which obey Python 3 division operator semantics.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "tf.compat.v1.div(\n    x, y, name=None\n)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/expand_dims",
+    "api": "tf.compat.v1.expand_dims",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.12.0",
+    "removed_in": "",
+    "replaced_by": "axis (argument)",
+    "change_type": "Parameter Change",
+    "reason": "The 'dim' argument is deprecated and will be removed in a future version. Users are instructed to use the 'axis' argument instead.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "image = tf.zeros([10,10,3])\ntf.expand_dims(image, axis=0).shape.as_list()",
+        "output": "[1, 10, 10, 3]",
+        "has_output": true,
         "language": "python"
       },
       {
-        "code": "tf.liteDequantizeop supportsTensorType_INT4.This change includes per-channel dequantization.Add support forstablehlo.composite.EmbeddingLookupop supports per-channel quantization andTensorType_INT4values.FullyConnectedop supportsTensorType_INT16activation andTensorType_Int4weight per-channel quantization.",
-        "output": "",
-        "has_output": false,
+        "code": "tf.expand_dims(image, axis=1).shape.as_list()",
+        "output": "[10, 1, 10, 3]",
+        "has_output": true,
         "language": "python"
       },
       {
-        "code": "tf.liteC API:An optional, fourth parameter was addedTfLiteOperatorCreateas a step forward towards a cleaner API forTfLiteOperator. FunctionTfLiteOperatorCreatewas added recently, in TensorFlow Lite version 2.17.0, released on 7/11/2024, and we do not expect there will be much code using this function yet. Any code breakages can be easily resolved by passing nullptr as the new, 4th parameter.SignatureRunner is now supported for models with no signatures.",
+        "code": "tf.expand_dims(image, -1).shape.as_list()",
+        "output": "[10, 10, 3, 1]",
+        "has_output": true,
+        "language": "python"
+      }
+    ],
+    "examples_count": 3,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/function",
+    "api": "tf.function",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "2.5.0",
+    "removed_in": "",
+    "replaced_by": "jit_compile, reduce_retracing",
+    "change_type": "Parameter Change",
+    "reason": "Multiple arguments are deprecated: 'experimental_compile' should be replaced with 'jit_compile', 'experimental_relax_shapes' should be replaced with 'reduce_retracing', and 'experimental_follow_type_hints' is also deprecated.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "@tf.function\ndef f(x, y):\n  return x ** 2 + y\nx = tf.constant([2, 3])\ny = tf.constant([3, -2])\nf(x, y)",
+        "output": "<tf.Tensor: ... numpy=array([7, 7], ...)>",
+        "has_output": true,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/guarantee_const",
+    "api": "tf.guarantee_const",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "2.0.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "The function is deprecated and will be removed in a future version because it is not for public use.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/initialize_local_variables",
+    "api": "tf.compat.v1.initialize_local_variables",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.0.0",
+    "removed_in": "",
+    "replaced_by": "tf.local_variables_initializer",
+    "change_type": "API Deprecation",
+    "reason": "This function is deprecated and will be removed after 2017-03-02. Users are instructed to use tf.local_variables_initializer instead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/initialize_all_tables",
+    "api": "tf.compat.v1.initialize_all_tables",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.4.0",
+    "removed_in": "",
+    "replaced_by": "tf.tables_initializer",
+    "change_type": "API Deprecation",
+    "reason": "This function is deprecated and will be removed in a future version. Users are instructed to use tf.tables_initializer instead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/initialize_variables",
+    "api": "tf.compat.v1.initialize_variables",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.0.0",
+    "removed_in": "",
+    "replaced_by": "tf.variables_initializer",
+    "change_type": "API Deprecation",
+    "reason": "This function is deprecated and will be removed after 2017-03-02. Users are instructed to use tf.variables_initializer instead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/load_file_system_library",
+    "api": "tf.compat.v1.load_file_system_library",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.14.0",
+    "removed_in": "",
+    "replaced_by": "tf.load_library",
+    "change_type": "API Deprecation",
+    "reason": "This function is deprecated and will be removed in a future version. Users are instructed to use tf.load_library instead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/map_fn",
+    "api": "tf.compat.v1.map_fn",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "2.7.0",
+    "removed_in": "",
+    "replaced_by": "fn_output_signature (argument)",
+    "change_type": "Argument Deprecation",
+    "reason": "The 'dtype' argument is deprecated and will be removed in a future version. Users are instructed to use 'fn_output_signature' instead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/multinomial",
+    "api": "tf.compat.v1.multinomial",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.13.0",
+    "removed_in": "",
+    "replaced_by": "tf.random.categorical",
+    "change_type": "API Deprecation",
+    "reason": "This function is deprecated and will be removed in a future version. Users are instructed to use tf.random.categorical instead.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "# samples has shape [1, 5], where each value is either 0 or 1 with equal\n# probability.\nsamples = tf.random.categorical(tf.math.log([[0.5, 0.5]]), 5)",
         "output": "",
         "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/norm",
+    "api": "tf.compat.v1.norm",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.12.0",
+    "removed_in": "",
+    "replaced_by": "keepdims",
+    "change_type": "Parameter Change",
+    "reason": "The 'keep_dims' argument is deprecated and will be removed in a future version. Users are instructed to use 'keepdims' instead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/reduce_all",
+    "api": "tf.compat.v1.reduce_all",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.12.0",
+    "removed_in": "",
+    "replaced_by": "keepdims",
+    "change_type": "Parameter Change",
+    "reason": "The 'keep_dims' argument is deprecated and will be removed in a future version. Users are instructed to use 'keepdims' instead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/reduce_any",
+    "api": "tf.compat.v1.reduce_any",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.12.0",
+    "removed_in": "",
+    "replaced_by": "keepdims",
+    "change_type": "Parameter Change",
+    "reason": "The 'keep_dims' argument is deprecated and will be removed in a future version. Users are instructed to use 'keepdims' instead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/reduce_max",
+    "api": "tf.compat.v1.reduce_max",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.12.0",
+    "removed_in": "",
+    "replaced_by": "keepdims, axis",
+    "change_type": "Parameter Change",
+    "reason": "The 'keep_dims' argument is deprecated and should be replaced with 'keepdims'. Additionally, 'reduction_indices' is listed as the deprecated name for 'axis'.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "x = tf.constant([5, 1, 2, 4])\ntf.reduce_max(x)",
+        "output": "<tf.Tensor: shape=(), dtype=int32, numpy=5>",
+        "has_output": true,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/reduce_logsumexp",
+    "api": "tf.compat.v1.reduce_logsumexp",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.12.0",
+    "removed_in": "",
+    "replaced_by": "keepdims, axis",
+    "change_type": "Parameter Change",
+    "reason": "The 'keep_dims' argument is deprecated and should be replaced with 'keepdims'. Additionally, 'reduction_indices' is listed as the deprecated name for 'axis'.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "x = tf.constant([[0., 0., 0.], [0., 0., 0.]])\ntf.reduce_logsumexp(x)  # log(6)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/reduce_min",
+    "api": "tf.compat.v1.reduce_min",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.12.0",
+    "removed_in": "",
+    "replaced_by": "keepdims",
+    "change_type": "Parameter Change",
+    "reason": "The 'keep_dims' argument is deprecated and will be removed in a future version. Users are instructed to use 'keepdims' instead.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "x = tf.constant([5, 1, 2, 4])\ntf.reduce_min(x)",
+        "output": "<tf.Tensor: shape=(), dtype=int32, numpy=1>",
+        "has_output": true,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/reduce_sum",
+    "api": "tf.compat.v1.reduce_sum",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.12.0",
+    "removed_in": "",
+    "replaced_by": "keepdims",
+    "change_type": "Parameter Change",
+    "reason": "The 'keep_dims' argument is deprecated and will be removed in a future version. Users are instructed to use 'keepdims' instead.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "x = tf.constant([[1, 1, 1], [1, 1, 1]])\ntf.reduce_sum(x).numpy()",
+        "output": "6",
+        "has_output": true,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/reduce_prod",
+    "api": "tf.compat.v1.reduce_prod",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.12.0",
+    "removed_in": "",
+    "replaced_by": "keepdims, axis",
+    "change_type": "Parameter Change",
+    "reason": "The 'keep_dims' argument is deprecated and should be replaced with 'keepdims'. Additionally, 'reduction_indices' is listed as the deprecated name for 'axis'.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "x = tf.constant([[1., 2.], [3., 4.]])\ntf.math.reduce_prod(x)",
+        "output": "<tf.Tensor: shape=(), dtype=float32, numpy=24.>",
+        "has_output": true,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/reverse_sequence",
+    "api": "tf.compat.v1.reverse_sequence",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.12.0",
+    "removed_in": "",
+    "replaced_by": "seq_axis, batch_axis",
+    "change_type": "Parameter Change",
+    "reason": "The arguments 'seq_dim' and 'batch_dim' are deprecated and will be removed in a future version. Users are instructed to use 'seq_axis' and 'batch_axis' instead.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "seq_lengths = [7, 2, 3, 5]\ninput = [[1, 2, 3, 4, 5, 0, 0, 0], [1, 2, 0, 0, 0, 0, 0, 0],\n         [1, 2, 3, 4, 0, 0, 0, 0], [1, 2, 3, 4, 5, 6, 7, 8]]\noutput = tf.reverse_sequence(input, seq_lengths, seq_axis=1, batch_axis=0)\noutput",
+        "output": "<tf.Tensor: shape=(4, 8), dtype=int32, numpy=\narray([[0, 0, 5, 4, 3, 2, 1, 0],\n       [2, 1, 0, 0, 0, 0, 0, 0],\n       [3, 2, 1, 4, 0, 0, 0, 0],\n       [5, 4, 3, 2, 1, 6, 7, 8]], dtype=int32)>",
+        "has_output": true,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/sparse_add",
+    "api": "tf.compat.v1.sparse_add",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.13.0",
+    "removed_in": "",
+    "replaced_by": "threshold",
+    "change_type": "Parameter Change",
+    "reason": "The 'thresh' argument is deprecated and will be removed in a future version. Users are instructed to use 'threshold' instead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/sparse_matmul",
+    "api": "tf.compat.v1.sparse_matmul",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.13.0",
+    "removed_in": "",
+    "replaced_by": "tf.linalg.matmul",
+    "change_type": "API Deprecation",
+    "reason": "This function is deprecated and will be removed in a future version. Users are instructed to use tf.linalg.matmul instead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/sparse_merge",
+    "api": "tf.compat.v1.sparse_merge",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.0.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "This function is deprecated and will be removed in a future version. The documentation notes that no similar op is available at this time.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/sparse_reduce_max",
+    "api": "tf.compat.v1.sparse_reduce_max",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.12.0",
+    "removed_in": "",
+    "replaced_by": "keepdims, axis",
+    "change_type": "Parameter Change",
+    "reason": "The 'keep_dims' argument is deprecated in favor of 'keepdims'. Additionally, 'reduction_axes' is deprecated and should be replaced with 'axis'.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "x = tf.sparse.SparseTensor([[0, 0], [0, 2], [1, 1]], [1, 2, 3], [2, 3])\ntf.sparse.reduce_max(x)",
+        "output": "<tf.Tensor: shape=(), dtype=int32, numpy=3>",
+        "has_output": true,
         "language": "python"
       },
       {
-        "code": "tf.dataAdd optionalsynchronousargument tomap, to specify that themapshould run synchronously, as opposed to be parallelizable whenoptions.experimental_optimization.map_parallelization=True. This saves memory compared to settingnum_parallel_calls=1.Add optionaluse_unbounded_threadpoolargument tomap, to specify that themapshould use an unbounded threadpool instead of the default pool that is based on the number of cores on the machine. This can improve throughput for map functions which perform IO or otherwise release the CPU.Addtf.data.experimental.get_model_prototo allow users to peek into the analytical model inside of a dataset iterator.",
-        "output": "",
-        "has_output": false,
+        "code": "tf.sparse.reduce_max(x, 0)",
+        "output": "<tf.Tensor: shape=(3,), dtype=int32, numpy=array([1, 3, 2], dtype=int32)>",
+        "has_output": true,
+        "language": "python"
+      }
+    ],
+    "examples_count": 2,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/sparse_reduce_max_sparse",
+    "api": "tf.compat.v1.sparse_reduce_max_sparse",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.12.0",
+    "removed_in": "",
+    "replaced_by": "keepdims",
+    "change_type": "Parameter Change",
+    "reason": "The 'keep_dims' argument is deprecated and will be removed in a future version. Users are instructed to use 'keepdims' instead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/sparse_reduce_sum",
+    "api": "tf.compat.v1.sparse_reduce_sum",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.12.0",
+    "removed_in": "",
+    "replaced_by": "keepdims, axis",
+    "change_type": "Parameter Change",
+    "reason": "The 'keep_dims' argument is deprecated in favor of 'keepdims'. Additionally, 'reduction_axes' is deprecated and should be replaced with 'axis'.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/sparse_split",
+    "api": "tf.compat.v1.sparse_split",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.12.0",
+    "removed_in": "",
+    "replaced_by": "axis",
+    "change_type": "Parameter Change",
+    "reason": "The 'split_dim' argument is deprecated and will be removed in a future version. Users are instructed to use 'axis' instead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/sparse_reduce_sum_sparse",
+    "api": "tf.compat.v1.sparse_reduce_sum_sparse",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.12.0",
+    "removed_in": "",
+    "replaced_by": "keepdims",
+    "change_type": "Parameter Change",
+    "reason": "The 'keep_dims' argument is deprecated and will be removed in a future version. Users are instructed to use 'keepdims' instead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/sparse_to_dense",
+    "api": "tf.compat.v1.sparse_to_dense",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.14.0",
+    "removed_in": "",
+    "replaced_by": "tf.sparse.SparseTensor, tf.sparse.to_dense",
+    "change_type": "API Deprecation",
+    "reason": "This function is deprecated and will be removed in a future version. Users are instructed to create a tf.sparse.SparseTensor and use tf.sparse.to_dense instead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/squeeze",
+    "api": "tf.compat.v1.squeeze",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.12.0",
+    "removed_in": "",
+    "replaced_by": "axis",
+    "change_type": "Parameter Change",
+    "reason": "The 'squeeze_dims' argument is deprecated and will be removed in a future version. Users are instructed to use the 'axis' argument instead.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "# 't' is a tensor of shape [1, 2, 1, 3, 1, 1]\nt = tf.ones([1, 2, 1, 3, 1, 1])\nprint(tf.shape(tf.squeeze(t)).numpy())",
+        "output": "[2 3]",
+        "has_output": true,
         "language": "python"
       },
       {
-        "code": "tf.liteDequantizeop supportsTensorType_INT4.This change includes per-channel dequantization.Add support forstablehlo.composite.EmbeddingLookupop supports per-channel quantization andTensorType_INT4values.FullyConnectedop supportsTensorType_INT16activation andTensorType_Int4weight per-channel quantization.",
-        "output": "",
-        "has_output": false,
+        "code": "# Or, to remove specific size 1 dimensions:\n# 't' is a tensor of shape [1, 2, 1, 3, 1, 1]\nt = tf.ones([1, 2, 1, 3, 1, 1])\nprint(tf.shape(tf.squeeze(t, [2, 4])).numpy())",
+        "output": "[1 2 3 1]",
+        "has_output": true,
+        "language": "python"
+      }
+    ],
+    "examples_count": 2,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/string_split",
+    "api": "tf.compat.v1.string_split",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.13.0",
+    "removed_in": "",
+    "replaced_by": "sep",
+    "change_type": "Parameter Change",
+    "reason": "The 'delimiter' argument is deprecated and will be removed in a future version. Users are instructed to use 'sep' instead.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "print(tf.compat.v1.string_split(['hello world', 'a b c']))",
+        "output": "SparseTensor(indices=tf.Tensor( [[0 0] [0 1] [1 0] [1 1] [1 2]], ...), values=tf.Tensor([b'hello' b'world' b'a' b'b' b'c'], ...), dense_shape=tf.Tensor([2 3], shape=(2,), dtype=int64))",
+        "has_output": true,
         "language": "python"
       },
       {
-        "code": "tf.liteC API:An optional, fourth parameter was addedTfLiteOperatorCreateas a step forward towards a cleaner API forTfLiteOperator. FunctionTfLiteOperatorCreatewas added recently, in TensorFlow Lite version 2.17.0, released on 7/11/2024, and we do not expect there will be much code using this function yet. Any code breakages can be easily resolved by passing nullptr as the new, 4th parameter.SignatureRunner is now supported for models with no signatures.",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      },
-      {
-        "code": "tf.dataAdd optionalsynchronousargument tomap, to specify that themapshould run synchronously, as opposed to be parallelizable whenoptions.experimental_optimization.map_parallelization=True. This saves memory compared to settingnum_parallel_calls=1.Add optionaluse_unbounded_threadpoolargument tomap, to specify that themapshould use an unbounded threadpool instead of the default pool that is based on the number of cores on the machine. This can improve throughput for map functions which perform IO or otherwise release the CPU.Addtf.data.experimental.get_model_prototo allow users to peek into the analytical model inside of a dataset iterator.",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      },
-      {
-        "code": "tf.liteDequantizeop supportsTensorType_INT4.This change includes per-channel dequantization.Add support forstablehlo.composite.EmbeddingLookupop supports per-channel quantization andTensorType_INT4values.FullyConnectedop supportsTensorType_INT16activation andTensorType_Int4weight per-channel quantization.",
-        "output": "",
-        "has_output": false,
+        "code": "print(tf.compat.v1.string_split(['hello world', 'a b c'],\n    result_type=\"RaggedTensor\"))",
+        "output": "<tf.RaggedTensor [[b'hello', b'world'], [b'a', b'b', b'c']]>",
+        "has_output": true,
         "language": "python"
       }
     ],
-    "examples_count": 9,
+    "examples_count": 2,
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/erfc",
-    "api": "tf.math.erfc",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.erfc",
-    "change_type": "API Deprecation",
-    "reason": "Migration to version 2 APIs for improved consistency and features.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.math.erfc(x:Annotated[Any,tf.raw_ops.Any],name=None)->Annotated[Any,tf.raw_ops.Any]",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/floormod",
-    "api": "tf.math.floormod",
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/to_bfloat16",
+    "api": "tf.compat.v1.to_bfloat16",
     "package": "tensorflow",
     "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.math.mod",
+    "deprecated_in": "1.14.0",
+    "removed_in": "2.0.0",
+    "replaced_by": "tf.cast(..., tf.bfloat16)",
     "change_type": "API Deprecation",
-    "reason": "Transition to a new alias (`tf.math.mod`) to streamline and unify API naming convention.",
+    "reason": "This name was deprecated and removed in TF2. It has an exact replacement `tf.cast(..., tf.bfloat16)` which works with eager execution and tf.function.",
     "has_examples": true,
     "examples": [
       {
-        "code": "tf.math.floormod(x:Annotated[Any,tf.raw_ops.Any],y:Annotated[Any,tf.raw_ops.Any],name=None)->Annotated[Any,tf.raw_ops.Any]",
-        "output": "",
-        "has_output": false,
+        "code": "tf.cast(tf.constant(3.14, dtype=tf.float32), tf.bfloat16)",
+        "output": "<tf.Tensor: shape=(), dtype=bfloat16, numpy=3.14>",
+        "has_output": true,
         "language": "python"
       }
     ],
@@ -2551,41 +1554,107 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://github.com/tensorflow/tensorflow",
-    "api": "tf.math.floor",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.floor",
-    "change_type": "Compat Aliases for Migration",
-    "reason": "Update to TensorFlow version 2.x to support migration from the v1 API.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": ">>>importtensorflowastf>>>tf.add(1,2).numpy()3>>>hello=tf.constant('Hello, TensorFlow!')>>>hello.numpy()b'Hello, TensorFlow!'",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/exp",
-    "api": "tf.math.exp",
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/to_complex128",
+    "api": "tf.compat.v1.to_complex128",
     "package": "tensorflow",
     "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.exp",
+    "deprecated_in": "1.14.0",
+    "removed_in": "2.0.0",
+    "replaced_by": "tf.cast(..., tf.complex128)",
     "change_type": "API Deprecation",
-    "reason": "The TensorFlow development team decided to standardize naming conventions across APIs and simplify usage by consolidating functions under more intuitive module aliases.",
+    "reason": "This name was deprecated and removed in TF2. It has an exact replacement `tf.cast(..., tf.complex128)` which works with eager execution and tf.function.",
     "has_examples": true,
     "examples": [
       {
-        "code": "tf.math.exp(x,name=None)",
+        "code": "tf.cast(tf.constant(1. + 2.j, dtype=tf.complex64), tf.complex128)",
+        "output": "<tf.Tensor: shape=(), dtype=complex128, numpy=(1+2j)>",
+        "has_output": true,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/to_double",
+    "api": "tf.compat.v1.to_double",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.14.0",
+    "removed_in": "2.0.0",
+    "replaced_by": "tf.cast(..., tf.double)",
+    "change_type": "API Deprecation",
+    "reason": "This name was deprecated and removed in TF2. It has an exact replacement `tf.cast(..., tf.double)` which works with eager execution and tf.function.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "tf.cast(tf.constant(3.14, dtype=tf.float32), tf.double)",
+        "output": "<tf.Tensor: shape=(), dtype=float64, numpy=3.14>",
+        "has_output": true,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/to_float",
+    "api": "tf.compat.v1.to_float",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.14.0",
+    "removed_in": "2.0.0",
+    "replaced_by": "tf.cast(..., tf.float32)",
+    "change_type": "API Deprecation",
+    "reason": "This name was deprecated and removed in TF2. It has an exact replacement `tf.cast(..., tf.float32)` which works with eager execution and tf.function.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "tf.cast(tf.constant(3.14, dtype=tf.double), tf.float32)",
+        "output": "<tf.Tensor: shape=(), dtype=float32, numpy=3.14>",
+        "has_output": true,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/compat/v1/to_complex64",
+    "api": "tf.compat.v1.to_complex64",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "1.14.0",
+    "removed_in": "2.0.0",
+    "replaced_by": "tf.cast(..., tf.complex64)",
+    "change_type": "API Deprecation",
+    "reason": "This name was deprecated and removed in TF2. It has an exact replacement `tf.cast(..., tf.complex64)` which works with eager execution and tf.function.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "tf.cast(tf.constant(1. + 2.j, dtype=tf.complex128), tf.complex64)",
+        "output": "<tf.Tensor: shape=(), dtype=complex64, numpy=(1+2j)>",
+        "has_output": true,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/feature_column/bucketized_column",
+    "api": "tf.feature_column.bucketized_column",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "2.10.0",
+    "removed_in": "",
+    "replaced_by": "Keras preprocessing layers, tf.keras.utils.FeatureSpace",
+    "change_type": "API Deprecation",
+    "reason": "This API is not recommended for new code. Users are instructed to perform feature preprocessing directly using either Keras preprocessing layers or the `tf.keras.utils.FeatureSpace` utility.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "price = tf.feature_column.numeric_column('price')\nbucketized_price = tf.feature_column.bucketized_column(\n    price, boundaries=[...])\ncolumns = [bucketized_price, ...]\nfeatures = tf.io.parse_example(\n    ..., features=tf.feature_column.make_parse_example_spec(columns))\ndense_tensor = tf.keras.layers.DenseFeatures(columns)(features)",
         "output": "",
         "has_output": false,
         "language": "python"
@@ -2595,124 +1664,19 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/log1p",
-    "api": "tf.math.log1p",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.log1p",
-    "change_type": "API Deprecation",
-    "reason": "Migration to TensorFlow 2.x API standards for improved functionality and consistency",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/logical_not",
-    "api": "tf.math.logical_not",
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/feature_column/categorical_column_with_hash_bucket",
+    "api": "tf.feature_column.categorical_column_with_hash_bucket",
     "package": "tensorflow",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.10.0",
     "removed_in": "",
-    "replaced_by": "tf.compat.v1.logical_not, tf.compat.v1.math.logical_not",
-    "change_type": "Compatibility Alias",
-    "reason": "The API 'tf.math.logical_not' is updated to utilize compatibility aliases (i.e., tf.compat.v1.logical_not, tf.compat.v1.math.logical_not) for migration purposes. This allows users to migrate from TensorFlow v1 to v2 more easily.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/logical_or",
-    "api": "tf.math.logical_or",
-    "package": "tensorflow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.math.logical_or",
+    "replaced_by": " tf.keras.utils.FeatureSpace",
     "change_type": "API Deprecation",
-    "reason": "Transition to TensorFlow v2 namespace and compatibility with eager execution mode.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/not_equal",
-    "api": "tf.math.not_equal",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.not_equal",
-    "change_type": "API Deprecation",
-    "reason": "Streamlining API structure for better usability and consistency across TensorFlow modules.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://github.com/tensorflow/tensorflow/blob/master/RELEASE.md",
-    "api": "tf.math.reduce_min",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.reduce_min",
-    "change_type": "Behavior Change",
-    "reason": "Streamlining the API for better usability and alignment with TensorFlow naming conventions. `tf.reduce_min` is an alias for `tf.math.reduce_min`.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/segment_mean",
-    "api": "tf.math.segment_mean",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.math.segment_mean",
-    "change_type": "Behavior Change",
-    "reason": "Specifies changes in behavior on CPU vs. GPU when handling unsorted indices in `segment_ids`. CPU validates sorting for `segment_ids` and throws an error for unsorted indices, whereas GPU does not validate and results in unspecified behavior.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/segment_min",
-    "api": "tf.math.segment_min",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.math.segment_min, tf.compat.v1.segment_min (compatibility aliases provided in migration guide)",
-    "change_type": "Behavior Change",
-    "reason": "Validation for sorted `segment_ids` is enforced on CPU but not on GPU, resulting in different validation behaviors across devices. GPU supports out-of-order indices with unspecified behavior, prompting developers to consult migration guides for compatibility aliases.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/scalar_mul",
-    "api": "scalar_mul",
-    "package": "tf.math",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.math.multiply",
-    "change_type": "Behavior Change",
-    "reason": "Improved performance for IndexedSlices and general consistency with the multiplication operation.",
+    "reason": "This API is not recommended for new code. Users are instructed to perform feature preprocessing directly using either Keras preprocessing layers or the `tf.keras.utils.FeatureSpace` utility.",
     "has_examples": true,
     "examples": [
       {
-        "code": "tf.math.scalar_mul(scalar,x,name=None)",
+        "code": "import tensorflow as tf\nkeywords = tf.feature_column.categorical_column_with_hash_bucket(\"keywords\",\n10000)\ncolumns = [keywords]\nfeatures = {'keywords': tf.constant([['Tensorflow', 'Keras', 'RNN', 'LSTM',\n'CNN'], ['LSTM', 'CNN', 'Tensorflow', 'Keras', 'RNN'], ['CNN', 'Tensorflow',\n'LSTM', 'Keras', 'RNN']])}\nlinear_prediction, _, _ = tf.compat.v1.feature_column.linear_model(features,\ncolumns)",
         "output": "",
         "has_output": false,
         "language": "python"
@@ -2722,49 +1686,19 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/segment_max",
-    "api": "tf.math.segment_max",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.math.segment_max or tf.compat.v1.segment_max",
-    "change_type": "Behavior Change",
-    "reason": "Updated usage to highlight compatibility options for migration to newer TensorFlow versions. Explicitly differentiates behaviors between CPU and GPU.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/softplus",
-    "api": "tf.math.softplus",
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/feature_column/categorical_column_with_hash_bucket",
+    "api": "tf.feature_column.categorical_column_with_hash_bucket",
     "package": "tensorflow",
     "language": "Python",
-    "deprecated_in": "",
+    "deprecated_in": "2.10.0",
     "removed_in": "",
-    "replaced_by": "tf.nn.softplus",
+    "replaced_by": "Keras preprocessing layers (e.g., tf.keras.layers.CategoryEncoding), tf.keras.utils.FeatureSpace",
     "change_type": "API Deprecation",
-    "reason": "Alignment with TensorFlow convention to move certain mathematical operations to the nn submodule.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/square",
-    "api": "tf.math.square",
-    "package": "tensorflow",
-    "language": "python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.square",
-    "change_type": "Behavior Change",
-    "reason": "Migration to a unified API alias for improved developer experience as outlined in TensorFlow Migration Guide.",
+    "reason": "This API is not recommended for new code. Users are instructed to perform feature preprocessing directly using either Keras preprocessing layers or the `tf.keras.utils.FeatureSpace` utility.",
     "has_examples": true,
     "examples": [
       {
-        "code": "tf.math.square(x:Annotated[Any,tf.raw_ops.Any],name=None)->Annotated[Any,tf.raw_ops.Any]",
+        "code": "cat_col = tf.feature_column.categorical_column_with_hash_bucket('feature', hash_bucket_size=100)\nindicator_col = tf.feature_column.indicator_column(cat_col)\nfeatures = tf.io.parse_example(..., features=tf.feature_column.make_parse_example_spec([indicator_col]))\ndense_tensor = tf.keras.layers.DenseFeatures([indicator_col])(features)",
         "output": "",
         "has_output": false,
         "language": "python"
@@ -2774,85 +1708,327 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/tan",
-    "api": "tf.math.tan",
-    "package": "TensorFlow",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "tf.compat.v1.tan",
-    "change_type": "API Deprecation",
-    "reason": "Updated TensorFlow version 2.16.1 transitioned to the new alias `tf.compat.v1.tan` for migration purposes, aligning older APIs with TensorFlow's compatibility standards.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.math.tan(x:Annotated[Any,tf.raw_ops.Any],name=None)->Annotated[Any,tf.raw_ops.Any]",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/truediv",
-    "api": "tf.math.truediv",
-    "package": "tf.math",
-    "language": "Python",
-    "deprecated_in": "TensorFlow v2.16.1 (recommended to use alternatives)",
-    "removed_in": "",
-    "replaced_by": "tf.divide or Tensor operator (`x / y`)",
-    "change_type": "API Deprecation",
-    "reason": "TensorFlow prefers APIs that follow Python's division operator semantics to ensure consistency and modern practices.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.math.truediv(x,y,name=None)",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/xlogy",
-    "api": "tf.math.xlogy",
-    "package": "tensorflow",
-    "language": "python",
-    "deprecated_in": "v1.x",
-    "removed_in": "",
-    "replaced_by": "tf.math.xlogy (current TensorFlow v2 version)",
-    "change_type": "API Deprecation",
-    "reason": "Migration to TensorFlow v2 and API modernization for better usability and eager execution support.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "tf.math.xlogy(x:Annotated[Any,tf.raw_ops.Any],y:Annotated[Any,tf.raw_ops.Any],name=None)->Annotated[Any,tf.raw_ops.Any]",
-        "output": "",
-        "has_output": false,
-        "language": "python"
-      }
-    ],
-    "examples_count": 1,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://www.tensorflow.org/api_docs/python/tf/math/zero_fraction",
-    "api": "tf.math.zero_fraction",
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/feature_column/categorical_column_with_identity",
+    "api": "tf.feature_column.categorical_column_with_identity",
     "package": "tensorflow",
     "language": "Python",
-    "deprecated_in": "v2.16.1",
+    "deprecated_in": "2.10.0",
     "removed_in": "",
-    "replaced_by": "tf.nn.zero_fraction",
+    "replaced_by": "Keras preprocessing layers (e.g., tf.keras.layers.CategoryEncoding), tf.keras.utils.FeatureSpace",
     "change_type": "API Deprecation",
-    "reason": "The API has been moved to the `tf.nn` package for better organization and its usage in neural network-related functionalities.",
+    "reason": "This API is not recommended for new code. Users are instructed to perform feature preprocessing directly using either Keras preprocessing layers or the `tf.keras.utils.FeatureSpace` utility.",
     "has_examples": true,
     "examples": [
       {
-        "code": "tf.math.zero_fraction(value,name=None)",
+        "code": "cat_col = tf.feature_column.categorical_column_with_identity('feature', num_buckets=10)\nindicator_col = tf.feature_column.indicator_column(cat_col)\nfeatures = tf.io.parse_example(..., features=tf.feature_column.make_parse_example_spec([indicator_col]))\ndense_tensor = tf.keras.layers.DenseFeatures([indicator_col])(features)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/feature_column/categorical_column_with_vocabulary_file",
+    "api": "tf.feature_column.categorical_column_with_vocabulary_file",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "2.10.0",
+    "removed_in": "",
+    "replaced_by": "Keras preprocessing layers (e.g., tf.keras.layers.StringLookup), tf.keras.utils.FeatureSpace",
+    "change_type": "API Deprecation",
+    "reason": "This API is not recommended for new code. Users are instructed to perform feature preprocessing directly using either Keras preprocessing layers or the `tf.keras.utils.FeatureSpace` utility.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "cat_col = tf.feature_column.categorical_column_with_vocabulary_file('feature', vocabulary_file='vocab.txt')\nindicator_col = tf.feature_column.indicator_column(cat_col)\nfeatures = tf.io.parse_example(..., features=tf.feature_column.make_parse_example_spec([indicator_col]))\ndense_tensor = tf.keras.layers.DenseFeatures([indicator_col])(features)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/feature_column/categorical_column_with_vocabulary_list",
+    "api": "tf.feature_column.categorical_column_with_vocabulary_list",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "2.10.0",
+    "removed_in": "",
+    "replaced_by": "Keras preprocessing layers (e.g., tf.keras.layers.StringLookup), tf.keras.utils.FeatureSpace",
+    "change_type": "API Deprecation",
+    "reason": "This API is not recommended for new code. Users are instructed to perform feature preprocessing directly using either Keras preprocessing layers or the `tf.keras.utils.FeatureSpace` utility.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "cat_col = tf.feature_column.categorical_column_with_vocabulary_list('feature', vocabulary_list=['a', 'b', 'c'])\nindicator_col = tf.feature_column.indicator_column(cat_col)\nfeatures = tf.io.parse_example(..., features=tf.feature_column.make_parse_example_spec([indicator_col]))\ndense_tensor = tf.keras.layers.DenseFeatures([indicator_col])(features)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/feature_column/crossed_column",
+    "api": "tf.feature_column.crossed_column",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "2.10.0",
+    "removed_in": "",
+    "replaced_by": "Keras preprocessing layers (e.g., tf.keras.layers.HashedCrossing), tf.keras.utils.FeatureSpace",
+    "change_type": "API Deprecation",
+    "reason": "This API is not recommended for new code. Users are instructed to perform feature preprocessing directly using either Keras preprocessing layers or the `tf.keras.utils.FeatureSpace` utility.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "col1 = tf.feature_column.categorical_column_with_vocabulary_list('col1', ['x', 'y'])\ncol2 = tf.feature_column.categorical_column_with_vocabulary_list('col2', ['a', 'b'])\ncrossed_col = tf.feature_column.crossed_column([col1, col2], hash_bucket_size=10)\nindicator_col = tf.feature_column.indicator_column(crossed_col)\nfeatures = tf.io.parse_example(..., features=tf.feature_column.make_parse_example_spec([indicator_col]))\ndense_tensor = tf.keras.layers.DenseFeatures([indicator_col])(features)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/feature_column/embedding_column",
+    "api": "tf.feature_column.embedding_column",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "2.10.0",
+    "removed_in": "",
+    "replaced_by": "Keras preprocessing layers + Embedding layer, tf.keras.utils.FeatureSpace",
+    "change_type": "API Deprecation",
+    "reason": "This API is not recommended for new code. Users are instructed to perform feature preprocessing directly using either Keras preprocessing layers or the `tf.keras.utils.FeatureSpace` utility.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "cat_col = tf.feature_column.categorical_column_with_hash_bucket('feature', hash_bucket_size=100)\nemb_col = tf.feature_column.embedding_column(cat_col, dimension=8)\nfeatures = tf.io.parse_example(..., features=tf.feature_column.make_parse_example_spec([emb_col]))\ndense_tensor = tf.keras.layers.DenseFeatures([emb_col])(features)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/feature_column/indicator_column",
+    "api": "tf.feature_column.indicator_column",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "2.10.0",
+    "removed_in": "",
+    "replaced_by": "Keras preprocessing layers (e.g., tf.keras.layers.CategoryEncoding), tf.keras.utils.FeatureSpace",
+    "change_type": "API Deprecation",
+    "reason": "This API is not recommended for new code. Users are instructed to perform feature preprocessing directly using either Keras preprocessing layers or the `tf.keras.utils.FeatureSpace` utility.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "cat_col = tf.feature_column.categorical_column_with_vocabulary_list('feature', ['a', 'b'])\nindicator_col = tf.feature_column.indicator_column(cat_col)\nfeatures = tf.io.parse_example(..., features=tf.feature_column.make_parse_example_spec([indicator_col]))\ndense_tensor = tf.keras.layers.DenseFeatures([indicator_col])(features)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/feature_column/make_parse_example_spec",
+    "api": "tf.feature_column.make_parse_example_spec",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "2.10.0",
+    "removed_in": "",
+    "replaced_by": "Keras preprocessing layers + tf.io.parse_example, tf.keras.utils.FeatureSpace",
+    "change_type": "API Deprecation",
+    "reason": "This API is not recommended for new code. Users are instructed to perform feature preprocessing directly using either Keras preprocessing layers or the `tf.keras.utils.FeatureSpace` utility.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "num_col = tf.feature_column.numeric_column('num')\ncat_col = tf.feature_column.categorical_column_with_vocabulary_list('cat', ['x', 'y'])\nindicator_col = tf.feature_column.indicator_column(cat_col)\nspec = tf.feature_column.make_parse_example_spec([num_col, indicator_col])\nfeatures = tf.io.parse_example(serialized_examples, features=spec)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/feature_column/numeric_column",
+    "api": "tf.feature_column.numeric_column",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "2.10.0",
+    "removed_in": "",
+    "replaced_by": "Keras preprocessing layers (e.g., tf.keras.layers.Normalization), tf.keras.utils.FeatureSpace",
+    "change_type": "API Deprecation",
+    "reason": "This API is not recommended for new code. Users are instructed to perform feature preprocessing directly using either Keras preprocessing layers or the `tf.keras.utils.FeatureSpace` utility.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "num_col = tf.feature_column.numeric_column('price')\nfeatures = tf.io.parse_example(..., features=tf.feature_column.make_parse_example_spec([num_col]))\ndense_tensor = tf.keras.layers.DenseFeatures([num_col])(features)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/feature_column/sequence_categorical_column_with_hash_bucket",
+    "api": "tf.feature_column.sequence_categorical_column_with_hash_bucket",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "2.10.0",
+    "removed_in": "",
+    "replaced_by": "Keras preprocessing layers (e.g., tf.keras.layers.CategoryEncoding), tf.keras.utils.FeatureSpace",
+    "change_type": "API Deprecation",
+    "reason": "This API is not recommended for new code. Users are instructed to perform feature preprocessing directly using either Keras preprocessing layers or the `tf.keras.utils.FeatureSpace` utility.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "seq_cat_col = tf.feature_column.sequence_categorical_column_with_hash_bucket('seq_feature', hash_bucket_size=100)\nemb_col = tf.feature_column.embedding_column(seq_cat_col, dimension=8)\nfeatures = tf.io.parse_sequence_example(..., context_features={}, sequence_features=tf.feature_column.make_parse_example_spec([emb_col]))\ndense_tensor = tf.keras.layers.SequenceFeatures([emb_col])(features)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/feature_column/sequence_categorical_column_with_identity",
+    "api": "tf.feature_column.sequence_categorical_column_with_identity",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "2.10.0",
+    "removed_in": "",
+    "replaced_by": "Keras preprocessing layers (e.g., tf.keras.layers.CategoryEncoding), tf.keras.utils.FeatureSpace",
+    "change_type": "API Deprecation",
+    "reason": "This API is not recommended for new code. Users are instructed to perform feature preprocessing directly using either Keras preprocessing layers or the `tf.keras.utils.FeatureSpace` utility.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "seq_cat_col = tf.feature_column.sequence_categorical_column_with_identity('seq_feature', num_buckets=10)\nindicator_col = tf.feature_column.indicator_column(seq_cat_col)\nfeatures = tf.io.parse_sequence_example(..., context_features={}, sequence_features=tf.feature_column.make_parse_example_spec([indicator_col]))\ndense_tensor = tf.keras.layers.SequenceFeatures([indicator_col])(features)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/feature_column/sequence_categorical_column_with_vocabulary_file",
+    "api": "tf.feature_column.sequence_categorical_column_with_vocabulary_file",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "2.10.0",
+    "removed_in": "",
+    "replaced_by": "Keras preprocessing layers (e.g., tf.keras.layers.StringLookup), tf.keras.utils.FeatureSpace",
+    "change_type": "API Deprecation",
+    "reason": "This API is not recommended for new code. Users are instructed to perform feature preprocessing directly using either Keras preprocessing layers or the `tf.keras.utils.FeatureSpace` utility.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "seq_cat_col = tf.feature_column.sequence_categorical_column_with_vocabulary_file('seq_feature', vocabulary_file='vocab.txt')\nemb_col = tf.feature_column.embedding_column(seq_cat_col, dimension=8)\nfeatures = tf.io.parse_sequence_example(..., context_features={}, sequence_features=tf.feature_column.make_parse_example_spec([emb_col]))\ndense_tensor = tf.keras.layers.SequenceFeatures([emb_col])(features)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/feature_column/sequence_categorical_column_with_vocabulary_list",
+    "api": "tf.feature_column.sequence_categorical_column_with_vocabulary_list",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "2.10.0",
+    "removed_in": "",
+    "replaced_by": "Keras preprocessing layers (e.g., tf.keras.layers.StringLookup), tf.keras.utils.FeatureSpace",
+    "change_type": "API Deprecation",
+    "reason": "This API is not recommended for new code. Users are instructed to perform feature preprocessing directly using either Keras preprocessing layers or the `tf.keras.utils.FeatureSpace` utility.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "seq_cat_col = tf.feature_column.sequence_categorical_column_with_vocabulary_list('seq_feature', vocabulary_list=['a', 'b'])\nindicator_col = tf.feature_column.indicator_column(seq_cat_col)\nfeatures = tf.io.parse_sequence_example(..., context_features={}, sequence_features=tf.feature_column.make_parse_example_spec([indicator_col]))\ndense_tensor = tf.keras.layers.SequenceFeatures([indicator_col])(features)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/feature_column/sequence_numeric_column",
+    "api": "tf.feature_column.sequence_numeric_column",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "2.10.0",
+    "removed_in": "",
+    "replaced_by": "Keras preprocessing layers (e.g., tf.keras.layers.Normalization), tf.keras.utils.FeatureSpace",
+    "change_type": "API Deprecation",
+    "reason": "This API is not recommended for new code. Users are instructed to perform feature preprocessing directly using either Keras preprocessing layers or the `tf.keras.utils.FeatureSpace` utility.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "seq_num_col = tf.feature_column.sequence_numeric_column('seq_price')\nfeatures = tf.io.parse_sequence_example(..., context_features={}, sequence_features=tf.feature_column.make_parse_example_spec([seq_num_col]))\ndense_tensor = tf.keras.layers.SequenceFeatures([seq_num_col])(features)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/feature_column/shared_embeddings",
+    "api": "tf.feature_column.shared_embeddings",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "2.10.0",
+    "removed_in": "",
+    "replaced_by": "Keras Embedding layer (shared across columns), tf.keras.utils.FeatureSpace",
+    "change_type": "API Deprecation",
+    "reason": "This API is not recommended for new code. Users are instructed to perform feature preprocessing directly using either Keras preprocessing layers or the `tf.keras.utils.FeatureSpace` utility.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "col1 = tf.feature_column.categorical_column_with_hash_bucket('col1', 100)\ncol2 = tf.feature_column.categorical_column_with_hash_bucket('col2', 100)\nshared_emb_cols = tf.feature_column.shared_embeddings([col1, col2], dimension=8)\nfeatures = tf.io.parse_example(..., features=tf.feature_column.make_parse_example_spec(shared_emb_cols))\ndense_tensor = tf.keras.layers.DenseFeatures(shared_emb_cols)(features)",
+        "output": "",
+        "has_output": false,
+        "language": "python"
+      }
+    ],
+    "examples_count": 1,
+    "extraction_method": "Manual"
+  },
+  {
+    "source_url": "https://www.tensorflow.org/api_docs/python/tf/feature_column/weighted_categorical_column",
+    "api": "tf.feature_column.weighted_categorical_column",
+    "package": "tensorflow",
+    "language": "Python",
+    "deprecated_in": "2.10.0",
+    "removed_in": "",
+    "replaced_by": "Keras preprocessing layers (custom weighting logic), tf.keras.utils.FeatureSpace",
+    "change_type": "API Deprecation",
+    "reason": "This API is not recommended for new code. Users are instructed to perform feature preprocessing directly using either Keras preprocessing layers or the `tf.keras.utils.FeatureSpace` utility.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "cat_col = tf.feature_column.categorical_column_with_vocabulary_list('feature', ['a', 'b'])\nweighted_col = tf.feature_column.weighted_categorical_column(cat_col, 'weight')\nemb_col = tf.feature_column.embedding_column(weighted_col, dimension=8)\nfeatures = tf.io.parse_example(..., features=tf.feature_column.make_parse_example_spec([emb_col]))\ndense_tensor = tf.keras.layers.DenseFeatures([emb_col])(features)",
         "output": "",
         "has_output": false,
         "language": "python"
