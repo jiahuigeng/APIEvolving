@@ -16,7 +16,7 @@ try:
         
         if not hasattr(cache_utils.DynamicCache, "get_max_length"):
             def get_max_length(self):
-                return None
+                return self.get_seq_length() - 1
             cache_utils.DynamicCache.get_max_length = get_max_length
 
     LOCAL_MODELS_AVAILABLE = True
