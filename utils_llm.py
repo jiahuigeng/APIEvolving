@@ -4,6 +4,15 @@ import argparse
 try:
     import torch
     from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+    from transformers import cache_utils
+    
+    # Monkey patch DynamicCache for compatibility with models using seen_tokens (like DeepSeek)
+    if hasattr(cache_utils, "DynamicCache") and not hasattr(cache_utils.DynamicCache, "seen_tokens"):
+        @property
+        def seen_tokens(self):
+            return self.get_seq_length()
+        cache_utils.DynamicCache.seen_tokens = seen_tokens
+
     LOCAL_MODELS_AVAILABLE = True
 except ImportError:
     LOCAL_MODELS_AVAILABLE = False
