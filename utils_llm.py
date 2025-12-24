@@ -108,11 +108,23 @@ def prompt_llm(model: str, prompt: str, system_prompt: str = None) -> str:
             
             # 加载模型
             tokenizer = AutoTokenizer.from_pretrained(target_model, trust_remote_code=True)
+            
+            # DeepSeek specific: disable flash attention if not installed
+            attn_implementation = None
+            if "deepseek" in target_model.lower():
+                attn_implementation = "eager"
+
+            model_kwargs = {
+                "quantization_config": bnb_config,
+                "device_map": "auto",
+                "trust_remote_code": True,
+            }
+            if attn_implementation:
+                model_kwargs["attn_implementation"] = attn_implementation
+
             model_instance = AutoModelForCausalLM.from_pretrained(
                 target_model,
-                quantization_config=bnb_config,
-                device_map="auto",
-                trust_remote_code=True
+                **model_kwargs
             )
             
             # 构造输入
