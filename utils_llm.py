@@ -245,8 +245,9 @@ if __name__ == "__main__":
         # "gemini-2.0-flash", 
         # "claude-3.5-haiku", 
         # "claude-3.5-sonnet", 
-        "llama-3.1-8b", 
+        # "llama-3.1-8b", 
         "qwen2.5-coder-7b", 
+        "qwen2.5-32b", 
         "qwen2.5-coder-32b", 
         "deepseek-coder-v2",
         "deepseek-v2"
