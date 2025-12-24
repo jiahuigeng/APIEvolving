@@ -1,10 +1,17 @@
 import os
 import argparse
-import torch
+
+try:
+    import torch
+    from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+    LOCAL_MODELS_AVAILABLE = True
+except ImportError:
+    LOCAL_MODELS_AVAILABLE = False
+    print("Warning: 'transformers' or 'torch' not found. Local models will not be available.")
+
 from openai import OpenAI
 from anthropic import Anthropic
 from google import genai
-from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
 try:
     from api_resouce import openai_api, gemini_api, claude_api
