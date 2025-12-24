@@ -77,11 +77,12 @@ def prompt_llm(model: str, prompt: str, system_prompt: str = None) -> str:
         "claude-3.5-sonnet": "claude-3-5-sonnet-latest",
         
         # Local / Hugging Face Models
-        "llama-3.1-8b-instruct": "meta-llama/Llama-3.1-8B-Instruct", 
-        "qwen2.5-coder-7b-instruct": "Qwen/Qwen2.5-Coder-7B-Instruct",
-        "qwen2.5-coder-32b": "Qwen/Qwen2.5-32B-Instruct", # 用户之前用的 key 是这个
-        "qwen2.5-32b-instruct": "Qwen/Qwen2.5-32B-Instruct", # 增加一个别名
-        "deepseek-coder-v2-lite-instruct": "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
+        "llama-3.1-8b": "meta-llama/Llama-3.1-8B-Instruct", 
+        "qwen2.5-coder-7b": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "qwen2.5-coder-32b": "Qwen/Qwen2.5-Coder-32B-Instruct", # 用户之前用的 key 是这个
+        "qwen2.5-32b": "Qwen/Qwen2.5-32B-Instruct", # 增加一个别名
+        "deepseek-coder-v2": "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
+        "deepseek-v2": "deepseek-ai/DeepSeek-V2-Chat",
     }
     
     # 标准化输入 key
@@ -244,10 +245,11 @@ if __name__ == "__main__":
         # "gemini-2.0-flash", 
         # "claude-3.5-haiku", 
         # "claude-3.5-sonnet", 
-        "llama-3.1-8b-instruct", 
-        "qwen2.5-coder-7b-instruct", 
+        "llama-3.1-8b", 
+        "qwen2.5-coder-7b", 
         "qwen2.5-coder-32b", 
-        "deepseek-coder-v2-lite-instruct"
+        "deepseek-coder-v2",
+        "deepseek-v2"
     ]
 
     prompt = "请用 Python 写一个斐波那契数列生成函数，返回前10个数。"
