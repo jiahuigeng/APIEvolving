@@ -7,11 +7,17 @@ try:
     from transformers import cache_utils
     
     # Monkey patch DynamicCache for compatibility with models using seen_tokens (like DeepSeek)
-    if hasattr(cache_utils, "DynamicCache") and not hasattr(cache_utils.DynamicCache, "seen_tokens"):
-        @property
-        def seen_tokens(self):
-            return self.get_seq_length()
-        cache_utils.DynamicCache.seen_tokens = seen_tokens
+    if hasattr(cache_utils, "DynamicCache"):
+        if not hasattr(cache_utils.DynamicCache, "seen_tokens"):
+            @property
+            def seen_tokens(self):
+                return self.get_seq_length()
+            cache_utils.DynamicCache.seen_tokens = seen_tokens
+        
+        if not hasattr(cache_utils.DynamicCache, "get_max_length"):
+            def get_max_length(self):
+                return None
+            cache_utils.DynamicCache.get_max_length = get_max_length
 
     LOCAL_MODELS_AVAILABLE = True
 except ImportError:
