@@ -238,16 +238,16 @@ def prompt_llm(model: str, prompt: str, system_prompt: str = None) -> str:
 if __name__ == "__main__":
     # 测试代码
     test_models = [
-        "gpt-4o", 
-        "gpt-4o-mini", 
+        # "gpt-4o", 
+        # "gpt-4o-mini", 
         # "gemini-2.0", 
         # "gemini-2.0-flash", 
         # "claude-3.5-haiku", 
         # "claude-3.5-sonnet", 
-        # "llama-3.1-8b-instruct", 
-        # "qwen2.5-coder-7b-instruct", 
-        # "qwen2.5-coder-32b", 
-        # "deepseek-coder-v2-lite-instruct"
+        "llama-3.1-8b-instruct", 
+        "qwen2.5-coder-7b-instruct", 
+        "qwen2.5-coder-32b", 
+        "deepseek-coder-v2-lite-instruct"
     ]
 
     prompt = "请用 Python 写一个斐波那契数列生成函数，返回前10个数。"
