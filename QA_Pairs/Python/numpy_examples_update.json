@@ -1,0 +1,1880 @@
+[
+    {
+        "source_url": "https://numpy.org/doc/2.3/reference/generated/numpy.ndarray.shape.html",
+        "api": "numpy.ndarray.shape",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "API Deprecation",
+        "reason": "Setting `arr.shape` is discouraged and may be deprecated in the future. Using `ndarray.reshape` is the preferred approach.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\nx = np.array([1, 2, 3, 4])\nx.shape",
+                "output": "(4,)"
+            },
+            {
+                "code": "import numpy as np\ny = np.zeros((2, 3, 4))\ny.shape",
+                "output": "(2, 3, 4)"
+            },
+            {
+                "code": "import numpy as np\ny.shape = (3, 8)\ny",
+                "output": "array([[ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],\n       [ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],\n       [ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.]])"
+            },
+            {
+                "code": "import numpy as np\ny.shape = (3, 6)",
+                "output": "Traceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nValueError: cannot reshape array of size 24 into shape (3,6)"
+            },
+            {
+                "code": "import numpy as np\nnp.zeros((4,2))[::2].shape = (-1,)",
+                "output": "Traceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nAttributeError: Incompatible shape for in-place modification. Use\n`.reshape()` to make a copy with the desired shape."
+            }
+        ],
+        "examples_count": 5,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/2.3/reference/generated/numpy.ndarray.dtype.html",
+        "api": "numpy.ndarray.dtype",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "API Deprecation",
+        "reason": "Setting `arr.dtype` is discouraged and may be deprecated in the future. Setting will replace the `dtype` without modifying the memory. Use `ndarray.view` or `ndarray.astype` instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\nx = np.arange(4).reshape((2, 2))\nx\nx.dtype\nisinstance(x.dtype, np.dtype)",
+                "output": "array([[0, 1],\n       [2, 3]])\ndtype('int64')   # may vary (OS, bitness)\nTrue"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ndarray.strides.html",
+        "api": "numpy.ndarray.strides",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "numpy.lib.stride_tricks.as_strided",
+        "change_type": "API Deprecation",
+        "reason": "Setting `arr.strides` is discouraged and may be deprecated in the future. It is not yet fully deprecated, but `numpy.lib.stride_tricks.as_strided` is preferred for creating new views in a safer way.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\ny = np.reshape(np.arange(2 * 3 * 4, dtype=np.int32), (2, 3, 4))\ny\ny.strides\ny[1, 1, 1]",
+                "output": "array([[[ 0,  1,  2,  3],\n        [ 4,  5,  6,  7],\n        [ 8,  9, 10, 11]],\n       [[12, 13, 14, 15],\n        [16, 17, 18, 19],\n        [20, 21, 22, 23]]], dtype=np.int32)\n(48, 16, 4)\nnp.int32(17)"
+            },
+            {
+                "code": "import numpy as np\noffset = sum(y.strides * np.array((1, 1, 1)))\noffset // y.itemsize",
+                "output": "np.int64(17)"
+            },
+            {
+                "code": "import numpy as np\nx = np.reshape(np.arange(5*6*7*8, dtype=np.int32), (5, 6, 7, 8))\nx = x.transpose(2, 3, 1, 0)\nx.strides",
+                "output": "(32, 4, 224, 1344)"
+            },
+            {
+                "code": "import numpy as np\ni = np.array([3, 5, 2, 2], dtype=np.int32)\noffset = sum(i * x.strides)\nx[3, 5, 2, 2]\noffset // x.itemsize",
+                "output": "np.int32(813)\nnp.int64(813)"
+            }
+        ],
+        "examples_count": 4,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ndarray.partition.html",
+        "api": "numpy.ndarray.partition",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.22.0",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Signature Change",
+        "reason": "Passing booleans as indices to the `kth` parameter was deprecated to ensure consistent behavior with other NumPy APIs and to reduce ambiguity in the type of arguments.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\na = np.array([3, 4, 2, 1])\na.partition(3)\na\na.partition((1, 3))\na\na.partition((1, 3))\na",
+                "output": "array([2, 1, 3, 4]) # may vary\n\narray([1, 2, 3, 4])\n\n\narray([1, 2, 3, 4])"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.matrix.html",
+        "api": "numpy.matrix",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "numpy.array",
+        "change_type": "API Deprecation",
+        "reason": "The documentation explicitly states: 'It is no longer recommended to use this class, even for linear algebra. Instead use regular arrays. The class may be removed in the future.'",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\na = np.matrix('1 2; 3 4')\na",
+                "output": "matrix([[1, 2],\n        [3, 4]])"
+            },
+            {
+                "code": "np.matrix([[1, 2], [3, 4]])",
+                "output": "matrix([[1, 2],\n        [3, 4]])"
+            }
+        ],
+        "examples_count": 2,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.char.array.html",
+        "api": "numpy.char.array",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "numpy.char (functions) / bytes_ or str_ arrays",
+        "change_type": "API Deprecation",
+        "reason": "The documentation notes that this class is provided for backward compatibility. New code is advised to use standard arrays of type `bytes_` or `str_` and the free functions in `numpy.char` instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\nchar_array = np.char.array(['hello', 'world', 'numpy', 'array'])\nchar_array",
+                "output": "chararray(['hello', 'world', 'numpy', 'array'], dtype='<U5')"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.char.chararray.html",
+        "api": "numpy.char.chararray",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "numpy.char (functions) / bytes_ or str_ arrays",
+        "change_type": "API Deprecation",
+        "reason": "The documentation states that this class exists for backwards compatibility with Numarray and is not recommended for new development. Users are advised to use arrays of `dtype` `object_`, `bytes_`, or `str_` and functions in `numpy.char` instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\ncharar = np.char.chararray((3, 3))\ncharar[:] = 'a'\ncharar",
+                "output": "chararray([[b'a', b'a', b'a'],\n       [b'a', b'a', b'a'],\n       [b'a', b'a', b'a']], dtype='|S1')"
+            },
+            {
+                "code": "charar = np.char.chararray(charar.shape, itemsize=5)\ncharar[:] = 'abc'\ncharar",
+                "output": "chararray([[b'abc', b'abc', b'abc'],\n       [b'abc', b'abc', b'abc'],\n       [b'abc', b'abc', b'abc']], dtype='|S5')"
+            }
+        ],
+        "examples_count": 2,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.in1d.html",
+        "api": "numpy.ma.in1d",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "numpy.ma.isin",
+        "change_type": "API Deprecation",
+        "reason": "The documentation recommends using `isin` instead of `in1d` for new code because `isin` preserves the shape of the input array.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\nar1 = np.ma.array([0, 1, 2, 5, 0])\nar2 = [0, 2]\nnp.ma.in1d(ar1, ar2)",
+                "output": "masked_array(data=[ True, False,  True, False,  True],\n             mask=False,\n       fill_value=True)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.MaskedArray.resize.html",
+        "api": "numpy.ma.MaskedArray.resize",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "numpy.ma.resize",
+        "change_type": "API Deprecation",
+        "reason": "This method does nothing except raise a ValueError exception because a masked array does not own its data. The documentation warns it is difficult to implement safely and may be deprecated in future releases.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "No Examples"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.expand_dims.html",
+        "api": "numpy.ma.expand_dims",
+        "package": "NumPy",
+        "deprecated_in": "1.13.0",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Signature Change",
+        "reason": "Passing an axis where axis > a.ndim is treated as axis == a.ndim, and passing axis < -a.ndim - 1 is treated as axis == 0. This behavior was deprecated to prevent ambiguity and improve consistency in API usage.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\nx = np.array([1, 2])\nx.shape",
+                "output": "(2,)"
+            },
+            {
+                "code": "import numpy as np\ny = np.expand_dims(x, axis=0)\ny\ny.shape",
+                "output": "array([[1, 2]])\n(1, 2)"
+            },
+            {
+                "code": "import numpy as np\ny = np.expand_dims(x, axis=1)\ny\ny.shape",
+                "output": "array([[1],\n       [2]])\n(2, 1)"
+            },
+            {
+                "code": "import numpy as np\ny = np.expand_dims(x, axis=(0, 1))\ny",
+                "output": "array([[[1, 2]]])"
+            },
+            {
+                "code": "import numpy as np\ny = np.expand_dims(x, axis=(2, 0))\ny",
+                "output": "array([[[1],\n        [2]]])"
+            },
+            {
+                "code": "import numpy as np\nnp.newaxis is None",
+                "output": "True"
+            }
+        ],
+        "examples_count": 6,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.around.html",
+        "api": "numpy.ma.around",
+        "package": "NumPy",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "API Rename",
+        "reason": "To provide clearer API aliasing and streamline usage.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "No Examples"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.polyfit.html",
+        "api": "numpy.ma.polyfit",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "numpy.polynomial",
+        "change_type": "API Deprecation",
+        "reason": "This function is part of the old polynomial API. Since NumPy 1.4, the new polynomial API defined in `numpy.polynomial` is preferred for new code.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\nx = np.array([0.0, 1.0, 2.0, 3.0,  4.0,  5.0])\ny = np.array([0.0, 0.8, 0.9, 0.1, -0.8, -1.0])\nz = np.ma.polyfit(x, y, 3)\nz",
+                "output": "array([ 0.08703704, -0.81349206,  1.69312169, -0.03968254])"
+            },
+            {
+                "code": "p = np.poly1d(z)\np(0.5)",
+                "output": "0.6143849206349179"
+            }
+        ],
+        "examples_count": 2,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/2.0/release/2.0.0-notes.html#deprecations",
+        "api": "numpy.float_",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.20",
+        "removed_in": "2.0.0",
+        "replaced_by": "numpy.float64",
+        "change_type": "API Removal",
+        "reason": "Alias np.float_ has been removed. Use np.float64 instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Removed usage\n# val = np.float_(3.14)\n# Replacement\nval = np.float64(3.14)",
+                "output": "3.14"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/2.0/release/2.0.0-notes.html#deprecations",
+        "api": "numpy.asfarray",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "",
+        "removed_in": "2.0.0",
+        "replaced_by": "numpy.asarray",
+        "change_type": "API Removal",
+        "reason": "np.asfarray has been removed. Use np.asarray with a proper dtype instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\na = [1, 2, 3]\n# Removed usage\n# np.asfarray(a)\n# Replacement\nnp.asarray(a, dtype=float)",
+                "output": "array([1., 2., 3.])"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/2.0/release/2.0.0-notes.html#deprecations",
+        "api": "numpy.mat",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "",
+        "removed_in": "2.0.0",
+        "replaced_by": "numpy.asmatrix",
+        "change_type": "API Removal",
+        "reason": "Alias np.mat has been removed. Use np.asmatrix instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Removed usage\n# m = np.mat([[1, 2], [3, 4]])\n# Replacement\nm = np.asmatrix([[1, 2], [3, 4]])",
+                "output": "matrix([[1, 2],\n        [3, 4]])"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/2.0/release/2.0.0-notes.html#deprecations",
+        "api": "numpy.safe_eval",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "",
+        "removed_in": "2.0.0",
+        "replaced_by": "ast.literal_eval",
+        "change_type": "API Removal",
+        "reason": "Deprecated np.safe_eval has been removed from the main namespace. Use ast.literal_eval instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import ast\n# Removed usage: numpy.safe_eval(\"[1, 2]\")\n# Replacement\nast.literal_eval(\"[1, 2]\")",
+                "output": "[1, 2]"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/2.0/release/2.0.0-notes.html#deprecations",
+        "api": "numpy.set_string_function",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "",
+        "removed_in": "2.0.0",
+        "replaced_by": "numpy.set_printoptions",
+        "change_type": "API Removal",
+        "reason": "np.set_string_function has been removed. Use np.set_printoptions instead with a formatter for custom printing.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Replacement for custom formatting\nnp.set_printoptions(formatter={'float': '{: 0.2f}'.format})\nnp.array([1.123, 2.456])",
+                "output": "array([ 1.12,  2.46])"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.mod.html",
+        "api": "numpy.mod",
+        "package": "NumPy",
+        "language": "Python",
+        "change_type": "Behavior Change",
+        "reason": "The behavior aligns with Python's modulus operator (`%`) but differs from MATLAB's `rem` function and C's `%` operator for floor division behavior. It aims for consistent mathematical behavior and functional equivalence.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\nnp.remainder([4, 7], [2, 3])",
+                "output": "array([0, 1])"
+            },
+            {
+                "code": "import numpy as np\nnp.remainder(np.arange(7), 5)",
+                "output": "array([0, 1, 2, 3, 4, 0, 1])"
+            },
+            {
+                "code": "import numpy as np\nx1 = np.arange(7)\nx1 % 5",
+                "output": "array([0, 1, 2, 3, 4, 0, 1])"
+            },
+            {
+                "code": "import numpy as np\nx1 = np.arange(7)\nx1 % 5",
+                "output": "array([0, 1, 2, 3, 4, 0, 1])"
+            }
+        ],
+        "examples_count": 4,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/2.0/release/2.0.0-notes.html#deprecations",
+        "api": "numpy.trapz",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "2.0.0",
+        "removed_in": "",
+        "replaced_by": "numpy.trapezoid",
+        "change_type": "API Deprecation",
+        "reason": "np.trapz has been deprecated. Use np.trapezoid or a scipy.integrate function instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\nnp.trapz([1, 2, 3])",
+                "output": "4.0"
+            },
+            {
+                "code": "y = [1, 2, 3]\nx = [4, 6, 8]\nnp.trapz(y, x=x)",
+                "output": "8.0"
+            }
+        ],
+        "examples_count": 2,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/2.3/reference/generated/numpy.sqrt.html",
+        "api": "numpy.sqrt",
+        "package": "NumPy",
+        "language": "Python",
+        "change_type": "Behavior Change",
+        "reason": "To provide a consistent approach for calculating square roots of negative reals and complex numbers. The default numpy.sqrt returns NaN for negative reals and a complex array for complex inputs, while numpy.emath.sqrt handles negative reals by returning a complex result.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\nnp.sqrt([1,4,9])",
+                "output": "array([ 1.,  2.,  3.])"
+            },
+            {
+                "code": "import numpy as np\nnp.sqrt([4, -1, -3+4J])",
+                "output": "array([ 2.+0.j,  0.+1.j,  1.+2.j])"
+            },
+            {
+                "code": "import numpy as np\nnp.sqrt([4, -1, -3+4J])",
+                "output": "array([ 2.+0.j,  0.+1.j,  1.+2.j])"
+            },
+            {
+                "code": "import numpy as np\nnp.sqrt([4, -1, np.inf])",
+                "output": "array([ 2., nan, inf])"
+            },
+            {
+                "code": "import numpy as np\nnp.sqrt([4, -1, np.inf])",
+                "output": "array([ 2., nan, inf])"
+            }
+        ],
+        "examples_count": 5,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.25.0-notes.html#deprecations",
+        "api": "numpy.find_common_type",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.25.0",
+        "removed_in": "",
+        "replaced_by": "numpy.result_type",
+        "change_type": "API Deprecation",
+        "reason": "numpy.find_common_type is deprecated. Use numpy.result_type or numpy.promote_types instead. The replacements are faster, more robust, and handle byte-order conversion better.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Deprecated usage\n# np.find_common_type([np.float32], [np.float64])\n# Recommended usage\nnp.result_type(np.float32, np.float64)",
+                "output": "dtype('float64')"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.25.0-notes.html#deprecations",
+        "api": "numpy.round_",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.25.0",
+        "removed_in": "",
+        "replaced_by": "numpy.round",
+        "change_type": "API Deprecation",
+        "reason": "np.round_ is deprecated. Use np.round instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\narr = [1.12, 2.56, 3.89]\n# Deprecated usage: np.round_(arr, 1)\n# Recommended usage\nnp.round(arr, 1)",
+                "output": "array([1.1, 2.6, 3.9])"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.25.0-notes.html#deprecations",
+        "api": "numpy.product",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.25.0",
+        "removed_in": "",
+        "replaced_by": "numpy.prod",
+        "change_type": "API Deprecation",
+        "reason": "np.product is deprecated. Use np.prod instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\na = [1, 2, 3]\n# Deprecated usage: np.product(a)\n# Recommended usage\nnp.prod(a)",
+                "output": "6"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.25.0-notes.html#deprecations",
+        "api": "numpy.cumproduct",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.25.0",
+        "removed_in": "",
+        "replaced_by": "numpy.cumprod",
+        "change_type": "API Deprecation",
+        "reason": "np.cumproduct is deprecated. Use np.cumprod instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\na = [1, 2, 3]\n# Deprecated usage: np.cumproduct(a)\n# Recommended usage\nnp.cumprod(a)",
+                "output": "array([1, 2, 6])"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.25.0-notes.html#deprecations",
+        "api": "numpy.sometrue",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.25.0",
+        "removed_in": "",
+        "replaced_by": "numpy.any",
+        "change_type": "API Deprecation",
+        "reason": "np.sometrue is deprecated. Use np.any instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\na = [True, False, False]\n# Deprecated usage: np.sometrue(a)\n# Recommended usage\nnp.any(a)",
+                "output": "True"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.25.0-notes.html#deprecations",
+        "api": "numpy.alltrue",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.25.0",
+        "removed_in": "",
+        "replaced_by": "numpy.all",
+        "change_type": "API Deprecation",
+        "reason": "np.alltrue is deprecated. Use np.all instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\na = [True, True, True]\n# Deprecated usage: np.alltrue(a)\n# Recommended usage\nnp.all(a)",
+                "output": "True"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.24.0-notes.html#deprecations",
+        "api": "numpy.msort",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.24.0",
+        "removed_in": "",
+        "replaced_by": "numpy.sort",
+        "change_type": "API Deprecation",
+        "reason": "The numpy.msort function is deprecated. Use np.sort(a, axis=0) instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\na = np.array([[1, 4], [3, 1]])\n# Deprecated usage: np.msort(a)\n# Recommended usage\nnp.sort(a, axis=0)",
+                "output": "array([[1, 1],\n       [3, 4]])"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.24.0-notes.html#deprecations",
+        "api": "numpy.int0",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.24.0",
+        "removed_in": "",
+        "replaced_by": "numpy.intp",
+        "change_type": "API Deprecation",
+        "reason": "Scalar type aliases ending in a 0 bit size (np.object0, np.str0, np.int0, etc.) are deprecated and will eventually be removed.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Deprecated usage\n# dt = np.dtype(np.int0)\n# Recommended usage (int0 was typically an alias for intp)\ndt = np.dtype(np.intp)\nprint(dt)",
+                "output": "dtype('int64')"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.23.0-notes.html#deprecations",
+        "api": "numpy.distutils",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.23.0",
+        "removed_in": "3.12 (Python Version)",
+        "replaced_by": "setuptools / meson-python",
+        "change_type": "API Deprecation",
+        "reason": "numpy.distutils has been deprecated, as a result of distutils itself being deprecated. It will not be present in NumPy for Python >= 3.12.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.22.0-notes.html#deprecations",
+        "api": "numpy.ma.mrecords.fromtextfile",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.22.0",
+        "removed_in": "",
+        "replaced_by": "delimiter (argument)",
+        "change_type": "API Rename",
+        "reason": "The misspelled keyword argument 'delimitor' has been changed to 'delimiter'. Using 'delimitor' will emit a deprecation warning.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\nfrom numpy.ma import mrecords\n# Deprecated usage: mrecords.fromtextfile('file.csv', delimitor=',')\n# Recommended usage\n# mrecords.fromtextfile('file.csv', delimiter=',')",
+                "output": "(Function call typically returns a record array)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.22.0-notes.html#deprecations",
+        "api": "numpy.MachAr",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.22.0",
+        "removed_in": "",
+        "replaced_by": "numpy.finfo",
+        "change_type": "API Deprecation",
+        "reason": "The numpy.MachAr class and finfo.machar attribute have been deprecated. Users are encouraged to access the property of interest directly from the corresponding numpy.finfo attribute.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Deprecated usage: np.MachAr().eps\n# Recommended usage\nnp.finfo(float).eps",
+                "output": "2.220446049250313e-16"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.21.0-notes.html#deprecations",
+        "api": "numpy.typeDict",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.21.0",
+        "removed_in": "",
+        "replaced_by": "numpy.sctypeDict",
+        "change_type": "API Deprecation",
+        "reason": "np.typeDict is a deprecated alias for np.sctypeDict and has been so for over 14 years.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Deprecated usage\n# val = np.typeDict['int']\n# Recommended usage\nval = np.sctypeDict['int']",
+                "output": "(Returns the dtype class for int)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.21.0-notes.html#deprecations",
+        "api": "numpy.convolve",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.21.0",
+        "removed_in": "",
+        "replaced_by": "mode='valid' (full string)",
+        "change_type": "API Deprecation",
+        "reason": "Inexact matches for mode argument in numpy.convolve and numpy.correlate are deprecated. Use full 'same', 'valid', 'full' strings instead of 's', 'v', 'f'.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Deprecated usage: np.convolve([1, 2], [1], mode='v')\n# Recommended usage\nnp.convolve([1, 2], [1], mode='valid')",
+                "output": "array([1, 2])"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.20.0-notes.html#deprecations",
+        "api": "numpy.int",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.20.0",
+        "removed_in": "1.24.0",
+        "replaced_by": "int",
+        "change_type": "API Deprecation",
+        "reason": "Aliases for builtin types like np.int, np.bool, np.float, np.object, np.str are deprecated to avoid confusion. Use the builtin types (int, float, bool) or specific NumPy types (np.int64, np.float64).",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Deprecated usage\n# np.int(5)\n# Recommended usage\nint(5) # or np.int64(5)",
+                "output": "5"
+            },
+            {
+                "code": "import numpy as np\n# Deprecated usage\n# np.bool(True)\n# Recommended usage\nbool(True) # or np.bool_(True)",
+                "output": "True"
+            }
+        ],
+        "examples_count": 2,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.18.0-notes.html#deprecations",
+        "api": "numpy.alen",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.18.0",
+        "removed_in": "",
+        "replaced_by": "len",
+        "change_type": "API Deprecation",
+        "reason": "np.alen was deprecated. Use len() instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\na = np.array([1, 2, 3])\n# Deprecated usage: np.alen(a)\n# Recommended usage\nlen(a)",
+                "output": "3"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.18.0-notes.html#deprecations",
+        "api": "numpy.fromstring",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.18.0",
+        "removed_in": "",
+        "replaced_by": "N/A (Behavior Change)",
+        "change_type": "Behavior Change",
+        "reason": "np.fromstring (and np.fromfile) will now give a DeprecationWarning where previously partial or even invalid data was silently returned. In future releases, it will throw an error on bad data.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Deprecated behavior: Silent partial read on invalid data\n# np.fromstring(\"1 2 invalid\", sep=\" \")\n# New behavior: ensure data is valid or handle errors",
+                "output": "(Warning or Error on invalid input)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.21.0-notes.html#deprecations",
+        "api": "ndarray._ctypes.get_data",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.21.0",
+        "removed_in": "",
+        "replaced_by": "ndarray._ctypes.data",
+        "change_type": "API Deprecation",
+        "reason": "Undocumented methods of ndarray.ctypes (_ctypes.get_data, get_shape, get_strides, get_as_parameter) are deprecated. Use properties like _ctypes.data instead.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.19.0-notes.html#deprecations",
+        "api": "numpy.ndarray.tostring",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.19.0",
+        "removed_in": "",
+        "replaced_by": "numpy.ndarray.tobytes",
+        "change_type": "API Deprecation",
+        "reason": "numpy.ndarray.tostring() is deprecated in favor of tobytes() to bring NumPy in line with the builtin array.array methods.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\na = np.array([1, 2])\n# Deprecated usage: a.tostring()\n# Recommended usage\na.tobytes()",
+                "output": "b'\\x01\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x02\\x00\\x00\\x00\\x00\\x00\\x00\\x00'"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.19.0-notes.html#deprecations",
+        "api": "numpy.array",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.19.0",
+        "removed_in": "",
+        "replaced_by": "dtype=object (argument)",
+        "change_type": "API Deprecation",
+        "reason": "Creating an ndarray from ragged nested sequences (sequences with different lengths or shapes) is deprecated. If you meant to create an object array, explicitly define dtype=object.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Deprecated usage (Ragged input)\n# np.array([[1], [1, 2, 3]])\n# Recommended usage\nnp.array([[1], [1, 2, 3]], dtype=object)",
+                "output": "array([list([1]), list([1, 2, 3])], dtype=object)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.19.0-notes.html#deprecations",
+        "api": "numpy.integer",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.19.0",
+        "removed_in": "",
+        "replaced_by": "numpy.int_",
+        "change_type": "API Deprecation",
+        "reason": "Converting super classes of scalar types (like np.integer, np.generic, np.inexact) to a dtype is deprecated. Use specific types like np.int_ or np.float64 instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Deprecated usage\n# np.dtype(np.integer)\n# Recommended usage\nnp.dtype(np.int_)",
+                "output": "dtype('int64')"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.19.0-notes.html#deprecations",
+        "api": "numpy.core.records",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.19.0",
+        "removed_in": "",
+        "replaced_by": "shape=None",
+        "change_type": "API Deprecation",
+        "reason": "Passing shape=0 to factory functions in numpy.rec (like fromarrays) is deprecated. 0 is currently treated as None, but will be treated as an array length in the future.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\nfrom numpy.core import records\n# Deprecated usage: records.fromarrays([], shape=0)\n# Recommended usage\nrecords.fromarrays([], shape=None)",
+                "output": "(Empty record array)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.19.0-notes.html#deprecations",
+        "api": "numpy.complexfloating",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.19.0",
+        "removed_in": "",
+        "replaced_by": "numpy.round",
+        "change_type": "API Deprecation",
+        "reason": "The output of the __round__ dunder method (builtin round()) on complex scalars is deprecated. Use np.round() instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\nc = np.complex64(1.5 + 2.5j)\n# Deprecated usage: round(c)\n# Recommended usage\nnp.round(c)",
+                "output": "(2+2j)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.18.0-notes.html#deprecate-the-financial-functions",
+        "api": "numpy.fv",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.18.0",
+        "removed_in": "1.20.0",
+        "replaced_by": "numpy_financial.fv",
+        "change_type": "API Deprecation",
+        "reason": "Financial functions (fv, ipmt, irr, mirr, nper, npv, pmt, ppmt, pv, rate) are deprecated and moved to a separate package 'numpy-financial'.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Deprecated usage\n# np.fv(0.05, 10, -100, -100)\n# Recommended usage\nimport numpy_financial as npf\nnpf.fv(0.05, 10, -100, -100)",
+                "output": "155.28..."
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.18.0-notes.html#expired-deprecations",
+        "api": "numpy.rank",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.10",
+        "removed_in": "1.18.0",
+        "replaced_by": "numpy.ndim",
+        "change_type": "API Removal",
+        "reason": "np.rank has been removed. It was deprecated in NumPy 1.10. Use np.ndim instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\na = np.array([[1, 2], [3, 4]])\n# Removed usage: np.rank(a)\n# Recommended usage\nnp.ndim(a)",
+                "output": "2"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.18.0-notes.html#expired-deprecations",
+        "api": "numpy.testing.rand",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.11",
+        "removed_in": "1.18.0",
+        "replaced_by": "numpy.random.rand",
+        "change_type": "API Removal",
+        "reason": "np.testing.rand has been removed. It was deprecated in NumPy 1.11. Use np.random.rand instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Removed usage: np.testing.rand(2, 2)\n# Recommended usage\nnp.random.rand(2, 2)",
+                "output": "array([[0.1, 0.5], [0.3, 0.9]])"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.18.0-notes.html#compatibility-notes",
+        "api": "numpy.lib.recfunctions.drop_fields",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.18.0",
+        "removed_in": "",
+        "replaced_by": "N/A (Return Value Change)",
+        "change_type": "Behavior Change",
+        "reason": "drop_fields can no longer return None. If all fields are dropped, it now returns an array of the same shape but with no fields, instead of None.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\nfrom numpy.lib.recfunctions import drop_fields\narr = np.array([(1, 2)], dtype=[('a', int), ('b', int)])\n# Old behavior (if all fields dropped): returned None\n# New behavior:\nres = drop_fields(arr, ['a', 'b'])\nprint(res)",
+                "output": "array([(), ()], dtype=[])"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.18.0-notes.html#expired-deprecations",
+        "api": "numpy.ma.mask_cols",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.18.0",
+        "removed_in": "",
+        "replaced_by": "N/A (Argument Removal)",
+        "change_type": "API Deprecation",
+        "reason": "The 'axis' argument to numpy.ma.mask_cols and numpy.ma.mask_row is deprecated as it was always ignored.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy.ma as ma\n# Deprecated usage: ma.mask_cols(arr, axis=0)\n# Recommended usage\nma.mask_cols(arr)",
+                "output": "(Masked array)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.17.0-notes.html#deprecations",
+        "api": "numpy.nonzero",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.17.0",
+        "removed_in": "",
+        "replaced_by": "numpy.atleast_1d",
+        "change_type": "API Deprecation",
+        "reason": "Calling numpy.nonzero on 0d arrays is deprecated as it was surprising and often incorrect. Use nonzero(atleast_1d(arr)) if the old behavior is needed.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\na = np.array(12)\n# Deprecated usage: np.nonzero(a)\n# Recommended usage to preserve old behavior\nnp.nonzero(np.atleast_1d(a))",
+                "output": "(array([0]),)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.17.0-notes.html#deprecations",
+        "api": "numpy.broadcast_arrays",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.17.0",
+        "removed_in": "",
+        "replaced_by": "read-only usage",
+        "change_type": "Behavior Change",
+        "reason": "Writing to the result of broadcast_arrays will now emit a deprecation warning. The returned arrays have internal overlap, making writing unsafe. Future versions will set the writeable flag to False.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\nx = np.array([1])\ny = np.array([2])\nb = np.broadcast_arrays(x, y)\n# Deprecated: Writing to broadcasted array\n# b[0][0] = 3 \n# Recommended: Copy before writing if needed\nc = b[0].copy()\nc[0] = 3",
+                "output": "(Warning emitted on write)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.17.0-notes.html#deprecations",
+        "api": "numpy.polynomial",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.17.0",
+        "removed_in": "",
+        "replaced_by": "int (type)",
+        "change_type": "API Deprecation",
+        "reason": "Passing float values (e.g., 1.0) in place of integers (e.g., 1) to numpy.polynomial functions is deprecated and will raise a TypeError in the future.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy.polynomial.chebyshev as cheb\n# Deprecated usage: cheb.Chebyshev.basis(1.0)\n# Recommended usage\ncheb.Chebyshev.basis(1)",
+                "output": "Chebyshev([0., 1.], domain=[-1,  1], window=[-1,  1])"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.17.0-notes.html#deprecations",
+        "api": "numpy.distutils.exec_command",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.17.0",
+        "removed_in": "",
+        "replaced_by": "subprocess.Popen",
+        "change_type": "API Deprecation",
+        "reason": "numpy.distutils.exec_command is deprecated. Use the standard library subprocess.Popen instead.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.17.0-notes.html#deprecations",
+        "api": "numpy.distutils.temp_file_name",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.17.0",
+        "removed_in": "",
+        "replaced_by": "tempfile.mkstemp",
+        "change_type": "API Deprecation",
+        "reason": "numpy.distutils.temp_file_name is deprecated. Use the standard library tempfile.mkstemp instead.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.16.0-notes.html#new-deprecations",
+        "api": "numpy.asscalar",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.16.0",
+        "removed_in": "1.24.0",
+        "replaced_by": "numpy.ndarray.item",
+        "change_type": "API Deprecation",
+        "reason": "numpy.asscalar is deprecated. It is an alias to the more powerful numpy.ndarray.item, is not tested, and fails for scalars.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\na = np.array(42)\n# Deprecated usage: np.asscalar(a)\n# Recommended usage\na.item()",
+                "output": "42"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.16.0-notes.html#new-deprecations",
+        "api": "numpy.unravel_index",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.16.0",
+        "removed_in": "",
+        "replaced_by": "shape (argument)",
+        "change_type": "API Rename",
+        "reason": "The 'dims' keyword argument is deprecated. Use 'shape' instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Deprecated usage: np.unravel_index(5, dims=(3, 3))\n# Recommended usage\nnp.unravel_index(5, shape=(3, 3))",
+                "output": "(1, 2)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.16.0-notes.html#new-deprecations",
+        "api": "numpy.histogram",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.16.0",
+        "removed_in": "",
+        "replaced_by": "density (argument)",
+        "change_type": "API Deprecation",
+        "reason": "The 'normed' argument is deprecated. Use 'density' instead. (Previously deprecated without warning, now issues warning).",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\na = [1, 2, 1]\n# Deprecated usage: np.histogram(a, normed=True)\n# Recommended usage\nnp.histogram(a, density=True)",
+                "output": "(array([0., 2.]), array([1. , 1.5, 2. ]))"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.16.0-notes.html#expired-deprecations",
+        "api": "numpy.lib.function_base.unique",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.4",
+        "removed_in": "1.16.0",
+        "replaced_by": "numpy.unique",
+        "change_type": "API Removal",
+        "reason": "np.lib.function_base.unique was removed, finishing a deprecation cycle begun in NumPy 1.4. Use np.unique instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Removed usage: np.lib.function_base.unique([1, 1, 2])\n# Recommended usage\nnp.unique([1, 1, 2])",
+                "output": "array([1, 2])"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.16.0-notes.html#expired-deprecations",
+        "api": "numpy.PackageLoader",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.10",
+        "removed_in": "1.16.0",
+        "replaced_by": "Standard Import",
+        "change_type": "API Removal",
+        "reason": "np.PackageLoader and np.pkgload have been removed. They were deprecated in 1.10 and seemed to no longer work.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.16.0-notes.html#new-deprecations",
+        "api": "numpy.core.typeNA",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.16.0",
+        "removed_in": "1.18.0",
+        "replaced_by": "numpy.sctypeDict",
+        "change_type": "API Deprecation",
+        "reason": "The type dictionaries numpy.core.typeNA and numpy.core.sctypeNA are deprecated. Use numpy.sctypeDict instead.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.15.0-notes.html#deprecations",
+        "api": "numpy.sum",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.15.0",
+        "removed_in": "",
+        "replaced_by": "built-in sum or numpy.from_iter",
+        "change_type": "API Deprecation",
+        "reason": "Giving a generator to numpy.sum is deprecated. Previously it worked undocumented; in the future it might behave differently. Use the built-in python sum() or np.sum(np.from_iter(generator)).",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\ngen = (x for x in range(5))\n# Deprecated usage: np.sum(gen)\n# Recommended usage\nsum(gen) # or np.sum(np.from_iter(gen, dtype=int))",
+                "output": "10"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.15.0-notes.html#deprecations",
+        "api": "numpy.loads",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.15.0",
+        "removed_in": "",
+        "replaced_by": "pickle.loads",
+        "change_type": "API Deprecation",
+        "reason": "Aliases of builtin pickle functions (numpy.loads, numpy.ma.dump, etc.) are deprecated in favor of their unaliased pickle.<func> names.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\nimport pickle\n# Deprecated usage: np.loads(...)\n# Recommended usage\npickle.loads(...)",
+                "output": "(Unpickled object)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.15.0-notes.html#deprecations",
+        "api": "numpy.ndarray",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.15.0",
+        "removed_in": "",
+        "replaced_by": "tuple(index_list)",
+        "change_type": "API Deprecation",
+        "reason": "Multidimensional indexing with anything but a tuple (e.g., a list) is deprecated. This avoids ambiguity with fancy indexing.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\narr = np.zeros((2, 2))\nind = [0, 0]\n# Deprecated usage: arr[ind]\n# Recommended usage\narr[tuple(ind)]",
+                "output": "0.0"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.15.0-notes.html#deprecations",
+        "api": "numpy.histogram",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.6.0",
+        "removed_in": "",
+        "replaced_by": "density (argument)",
+        "change_type": "Signature Change",
+        "reason": "The 'normed' argument was deprecated long ago in 1.6.0, but now emits a DeprecationWarning. Use 'density' instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\na = [1, 2, 1]\n# Deprecated usage: np.histogram(a, normed=True)\n# Recommended usage\nnp.histogram(a, density=True)",
+                "output": "(array([0., 2.]), array([1. , 1.5, 2. ]))"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.15.0-notes.html#deprecations",
+        "api": "numpy.nditer",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.15.0",
+        "removed_in": "",
+        "replaced_by": "context manager (with)",
+        "change_type": "API Deprecation",
+        "reason": "Users of nditer should use it as a context manager (with statement) or call close() explicitly if writeback semantics are needed. Otherwise, a RuntimeWarning may be emitted.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\na = np.arange(2)\n# Recommended usage\nwith np.nditer(a, op_flags=['readwrite']) as it:\n    for x in it:\n        x[...] = 2 * x",
+                "output": "(Array updated safely)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.14.0-notes.html#deprecations",
+        "api": "numpy.fromstring",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.14.0",
+        "removed_in": "",
+        "replaced_by": "numpy.frombuffer",
+        "change_type": "API Deprecation",
+        "reason": "Calling np.fromstring with the default 'sep' argument is deprecated. It was often used to read binary data which is better handled by np.frombuffer.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\ndata = b'\\x01\\x02\\x03\\x04'\n# Deprecated usage: np.fromstring(data, dtype=np.uint8)\n# Recommended usage\nnp.frombuffer(data, dtype=np.uint8)",
+                "output": "array([1, 2, 3, 4], dtype=uint8)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.14.0-notes.html#deprecations",
+        "api": "numpy.bool_",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.14.0",
+        "removed_in": "",
+        "replaced_by": "int() cast",
+        "change_type": "API Deprecation",
+        "reason": "Using np.bool_ objects in place of integers (e.g. for list indexing) is deprecated because it behaves inconsistently compared to array indexing.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\nl = [1, 2]\nidx = np.True_\n# Deprecated usage: l[idx]\n# Recommended usage\nl[int(idx)]",
+                "output": "2"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.14.0-notes.html#deprecations",
+        "api": "numpy.bincount",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.14.0",
+        "removed_in": "",
+        "replaced_by": "minlength=0",
+        "change_type": "API Deprecation",
+        "reason": "Calling np.bincount with minlength=None is deprecated. Use minlength=0 instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\na = [1, 2, 1]\n# Deprecated usage: np.bincount(a, minlength=None)\n# Recommended usage\nnp.bincount(a, minlength=0)",
+                "output": "array([0, 2, 1])"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.14.0-notes.html#deprecations",
+        "api": "numpy.ndarray",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.14.0",
+        "removed_in": "",
+        "replaced_by": "array.size > 0",
+        "change_type": "API Deprecation",
+        "reason": "Truth testing of an empty array is deprecated. To check if an array is not empty, use array.size > 0.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\narr = np.array([])\n# Deprecated usage: if not arr: ...\n# Recommended usage\nif arr.size == 0:\n    pass",
+                "output": "(Condition met)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.14.0-notes.html#future-changes",
+        "api": "numpy.linalg.lstsq",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.14.0",
+        "removed_in": "",
+        "replaced_by": "rcond (explicit argument)",
+        "change_type": "Behavior Change",
+        "reason": "The default value for 'rcond' will change in the future to machine precision. Pass 'rcond' explicitly to silence the warning.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Usage that emits warning: np.linalg.lstsq(a, b)\n# Recommended usage to keep old behavior\nnp.linalg.lstsq(a, b, rcond=-1)\n# Or recommended usage for new behavior\nnp.linalg.lstsq(a, b, rcond=None)",
+                "output": "(Least-squares solution)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.14.0-notes.html#compatibility-notes",
+        "api": "numpy.ma.masked",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.14.0",
+        "removed_in": "",
+        "replaced_by": "N/A (Behavior Change)",
+        "change_type": "Behavior Change",
+        "reason": "np.ma.masked is no longer writeable. Attempts to mutate the masked constant will now raise an error.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.13.0-notes.html#deprecations",
+        "api": "numpy.fix",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.13.0",
+        "removed_in": "",
+        "replaced_by": "out=... (keyword argument)",
+        "change_type": "API Deprecation",
+        "reason": "Calling np.fix (and np.isposinf, np.isneginf) with positional output arguments (f(x, y=out)) is deprecated. The output should be passed as a keyword argument (f(x, out=out)).",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\nx = np.array([1.5, 2.5])\nout = np.zeros_like(x)\n# Deprecated usage: np.fix(x, out)\n# Recommended usage\nnp.fix(x, out=out)",
+                "output": "array([1., 2.])"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.13.0-notes.html#deprecations",
+        "api": "numpy.ma.MaskedArray.mini",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.13.0",
+        "removed_in": "",
+        "replaced_by": "numpy.ma.minimum.reduce",
+        "change_type": "API Deprecation",
+        "reason": "np.ma.MaskedArray.mini is deprecated as it duplicates functionality. Use np.ma.minimum.reduce instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy.ma as ma\narr = ma.array([1, 2, 3])\n# Deprecated usage: arr.mini()\n# Recommended usage\nma.minimum.reduce(arr)",
+                "output": "1"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.13.0-notes.html#deprecations",
+        "api": "numpy.ma.minimum",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.13.0",
+        "removed_in": "",
+        "replaced_by": "numpy.ma.minimum.reduce",
+        "change_type": "API Deprecation",
+        "reason": "The single-argument form of np.ma.minimum (and np.ma.maximum) is deprecated. Use np.ma.minimum.reduce(x) instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy.ma as ma\narr = ma.array([1, 2, 3])\n# Deprecated usage: ma.minimum(arr)\n# Recommended usage\nma.minimum.reduce(arr)",
+                "output": "1"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.13.0-notes.html#compatibility-notes",
+        "api": "numpy.hstack",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.13.0",
+        "removed_in": "",
+        "replaced_by": "N/A (Error Type Change)",
+        "change_type": "Behavior Change",
+        "reason": "numpy.hstack() now throws ValueError instead of IndexError when input is empty.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Old behavior: raised IndexError\n# New behavior:\ntry:\n    np.hstack([])\nexcept ValueError as e:\n    print(e)",
+                "output": "(ValueError: need at least one array to concatenate)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.13.0-notes.html#compatibility-notes",
+        "api": "numpy.AxisError",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.13.0",
+        "removed_in": "",
+        "replaced_by": "N/A (New Exception Type)",
+        "change_type": "Behavior Change",
+        "reason": "Functions taking an axis argument now throw np.AxisError (which subclasses both IndexError and ValueError) when the argument is out of range, replacing the previous mixture of errors.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\na = np.array([1, 2])\n# Usage with invalid axis\ntry:\n    np.sum(a, axis=5)\nexcept np.AxisError:\n    print(\"Caught AxisError\")",
+                "output": "Caught AxisError"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.12.0-notes.html#deprecations",
+        "api": "numpy.ndarray.data",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.12.0",
+        "removed_in": "",
+        "replaced_by": "N/A (Unsafe Operation)",
+        "change_type": "API Deprecation",
+        "reason": "Assigning the 'data' attribute of an ndarray is deprecated as it is an inherently unsafe operation.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\na = np.array([1, 2, 3])\n# Deprecated usage: a.data = b'...'\n# This operation is considered unsafe and will be removed.",
+                "output": "(DeprecationWarning)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.12.0-notes.html#deprecations",
+        "api": "numpy.linspace",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.12.0",
+        "removed_in": "",
+        "replaced_by": "int (explicit cast)",
+        "change_type": "Signature Change",
+        "reason": "Unsafe int casting of the 'num' attribute in linspace is deprecated. It now raises a warning when num cannot be safely interpreted as an integer.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Deprecated usage: np.linspace(0, 10, num=2.5)\n# Recommended usage\nnp.linspace(0, 10, num=2)",
+                "output": "(DeprecationWarning)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.12.0-notes.html#deprecations",
+        "api": "numpy.binary_repr",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.12.0",
+        "removed_in": "",
+        "replaced_by": "Sufficient width",
+        "change_type": "Behavior Change",
+        "reason": "Passing an insufficient 'width' parameter to binary_repr is deprecated. It used to silently ignore the parameter, but now considered unsafe.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Deprecated usage (width too small for negative number): \n# np.binary_repr(-1, width=1)\n# Recommended usage\nnp.binary_repr(-1, width=None)",
+                "output": "'-1'"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.11.0-notes.html#deprecations",
+        "api": "numpy.random.random_integers",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.11.0",
+        "removed_in": "",
+        "replaced_by": "numpy.random.randint",
+        "change_type": "API Deprecation",
+        "reason": "np.random.random_integers is deprecated in favor of np.random.randint (half-open interval) to match Python C API conventions.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Deprecated usage (closed interval [1, 5]):\n# np.random.random_integers(1, 5)\n# Recommended usage (half-open interval [1, 6)):\nnp.random.randint(1, 6)",
+                "output": "3"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.11.0-notes.html#deprecations",
+        "api": "numpy.testing.rand",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.11.0",
+        "removed_in": "",
+        "replaced_by": "numpy.random",
+        "change_type": "API Deprecation",
+        "reason": "The Python standard library random number generator exposed as testing.rand is deprecated. Use generators from numpy.random namespace instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Deprecated usage: np.testing.rand()\n# Recommended usage\nnp.random.rand()",
+                "output": "0.54..."
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.11.0-notes.html#deprecations",
+        "api": "numpy.ndarray.flatten",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.11.0",
+        "removed_in": "",
+        "replaced_by": "'C', 'F', 'A', 'K' (Strict)",
+        "change_type": "API Deprecation",
+        "reason": "Invalid arguments for array ordering (not one of 'C', 'F', 'A', 'K') are deprecated. Case-insensitive or non-unicode values will strictly fail in future.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\na = np.array([[1,2], [3,4]])\n# Deprecated usage: a.flatten(order='c')\n# Recommended usage\na.flatten(order='C')",
+                "output": "array([1, 2, 3, 4])"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.10.0-notes.html#deprecations",
+        "api": "numpy.array_comparison",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.10.0",
+        "removed_in": "",
+        "replaced_by": "Elementwise comparison (Future)",
+        "change_type": "Behavior Change",
+        "reason": "Array comparisons involving strings or structured dtypes currently return a scalar (False) or raise an error. This behavior is deprecated and will eventually return elementwise boolean arrays.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Deprecated behavior: Returns False (Scalar)\n# Future behavior: Returns array([False, False])\nnp.arange(2) == \"foo\"",
+                "output": "(FutureWarning emitted)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.10.0-notes.html#deprecations",
+        "api": "numpy.corrcoef",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.10.0",
+        "removed_in": "",
+        "replaced_by": "N/A (Arguments Removed)",
+        "change_type": "API Deprecation",
+        "reason": "The 'bias' and 'ddof' arguments to corrcoef are deprecated because they canceled each other out in the division and had no effect on the result.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\nx = [1, 2, 3]\n# Deprecated usage: np.corrcoef(x, bias=1)\n# Recommended usage\nnp.corrcoef(x)",
+                "output": "1.0"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.10.0-notes.html#dtype-string-representation-changes",
+        "api": "numpy.dtype",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.6",
+        "removed_in": "1.10.0",
+        "replaced_by": "N/A (Error Raised)",
+        "change_type": "Behavior Change",
+        "reason": "Creating a dtype object from a string representation with an invalid size (e.g., 'f3') now raises a TypeError instead of a DeprecationWarning.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Old behavior: Warning, defaulted to float64\n# New behavior:\ntry:\n    np.dtype('f3')\nexcept TypeError as e:\n    print(e)",
+                "output": "(TypeError: data type not understood)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.10.0-notes.html#deprecations",
+        "api": "numpy.lib.utils.SafeEval",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.10.0",
+        "removed_in": "",
+        "replaced_by": "ast.literal_eval (Standard Lib)",
+        "change_type": "API Deprecation",
+        "reason": "The SafeEval class is deprecated and will be removed.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.10.0-notes.html#deprecations",
+        "api": "numpy.pkgload",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.10.0",
+        "removed_in": "",
+        "replaced_by": "Standard Import",
+        "change_type": "API Deprecation",
+        "reason": "numpy.pkgload and numpy.PackageLoader are deprecated ways of loading packages.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.9.0-notes.html#deprecations",
+        "api": "numpy.rank",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.9.0",
+        "removed_in": "1.18.0",
+        "replaced_by": "numpy.ndim",
+        "change_type": "API Deprecation",
+        "reason": "The rank function has been deprecated to avoid confusion with numpy.linalg.matrix_rank. Use numpy.ndim to get the number of dimensions.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\na = np.array([[1, 2], [3, 4]])\n# Deprecated usage: np.rank(a)\n# Recommended usage\nnp.ndim(a)",
+                "output": "2"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.9.0-notes.html#deprecations",
+        "api": "numpy.array_equal",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.9.0",
+        "removed_in": "",
+        "replaced_by": "is None (for None checks)",
+        "change_type": "Behavior Change",
+        "reason": "Object array equality comparisons (== and np.equal) no longer perform identity checks. Comparison with arr == None will perform elementwise comparison; use 'arr is None' instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\narr = np.array([1, 2])\n# Deprecated behavior (for checking if array is None)\n# if arr == None: ...\n# Recommended usage\nif arr is None:\n    pass",
+                "output": "(Correct None check)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.9.0-notes.html#deprecations",
+        "api": "numpy.select",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.9.0",
+        "removed_in": "",
+        "replaced_by": "Boolean arrays",
+        "change_type": "API Deprecation",
+        "reason": "Using integer or empty input for conditions in np.select is deprecated. Only boolean arrays will be valid conditions in the future.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.9.0-notes.html#deprecations",
+        "api": "numpy.float_",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.9.0",
+        "removed_in": "",
+        "replaced_by": "int casting",
+        "change_type": "API Deprecation",
+        "reason": "Using non-integer numpy scalars (like np.float_) to repeat python sequences is deprecated.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Deprecated usage: np.float_(2) * [1]\n# Recommended usage\nint(np.float_(2)) * [1]",
+                "output": "[1, 1]"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.7.0-notes.html#deprecations",
+        "api": "numpy.ndarray._format",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.7.0",
+        "removed_in": "",
+        "replaced_by": "numpy.set_printoptions(formatter=...)",
+        "change_type": "API Deprecation",
+        "reason": "Specifying a custom string formatter with a '_format' array attribute is deprecated. Use the 'formatter' keyword in numpy.set_printoptions or numpy.array2string instead.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\n# Deprecated usage: Setting a ._format attribute on an array\n# Recommended usage\nnp.set_printoptions(formatter={'float': '{: 0.2f}'.format})",
+                "output": "(Formatted printing)"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.7.0-notes.html#deprecations",
+        "api": "numpy.concatenate",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "1.7.0",
+        "removed_in": "",
+        "replaced_by": "axis=0 (default)",
+        "change_type": "Behavior Change",
+        "reason": "numpy.concatenate now raises a DeprecationWarning for 1D arrays if axis != 0. Previously, the axis argument was ignored for 1D arrays. In the future, this will raise an error.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "import numpy as np\na = np.array([1, 2])\nb = np.array([3, 4])\n# Deprecated usage: np.concatenate((a, b), axis=1)\n# Recommended usage\nnp.concatenate((a, b), axis=0)",
+                "output": "array([1, 2, 3, 4])"
+            }
+        ],
+        "examples_count": 1,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.7.0-notes.html#deprecations",
+        "api": "numpy.polynomial",
+        "package": "NumPy",
+        "language": "Python",
+        "deprecated_in": "",
+        "removed_in": "1.7.0",
+        "replaced_by": "Updated imports",
+        "change_type": "API Removal",
+        "reason": "Deprecated imports in the polynomial package have been removed.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    },
+    {
+        "source_url": "https://numpy.org/doc/stable/release/1.7.0-notes.html#c-api",
+        "api": "NPY_CHAR",
+        "package": "NumPy",
+        "language": "C-API",
+        "deprecated_in": "1.7.0",
+        "removed_in": "1.8",
+        "replaced_by": "NPY_STRING / NPY_STRING_LTR",
+        "change_type": "API Deprecation",
+        "reason": "The NPY_CHAR member of the NPY_TYPES enum is deprecated and will be removed in NumPy 1.8.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "extraction_method": "Manual"
+    }
+]

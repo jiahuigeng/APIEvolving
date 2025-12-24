@@ -1,0 +1,8 @@
+openai
+anthropic
+google-genai
+transformers
+torch
+accelerate
+bitsandbytes
+python-dotenv

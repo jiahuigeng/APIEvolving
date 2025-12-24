@@ -4,6 +4,8 @@
 # Keep essential root files
 !.gitignore
 !README.md
+!utils_llm.py
+!requirements.txt
 
 # Allow QA_Pairs directory and all its contents
 !QA_Pairs/
