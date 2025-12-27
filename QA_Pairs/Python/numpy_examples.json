@@ -716,7 +716,7 @@
     "deprecated_in": "1.21.0",
     "removed_in": "",
     "replaced_by": "mode='valid' (full string)",
-    "change_type": "Argument Deprecation",
+    "change_type": "Parameter Change",
     "reason": "Inexact matches for mode argument in numpy.convolve and numpy.correlate are deprecated. Use full 'same', 'valid', 'full' strings instead of 's', 'v', 'f'.",
     "has_examples": true,
     "examples": [
@@ -835,7 +835,7 @@
     "deprecated_in": "1.19.0",
     "removed_in": "",
     "replaced_by": "dtype=object (argument)",
-    "change_type": "Behavior Deprecation",
+    "change_type": "Parameter Change",
     "reason": "Creating an ndarray from ragged nested sequences (sequences with different lengths or shapes) is deprecated. If you meant to create an object array, explicitly define dtype=object.",
     "has_examples": true,
     "examples": [
@@ -875,7 +875,7 @@
     "deprecated_in": "1.19.0",
     "removed_in": "",
     "replaced_by": "shape=None",
-    "change_type": "Argument Deprecation",
+    "change_type": "API Deprecation",
     "reason": "Passing shape=0 to factory functions in numpy.rec (like fromarrays) is deprecated. 0 is currently treated as None, but will be treated as an array length in the future.",
     "has_examples": true,
     "examples": [
@@ -995,7 +995,7 @@
     "deprecated_in": "1.18.0",
     "removed_in": "",
     "replaced_by": "N/A (Argument Removal)",
-    "change_type": "Argument Deprecation",
+    "change_type": "API Deprecation",
     "reason": "The 'axis' argument to numpy.ma.mask_cols and numpy.ma.mask_row is deprecated as it was always ignored.",
     "has_examples": true,
     "examples": [
@@ -1015,7 +1015,7 @@
     "deprecated_in": "1.17.0",
     "removed_in": "",
     "replaced_by": "numpy.atleast_1d",
-    "change_type": "Behavior Deprecation",
+    "change_type": "API Deprecation",
     "reason": "Calling numpy.nonzero on 0d arrays is deprecated as it was surprising and often incorrect. Use nonzero(atleast_1d(arr)) if the old behavior is needed.",
     "has_examples": true,
     "examples": [
@@ -1035,7 +1035,7 @@
     "deprecated_in": "1.17.0",
     "removed_in": "",
     "replaced_by": "read-only usage",
-    "change_type": "Behavior Warning",
+    "change_type": "API Deprecation",
     "reason": "Writing to the result of broadcast_arrays will now emit a deprecation warning. The returned arrays have internal overlap, making writing unsafe. Future versions will set the writeable flag to False.",
     "has_examples": true,
     "examples": [
@@ -1055,7 +1055,7 @@
     "deprecated_in": "1.17.0",
     "removed_in": "",
     "replaced_by": "int (type)",
-    "change_type": "Argument Type Deprecation",
+    "change_type": "Parameter Change",
     "reason": "Passing float values (e.g., 1.0) in place of integers (e.g., 1) to numpy.polynomial functions is deprecated and will raise a TypeError in the future.",
     "has_examples": true,
     "examples": [
@@ -1125,7 +1125,7 @@
     "deprecated_in": "1.16.0",
     "removed_in": "",
     "replaced_by": "shape (argument)",
-    "change_type": "Argument Rename",
+    "change_type": "Parameter Change",
     "reason": "The 'dims' keyword argument is deprecated. Use 'shape' instead.",
     "has_examples": true,
     "examples": [
@@ -1145,7 +1145,7 @@
     "deprecated_in": "1.16.0",
     "removed_in": "",
     "replaced_by": "density (argument)",
-    "change_type": "Argument Deprecation",
+    "change_type": "API Deprecation",
     "reason": "The 'normed' argument is deprecated. Use 'density' instead. (Previously deprecated without warning, now issues warning).",
     "has_examples": true,
     "examples": [
@@ -1215,7 +1215,7 @@
     "deprecated_in": "1.15.0",
     "removed_in": "",
     "replaced_by": "built-in sum or numpy.from_iter",
-    "change_type": "Argument Type Deprecation",
+    "change_type": "Parameter Change",
     "reason": "Giving a generator to numpy.sum is deprecated. Previously it worked undocumented; in the future it might behave differently. Use the built-in python sum() or np.sum(np.from_iter(generator)).",
     "has_examples": true,
     "examples": [
@@ -1255,7 +1255,7 @@
     "deprecated_in": "1.15.0",
     "removed_in": "",
     "replaced_by": "tuple(index_list)",
-    "change_type": "Behavior Deprecation",
+    "change_type": "Behavior Change",
     "reason": "Multidimensional indexing with anything but a tuple (e.g., a list) is deprecated. This avoids ambiguity with fancy indexing.",
     "has_examples": true,
     "examples": [
@@ -1275,7 +1275,7 @@
     "deprecated_in": "1.6.0",
     "removed_in": "",
     "replaced_by": "density (argument)",
-    "change_type": "Argument Warning",
+    "change_type": "Parameter Change",
     "reason": "The 'normed' argument was deprecated long ago in 1.6.0, but now emits a DeprecationWarning. Use 'density' instead.",
     "has_examples": true,
     "examples": [
@@ -1295,7 +1295,7 @@
     "deprecated_in": "1.15.0",
     "removed_in": "",
     "replaced_by": "context manager (with)",
-    "change_type": "Usage Deprecation",
+    "change_type": "Behavior Change",
     "reason": "Users of nditer should use it as a context manager (with statement) or call close() explicitly if writeback semantics are needed. Otherwise, a RuntimeWarning may be emitted.",
     "has_examples": true,
     "examples": [
@@ -1335,7 +1335,7 @@
     "deprecated_in": "1.14.0",
     "removed_in": "",
     "replaced_by": "int() cast",
-    "change_type": "Usage Deprecation",
+    "change_type": "Behavior Change",
     "reason": "Using np.bool_ objects in place of integers (e.g. for list indexing) is deprecated because it behaves inconsistently compared to array indexing.",
     "has_examples": true,
     "examples": [
@@ -1355,7 +1355,7 @@
     "deprecated_in": "1.14.0",
     "removed_in": "",
     "replaced_by": "minlength=0",
-    "change_type": "Argument Deprecation",
+    "change_type": "API Deprecation",
     "reason": "Calling np.bincount with minlength=None is deprecated. Use minlength=0 instead.",
     "has_examples": true,
     "examples": [
@@ -1375,7 +1375,7 @@
     "deprecated_in": "1.14.0",
     "removed_in": "",
     "replaced_by": "array.size > 0",
-    "change_type": "Usage Deprecation",
+    "change_type": "Behavior Change",
     "reason": "Truth testing of an empty array is deprecated. To check if an array is not empty, use array.size > 0.",
     "has_examples": true,
     "examples": [
@@ -1395,7 +1395,7 @@
     "deprecated_in": "1.14.0",
     "removed_in": "",
     "replaced_by": "rcond (explicit argument)",
-    "change_type": "Future Warning",
+    "change_type": "API Deprecation",
     "reason": "The default value for 'rcond' will change in the future to machine precision. Pass 'rcond' explicitly to silence the warning.",
     "has_examples": true,
     "examples": [
@@ -1430,7 +1430,7 @@
     "deprecated_in": "1.13.0",
     "removed_in": "",
     "replaced_by": "out=... (keyword argument)",
-    "change_type": "Argument Deprecation",
+    "change_type": "API Deprecation",
     "reason": "Calling np.fix (and np.isposinf, np.isneginf) with positional output arguments (f(x, y=out)) is deprecated. The output should be passed as a keyword argument (f(x, out=out)).",
     "has_examples": true,
     "examples": [
@@ -1470,7 +1470,7 @@
     "deprecated_in": "1.13.0",
     "removed_in": "",
     "replaced_by": "numpy.ma.minimum.reduce",
-    "change_type": "Usage Deprecation",
+    "change_type": "Behavior Change",
     "reason": "The single-argument form of np.ma.minimum (and np.ma.maximum) is deprecated. Use np.ma.minimum.reduce(x) instead.",
     "has_examples": true,
     "examples": [
@@ -1550,7 +1550,7 @@
     "deprecated_in": "1.12.0",
     "removed_in": "",
     "replaced_by": "int (explicit cast)",
-    "change_type": "Argument Warning",
+    "change_type": "Parameter Change",
     "reason": "Unsafe int casting of the 'num' attribute in linspace is deprecated. It now raises a warning when num cannot be safely interpreted as an integer.",
     "has_examples": true,
     "examples": [
@@ -1570,7 +1570,7 @@
     "deprecated_in": "1.12.0",
     "removed_in": "",
     "replaced_by": "Sufficient width",
-    "change_type": "Behavior Warning",
+    "change_type": "API Deprecation",
     "reason": "Passing an insufficient 'width' parameter to binary_repr is deprecated. It used to silently ignore the parameter, but now considered unsafe.",
     "has_examples": true,
     "examples": [
@@ -1630,7 +1630,7 @@
     "deprecated_in": "1.11.0",
     "removed_in": "",
     "replaced_by": "'C', 'F', 'A', 'K' (Strict)",
-    "change_type": "Argument Deprecation",
+    "change_type": "Parameter Change",
     "reason": "Invalid arguments for array ordering (not one of 'C', 'F', 'A', 'K') are deprecated. Case-insensitive or non-unicode values will strictly fail in future.",
     "has_examples": true,
     "examples": [
@@ -1650,7 +1650,7 @@
     "deprecated_in": "1.10.0",
     "removed_in": "",
     "replaced_by": "Elementwise comparison (Future)",
-    "change_type": "Behavior Warning",
+    "change_type": "API Deprecation",
     "reason": "Array comparisons involving strings or structured dtypes currently return a scalar (False) or raise an error. This behavior is deprecated and will eventually return elementwise boolean arrays.",
     "has_examples": true,
     "examples": [
@@ -1670,7 +1670,7 @@
     "deprecated_in": "1.10.0",
     "removed_in": "",
     "replaced_by": "N/A (Arguments Removed)",
-    "change_type": "Argument Deprecation",
+    "change_type": "Parameter Change",
     "reason": "The 'bias' and 'ddof' arguments to corrcoef are deprecated because they canceled each other out in the division and had no effect on the result.",
     "has_examples": true,
     "examples": [
@@ -1780,7 +1780,7 @@
     "deprecated_in": "1.9.0",
     "removed_in": "",
     "replaced_by": "Boolean arrays",
-    "change_type": "Argument Deprecation",
+    "change_type": "Parameter Change",
     "reason": "Using integer or empty input for conditions in np.select is deprecated. Only boolean arrays will be valid conditions in the future.",
     "has_examples": false,
     "examples": [],
@@ -1795,7 +1795,7 @@
     "deprecated_in": "1.9.0",
     "removed_in": "",
     "replaced_by": "int casting",
-    "change_type": "Usage Deprecation",
+    "change_type": "API Deprecation",
     "reason": "Using non-integer numpy scalars (like np.float_) to repeat python sequences is deprecated.",
     "has_examples": true,
     "examples": [
@@ -1835,7 +1835,7 @@
     "deprecated_in": "1.7.0",
     "removed_in": "",
     "replaced_by": "axis=0 (default)",
-    "change_type": "Behavior Warning",
+    "change_type": "API Deprecation",
     "reason": "numpy.concatenate now raises a DeprecationWarning for 1D arrays if axis != 0. Previously, the axis argument was ignored for 1D arrays. In the future, this will raise an error.",
     "has_examples": true,
     "examples": [
