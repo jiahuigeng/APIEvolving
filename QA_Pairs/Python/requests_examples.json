@@ -47,7 +47,7 @@
         "deprecated_in": "1.0.0",
         "removed_in": "",
         "replaced_by": "requests.Session",
-        "change_type": "Refactoring",
+        "change_type": "API Deprecation",
         "reason": "The main entry point for sessions is now the capitalized `Session` class. The lowercase `session()` function remains as a shortcut alias but usage of the class is preferred.",
         "has_examples": true,
         "examples": [
@@ -162,7 +162,7 @@
         "deprecated_in": "2.32.0",
         "removed_in": "",
         "replaced_by": "get_connection_with_tls_context",
-        "change_type": "Internal API Deprecation",
+        "change_type": "API Deprecation",
         "reason": "The internal `get_connection` method in adapters is deprecated in favor of methods that better handle TLS contexts, aligning with urllib3 2.0+ changes.",
         "has_examples": false,
         "examples": [],
