@@ -7,7 +7,7 @@
     "deprecated_in": "",
     "removed_in": "",
     "replaced_by": "",
-    "change_type": "API Usage Discouraged",
+    "change_type": "API Deprecation",
     "reason": "Setting `arr.shape` is discouraged and may be deprecated in the future. Using `ndarray.reshape` is the preferred approach.",
     "has_examples": true,
     "examples": [
@@ -43,7 +43,7 @@
     "deprecated_in": "",
     "removed_in": "",
     "replaced_by": "",
-    "change_type": "API Usage Discouraged",
+    "change_type": "API Deprecation",
     "reason": "Setting `arr.dtype` is discouraged and may be deprecated in the future. Setting will replace the `dtype` without modifying the memory. Use `ndarray.view` or `ndarray.astype` instead.",
     "has_examples": true,
     "examples": [
@@ -63,7 +63,7 @@
   "deprecated_in": "",
   "removed_in": "",
   "replaced_by": "numpy.lib.stride_tricks.as_strided",
-  "change_type": "API Usage Discouraged",
+  "change_type": "API Deprecation",
   "reason": "Setting `arr.strides` is discouraged and may be deprecated in the future. It is not yet fully deprecated, but `numpy.lib.stride_tricks.as_strided` is preferred for creating new views in a safer way.",
   "has_examples": true,
   "examples": [
@@ -115,7 +115,7 @@
   "deprecated_in": "",
   "removed_in": "",
   "replaced_by": "numpy.array",
-  "change_type": "API Usage Discouraged",
+  "change_type": "API Deprecation",
   "reason": "The documentation explicitly states: 'It is no longer recommended to use this class, even for linear algebra. Instead use regular arrays. The class may be removed in the future.'",
   "has_examples": true,
   "examples": [
@@ -139,7 +139,7 @@
   "deprecated_in": "",
   "removed_in": "",
   "replaced_by": "numpy.char (functions) / bytes_ or str_ arrays",
-  "change_type": "API Usage Discouraged",
+  "change_type": "API Deprecation",
   "reason": "The documentation notes that this class is provided for backward compatibility. New code is advised to use standard arrays of type `bytes_` or `str_` and the free functions in `numpy.char` instead.",
   "has_examples": true,
   "examples": [
@@ -159,7 +159,7 @@
   "deprecated_in": "",
   "removed_in": "",
   "replaced_by": "numpy.char (functions) / bytes_ or str_ arrays",
-  "change_type": "API Usage Discouraged",
+  "change_type": "API Deprecation",
   "reason": "The documentation states that this class exists for backwards compatibility with Numarray and is not recommended for new development. Users are advised to use arrays of `dtype` `object_`, `bytes_`, or `str_` and functions in `numpy.char` instead.",
   "has_examples": true,
   "examples": [
@@ -183,7 +183,7 @@
   "deprecated_in": "",
   "removed_in": "",
   "replaced_by": "numpy.ma.isin",
-  "change_type": "API Usage Discouraged",
+  "change_type": "API Deprecation",
   "reason": "The documentation recommends using `isin` instead of `in1d` for new code because `isin` preserves the shape of the input array.",
   "has_examples": true,
   "examples": [
@@ -203,7 +203,7 @@
   "deprecated_in": "",
   "removed_in": "",
   "replaced_by": "numpy.ma.resize",
-  "change_type": "API Usage Discouraged",
+  "change_type": "API Deprecation",
   "reason": "This method does nothing except raise a ValueError exception because a masked array does not own its data. The documentation warns it is difficult to implement safely and may be deprecated in future releases.",
   "has_examples": false,
   "examples": [],
@@ -250,20 +250,6 @@
     "extraction_method": "Manual"
   },
   {
-    "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.around.html",
-    "api": "numpy.ma.around",
-    "package": "NumPy",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "Alias Definition",
-    "reason": "To provide clearer API aliasing and streamline usage.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "No Examples"
-  },
-  {
   "source_url": "https://numpy.org/doc/stable/reference/generated/numpy.ma.polyfit.html",
   "api": "numpy.ma.polyfit",
   "package": "NumPy",
@@ -271,7 +257,7 @@
   "deprecated_in": "",
   "removed_in": "",
   "replaced_by": "numpy.polynomial",
-  "change_type": "API Usage Discouraged",
+  "change_type": "API Deprecation",
   "reason": "This function is part of the old polynomial API. Since NumPy 1.4, the new polynomial API defined in `numpy.polynomial` is preferred for new code.",
   "has_examples": true,
   "examples": [
@@ -656,7 +642,7 @@
     "deprecated_in": "1.22.0",
     "removed_in": "",
     "replaced_by": "delimiter (argument)",
-    "change_type": "Argument Rename",
+    "change_type": "Parameter Change",
     "reason": "The misspelled keyword argument 'delimitor' has been changed to 'delimiter'. Using 'delimitor' will emit a deprecation warning.",
     "has_examples": true,
     "examples": [
@@ -994,7 +980,7 @@
     "language": "Python",
     "deprecated_in": "1.18.0",
     "removed_in": "",
-    "replaced_by": "N/A (Argument Removal)",
+    "replaced_by": "",
     "change_type": "API Deprecation",
     "reason": "The 'axis' argument to numpy.ma.mask_cols and numpy.ma.mask_row is deprecated as it was always ignored.",
     "has_examples": true,
