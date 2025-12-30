@@ -345,7 +345,7 @@
     "deprecated_in": "1.9",
     "removed_in": "",
     "replaced_by": "Modernizr",
-    "change_type": "API Usage Discouraged",
+    "change_type": "API Deprecation",
     "reason": "This collection of properties is intended for jQuery's internal use and specific properties may be removed when they are no longer needed internally. Users are strongly recommended to use an external library like Modernizr for feature detection instead.",
     "has_examples": false,
     "examples": [],

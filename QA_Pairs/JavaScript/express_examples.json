@@ -313,7 +313,7 @@
     "deprecated_in": "3.x",
     "removed_in": "4.0",
     "replaced_by": "req.accepts()",
-    "change_type": "API Replacement",
+    "change_type": "API Removal",
     "reason": "Users should use `req.accepts()` instead. Related methods include `req.acceptsEncodings()`, `req.acceptsCharsets()`, and `req.acceptsLanguages()`. Note that these properties may have changed from arrays to functions (e.g., `req.acceptsLanguages()` returns an array).",
     "has_examples": false,
     "examples": [],
