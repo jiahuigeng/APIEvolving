@@ -262,21 +262,6 @@
         "replaced_by": null
     },
     {
-        "source_url": "https://pytorch.org/docs/stable/generated/torch.concat.html",
-        "api": "torch.concat",
-        "package": "torch",
-        "change_type": "Alias Introduction",
-        "reason": "torch.concat was introduced as an alias to torch.cat for improved API consistency and user familiarity.",
-        "has_examples": false,
-        "examples": [],
-        "examples_count": 0,
-        "extraction_method": "No Examples",
-        "language": "Python",
-        "deprecated_in": null,
-        "removed_in": null,
-        "replaced_by": null
-    },
-    {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.column_stack.html",
         "api": "torch.column_stack",
         "package": "torch",
@@ -545,74 +530,6 @@
             }
         ],
         "examples_count": 5,
-        "extraction_method": "Manual",
-        "language": "Python",
-        "deprecated_in": null,
-        "removed_in": null,
-        "replaced_by": null
-    },
-    {
-        "source_url": "https://pytorch.org/docs/stable/generated/torch.swapaxes.html",
-        "api": "torch.swapaxes",
-        "package": "torch (PyTorch)",
-        "change_type": "Alias Addition",
-        "reason": "Introduced for compatibility with NumPy’s `swapaxes` function, providing a more intuitive naming alternative to `torch.transpose`.",
-        "has_examples": true,
-        "examples": [
-            {
-                "code": "x = torch.tensor([[[0,1],[2,3]],[[4,5],[6,7]]])\nx",
-                "output": "tensor([[[0, 1],\n        [2, 3]],\n\n        [[4, 5],\n        [6, 7]]])"
-            },
-            {
-                "code": "torch.swapaxes(x, 0, 1)",
-                "output": "tensor([[[0, 1],\n        [4, 5]],\n\n        [[2, 3],\n        [6, 7]]])"
-            },
-            {
-                "code": "torch.swapaxes(x, 0, 2)",
-                "output": "tensor([[[0, 4],\n        [2, 6]],\n\n        [[1, 5],\n        [3, 7]]])"
-            }
-        ],
-        "examples_count": 3,
-        "extraction_method": "Manual",
-        "language": "Python",
-        "deprecated_in": null,
-        "removed_in": null,
-        "replaced_by": null
-    },
-    {
-        "source_url": "https://pytorch.org/docs/stable/generated/torch.t.html",
-        "api": "torch.t",
-        "package": "torch",
-        "change_type": "",
-        "reason": "",
-        "has_examples": true,
-        "examples": [
-            {
-                "code": "x = torch.randn(())\nx",
-                "output": "tensor(0.1995)"
-            },
-            {
-                "code": "torch.t(x)",
-                "output": "tensor(0.1995)"
-            },
-            {
-                "code": "x = torch.randn(3)\nx",
-                "output": "tensor([ 2.4320, -0.4608,  0.7702])"
-            },
-            {
-                "code": "torch.t(x)",
-                "output": "tensor([ 2.4320, -0.4608,  0.7702])"
-            },
-            {
-                "code": "x = torch.randn(2, 3)\nx",
-                "output": "tensor([[ 0.4875,  0.9158, -0.5872],\n        [ 0.3938, -0.6929,  0.6932]])"
-            },
-            {
-                "code": "torch.t(x)",
-                "output": "tensor([[ 0.4875,  0.3938],\n        [ 0.9158, -0.6929],\n        [-0.5872,  0.6932]])"
-            }
-        ],
-        "examples_count": 6,
         "extraction_method": "Manual",
         "language": "Python",
         "deprecated_in": null,
@@ -948,21 +865,6 @@
         "replaced_by": null
     },
     {
-        "source_url": "https://pytorch.org/docs/stable/generated/torch.absolute.html",
-        "api": "torch.absolute",
-        "package": "torch",
-        "change_type": "Alias Addition",
-        "reason": "Introduced as an alias for clarity and consistency with similar API naming schemes.",
-        "has_examples": false,
-        "examples": [],
-        "examples_count": 0,
-        "extraction_method": "No Examples",
-        "language": "Python",
-        "deprecated_in": null,
-        "removed_in": null,
-        "replaced_by": null
-    },
-    {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.arccos.html",
         "api": "torch.arccos",
         "package": "torch",
@@ -992,36 +894,6 @@
         ],
         "examples_count": 1,
         "extraction_method": "Manual",
-        "language": "Python",
-        "deprecated_in": null,
-        "removed_in": null,
-        "replaced_by": null
-    },
-    {
-        "source_url": "https://pytorch.org/docs/stable/generated/torch.arcsinh.html",
-        "api": "torch.arcsinh",
-        "package": "torch (PyTorch)",
-        "change_type": "Alias Update",
-        "reason": "torch.arcsinh is an alias for torch.asinh() for ease of use and consistency. No functional change is introduced.",
-        "has_examples": false,
-        "examples": [],
-        "examples_count": 0,
-        "extraction_method": "No Examples",
-        "language": "Python",
-        "deprecated_in": null,
-        "removed_in": null,
-        "replaced_by": null
-    },
-    {
-        "source_url": "https://pytorch.org/docs/stable/generated/torch.arcsin.html",
-        "api": "torch.arcsin",
-        "package": "torch",
-        "change_type": "Alias Addition",
-        "reason": "Added as an alias for consistency with other mathematical function naming conventions (such as `arccos`, `arctan` variants).",
-        "has_examples": false,
-        "examples": [],
-        "examples_count": 0,
-        "extraction_method": "No Examples",
         "language": "Python",
         "deprecated_in": null,
         "removed_in": null,
@@ -1080,21 +952,6 @@
         "deprecated_in": "2.7",
         "removed_in": "2.9",
         "replaced_by": "torch.atanh"
-    },
-    {
-        "source_url": "https://pytorch.org/docs/stable/generated/torch.arctan2.html",
-        "api": "torch.arctan2",
-        "package": "torch",
-        "change_type": "Alias Addition",
-        "reason": "Introduced as an alias for torch.atan2 to maintain naming consistency across the library.",
-        "has_examples": false,
-        "examples": [],
-        "examples_count": 0,
-        "extraction_method": "No Examples",
-        "language": "Python",
-        "deprecated_in": null,
-        "removed_in": null,
-        "replaced_by": null
     },
     {
         "source_url": "https://pytorch.org/docs/2.8/torch.html#torch.arctan",
@@ -1297,21 +1154,6 @@
         "replaced_by": "torch.trunc"
     },
     {
-        "source_url": "https://pytorch.org/docs/stable/generated/torch.exp2.html",
-        "api": "torch.exp2",
-        "package": "torch",
-        "change_type": "Alias Addition",
-        "reason": "The API `torch.exp2` is now an alias for `torch.special.exp2()` to maintain consistency across the PyTorch API and consolidate special functions under `torch.special`.",
-        "has_examples": false,
-        "examples": [],
-        "examples_count": 0,
-        "extraction_method": "No Examples",
-        "language": "Python",
-        "deprecated_in": null,
-        "removed_in": null,
-        "replaced_by": "torch.special.exp2"
-    },
-    {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.floor_divide.html",
         "api": "torch.floor_divide",
         "package": "PyTorch",
@@ -1419,41 +1261,11 @@
         "replaced_by": "torch.special.gammainc"
     },
     {
-        "source_url": "https://pytorch.org/docs/stable/generated/torch.special.polygamma.html",
-        "api": "torch.polygamma",
-        "package": "torch.special",
-        "change_type": "Alias Creation",
-        "reason": "Simplify namespace and improve alignment with PyTorch's special functions grouping.",
-        "has_examples": false,
-        "examples": [],
-        "examples_count": 0,
-        "extraction_method": "No Examples",
-        "language": "Python",
-        "deprecated_in": null,
-        "removed_in": null,
-        "replaced_by": "torch.special.polygamma"
-    },
-    {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.mvlgamma.html",
         "api": "torch.mvlgamma",
         "package": "torch.special",
         "change_type": "API Deprecation",
         "reason": "The API alias was replaced by its canonical name to improve consistency and clarity for users.",
-        "has_examples": false,
-        "examples": [],
-        "examples_count": 0,
-        "extraction_method": "No Examples",
-        "language": "Python",
-        "deprecated_in": null,
-        "removed_in": null,
-        "replaced_by": null
-    },
-    {
-        "source_url": "https://pytorch.org/docs/stable/generated/torch.negative.html",
-        "api": "torch.negative",
-        "package": "torch",
-        "change_type": "Alias Introduction",
-        "reason": "torch.negative was introduced as an alias for torch.neg to improve code readability and provide semantic clarity.",
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
@@ -1970,21 +1782,6 @@
         "deprecated_in": "2.8",
         "removed_in": "2.10",
         "replaced_by": "torch.gt"
-    },
-    {
-        "source_url": "https://pytorch.org/docs/stable/generated/torch.less_equal.html",
-        "api": "torch.less_equal",
-        "package": "torch",
-        "change_type": "API Alias",
-        "reason": "To standardize naming conventions and align with other comparison operations like `greater_equal` (torch.ge) and `less` (torch.lt).",
-        "has_examples": false,
-        "examples": [],
-        "examples_count": 0,
-        "extraction_method": "No Examples",
-        "language": "Python",
-        "deprecated_in": null,
-        "removed_in": null,
-        "replaced_by": null
     },
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.le.html",
@@ -2976,21 +2773,6 @@
         "deprecated_in": "2.8",
         "removed_in": null,
         "replaced_by": "torch.linalg.solve_triangular"
-    },
-    {
-        "source_url": "https://pytorch.org/docs/stable/generated/torch.set_deterministic_debug_mode.html",
-        "api": "torch.set_deterministic_debug_mode",
-        "package": "torch",
-        "change_type": "API Introduction",
-        "reason": "Provides an alternative interface for deterministic algorithm control, improving usability and clarity.",
-        "has_examples": false,
-        "examples": [],
-        "examples_count": 0,
-        "extraction_method": "No Examples",
-        "language": "Python",
-        "deprecated_in": null,
-        "removed_in": null,
-        "replaced_by": "torch.use_deterministic_algorithms"
     },
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.use_deterministic_algorithms.html",
