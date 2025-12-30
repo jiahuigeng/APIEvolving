@@ -172,7 +172,7 @@
     "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.read_xml.html",
     "api": "pandas.read_xml",
     "package": "pandas",
-    "change_type": "Usage Deprecation",
+    "change_type": "Behavior Change",
     "reason": "Passing XML literal strings directly to the function is deprecated. Users should wrap literal XML input in `io.StringIO` or `io.BytesIO` before passing it to `read_xml`.",
     "has_examples": false,
     "examples": [],
@@ -428,7 +428,7 @@
     "deprecated_in": "2.2.0",
     "removed_in": "",
     "replaced_by": "",
-    "change_type": "Usage Deprecation",
+    "change_type": "Behavior Change",
     "reason": "Returning a tuple from a callable (e.g., inside `.iloc[]`) is deprecated since version 2.2.0. Users should ensure callables return a list or numpy array instead.",
     "has_examples": true,
     "examples": [
@@ -1273,34 +1273,6 @@
       }
     ],
     "examples_count": 6,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/reference/api/pandas.Series.notnull.html",
-    "api": "pandas.Series.notnull",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "Alias Definition",
-    "reason": "To standardize API naming conventions and improve consistency across the library.",
-    "has_examples": true,
-    "examples": [
-      {
-        "code": "import numpy as np\ndf = pd.DataFrame(dict(age=[5, 6, np.nan],\nborn=[pd.NaT, pd.Timestamp('1939-05-27'),\npd.Timestamp('1940-04-25')],\nname=['Alfred', 'Batman', ''],\ntoy=[None, 'Batmobile', 'Joker']))\ndf\ndf.notna()\ndf.notna()",
-        "output": "age       born    name        toy\n0  5.0        NaT  Alfred       None\n1  6.0 1939-05-27  Batman  Batmobile\n2  NaN 1940-04-25              Joker\n\n     age   born  name    toy\n0   True  False  True  False\n1   True   True  True   True\n2  False   True  True   True\n\n\n     age   born  name    toy\n0   True  False  True  False\n1   True   True  True   True\n2  False   True  True   True"
-      },
-      {
-        "code": "import numpy as np\nser = pd.Series([5, 6, np.nan])\nser",
-        "output": "0    5.0\n1    6.0\n2    NaN\ndtype: float64"
-      },
-      {
-        "code": "import numpy as np\nser = pd.Series([5, 6, np.nan])\nser\nser.notna()\nser.notna()",
-        "output": "0    5.0\n1    6.0\n2    NaN\ndtype: float64\n\n0     True\n1     True\n2    False\ndtype: bool\n\n\n0     True\n1     True\n2    False\ndtype: bool"
-      }
-    ],
-    "examples_count": 3,
     "extraction_method": "Manual"
   },
   {
@@ -3925,7 +3897,7 @@
     "deprecated_in": "",
     "removed_in": "",
     "replaced_by": "Index.array or Index.to_numpy()",
-    "change_type": "API Usage Discouraged",
+    "change_type": "API Deprecation",
     "reason": "The documentation recommends using `Index.array` or `Index.to_numpy()` instead, depending on whether a reference to the underlying data or a NumPy array is needed. However, it is not explicitly marked as deprecated.",
     "has_examples": true,
     "examples": [
@@ -5723,7 +5695,7 @@
     "deprecated_in": "0.14.0",
     "removed_in": "",
     "replaced_by": "periods",
-    "change_type": "API Change",
+    "change_type": "Parameter Change",
     "reason": "The 'lags' argument has been changed to 'periods' to match DataFrame.shift(). Using 'lags' by name raises a FutureWarning.",
     "has_examples": false,
     "examples": [],
@@ -7610,21 +7582,6 @@
     "replaced_by": "np.asarray(..), to_numpy()",
     "change_type": "API Deprecation",
     "reason": "Categorical.get_values() is deprecated. One of np.asarray(..) or to_numpy() can be used instead.",
-    "has_examples": false,
-    "examples": [],
-    "examples_count": 0,
-    "extraction_method": "Manual"
-  },
-  {
-    "source_url": "https://pandas.pydata.org/docs/whatsnew/v0.25.0.html",
-    "api": "pandas.read_table",
-    "package": "pandas",
-    "language": "Python",
-    "deprecated_in": "",
-    "removed_in": "",
-    "replaced_by": "",
-    "change_type": "API Undeprecation",
-    "reason": "read_table() has been undeprecated.",
     "has_examples": false,
     "examples": [],
     "examples_count": 0,
