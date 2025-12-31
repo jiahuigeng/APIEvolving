@@ -2,7 +2,7 @@
   {
     "source_url": "https://www.ruby-lang.org/en/news/2023/12/25/ruby-3-3-0-released/#deprecations",
     "api": "it",
-    "package": "Kernel",
+    "package": "Ruby",
     "language": "Ruby",
     "deprecated_in": "3.3.0",
     "removed_in": "",
@@ -17,7 +17,7 @@
   {
     "source_url": "https://www.ruby-lang.org/en/news/2023/12/25/ruby-3-3-0-released/#deprecations",
     "api": "Regexp::new",
-    "package": "Regexp",
+    "package": "Ruby",
     "language": "Ruby",
     "deprecated_in": "3.2",
     "removed_in": "3.3.0",
@@ -32,7 +32,7 @@
   {
     "source_url": "https://www.ruby-lang.org/en/news/2023/12/25/ruby-3-3-0-released/#deprecations",
     "api": "RUBY_GC_HEAP_INIT_SLOTS",
-    "package": "Environment Variables",
+    "package": "Ruby",
     "language": "Ruby",
     "deprecated_in": "3.3.0",
     "removed_in": "3.3.0",
@@ -47,7 +47,7 @@
   {
     "source_url": "https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released/#deprecations",
     "api": "Fixnum",
-    "package": "Core (Integer)",
+    "package": "Ruby",
     "language": "Ruby",
     "deprecated_in": "2.4",
     "removed_in": "3.2.0",
@@ -62,7 +62,7 @@
   {
     "source_url": "https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released/#deprecations",
     "api": "Bignum",
-    "package": "Core (Integer)",
+    "package": "Ruby",
     "language": "Ruby",
     "deprecated_in": "2.4",
     "removed_in": "3.2.0",
@@ -77,7 +77,7 @@
   {
     "source_url": "https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released/#deprecations",
     "api": "Random::DEFAULT",
-    "package": "Random",
+    "package": "Ruby",
     "language": "Ruby",
     "deprecated_in": "",
     "removed_in": "3.2.0",
@@ -92,7 +92,7 @@
   {
     "source_url": "https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released/#deprecations",
     "api": "Struct::Group",
-    "package": "Struct",
+    "package": "Ruby",
     "language": "Ruby",
     "deprecated_in": "",
     "removed_in": "3.2.0",
@@ -107,7 +107,7 @@
   {
     "source_url": "https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released/#deprecations",
     "api": "Struct::Passwd",
-    "package": "Struct",
+    "package": "Ruby",
     "language": "Ruby",
     "deprecated_in": "",
     "removed_in": "3.2.0",
@@ -122,7 +122,7 @@
   {
     "source_url": "https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released/#deprecations",
     "api": "Dir.exists?",
-    "package": "Dir",
+    "package": "Ruby",
     "language": "Ruby",
     "deprecated_in": "",
     "removed_in": "3.2.0",
@@ -137,7 +137,7 @@
   {
     "source_url": "https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released/#deprecations",
     "api": "File.exists?",
-    "package": "File",
+    "package": "Ruby",
     "language": "Ruby",
     "deprecated_in": "",
     "removed_in": "3.2.0",
@@ -152,7 +152,7 @@
   {
     "source_url": "https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released/#deprecations",
     "api": "Kernel#=~",
-    "package": "Kernel",
+    "package": "Ruby",
     "language": "Ruby",
     "deprecated_in": "",
     "removed_in": "3.2.0",
@@ -167,7 +167,7 @@
   {
     "source_url": "https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released/#deprecations",
     "api": "Kernel#taint",
-    "package": "Kernel",
+    "package": "Ruby",
     "language": "Ruby",
     "deprecated_in": "2.7",
     "removed_in": "3.2.0",
@@ -182,7 +182,7 @@
   {
     "source_url": "https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released/#deprecations",
     "api": "Kernel#untaint",
-    "package": "Kernel",
+    "package": "Ruby",
     "language": "Ruby",
     "deprecated_in": "2.7",
     "removed_in": "3.2.0",
@@ -197,7 +197,7 @@
   {
     "source_url": "https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released/#deprecations",
     "api": "Kernel#tainted?",
-    "package": "Kernel",
+    "package": "Ruby",
     "language": "Ruby",
     "deprecated_in": "2.7",
     "removed_in": "3.2.0",
@@ -212,7 +212,7 @@
   {
     "source_url": "https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released/#deprecations",
     "api": "Kernel#trust",
-    "package": "Kernel",
+    "package": "Ruby",
     "language": "Ruby",
     "deprecated_in": "2.7",
     "removed_in": "3.2.0",
@@ -227,7 +227,7 @@
   {
     "source_url": "https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released/#deprecations",
     "api": "Kernel#untrust",
-    "package": "Kernel",
+    "package": "Ruby",
     "language": "Ruby",
     "deprecated_in": "2.7",
     "removed_in": "3.2.0",
@@ -242,7 +242,7 @@
   {
     "source_url": "https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released/#deprecations",
     "api": "Kernel#untrusted?",
-    "package": "Kernel",
+    "package": "Ruby",
     "language": "Ruby",
     "deprecated_in": "2.7",
     "removed_in": "3.2.0",

@@ -2,7 +2,7 @@
     {
         "source_url": "https://rspec.info/documentation/3.12/rspec-core/RSpec/Core/Example.html",
         "api": "RSpec::Core::Example",
-        "package": "RSpec Core",
+        "package": "RSpec",
         "language": "Ruby",
         "deprecated_in": "3.12.0",
         "removed_in": "",
@@ -16,8 +16,8 @@
     },
     {
         "source_url": "https://rspec.info/documentation/3.12/rspec-core/RSpec/Core/Notifications/PendingExampleFailedAsExpectedNotification.html",
-        "api": "PendingExampleFailedAsExpectedNotification",
-        "package": "RSpec::Core::Notifications",
+        "api": "RSpec::Core::Notifications::PendingExampleFailedAsExpectedNotification",
+        "package": "RSpec",
         "language": "Ruby",
         "deprecated_in": "3.12.0",
         "removed_in": "",
@@ -32,7 +32,7 @@
     {
         "source_url": "https://rspec.info/documentation/3.12/rspec-core/RSpec/Core/Notifications/PendingExampleFixedNotification.html",
         "api": "RSpec::Core::Notifications::PendingExampleFixedNotification",
-        "package": "RSpec::Core::Notifications",
+        "package": "RSpec",
         "language": "Ruby",
         "deprecated_in": "3.12.0",
         "removed_in": "",
@@ -46,8 +46,8 @@
     },
     {
         "source_url": "https://rspec.info/documentation/3.12/rspec-core/RSpec/Core/Pending.html",
-        "api": "pending",
-        "package": "RSpec::Core::Pending",
+        "api": "RSpec::Core::Pending#pending",
+        "package": "RSpec",
         "language": "Ruby",
         "deprecated_in": "3.12.0",
         "removed_in": "",
@@ -76,8 +76,8 @@
     },
     {
         "source_url": "https://rspec.info/documentation/3.12/rspec-core/RSpec/Core/Example.html#rerun_argument-instance_method",
-        "api": "rerun_argument",
-        "package": "RSpec::Core::Example",
+        "api": "RSpec::Core::Example#rerun_argument",
+        "package": "RSpec",
         "language": "Ruby",
         "deprecated_in": "3.12.0",
         "removed_in": "",
@@ -91,8 +91,8 @@
     },
     {
         "source_url": "https://rspec.info/documentation/3.12/rspec-core/RSpec/Core/Configuration.html#color-instance_method",
-        "api": "color",
-        "package": "RSpec::Core::Configuration",
+        "api": "RSpec::Core::Configuration#color",
+        "package": "RSpec",
         "language": "Ruby",
         "deprecated_in": "3.12.0",
         "removed_in": "",
@@ -106,8 +106,8 @@
     },
     {
         "source_url": "https://rspec.info/documentation/3.12/rspec-core/RSpec/Core/Configuration.html#run_all_when_everything_filtered-instance_method",
-        "api": "run_all_when_everything_filtered",
-        "package": "RSpec::Core::Configuration",
+        "api": "RSpec::Core::Configuration#run_all_when_everything_filtered",
+        "package": "RSpec",
         "language": "Ruby",
         "deprecated_in": "3.12.0",
         "removed_in": "",
@@ -121,8 +121,8 @@
     },
     {
         "source_url": "https://rspec.info/documentation/3.12/rspec-core/RSpec/Core/Configuration.html#treat_symbols_as_metadata_keys_with_true_values=-instance_method",
-        "api": "treat_symbols_as_metadata_keys_with_true_values=",
-        "package": "RSpec::Core::Configuration",
+        "api": "RSpec::Core::Configuration#treat_symbols_as_metadata_keys_with_true_values=",
+        "package": "RSpec",
         "language": "Ruby",
         "deprecated_in": "3.0.0",
         "removed_in": "",

@@ -2,7 +2,7 @@
     {
         "source_url": "https://nokogiri.org/rdoc/Nokogiri/HTML4.html",
         "api": "Nokogiri::HTML4",
-        "package": "nokogiri",
+        "package": "Nokogiri",
         "language": "Ruby",
         "deprecated_in": "",
         "removed_in": "",
@@ -53,8 +53,8 @@
     },
     {
         "source_url": "https://nokogiri.org/rdoc/Nokogiri/CSS.html",
-        "api": "xpath_for",
-        "package": "Nokogiri::CSS",
+        "api": "Nokogiri::CSS::xpath_for",
+        "package": "Nokogiri",
         "language": "Ruby",
         "deprecated_in": "4.5.0",
         "removed_in": "",
@@ -334,8 +334,8 @@
     },
     {
         "source_url": "https://nokogiri.org/rdoc/Nokogiri/XML/SAX/Document.html",
-        "api": "reference",
-        "package": "Nokogiri::XML::SAX",
+        "api": "Nokogiri::XML::SAX::Document",
+        "package": "Nokogiri",
         "language": "Ruby",
         "deprecated_in": "",
         "removed_in": "",
@@ -443,7 +443,7 @@
     {
         "source_url": "https://nokogiri.org/rdoc/Object.html",
         "api": "Nokogiri",
-        "package": "Nokogiri HTML",
+        "package": "Nokogiri",
         "language": "Ruby",
         "deprecated_in": "",
         "removed_in": "",
