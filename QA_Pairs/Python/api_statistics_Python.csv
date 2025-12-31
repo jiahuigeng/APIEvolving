@@ -1,171 +1,19 @@
 Statistic,Count
-Total Unique Packages,108
-Total Unique APIs,1109
+Total Unique Packages,9
+Total Unique APIs,890
 --- Package List ---,---
 Flask,
 NumPy,
 PyTorch,
-TensorFlow,
-TensorFlow v2.16.1,
 django,
-django-admin,
-django.apps,
-django.conf.settings,
-django.conf.urls,
-django.contrib.auth,
-django.contrib.auth.base_user,
-django.contrib.auth.models,
-django.contrib.gis,
-django.contrib.postgres.fields,
-django.contrib.sessions,
-django.contrib.sessions.middleware,
-django.contrib.staticfiles,
-django.core,
-django.core.cache.backends,
-django.core.exceptions,
-django.core.files.locks,
-django.core.management,
-django.core.validators,
-django.db.backends.postgresql,
-django.db.migrations.operations,
-django.db.models,
-django.db.models.fields,
-django.forms,
-django.http,
-django.middleware.csrf,
-django.shortcuts,
-django.template,
-django.template.Library,
-django.template.defaultfilters,
-django.templatetags,
-django.test,
-django.urls,
-django.utils,
-django.utils.crypto,
-django.utils.encoding,
-django.utils.functional,
-django.utils.http,
-django.utils.timezone,
-django.utils.translation,
-django.views.static,
 flask,
-image,
-io,
-numpy,
-numpy.char,
-numpy.ma,
 pandas,
-pandas.DataFrame,
-pandas.Series,
-pandas.api.interchange,
-pandas.api.types,
-pandas.arrays,
-pandas.core.groupby,
-pandas.core.groupby.DataFrameGroupBy,
-pandas.core.resample,
-pandas.errors,
-pandas.io.formats.style,
 requests,
-requests.adapters,
-sklearn.base,
-sklearn.calibration,
-sklearn.cluster,
-sklearn.compose,
-sklearn.covariance,
-sklearn.cross_decomposition,
-sklearn.datasets,
-sklearn.decomposition,
-sklearn.discriminant_analysis,
-sklearn.dummy,
-sklearn.ensemble,
-sklearn.metrics,
-sklearn.metrics.cluster,
-sklearn.naive_bayes,
-sklearn.neighbors,
-sklearn.pipeline,
-sklearn.preprocessing,
-sklearn.svm,
-sklearn.tree,
-sklearn.utils,
-sklearn.utils.estimator_checks,
-sklearn.utils.extmath,
-sklearn.utils.metadata_routing,
-sklearn.utils.multiclass,
-sklearn.utils.parallel,
-sklearn.utils.validation,
+sklearn,
 tensorflow,
-tensorflow.image,
-tensorflow.io,
-tensorflow.signal,
-tf,
-tf (TensorFlow),
-tf.autograph,
-tf.compat.v1,
-tf.debugging,
-tf.image,
-tf.io,
-tf.math,
-tf.spectral,
-torch,
-torch (PyTorch),
-torch.linalg,
-torch.special,
 --- Change Type Counts ---,---
-Change Type: API Deprecation,556
-Change Type: Behavior Change,204
-Change Type: Parameter Change,174
-Change Type: API Removal,44
-Change Type: None,17
-Change Type: API Usage Discouraged,12
-Change Type: Argument Deprecation,11
-Change Type: Setting Deprecation,10
-Change Type: Performance Optimization,8
-Change Type: Alias Addition,7
-Change Type: Behavior Deprecation,7
-Change Type: Usage Deprecation,7
-Change Type: Argument Removal,5
-Change Type: Argument Rename,4
-Change Type: Behavior Warning,4
-Change Type: Alias Introduction,3
-Change Type: API Introduction,3
-Change Type: API Addition,3
-Change Type: Setting Removal,3
-Change Type: API Behavior Change,2
-Change Type: API Alias,2
-Change Type: API Change,2
-Change Type: API Renaming,2
-Change Type: Compat Aliases for Migration,2
-Change Type: Alias Creation,2
-Change Type: Argument Type Deprecation,2
-Change Type: Argument Warning,2
-Change Type: Documentation Update,2
-Change Type: Template Tag Removal,2
-Change Type: Template Tag Deprecation,2
-Change Type: Alias Definition,1
-Change Type: Alias Assignment,1
-Change Type: API Undeprecation,1
-Change Type: API Standardization,1
-Change Type: API Compatibility Alias,1
-Change Type: API Duplication,1
-Change Type: No change information available.,1
-Change Type: API Compatibility,1
-Change Type: Main Alias Update,1
-Change Type: API Replacement,1
-Change Type: Compatibility Alias,1
-Change Type: Refactoring,1
-Change Type: Internal API Deprecation,1
-Change Type: Alias Update,1
-Change Type: New API Addition,1
-Change Type: Recommendation for use of an alternative (Behavior Change),1
-Change Type: Future Warning,1
-Change Type: Argument Rename/Removal,1
-Change Type: Config Removal,1
-Change Type: API Rename,1
-Change Type: New Feature,1
-Change Type: Security Feature,1
-Change Type: Parameter Removal,1
-Change Type: Setting Change,1
-Change Type: Template Filter Deprecation,1
-Change Type: Argument Rename/Deprecation,1
-Change Type: Config Deprecation,1
-Change Type: Argument Change,1
+Change Type: API Deprecation,537
+Change Type: Parameter Change,229
+Change Type: Behavior Change,142
+Change Type: API Removal,46
+Change Type: API Renaming,3

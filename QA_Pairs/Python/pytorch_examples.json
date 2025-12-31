@@ -2,7 +2,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.set_default_tensor_type.html",
         "api": "torch.set_default_tensor_type",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "This function has been deprecated in favor of using `torch.set_default_dtype` for managing data type and `torch.set_default_device` for device handling. The separation provides more granular control and aligns with modern development practices.",
         "has_examples": true,
@@ -33,7 +33,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.as_strided.html",
         "api": "torch.as_strided",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Behavior Change",
         "reason": "Setting a view’s strides manually with as_strided may result in undefined behavior on non-standard PyTorch backends and overlapping views.",
         "has_examples": true,
@@ -61,7 +61,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.ones_like.html",
         "api": "torch.ones_like",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Parameter Change",
         "reason": "The `out` keyword was removed to streamline the API and encourage using alternative methods for specifying output tensors.",
         "has_examples": true,
@@ -85,7 +85,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.zeros_like.html",
         "api": "torch.zeros_like",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "The `out` keyword is no longer supported in this API as it was redundant and inconsistent with newer design principles.",
         "has_examples": true,
@@ -109,7 +109,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.range.html",
         "api": "torch.range",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "Behavior is inconsistent with Python’s `range()` builtin, and torch.arange provides a more predictable alternative.",
         "has_examples": true,
@@ -133,7 +133,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.logspace.html",
         "api": "torch.logspace",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Parameter Change",
         "reason": "The `steps` argument was made mandatory to improve clarity and consistency in API behavior.",
         "has_examples": true,
@@ -165,7 +165,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.linspace.html",
         "api": "torch.linspace",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Parameter Change",
         "reason": "The `steps` parameter was made mandatory to ensure explicit and consistent behavior when generating linearly spaced tensors.",
         "has_examples": true,
@@ -197,7 +197,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.concatenate.html",
         "api": "torch.concatenate",
-        "package": "torch (PyTorch)",
+        "package": "PyTorch",
         "change_type": "Parameter Change",
         "reason": "To unify functionality under `torch.cat` for clarity and consistency in API naming.",
         "has_examples": false,
@@ -212,7 +212,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.chunk.html",
         "api": "torch.chunk",
-        "package": "torch (PyTorch)",
+        "package": "PyTorch",
         "change_type": "Behavior Change",
         "reason": "Added torch.tensor_split to explicitly guarantee the number of resulting chunks, addressing scenarios where torch.chunk's behavior may lead to fewer chunks than specified.",
         "has_examples": true,
@@ -240,7 +240,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.conj.html",
         "api": "torch.conj",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Behavior Change",
         "reason": "Future versions of `torch.conj()` may return a non-writeable view for tensors of non-complex dtype. This change enhances compatibility and safety.",
         "has_examples": true,
@@ -264,7 +264,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.column_stack.html",
         "api": "torch.column_stack",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Behavior Change",
         "reason": "The API's functionality was clarified as equivalent to `torch.hstack` while reshaping zero or one-dimensional tensors for greater usability alignment.",
         "has_examples": true,
@@ -304,7 +304,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.hsplit.html",
         "api": "torch.hsplit",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Behavior Change",
         "reason": "Attempt to align the behavior of hsplit more closely with NumPy's hsplit, offering better consistency for splitting tensors horizontally.",
         "has_examples": true,
@@ -332,7 +332,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.movedim.html",
         "api": "torch.movedim",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Behavior Change",
         "reason": "Standardized alignment with NumPy's moveaxis functionality to improve API consistency.",
         "has_examples": true,
@@ -368,7 +368,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.moveaxis.html",
         "api": "torch.moveaxis",
-        "package": "torch (PyTorch)",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "To maintain consistency with other PyTorch APIs and align naming conventions, `torch.moveaxis` was marked as an alias for `torch.movedim`. The goal is to promote the use of `torch.movedim` across the codebase.",
         "has_examples": true,
@@ -404,7 +404,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.row_stack.html",
         "api": "torch.row_stack",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "torch.row_stack is an alias for torch.vstack; to simplify the API surface and prevent redundancy, users are encouraged to use torch.vstack directly.",
         "has_examples": false,
@@ -419,8 +419,8 @@
     {
         "source_url": "https://pytorch.org/docs/2.8/torch.html#torch.select",
         "api": "torch.select",
-        "package": "torch",
-        "change_type": "API Behavior Change",
+        "package": "PyTorch",
+        "change_type": "Behavior Change",
         "reason": "RuntimeError raised for sparse tensors when a view cannot be returned. Users are directed to use torch.select_copy() for compatibility.",
         "has_examples": true,
         "examples": [
@@ -467,7 +467,7 @@
     {
         "source_url": "https://pytorch.org/docs/2.8/generated/torch.narrow_copy.html",
         "api": "torch.narrow_copy",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "",
         "reason": "This API provides a copy-based method specifically for sparse tensors since the original torch.narrow does not support shared storage narrowing for sparse tensors.",
         "has_examples": true,
@@ -503,7 +503,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.squeeze.html",
         "api": "torch.squeeze",
-        "package": "torch (PyTorch)",
+        "package": "PyTorch",
         "change_type": "Parameter Change",
         "reason": "Enhancement to allow the `dim` parameter to accept tuples of dimensions for better usability and flexibility.",
         "has_examples": true,
@@ -539,7 +539,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.swapdims.html",
         "api": "torch.swapdims",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Behavior Change",
         "reason": "torch.swapdims is an alias for the existing `torch.transpose` API and mirrors NumPy's `swapaxes` for familiarity. The documentation clarifies this equivalence without introducing breaking changes.",
         "has_examples": true,
@@ -567,7 +567,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.vsplit.html",
         "api": "torch.vsplit",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Behavior Change",
         "reason": "The `torch.vsplit` function was added for convenience as a specific alias to `torch.tensor_split` for vertical splitting which has similar functionality but enforces stricter input rules for `indices_or_sections` to avoid runtime errors.",
         "has_examples": true,
@@ -595,7 +595,7 @@
     {
         "source_url": "https://github.com/pytorch/pytorch/releases/tag/v1.6.0",
         "api": "torch.save",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Behavior Change",
         "reason": "The `torch.save` API switched to a zipfile-based file format in PyTorch 1.6, introducing new serialization behavior to optimize storage handling.",
         "has_examples": true,
@@ -867,7 +867,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.arccos.html",
         "api": "torch.arccos",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "torch.arccos is aliased to torch.acos for consistency. Users are encouraged to use the standard API name, torch.acos.",
         "has_examples": false,
@@ -882,7 +882,7 @@
     {
         "source_url": "https://pytorch.org/docs/2.8/generated/torch.angle.html",
         "api": "torch.angle",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Behavior Change",
         "reason": "The behavior was updated to conform to mathematical conventions and provide accurate propagation of NaNs.",
         "has_examples": true,
@@ -902,7 +902,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.asin",
         "api": "torch.asin",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "The naming convention changed to align better with mathematical terminology.",
         "has_examples": true,
@@ -926,7 +926,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.arccosh.html",
         "api": "torch.arccosh",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "The function 'torch.arccosh' serves as an alias for 'torch.acosh()' to maintain consistency with naming conventions in mathematical libraries. Explicit encouragement to use 'torch.acosh' ensures reduced ambiguity and better alignment with common standards.",
         "has_examples": false,
@@ -941,7 +941,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.arctanh.html",
         "api": "torch.arctanh",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "The alias `torch.arctanh` is deprecated to reduce redundancy, as similar functionality is available via `torch.atanh`.",
         "has_examples": false,
@@ -956,7 +956,7 @@
     {
         "source_url": "https://pytorch.org/docs/2.8/torch.html#torch.arctan",
         "api": "torch.arctan",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "The alias 'torch.arctan' was introduced for compatibility, but users are encouraged to use 'torch.atan' for consistency with other trigonometric functions.",
         "has_examples": true,
@@ -1004,7 +1004,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.clip.html",
         "api": "torch.clip",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "Alias for torch.clamp() to provide clearer naming and ensure consistency across the API.",
         "has_examples": false,
@@ -1019,7 +1019,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.clamp.html",
         "api": "torch.clamp",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "The introduction of `torch.clip` provides a more universally understood function name across libraries and frameworks. `torch.clamp` remains functional for compatibility.",
         "has_examples": true,
@@ -1051,7 +1051,7 @@
     {
         "source_url": "https://pytorch.org/docs/2.8/generated/torch.erf.html",
         "api": "torch.erf",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "The functionality of `torch.erf` is being transitioned to `torch.special.erf` to consolidate mathematical operations under a unified namespace (`torch.special`).",
         "has_examples": false,
@@ -1066,7 +1066,7 @@
     {
         "source_url": "https://pytorch.org/docs/2.8/generated/torch.divide.html",
         "api": "torch.divide",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "The torch.divide function was designated as an alias for torch.div to maintain consistency across PyTorch and simplify the API.",
         "has_examples": false,
@@ -1081,7 +1081,7 @@
     {
         "source_url": "https://pytorch.org/docs/2.8/generated/torch.digamma.html",
         "api": "torch.digamma",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "To ensure consistency and clarity in API usage by consolidating specialized mathematical functions under the `torch.special` module.",
         "has_examples": false,
@@ -1111,7 +1111,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.erfinv.html",
         "api": "torch.erfinv",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "Simplification and consolidation of mathematical operations under `torch.special` namespace to improve API clarity.",
         "has_examples": false,
@@ -1126,7 +1126,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.expm1.html",
         "api": "torch.expm1",
-        "package": "torch.special",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "Unified under torch.special namespace for mathematical functions to improve consistency and organization.",
         "has_examples": false,
@@ -1141,7 +1141,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.fix.html",
         "api": "torch.fix",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Behavior Change",
         "reason": "torch.fix was re-aliased to torch.trunc for consistency in functionality, as both perform truncation of input values.",
         "has_examples": false,
@@ -1188,7 +1188,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.special.i0.html",
         "api": "torch.i0",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "Consolidation of functionality into the `torch.special` namespace for better organization and alignment with mathematical operations.",
         "has_examples": false,
@@ -1203,7 +1203,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.igammac.html",
         "api": "torch.igammac",
-        "package": "torch.special",
+        "package": "PyTorch",
         "change_type": "Behavior Change",
         "reason": "Introduced as an alias to the existing `torch.special.gammaincc()` for clarity and uniform usage across the library.",
         "has_examples": false,
@@ -1218,7 +1218,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.logit.html",
         "api": "torch.logit",
-        "package": "torch (PyTorch)",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "The function was simplified to alias the equivalent `torch.special.logit` function for better consistency across PyTorch special functions.",
         "has_examples": false,
@@ -1233,7 +1233,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.multiply.html",
         "api": "torch.multiply",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "The alias `torch.multiply` was introduced for user convenience but is internally equivalent to `torch.mul`. The change encourages users to adopt the canonical API name for consistency and maintainability across PyTorch versions.",
         "has_examples": false,
@@ -1263,7 +1263,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.mvlgamma.html",
         "api": "torch.mvlgamma",
-        "package": "torch.special",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "The API alias was replaced by its canonical name to improve consistency and clarity for users.",
         "has_examples": false,
@@ -1278,7 +1278,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.negative.html",
         "api": "torch.neg",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "The `torch.negative` API was introduced as a more descriptive alternative to `torch.neg`, aligning with best practices for API naming and consistency.",
         "has_examples": false,
@@ -1293,7 +1293,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.nn.functional.softmax.html",
         "api": "torch.softmax",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Behavior Change",
         "reason": "Streamlining API behavior and encouraging the use of functional-style APIs.",
         "has_examples": false,
@@ -1308,7 +1308,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.sinc.html",
         "api": "torch.sinc",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "Standardization and consolidation of special mathematical functions under the 'torch.special' namespace.",
         "has_examples": false,
@@ -1323,7 +1323,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.sigmoid.html",
         "api": "torch.sigmoid",
-        "package": "torch (PyTorch)",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "To align with a more standardized mathematical function name and improve consistency across PyTorch's API.",
         "has_examples": false,
@@ -1338,7 +1338,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.sub.html",
         "api": "torch.sub",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "Unification with similar function names in the PyTorch library for consistency and readability.",
         "has_examples": true,
@@ -1366,7 +1366,7 @@
     {
         "source_url": "https://pytorch.org/docs/2.8/torch.subtract.html",
         "api": "torch.subtract",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "torch.subtract is an alias for torch.sub. It is maintained for historical reasons to ensure backward compatibility, but torch.sub is the preferred usage.",
         "has_examples": false,
@@ -1381,7 +1381,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.true_divide.html",
         "api": "torch.true_divide",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Behavior Change",
         "reason": "To simplify and standardize API usage, consolidating multiple methods into a single call `torch.div` with an explicit `rounding_mode` parameter.",
         "has_examples": false,
@@ -1396,7 +1396,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.xlogy.html",
         "api": "torch.xlogy",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "Unified function aliasing under the `torch.special` module for better consistency and clarity.",
         "has_examples": false,
@@ -1411,7 +1411,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.min.html",
         "api": "torch.min",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "The `torch.min(input, other, *, out=None)` signature was marked as deprecated to consolidate usage and guide users towards `torch.minimum` for clarity.",
         "has_examples": true,
@@ -1451,7 +1451,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.max.html",
         "api": "torch.max",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "",
         "reason": "",
         "has_examples": true,
@@ -1515,7 +1515,7 @@
     {
         "source_url": "https://pytorch.org/docs/2.8/generated/torch.median.html",
         "api": "torch.median",
-        "package": "torch (PyTorch)",
+        "package": "PyTorch",
         "change_type": "Behavior Change",
         "reason": "In cases where the input tensor has an even number of elements, torch.median returns the lower of the two medians, which may differ from expectations. Users requiring the mean of both medians should use torch.quantile(q=0.5).",
         "has_examples": true,
@@ -1555,7 +1555,7 @@
     {
         "source_url": "https://pytorch.org/docs/2.8/generated/torch.norm.html",
         "api": "torch.norm",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "Deprecated due to inaccuracies in documentation and behavior, and lack of active maintenance. Alternatives offer more precise and flexible functionality.",
         "has_examples": true,
@@ -1627,7 +1627,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.std_mean.html",
         "api": "torch.std_mean",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Parameter Change",
         "reason": "The 'unbiased' parameter was renamed to 'correction' for improved clarity and flexibility, allowing integer values instead of a boolean type.",
         "has_examples": true,
@@ -1651,7 +1651,7 @@
     {
         "source_url": "https://pytorch.org/docs/2.8/generated/torch.std.html",
         "api": "torch.std",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Parameter Change",
         "reason": "The 'unbiased' parameter was renamed to 'correction' to improve clarity and align its functionality more explicitly with Bessel’s correction, where `correction=1` corresponds to the previous `unbiased=True` and `correction=0` corresponds to `unbiased=False`.",
         "has_examples": true,
@@ -1675,7 +1675,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.var.html",
         "api": "torch.var",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Parameter Change",
         "reason": "The `unbiased` argument was renamed to `correction` for clarity and flexibility. The updated `correction` parameter allows specifying the difference between the sample size and sample degrees of freedom.",
         "has_examples": true,
@@ -1723,7 +1723,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.greater_equal.html",
         "api": "torch.greater_equal",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Behavior Change",
         "reason": "Alias for torch.ge() to align API functionality consistently across versions.",
         "has_examples": false,
@@ -1738,7 +1738,7 @@
     {
         "source_url": "https://pytorch.org/docs/2.8/torch.html#torch.greater",
         "api": "torch.greater",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "Alias for torch.gt. No functional difference; streamlined documentation to reduce redundancy.",
         "has_examples": true,
@@ -1786,7 +1786,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.le.html",
         "api": "torch.le",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Behavior Change",
         "reason": "Standardizing API naming conventions for consistency and readability.",
         "has_examples": true,
@@ -1806,7 +1806,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.less.html",
         "api": "torch.less",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "The API name was unified to align with consistent naming conventions across PyTorch.",
         "has_examples": false,
@@ -1821,7 +1821,7 @@
     {
         "source_url": "https://pytorch.org/docs/2.8/",
         "api": "torch.msort",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "Redundant functionality—torch.msort has the same behavior as torch.sort(input, dim=0)[0]. To streamline the API, it was marked for deprecation.",
         "has_examples": false,
@@ -1836,7 +1836,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.fmin.html",
         "api": "torch.fmin",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Behavior Change",
         "reason": "torch.fmin was introduced to handle NaNs differently compared to torch.minimum—making the non-NaN element the minimum in cases where one of the elements is NaN.",
         "has_examples": true,
@@ -1864,7 +1864,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.ne.html",
         "api": "torch.ne",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "The API `torch.ne` has been replaced by `torch.not_equal` to maintain consistency in naming conventions.",
         "has_examples": true,
@@ -1884,7 +1884,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.not_equal.html",
         "api": "torch.not_equal",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "The `torch.not_equal` is an alias of `torch.ne()`, simplifying the interface by recommending a single, canonical name (`torch.ne`).",
         "has_examples": false,
@@ -1899,7 +1899,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.stft.html",
         "api": "torch.stft",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Parameter Change",
         "reason": "The parameter `return_complex` must now be explicitly specified for real inputs. Strong preference for `return_complex=True` has been recommended. Additionally, the behavior of `window` will require explicit specification from version 2.1 to avoid potential artifacts.",
         "has_examples": false,
@@ -1914,7 +1914,7 @@
     {
         "source_url": "https://pytorch.org/docs/2.8/generated/torch.istft.html",
         "api": "torch.istft",
-        "package": "torch (PyTorch)",
+        "package": "PyTorch",
         "change_type": "Parameter Change",
         "reason": "From version 2.1, a warning is issued if the 'window' parameter is not specified. In a future release, this parameter will be mandatory to ensure accurate reconstruction of the signal from the STFT.",
         "has_examples": false,
@@ -1929,7 +1929,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.cross.html",
         "api": "torch.cross",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "The default `dim` behavior in `torch.cross` (automatically selecting the first dimension with size 3) is considered unexpected. Moving to `torch.linalg.cross`, which uses `dim=-1` by default, makes the API more consistent and intuitive.",
         "has_examples": true,
@@ -1961,7 +1961,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.histc.html",
         "api": "torch.histc",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "Providing greater flexibility and more advanced functionality with `torch.histogram`.",
         "has_examples": true,
@@ -1981,7 +1981,7 @@
     {
         "source_url": "https://pytorch.org/docs/2.8/generated/torch.chain_matmul.html",
         "api": "torch.chain_matmul",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "To promote the use of the more flexible and efficient `torch.linalg.multi_dot`, which can handle lists of tensors and supports future optimizations.",
         "has_examples": true,
@@ -2017,7 +2017,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.cholesky.html",
         "api": "torch.cholesky",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "Consolidation of linear algebra functions under the torch.linalg namespace for better organization and alignment with NumPy.",
         "has_examples": true,
@@ -2097,7 +2097,7 @@
     {
         "source_url": "https://pytorch.org/docs/2.8/generated/torch.cholesky_inverse.html",
         "api": "torch.cholesky_inverse",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "Unified decomposition-based APIs in the `torch.linalg` namespace for clarity and modernization.",
         "has_examples": true,
@@ -2145,7 +2145,7 @@
     {
         "source_url": "https://pytorch.org/docs/2.8/torch.geqrf.html",
         "api": "torch.geqrf",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "The new `torch.linalg.qr` function provides a more comprehensive and explicit way to compute the QR decomposition, including directly returning Q and R matrices, which modernizes and simplifies its usage.",
         "has_examples": false,
@@ -2160,7 +2160,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/torch.html#torch.outer",
         "api": "torch.ger",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "The `torch.ger` function duplicates the functionality of `torch.outer` and is streamlined for API consistency.",
         "has_examples": true,
@@ -2208,7 +2208,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.inverse.html",
         "api": "torch.inverse",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "The functionality of `torch.inverse` has been consolidated under the `torch.linalg` namespace to improve modularity and consistency in linear algebra operations.",
         "has_examples": false,
@@ -2223,7 +2223,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.linalg.det.html",
         "api": "torch.det",
-        "package": "torch.linalg",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "The function `torch.det` was moved under `torch.linalg` to reorganize linear algebra functions for better clarity and consistency.",
         "has_examples": true,
@@ -2255,7 +2255,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.linalg.slogdet.html",
         "api": "torch.slogdet",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "Consolidation and migration to the `torch.linalg` namespace for improved organization and consistency of linear algebra functionalities.",
         "has_examples": true,
@@ -2287,7 +2287,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.logdet.html",
         "api": "torch.logdet",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "Improved API functionality provided by `torch.linalg.slogdet`, which calculates both the sign and log of the determinant, offering better functionality and reliability compared to `torch.logdet`.",
         "has_examples": true,
@@ -2315,7 +2315,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.lu.html",
         "api": "torch.lu",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "Deprecation of torch.lu aligns PyTorch APIs to use linalg modules for matrix factorization, offering expanded functionality, better design consistency, and precision improvements.",
         "has_examples": true,
@@ -2363,7 +2363,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.lu_solve.html",
         "api": "torch.lu_solve",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "torch.lu_solve() is deprecated in favor of torch.linalg.lu_solve(). The new API is part of the torch.linalg module and adheres to the design principles of newer linear algebra functions.",
         "has_examples": true,
@@ -2419,7 +2419,7 @@
     {
         "source_url": "https://pytorch.org/docs/2.8/generated/torch.matrix_exp.html",
         "api": "torch.matrix_exp",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "Streamlined API to encourage using `torch.linalg.matrix_exp()` as it more accurately reflects its placement within linear algebra operations.",
         "has_examples": false,
@@ -2434,7 +2434,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.matrix_power.html",
         "api": "torch.matrix_power",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "Redundant definition. The functionality directly maps to torch.linalg.matrix_power with no added advantages, simplifying the API surface.",
         "has_examples": false,
@@ -2449,7 +2449,7 @@
     {
         "source_url": "https://pytorch.org/docs/2.8/generated/torch.lu_unpack.html",
         "api": "torch.lu_unpack",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Behavior Change",
         "reason": "With the introduction of `torch.linalg` namespace, a more efficient and consistent LU decomposition method (`torch.linalg.lu`) is provided, serving as a replacement for `torch.lu_unpack`.",
         "has_examples": true,
@@ -2505,7 +2505,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.mm.html",
         "api": "torch.mm",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Behavior Change",
         "reason": "torch.mm does not support broadcasting, but torch.matmul provides this functionality for matrix products requiring broadcasting.",
         "has_examples": true,
@@ -2533,7 +2533,7 @@
     {
         "source_url": "https://pytorch.org/docs/2.8/generated/torch.orgqr.html",
         "api": "torch.orgqr",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "To improve consistency and clarity within the PyTorch linear algebra module by aligning naming conventions with common mathematical terminology.",
         "has_examples": false,
@@ -2548,7 +2548,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.pinverse.html",
         "api": "torch.pinverse",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "Consolidation of linear algebra functionality under the torch.linalg namespace.",
         "has_examples": false,
@@ -2563,7 +2563,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.svd.html",
         "api": "torch.svd",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "Improved functionality and alignment with other linear algebra functions in the torch.linalg namespace, enabling more consistent behavior and better integration with standard APIs.",
         "has_examples": true,
@@ -2627,7 +2627,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.qr.html",
         "api": "torch.qr",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "The new API (torch.linalg.qr) provides enhanced functionality with a consistent parameter interface ('mode' instead of 'some') and aligns better with other linear algebra functions in PyTorch.",
         "has_examples": true,
@@ -2707,7 +2707,7 @@
     {
         "source_url": "https://pytorch.org/docs/2.8/generated/torch.trapz.html",
         "api": "torch.trapz",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "Unified naming convention with `torch.trapezoid` to avoid ambiguity and improve clarity.",
         "has_examples": false,
@@ -2722,7 +2722,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.svd_lowrank.html",
         "api": "torch.svd_lowrank",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Behavior Change",
         "reason": "Performance optimization: torch.linalg.svd is 10x faster for dense matrices compared to torch.svd_lowrank. Additionally, torch.linalg.svd provides a deterministic full-rank solution for dense matrices.",
         "has_examples": false,
@@ -2737,7 +2737,7 @@
     {
         "source_url": "https://pytorch.org/docs/2.8/generated/torch.triangular_solve.html",
         "api": "torch.triangular_solve",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "API Deprecation",
         "reason": "To streamline and consolidate functionality into a new API `torch.linalg.solve_triangular`, which provides a clearer argument order and better aligns with other APIs in the `torch.linalg` module.",
         "has_examples": true,
@@ -2777,7 +2777,7 @@
     {
         "source_url": "https://pytorch.org/docs/stable/generated/torch.use_deterministic_algorithms.html",
         "api": "torch.use_deterministic_algorithms",
-        "package": "torch",
+        "package": "PyTorch",
         "change_type": "Behavior Change",
         "reason": "Provides an alternative interface for controlling deterministic behavior with more granularity.",
         "has_examples": true,

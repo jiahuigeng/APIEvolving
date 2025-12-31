@@ -102,7 +102,7 @@
         "deprecated_in": "1.0.0",
         "removed_in": "",
         "replaced_by": "Configuration after instantiation",
-        "change_type": "API Change",
+        "change_type": "Parameter Change",
         "reason": "The `Session` constructor no longer accepts keyword arguments (headers, cookies, auth, etc.). You must instantiate the session first and then set attributes.",
         "has_examples": true,
         "examples": [
@@ -157,7 +157,7 @@
     {
         "source_url": "https://requests.readthedocs.io/en/latest/api/#requests.adapters.HTTPAdapter",
         "api": "HTTPAdapter.get_connection",
-        "package": "requests.adapters",
+        "package": "requests",
         "language": "Python",
         "deprecated_in": "2.32.0",
         "removed_in": "",
