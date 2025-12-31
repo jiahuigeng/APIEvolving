@@ -7,7 +7,7 @@
         "deprecated_in": "",
         "removed_in": "",
         "replaced_by": "",
-        "change_type": "API Addition",
+        "change_type": "Behavior Change",
         "reason": "The module/namespace Nokogiri::HTML4 was introduced to better structure and differentiate between HTML-related classes as of v1.12.0.",
         "has_examples": true,
         "examples": [
@@ -111,7 +111,7 @@
         "deprecated_in": "",  
         "removed_in": "",     
         "replaced_by": "Nokogiri::HTML4::Builder",  
-        "change_type": "API Alias Adjustment",  
+        "change_type": "Behavior Change",  
         "reason": "Split HTML4/HTML5 modules in v1.12.0; this class is aliased to Nokogiri::HTML4::Builder for backward compatibility.",
         "has_examples": false,
         "examples": [],
@@ -126,7 +126,7 @@
         "deprecated_in": "",
         "removed_in": "",
         "replaced_by": "Nokogiri::XML::Builder",
-        "change_type": "API Replacement",
+        "change_type": "API Deprecation",
         "reason": "The Nokogiri::HTML4::Builder inherits from Nokogiri::XML::Builder, suggesting users migrate to Nokogiri::XML::Builder for complete documentation coverage.",
         "has_examples": true,
         "examples": [
@@ -218,7 +218,7 @@
         "deprecated_in": "",  
         "removed_in": "",   
         "replaced_by": "Nokogiri::HTML4::Document",  
-        "change_type": "API Alias Adjustment", 
+        "change_type": "Behavior Change", 
         "reason": "Nokogiri v1.12.0 split HTML parsing into HTML4 and HTML5 modules. This class is retained as an alias for Nokogiri::HTML4::Document to maintain backward compatibility with existing code that uses Nokogiri::HTML.parse or Nokogiri::HTML::Document.",
         "has_examples": true,
         "examples": [
@@ -312,7 +312,7 @@
         "deprecated_in": "", 
         "removed_in": "",     
         "replaced_by": "",    
-        "change_type": "API Alias Mapping",  
+        "change_type": "Behavior Change",  
         "reason": "Nokogiri v1.12.0 split HTML SAX parsing into HTML4/HTML5 modules. This class is the standard implementation for HTML4 SAX parsing, and Nokogiri::HTML::SAX::Parser is retained as an alias for backward compatibility.",
         "has_examples": true,
         "examples": [
@@ -331,21 +331,6 @@
   ],
   "examples_count": 3,
   "extraction_method": "Manual"
-    },
-    {
-        "source_url": "https://nokogiri.org/rdoc/Nokogiri/HTML4/SAX.html",
-        "api": "Nokogiri::HTML4::SAX",
-        "package": "Nokogiri",
-        "language": "Ruby",
-        "deprecated_in": "",  
-        "removed_in": "",     
-        "replaced_by": "",   
-        "change_type": "No Behavior Change",  
-        "reason": "Nokogiri v1.12.0 split HTML SAX parsing into HTML4/HTML5 modules. This module encapsulates all SAX-related classes for HTML4 parsing (e.g., Parser, Handler), and its behavior has remained consistent since introduction—no functional changes have been made.",
-        "has_examples": false,
-        "examples": [],
-        "examples_count": 0,
-        "extraction_method": "No Examples"
     },
     {
         "source_url": "https://nokogiri.org/rdoc/Nokogiri/XML/SAX/Document.html",
@@ -383,51 +368,6 @@
         "examples_count": 5,
         "extraction_method": "Manual"
     },
-   {
-        "source_url": "https://nokogiri.org/rdoc/Nokogiri/HTML4/SAX/PushParser.html",
-        "api": "Nokogiri::HTML4::SAX::PushParser",
-        "package": "nokogiri",
-        "language": "Ruby",
-        "deprecated_in": "", 
-        "removed_in": "",     
-        "replaced_by": "",   
-        "change_type": "API Introduction",  
-        "reason": "Nokogiri v1.12.0 split HTML parsing into HTML4/HTML5 modules. This class was introduced as the standard push-based SAX parser for HTML4, designed to handle streaming/chunked HTML data (e.g., network streams, large files) by incrementally pushing data to the parser.",
-        "has_examples": true,  
-        "examples": [
-    {
-      "code": "require 'nokogiri'\nclass MyHandler < Nokogiri::XML::SAX::Document\n  def start_element(name, attributes = [])\n    puts \"Found element: #{name}\"\n  end\nend\n\n# 初始化 PushParser（绑定处理器）\nhandler = MyHandler.new\nparser = Nokogiri::HTML4::SAX::PushParser.new(handler)\n\n# 分块推送 HTML 数据（流式解析）\nparser << '<html><body>'\nparser << '<h1>Hello PushParser</h1>'\nparser << '</body></html>'\nparser.finish  # 标记解析结束",
-      "output": "Found element: html\nFound element: body\nFound element: h1"
-    }
-  ],
-  "examples_count": 1,
-  "extraction_method": "Manual"
-    },
-    {
-  "source_url": "https://nokogiri.org/rdoc/Nokogiri/XML/Document.html",
-  "api": "Nokogiri::XML::Document",
-  "package": "Nokogiri",
-  "language": "Ruby",
-  "deprecated_in": "", 
-  "removed_in": "",     
-  "replaced_by": "",   
-  "change_type": "",  
-  "reason": "Nokogiri::XML::Document is the core root class for XML processing in Nokogiri—all XML parsing operations generate instances of this class. It is not deprecated. Note that its class methods `read_io` and `read_memory` have a 'TODO: deprecate' internal comment (planning to consolidate into `parse` for simplicity), but no official deprecation has been announced.",
-  "has_examples": true,  
-  "examples": [
-    {
-      "code": "require 'nokogiri'\n# 用 parse 方法（推荐）创建 Document 实例（类方法归属关系）\ndoc = Nokogiri::XML::Document.parse('<root><child>Value</child></root>')\nputs doc.class  # => Nokogiri::XML::Document\nputs doc.root.name  # => root",
-      "output": "Nokogiri::XML::Document\nroot"
-    },
-    {
-      "code": "require 'nokogiri'\n# 直接实例化 Document 类（创建空文档）\nempty_doc = Nokogiri::XML::Document.new\nempty_doc.root = Nokogiri::XML::Element.new('root', empty_doc)\nempty_doc.root.add_child('<child>New Value</child>')\nputs empty_doc.to_xml",
-      "output": "<?xml version=\"1.0\"?>\n<root>\n  <child>New Value</child>\n</root>\n"
-    }
-  ],
-  "examples_count": 2,
-  "extraction_method": "Manual"
-},
-    
     {
         "source_url": "https://nokogiri.org/rdoc/Nokogiri/XML/XPathContext.html",
         "api": "Nokogiri::XML::XPathContext",
@@ -553,27 +493,11 @@
                 "output": ""
             },
             {
-                "code": "    Nokogiri::VERSION_INFO[\"libxml\"][\"patches\"]\n  else\n    []\n  end\nend\n\n\n\n68\n69\n70\n71\n72\n73\n74\n\n\n\n\n68\n69\n70\n71\n72\n73\n74\n# File 'lib/nokogiri.rb', line 68\n\ndef make(input = nil, opts = {}, &blk)\n  if input",
-                "output": ""
-            },
-            {
                 "code": "    Nokogiri::HTML4.fragment(input).children.first\n  else\n    Nokogiri(&blk)\n  end\nend\n\n# File 'lib/nokogiri.rb', line 68\n\ndef make(input = nil, opts = {}, &blk)\n  if input",
                 "output": ""
             },
             {
-                "code": "    Nokogiri::HTML4.fragment(input).children.first\n  else\n    Nokogiri(&blk)\n  end\nend\n\n\n\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n\n\n\n\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n# File 'lib/nokogiri.rb', line 42\n\ndef parse(string, url = nil, encoding = nil, options = nil)\n  if string.respond_to?(:read) ||\n      /^\\s*<(?:!DOCTYPE\\s+)?html[\\s>]/i.match?(string[0, 512])\n    # Expect an HTML indicator to appear within the first 512\n    # characters of a document. (<?xml ?> + <?xml-stylesheet ?>\n    # shouldn't be that long)\n    Nokogiri.HTML4(\n      string,\n      url,\n      encoding,\n      options || XML::ParseOptions::DEFAULT_HTML,\n    )\n  else\n    Nokogiri.XML(\n      string,\n      url,\n      encoding,\n      options || XML::ParseOptions::DEFAULT_XML,\n    )\n    yield doc if block_given?\n  end\nend\n\n# File 'lib/nokogiri.rb', line 42\n\ndef parse(string, url = nil, encoding = nil, options = nil)\n  if string.respond_to?(:read) ||\n      /^\\s*<(?:!DOCTYPE\\s+)?html[\\s>]/i.match?(string[0, 512])\n    # Expect an HTML indicator to appear within the first 512\n    # characters of a document. (<?xml ?> + <?xml-stylesheet ?>\n    # shouldn't be that long)\n    Nokogiri.HTML4(\n      string,\n      url,\n      encoding,\n      options || XML::ParseOptions::DEFAULT_HTML,\n    )\n  else\n    Nokogiri.XML(\n      string,\n      url,\n      encoding,\n      options || XML::ParseOptions::DEFAULT_XML,\n    )\n    yield doc if block_given?\n  end\nend",
-                "output": "end.tap do |doc|\n  end.tap do |doc|"
-            },
-            {
                 "code": "doc = Nokogiri::Slop(<<-eohtml)\n  <html>\n    <body>\n      <p>first</p>\n      <p>second</p>\n    </body>\n  </html>\neohtml\nassert_equal('second', doc.html.body.p[1].text)\n\n",
-                "output": ""
-            },
-            {
-                "code": "doc = Nokogiri::Slop(<<-eohtml)\n  <html>\n    <body>\n      <p>first</p>\n      <p>second</p>\n    </body>\n  </html>\neohtml\nassert_equal('second', doc.html.body.p[1].text)\n\n\n\n\n91\n92\n93\n\n\n\n\n91\n92\n93\n# File 'lib/nokogiri.rb', line 91\n\ndef Slop(*args, &block)\n  Nokogiri(*args, &block).slop!\nend\n\n# File 'lib/nokogiri.rb', line 91\n\ndef Slop(*args, &block)\n  Nokogiri(*args, &block).slop!\nend\n\n\n\n201\n202\n203\n\n\n\n\n201\n202\n203\n# File 'lib/nokogiri/version/info.rb', line 201\n\ndef self.uses_gumbo?\n  uses_libxml? # TODO: replace with Gumbo functionality\nend\n\n# File 'lib/nokogiri/version/info.rb', line 201\n\ndef self.uses_gumbo?\n  uses_libxml? # TODO: replace with Gumbo functionality\nend\n\n\n\n193\n194\n195\n196\n197\n198\n\n\n\n\n193\n194\n195\n196\n197\n198\n# File 'lib/nokogiri/version/info.rb', line 193\n\ndef self.uses_libxml?(requirement = nil)\n  return false unless VersionInfo.instance.libxml2?\n  return true unless requirement\n\n  Gem::Requirement.new(requirement).satisfied_by?(VersionInfo.instance.loaded_libxml_version)\nend\n\n# File 'lib/nokogiri/version/info.rb', line 193\n\ndef self.uses_libxml?(requirement = nil)\n  return false unless VersionInfo.instance.libxml2?\n  return true unless requirement\n\n  Gem::Requirement.new(requirement).satisfied_by?(VersionInfo.instance.loaded_libxml_version)\nend\n\n\n\n6\n7\n8\n\n\n\n\n6\n7\n8\n# File 'lib/nokogiri/xml.rb', line 6\n\ndef XML(...)",
-                "output": ""
-            },
-            {
-                "code": "  Nokogiri::XML::Document.parse(...)\nend\n\n# File 'lib/nokogiri/xml.rb', line 6\n\ndef XML(...)",
                 "output": ""
             },
             {
@@ -584,4 +508,4 @@
         "examples_count": 17,
         "extraction_method": "Manual"
     }
-]
+]   
