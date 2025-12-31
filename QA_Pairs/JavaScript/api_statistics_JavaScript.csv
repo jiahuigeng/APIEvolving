@@ -1,21 +1,15 @@
 Statistic,Count
-Total Unique Packages,12
-Total Unique APIs,47
+Total Unique Packages,5
+Total Unique APIs,126
 --- Package List ---,---
+Express,
 Lodash,
-Reactivity API: Core,
-Vue,
-Vue.js,
-Vue.js (Options API),
-Vue.js Reactivity API: Core,
+jQuery,
 lodash,
 react,
-react-dom,
-react-dom@19.2,
-vue,
-vue/server-renderer,
 --- Change Type Counts ---,---
-Change Type: API Deprecation,26
+Change Type: API Deprecation,68
+Change Type: API Removal,30
 Change Type: Behavior Change,13
-Change Type: Performance Optimization,4
-Change Type: Parameter Change,3
+Change Type: Parameter Change,11
+Change Type: API Renaming,10
