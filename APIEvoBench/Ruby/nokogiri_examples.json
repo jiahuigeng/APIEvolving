@@ -1,0 +1,511 @@
+[
+    {
+        "source_url": "https://nokogiri.org/rdoc/Nokogiri/HTML4.html",
+        "api": "Nokogiri::HTML4",
+        "package": "Nokogiri",
+        "language": "Ruby",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The module/namespace Nokogiri::HTML4 was introduced to better structure and differentiate between HTML-related classes as of v1.12.0.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "require 'nokogiri'\n$ gem install nokogiri\nFetching nokogiri-1.11.0-x86_64-linux.gem\nSuccessfully installed nokogiri-1.11.0-x86_64-linux\n1 gem installed\n\ngem install nokogiri\n\n\ngem install nokogiri\n\n#! /usr/bin/env ruby\n\nrequire 'open-uri'\n\n# Fetch and parse HTML document",
+                "output": ""
+            },
+            {
+                "code": "require 'nokogiri'\ndoc = Nokogiri::HTML(URI.open('https://nokogiri.org/tutorials/installing_nokogiri.html'))\n\n# Search for nodes by css",
+                "output": ""
+            },
+            {
+                "code": "require 'nokogiri'\ndoc.css('nav ul.menu li a', 'article h2').each do |link|\nend\n\n# Search for nodes by xpath",
+                "output": "puts link.content"
+            },
+            {
+                "code": "require 'nokogiri'\ndoc.xpath('//nav//ul//li/a', '//article//h2').each do |link|\nend\n\n# Or mix and match\ndoc.search('nav ul.menu li a', '//article//h2').each do |link|\nend\n\n\n#! /usr/bin/env ruby\n\nrequire 'open-uri'\n\n# Fetch and parse HTML document",
+                "output": "puts link.content\n  puts link.content"
+            },
+            {
+                "code": "require 'nokogiri'\ndoc = Nokogiri::HTML(URI.open('https://nokogiri.org/tutorials/installing_nokogiri.html'))\n\n# Search for nodes by css",
+                "output": ""
+            },
+            {
+                "code": "require 'nokogiri'\ndoc.css('nav ul.menu li a', 'article h2').each do |link|\nend\n\n# Search for nodes by xpath",
+                "output": "puts link.content"
+            },
+            {
+                "code": "require 'nokogiri'\ndoc.xpath('//nav//ul//li/a', '//article//h2').each do |link|\nend\n\n# Or mix and match\ndoc.search('nav ul.menu li a', '//article//h2').each do |link|\nend\n",
+                "output": "puts link.content\n  puts link.content"
+            },
+            {
+                "code": "require 'nokogiri'\n  doc = Nokogiri.XML('<foo><bar /></foo>', nil, 'EUC-JP')\n\n",
+                "output": ""
+            },
+            {
+                "code": "require 'nokogiri'\n  doc = Nokogiri.XML('<foo><bar /></foo>', nil, 'EUC-JP')\n\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 9,
+        "date": null
+    },
+    {
+        "source_url": "https://nokogiri.org/rdoc/Nokogiri/CSS.html",
+        "api": "Nokogiri::CSS::xpath_for",
+        "package": "Nokogiri",
+        "language": "Ruby",
+        "deprecated_in": "4.5.0",
+        "removed_in": "",
+        "replaced_by": "keyword arguments",
+        "change_type": "API Deprecation",
+        "reason": "Passing options as an explicit hash is deprecated to encourage the use of keyword arguments for better clarity and future compatibility.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "require 'nokogiri'\n$ gem install nokogiri\nFetching nokogiri-1.11.0-x86_64-linux.gem\nSuccessfully installed nokogiri-1.11.0-x86_64-linux\n1 gem installed\n\ngem install nokogiri\n\n\ngem install nokogiri\n\n#! /usr/bin/env ruby\n\nrequire 'open-uri'\n\n# Fetch and parse HTML document",
+                "output": ""
+            },
+            {
+                "code": "require 'nokogiri'\ndoc = Nokogiri::HTML(URI.open('https://nokogiri.org/tutorials/installing_nokogiri.html'))\n\n# Search for nodes by css",
+                "output": ""
+            },
+            {
+                "code": "require 'nokogiri'\ndoc.css('nav ul.menu li a', 'article h2').each do |link|\nend\n\n# Search for nodes by xpath",
+                "output": "puts link.content"
+            },
+            {
+                "code": "require 'nokogiri'\ndoc.xpath('//nav//ul//li/a', '//article//h2').each do |link|\nend\n\n# Or mix and match\ndoc.search('nav ul.menu li a', '//article//h2').each do |link|\nend\n\n\n#! /usr/bin/env ruby\n\nrequire 'open-uri'\n\n# Fetch and parse HTML document",
+                "output": "puts link.content\n  puts link.content"
+            },
+            {
+                "code": "require 'nokogiri'\ndoc = Nokogiri::HTML(URI.open('https://nokogiri.org/tutorials/installing_nokogiri.html'))\n\n# Search for nodes by css",
+                "output": ""
+            },
+            {
+                "code": "require 'nokogiri'\ndoc.css('nav ul.menu li a', 'article h2').each do |link|\nend\n\n# Search for nodes by xpath",
+                "output": "puts link.content"
+            },
+            {
+                "code": "require 'nokogiri'\ndoc.xpath('//nav//ul//li/a', '//article//h2').each do |link|\nend\n\n# Or mix and match\ndoc.search('nav ul.menu li a', '//article//h2').each do |link|\nend\n",
+                "output": "puts link.content\n  puts link.content"
+            },
+            {
+                "code": "require 'nokogiri'\n  doc = Nokogiri.XML('<foo><bar /></foo>', nil, 'EUC-JP')\n\n",
+                "output": ""
+            },
+            {
+                "code": "require 'nokogiri'\n  doc = Nokogiri.XML('<foo><bar /></foo>', nil, 'EUC-JP')\n\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 9,
+        "date": null
+    },
+    {
+        "source_url": "https://nokogiri.org/rdoc/Nokogiri/HTML/Builder.html",
+        "api": "Nokogiri::HTML::Builder",
+        "package": "Nokogiri",
+        "language": "Ruby",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "Nokogiri::HTML4::Builder",
+        "change_type": "Behavior Change",
+        "reason": "Split HTML4/HTML5 modules in v1.12.0; this class is aliased to Nokogiri::HTML4::Builder for backward compatibility.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://nokogiri.org/rdoc/Nokogiri/HTML4/Builder.html",
+        "api": "Nokogiri::HTML4::Builder",
+        "package": "Nokogiri",
+        "language": "Ruby",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "Nokogiri::XML::Builder",
+        "change_type": "API Deprecation",
+        "reason": "The Nokogiri::HTML4::Builder inherits from Nokogiri::XML::Builder, suggesting users migrate to Nokogiri::XML::Builder for complete documentation coverage.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "require 'nokogiri'\n$ gem install nokogiri\nFetching nokogiri-1.11.0-x86_64-linux.gem\nSuccessfully installed nokogiri-1.11.0-x86_64-linux\n1 gem installed\n\ngem install nokogiri\n\n\ngem install nokogiri\n\n#! /usr/bin/env ruby\n\nrequire 'open-uri'\n\n# Fetch and parse HTML document",
+                "output": ""
+            },
+            {
+                "code": "require 'nokogiri'\ndoc = Nokogiri::HTML(URI.open('https://nokogiri.org/tutorials/installing_nokogiri.html'))\n\n# Search for nodes by css",
+                "output": ""
+            },
+            {
+                "code": "require 'nokogiri'\ndoc.css('nav ul.menu li a', 'article h2').each do |link|\nend\n\n# Search for nodes by xpath",
+                "output": "puts link.content"
+            },
+            {
+                "code": "require 'nokogiri'\ndoc.xpath('//nav//ul//li/a', '//article//h2').each do |link|\nend\n\n# Or mix and match\ndoc.search('nav ul.menu li a', '//article//h2').each do |link|\nend\n\n\n#! /usr/bin/env ruby\n\nrequire 'open-uri'\n\n# Fetch and parse HTML document",
+                "output": "puts link.content\n  puts link.content"
+            },
+            {
+                "code": "require 'nokogiri'\ndoc = Nokogiri::HTML(URI.open('https://nokogiri.org/tutorials/installing_nokogiri.html'))\n\n# Search for nodes by css",
+                "output": ""
+            },
+            {
+                "code": "require 'nokogiri'\n  doc = Nokogiri.XML('<foo><bar /></foo>', nil, 'EUC-JP')\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 6,
+        "date": null
+    },
+    {
+        "source_url": "https://nokogiri.org/rdoc/Nokogiri/XSLT/Stylesheet.html",
+        "api": "Nokogiri::XSLT::Stylesheet#apply_to",
+        "package": "Nokogiri",
+        "language": "Ruby",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "apply_to",
+        "change_type": "Behavior Change",
+        "reason": "The apply_to method was introduced as a convenience for combining serialization and transformation steps into a single operation, optimizing code readability and ease of use.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "require 'nokogiri'\n$ gem install nokogiri\nFetching nokogiri-1.11.0-x86_64-linux.gem\nSuccessfully installed nokogiri-1.11.0-x86_64-linux\n1 gem installed\n\ngem install nokogiri\n\n\ngem install nokogiri\n\n#! /usr/bin/env ruby\n\nrequire 'open-uri'\n\n# Fetch and parse HTML document",
+                "output": ""
+            },
+            {
+                "code": "require 'nokogiri'\ndoc = Nokogiri::HTML(URI.open('https://nokogiri.org/tutorials/installing_nokogiri.html'))\n\n# Search for nodes by css",
+                "output": ""
+            },
+            {
+                "code": "require 'nokogiri'\ndoc.css('nav ul.menu li a', 'article h2').each do |link|\nend\n\n# Search for nodes by xpath",
+                "output": "puts link.content"
+            },
+            {
+                "code": "require 'nokogiri'\ndoc.xpath('//nav//ul//li/a', '//article//h2').each do |link|\nend\n\n# Or mix and match\ndoc.search('nav ul.menu li a', '//article//h2').each do |link|\nend\n\n\n#! /usr/bin/env ruby\n\nrequire 'open-uri'\n\n# Fetch and parse HTML document",
+                "output": "puts link.content\n  puts link.content"
+            },
+            {
+                "code": "require 'nokogiri'\ndoc = Nokogiri::HTML(URI.open('https://nokogiri.org/tutorials/installing_nokogiri.html'))\n\n# Search for nodes by css",
+                "output": ""
+            },
+            {
+                "code": "require 'nokogiri'\ndoc.css('nav ul.menu li a', 'article h2').each do |link|\nend\n\n# Search for nodes by xpath",
+                "output": "puts link.content"
+            },
+            {
+                "code": "require 'nokogiri'\ndoc.xpath('//nav//ul//li/a', '//article//h2').each do |link|\nend\n\n# Or mix and match\ndoc.search('nav ul.menu li a', '//article//h2').each do |link|\nend\n",
+                "output": "puts link.content\n  puts link.content"
+            },
+            {
+                "code": "require 'nokogiri'\n  doc = Nokogiri.XML('<foo><bar /></foo>', nil, 'EUC-JP')\n\n",
+                "output": ""
+            },
+            {
+                "code": "require 'nokogiri'\n  doc = Nokogiri.XML('<foo><bar /></foo>', nil, 'EUC-JP')\n\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 9,
+        "date": null
+    },
+    {
+        "source_url": "https://nokogiri.org/rdoc/Nokogiri/HTML/Document.html",
+        "api": "Nokogiri::HTML::Document",
+        "package": "Nokogiri",
+        "language": "Ruby",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "Nokogiri::HTML4::Document",
+        "change_type": "Behavior Change",
+        "reason": "Nokogiri v1.12.0 split HTML parsing into HTML4 and HTML5 modules. This class is retained as an alias for Nokogiri::HTML4::Document to maintain backward compatibility with existing code that uses Nokogiri::HTML.parse or Nokogiri::HTML::Document.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "require 'nokogiri'\n# \u65e7\u7528\u6cd5\uff08\u517c\u5bb9\u4fdd\u7559\uff09\ndoc = Nokogiri::HTML('<html><body><h1>Hello</h1></body></html>')\nputs doc.class  # => Nokogiri::HTML4::Document\uff08\u56e0\u522b\u540d\u6620\u5c04\uff09",
+                "output": "Nokogiri::HTML4::Document"
+            },
+            {
+                "code": "require 'nokogiri'\n# \u65b0\u7528\u6cd5\uff08\u660e\u786e HTML4 \u89e3\u6790\uff09\ndoc4 = Nokogiri::HTML4::Document.parse('<html><body><h1>Hello</h1></body></html>')\n# \u65b0\u7528\u6cd5\uff08\u660e\u786e HTML5 \u89e3\u6790\uff09\ndoc5 = Nokogiri::HTML5::Document.parse('<html><body><h1>Hello</h1></body></html>')\nputs doc4.class  # => Nokogiri::HTML4::Document\nputs doc5.class  # => Nokogiri::HTML5::Document",
+                "output": "Nokogiri::HTML4::Document\nNokogiri::HTML5::Document"
+            },
+            {
+                "code": "require 'nokogiri'\nrequire 'open-uri'\n# \u4ece URL \u89e3\u6790\uff08\u517c\u5bb9\u65e7\u4ee3\u7801\uff09\ndoc = Nokogiri::HTML(URI.open('https://nokogiri.org'))\n# \u641c\u7d22\u8282\u70b9\uff08\u4e0e\u65e7\u7528\u6cd5\u5b8c\u5168\u4e00\u81f4\uff09\ndoc.css('h1').each { |h1| puts h1.text }",
+                "output": "Nokogiri: HTML, XML, and CSS Parsing for Ruby"
+            }
+        ],
+        "examples_count": 3,
+        "date": null
+    },
+    {
+        "source_url": "https://nokogiri.org/rdoc/Nokogiri/XML/Attr.html",
+        "api": "Nokogiri::XML::Attr",
+        "package": "Nokogiri",
+        "language": "Ruby",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Changes were introduced to support enhanced pattern matching and to align with modern Ruby features.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://nokogiri.org/rdoc/Nokogiri/HTML4/DocumentFragment.html",
+        "api": "Nokogiri::HTML4::DocumentFragment",
+        "package": "Nokogiri",
+        "language": "Ruby",
+        "deprecated_in": "4.0.0",
+        "removed_in": "",
+        "replaced_by": "HTML4::DocumentFragment.parse",
+        "change_type": "API Deprecation",
+        "reason": "Direct usage of the `new` method is not recommended due to better alternatives like `HTML4::DocumentFragment.parse` or `XML::Node#parse`, which offer a more consistent and flexible implementation.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "require 'nokogiri'\n$ gem install nokogiri\nFetching nokogiri-1.11.0-x86_64-linux.gem\nSuccessfully installed nokogiri-1.11.0-x86_64-linux\n1 gem installed\n\ngem install nokogiri\n\n\ngem install nokogiri\n\n#! /usr/bin/env ruby\n\nrequire 'open-uri'\n\n# Fetch and parse HTML document",
+                "output": ""
+            },
+            {
+                "code": "require 'nokogiri'\ndoc = Nokogiri::HTML(URI.open('https://nokogiri.org/tutorials/installing_nokogiri.html'))\n\n# Search for nodes by css",
+                "output": ""
+            },
+            {
+                "code": "require 'nokogiri'\ndoc.css('nav ul.menu li a', 'article h2').each do |link|\nend\n\n# Search for nodes by xpath",
+                "output": "puts link.content"
+            },
+            {
+                "code": "require 'nokogiri'\ndoc.xpath('//nav//ul//li/a', '//article//h2').each do |link|\nend\n\n# Or mix and match\ndoc.search('nav ul.menu li a', '//article//h2').each do |link|\nend\n\n\n#! /usr/bin/env ruby\n\nrequire 'open-uri'\n\n# Fetch and parse HTML document",
+                "output": "puts link.content\n  puts link.content"
+            },
+            {
+                "code": "require 'nokogiri'\n  doc = Nokogiri.XML('<foo><bar /></foo>', nil, 'EUC-JP')\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 5,
+        "date": null
+    },
+    {
+        "source_url": "https://nokogiri.org/rdoc/Nokogiri/HTML/DocumentFragment.html",
+        "api": "Nokogiri::HTML::DocumentFragment",
+        "package": "Nokogiri",
+        "language": "Ruby",
+        "deprecated_in": "4.0.0",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "API Deprecation",
+        "reason": "The alias was introduced to reflect the new naming convention aligning with the version of HTML, ensuring clarity for developers working with HTML4.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://nokogiri.org/rdoc/Nokogiri/HTML4/SAX/Parser.html",
+        "api": "Nokogiri::HTML4::SAX::Parser",
+        "package": "Nokogiri",
+        "language": "Ruby",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Nokogiri v1.12.0 split HTML SAX parsing into HTML4/HTML5 modules. This class is the standard implementation for HTML4 SAX parsing, and Nokogiri::HTML::SAX::Parser is retained as an alias for backward compatibility.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "class MyHandler < Nokogiri::XML::SAX::Document\n  def start_element(name, attributes = [])\n    puts \"Found element: #{name}\"\n  end\nend",
+                "output": ""
+            },
+            {
+                "code": "parser = Nokogiri::HTML4::SAX::Parser.new(MyHandler.new)\n# \u89e3\u6790\u672c\u5730 HTML \u6587\u4ef6\nFile.open(\"example.html\") do |f|\n  parser.parse(f)\nend",
+                "output": "Found element: html\nFound element: body\nFound element: h1\n..."
+            },
+            {
+                "code": "require 'open-uri'\n# \u4ece URL \u89e3\u6790\uff08\u517c\u5bb9\u65e7\u522b\u540d\u7528\u6cd5\uff09\nold_parser = Nokogiri::HTML::SAX::Parser.new(MyHandler.new)\nold_parser.parse(URI.open(\"https://nokogiri.org\"))",
+                "output": "Found element: html\nFound element: head\nFound element: title\n..."
+            }
+        ],
+        "examples_count": 3,
+        "date": null
+    },
+    {
+        "source_url": "https://nokogiri.org/rdoc/Nokogiri/XML/SAX/Document.html",
+        "api": "Nokogiri::XML::SAX::Document",
+        "package": "Nokogiri",
+        "language": "Ruby",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Updated handling of entity references to comply with improved parsing logic and avoid ambiguity in callbacks.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "class MyHandler < Nokogiri::XML::SAX::Document\n  def start_element name, attrs = []\n  end\n\n  def end_element name\n  end\nend\n\n# File lib/nokogiri/xml/sax/document.rb, line 245\ndef cdata_block(string)\nend\n\n# File lib/nokogiri/xml/sax/document.rb, line 245\ndef cdata_block(string)\nend\n# File lib/nokogiri/xml/sax/document.rb, line 201\ndef characters(string)\nend\n\n# File lib/nokogiri/xml/sax/document.rb, line 201\ndef characters(string)\nend\n# File lib/nokogiri/xml/sax/document.rb, line 224\ndef comment(string)\nend\n\n# File lib/nokogiri/xml/sax/document.rb, line 224\ndef comment(string)\nend\n# File lib/nokogiri/xml/sax/document.rb, line 83\ndef end_document\nend\n\n# File lib/nokogiri/xml/sax/document.rb, line 83\ndef end_document\nend\n# File lib/nokogiri/xml/sax/document.rb, line 122\ndef end_element(name)\nend\n\n# File lib/nokogiri/xml/sax/document.rb, line 122\ndef end_element(name)\nend\n# File lib/nokogiri/xml/sax/document.rb, line 185\ndef end_element_namespace(name, prefix = nil, uri = nil)\n  # Deal with SAX v1 interface\n  end_element([prefix, name].compact.join(\":\"))\nend\n\n# File lib/nokogiri/xml/sax/document.rb, line 185\ndef end_element_namespace(name, prefix = nil, uri = nil)\n  # Deal with SAX v1 interface\n  end_element([prefix, name].compact.join(\":\"))\nend\n# File lib/nokogiri/xml/sax/document.rb, line 238\ndef error(string)\nend\n\n# File lib/nokogiri/xml/sax/document.rb, line 238\ndef error(string)\nend\n# File lib/nokogiri/xml/sax/document.rb, line 253\ndef processing_instruction(name, content)\nend\n\n# File lib/nokogiri/xml/sax/document.rb, line 253\ndef processing_instruction(name, content)\nend\n# File lib/nokogiri/xml/sax/document.rb, line 217\ndef reference(name, content)\nend\n\n# File lib/nokogiri/xml/sax/document.rb, line 217\ndef reference(name, content)\nend\n# File lib/nokogiri/xml/sax/document.rb, line 78\ndef start_document\nend\n\n# File lib/nokogiri/xml/sax/document.rb, line 78\ndef start_document\nend\n# File lib/nokogiri/xml/sax/document.rb, line 113\ndef start_element(name, attrs = [])\nend\n\n# File lib/nokogiri/xml/sax/document.rb, line 113\ndef start_element(name, attrs = [])\nend\n[ [\"xmlns:foo\", \"http://sample.net\"], [\"size\", \"large\"] ]\n\n\n[ [\"xmlns:foo\", \"http://sample.net\"], [\"size\", \"large\"] ]\n\nparser.parse(<<~XML)\n  <root xmlns:foo='http://foo.example.com/' xmlns='http://example.com/'>\n    <foo:bar foo:quux=\"xxx\">hello world</foo:bar>\n  </root>\nXML\n\nassert_pattern do\n    [\"root\", [[\"xmlns:foo\", \"http://foo.example.com/\"], [\"xmlns\", \"http://example.com/\"]]],\n    [\"foo:bar\", [[\"foo:quux\", \"xxx\"]]],\n  ]\nend\n\n\nparser.parse(<<~XML)\n  <root xmlns:foo='http://foo.example.com/' xmlns='http://example.com/'>\n    <foo:bar foo:quux=\"xxx\">hello world</foo:bar>\n  </root>\nXML\n\nassert_pattern do\n    [\"root\", [[\"xmlns:foo\", \"http://foo.example.com/\"], [\"xmlns\", \"http://example.com/\"]]],\n    [\"foo:bar\", [[\"foo:quux\", \"xxx\"]]],\n  ]\nend\n\n# File lib/nokogiri/xml/sax/document.rb, line 166\ndef start_element_namespace(name, attrs = [], prefix = nil, uri = nil, ns = []) # rubocop:disable Metrics/ParameterLists\n  # Deal with SAX v1 interface",
+                "output": "puts \"#{name} started!\"\n    puts \"#{name} ended\"\n  parser.document.start_elements => [\n  parser.document.start_elements => ["
+            },
+            {
+                "code": "  name = [prefix, name].compact.join(\":\")\n    [[\"xmlns\", ns_prefix].compact.join(\":\"), ns_uri]\n    [[attr.prefix, attr.localname].compact.join(\":\"), attr.value]\n  end\n  start_element(name, attributes)\nend\n\n# File lib/nokogiri/xml/sax/document.rb, line 166\ndef start_element_namespace(name, attrs = [], prefix = nil, uri = nil, ns = []) # rubocop:disable Metrics/ParameterLists\n  # Deal with SAX v1 interface",
+                "output": "attributes = ns.map do |ns_prefix, ns_uri|\n  end + attrs.map do |attr|"
+            },
+            {
+                "code": "  name = [prefix, name].compact.join(\":\")\n    [[\"xmlns\", ns_prefix].compact.join(\":\"), ns_uri]\n    [[attr.prefix, attr.localname].compact.join(\":\"), attr.value]\n  end\n  start_element(name, attributes)\nend\nparser.parse(<<~XML)\n  <root xmlns:foo='http://foo.example.com/'>\n    <foo:a foo:bar='hello' />\n  </root>\nXML\n\nassert_pattern do\n    [\n      \"root\",\n      [],\n      nil, nil,\n      [[\"foo\", \"http://foo.example.com/\"]], # namespace declarations\n    ], [\n      \"a\",",
+                "output": "attributes = ns.map do |ns_prefix, ns_uri|\n  end + attrs.map do |attr|\n  parser.document.start_elements_namespace => ["
+            },
+            {
+                "code": "      [Nokogiri::XML::SAX::Parser::Attribute(localname: \"bar\", prefix: \"foo\", uri: \"http://foo.example.com/\", value: \"hello\")], # prefixed attribute\n      \"foo\", \"http://foo.example.com/\", # prefix and uri for the \"a\" element\n      [],\n    ]\n  ]\nend\n\n\nparser.parse(<<~XML)\n  <root xmlns:foo='http://foo.example.com/'>\n    <foo:a foo:bar='hello' />\n  </root>\nXML\n\nassert_pattern do\n    [\n      \"root\",\n      [],\n      nil, nil,\n      [[\"foo\", \"http://foo.example.com/\"]], # namespace declarations\n    ], [\n      \"a\",",
+                "output": "parser.document.start_elements_namespace => ["
+            },
+            {
+                "code": "      [Nokogiri::XML::SAX::Parser::Attribute(localname: \"bar\", prefix: \"foo\", uri: \"http://foo.example.com/\", value: \"hello\")], # prefixed attribute\n      \"foo\", \"http://foo.example.com/\", # prefix and uri for the \"a\" element\n      [],\n    ]\n  ]\nend\n\n# File lib/nokogiri/xml/sax/document.rb, line 231\ndef warning(string)\nend\n\n# File lib/nokogiri/xml/sax/document.rb, line 231\ndef warning(string)\nend\n# File lib/nokogiri/xml/sax/document.rb, line 73\ndef xmldecl(version, encoding, standalone)\nend\n\n# File lib/nokogiri/xml/sax/document.rb, line 73\ndef xmldecl(version, encoding, standalone)\nend\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 5,
+        "date": null
+    },
+    {
+        "source_url": "https://nokogiri.org/rdoc/Nokogiri/XML/XPathContext.html",
+        "api": "Nokogiri::XML::XPathContext",
+        "package": "Nokogiri",
+        "language": "Ruby",
+        "deprecated_in": "1.10.0",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "API Deprecation",
+        "reason": "Some functionality, such as `xmlXPathInit`, was deprecated to streamline the library and align with updates in LibXML.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "static VALUE\nnoko_xml_xpath_context_new(VALUE klass, VALUE rb_node)\n{\n  xmlNodePtr c_node;\n  xmlXPathContextPtr c_context;\n  VALUE rb_context;\n\n  Noko_Node_Get_Struct(rb_node, xmlNode, c_node);\n\n#if LIBXML_VERSION < 21000\n  xmlXPathInit(); /* deprecated in 40483d0 */\n#endif\n",
+                "output": ""
+            },
+            {
+                "code": "  c_context = xmlXPathNewContext(c_node->doc);\n  c_context->node = c_node;\n\n  xmlXPathRegisterNs(c_context, NOKOGIRI_PREFIX, NOKOGIRI_URI);\n  xmlXPathRegisterNs(c_context, NOKOGIRI_BUILTIN_PREFIX, NOKOGIRI_BUILTIN_URI);\n\n  xmlXPathRegisterFuncNS(c_context,\n                         (const xmlChar *)\"css-class\", NOKOGIRI_BUILTIN_URI,\n                         noko_xml_xpath_context_xpath_func_css_class);\n  xmlXPathRegisterFuncNS(c_context,\n                         (const xmlChar *)\"local-name-is\", NOKOGIRI_BUILTIN_URI,\n                         noko_xml_xpath_context_xpath_func_local_name_is);\n",
+                "output": ""
+            },
+            {
+                "code": "  rb_context = TypedData_Wrap_Struct(klass, &_noko_xml_xpath_context_type, c_context);\n\n  return rb_context;\n}\nstatic VALUE\nnoko_xml_xpath_context_evaluate(int argc, VALUE *argv, VALUE rb_context)\n{\n  xmlXPathContextPtr c_context;\n  VALUE rb_expression = Qnil;\n  VALUE rb_function_lookup_handler = Qnil;\n  xmlChar *c_expression_str = NULL;\n  VALUE rb_errors = rb_ary_new();\n  xmlXPathObjectPtr c_xpath_object;\n  VALUE rb_xpath_object = Qnil;\n\n  TypedData_Get_Struct(rb_context, xmlXPathContext, &_noko_xml_xpath_context_type, c_context);\n\n  rb_scan_args(argc, argv, \"11\", &rb_expression, &rb_function_lookup_handler);\n",
+                "output": ""
+            },
+            {
+                "code": "  c_expression_str = (xmlChar *)StringValueCStr(rb_expression);\n\n  if (Qnil != rb_function_lookup_handler) {\n    /* FIXME: not sure if this is the correct place to shove private data. */\n    c_context->userData = (void *)rb_function_lookup_handler;\n    xmlXPathRegisterFuncLookup(\n      c_context,\n      _noko_xml_xpath_context_handler_lookup,\n      (void *)rb_function_lookup_handler\n    );\n  }\n\n  /* TODO: use xmlXPathSetErrorHandler (as of 2.13.0) */\n  xmlSetStructuredErrorFunc((void *)rb_errors, noko__error_array_pusher);\n  xmlSetGenericErrorFunc((void *)rb_errors, _noko_xml_xpath_context__generic_exception_pusher);\n",
+                "output": ""
+            },
+            {
+                "code": "  c_xpath_object = xmlXPathEvalExpression(c_expression_str, c_context);\n\n  xmlSetStructuredErrorFunc(NULL, NULL);\n  xmlSetGenericErrorFunc(NULL, NULL);\n\n  xmlXPathRegisterFuncLookup(c_context, NULL, NULL);\n\n  if (c_xpath_object == NULL) {\n    rb_exc_raise(rb_ary_entry(rb_errors, 0));\n  }\n",
+                "output": ""
+            },
+            {
+                "code": "  rb_xpath_object = _noko_xml_xpath_context__xpath2ruby(c_xpath_object, c_context);\n  if (rb_xpath_object == Qundef) {",
+                "output": ""
+            },
+            {
+                "code": "    rb_xpath_object = noko_xml_node_set_wrap(NULL, DOC_RUBY_OBJECT(c_context->doc));\n  }\n\n  xmlXPathFreeNodeSetList(c_xpath_object);\n\n  return rb_xpath_object;\n}\n\nstatic VALUE\nnoko_xml_xpath_context_evaluate(int argc, VALUE *argv, VALUE rb_context)\n{\n  xmlXPathContextPtr c_context;\n  VALUE rb_expression = Qnil;\n  VALUE rb_function_lookup_handler = Qnil;\n  xmlChar *c_expression_str = NULL;\n  VALUE rb_errors = rb_ary_new();\n  xmlXPathObjectPtr c_xpath_object;\n  VALUE rb_xpath_object = Qnil;\n\n  TypedData_Get_Struct(rb_context, xmlXPathContext, &_noko_xml_xpath_context_type, c_context);\n\n  rb_scan_args(argc, argv, \"11\", &rb_expression, &rb_function_lookup_handler);\n",
+                "output": ""
+            },
+            {
+                "code": "  c_expression_str = (xmlChar *)StringValueCStr(rb_expression);\n\n  if (Qnil != rb_function_lookup_handler) {\n    /* FIXME: not sure if this is the correct place to shove private data. */\n    c_context->userData = (void *)rb_function_lookup_handler;\n    xmlXPathRegisterFuncLookup(\n      c_context,\n      _noko_xml_xpath_context_handler_lookup,\n      (void *)rb_function_lookup_handler\n    );\n  }\n\n  /* TODO: use xmlXPathSetErrorHandler (as of 2.13.0) */\n  xmlSetStructuredErrorFunc((void *)rb_errors, noko__error_array_pusher);\n  xmlSetGenericErrorFunc((void *)rb_errors, _noko_xml_xpath_context__generic_exception_pusher);\n",
+                "output": ""
+            },
+            {
+                "code": "  rb_xpath_object = _noko_xml_xpath_context__xpath2ruby(c_xpath_object, c_context);\n  if (rb_xpath_object == Qundef) {",
+                "output": ""
+            },
+            {
+                "code": "    rb_xpath_object = noko_xml_node_set_wrap(NULL, DOC_RUBY_OBJECT(c_context->doc));\n  }\n\n  xmlXPathFreeNodeSetList(c_xpath_object);\n\n  return rb_xpath_object;\n}\n# File lib/nokogiri/xml/xpath_context.rb, line 8\ndef register_namespaces(namespaces)\n  namespaces.each do |key, value|\n\n    register_ns(key, value)\n  end\nend\n\n# File lib/nokogiri/xml/xpath_context.rb, line 8\ndef register_namespaces(namespaces)\n  namespaces.each do |key, value|\n\n    register_ns(key, value)\n  end\nend\nstatic VALUE\nnoko_xml_xpath_context_register_ns(VALUE rb_context, VALUE prefix, VALUE uri)\n{\n  xmlXPathContextPtr c_context;\n  const xmlChar *ns_uri;\n\n  TypedData_Get_Struct(rb_context, xmlXPathContext, &_noko_xml_xpath_context_type, c_context);\n\n  if (NIL_P(uri)) {",
+                "output": "key = key.to_s.gsub(/.*:/, \"\") # strip off 'xmlns:' or 'xml:'\n    key = key.to_s.gsub(/.*:/, \"\") # strip off 'xmlns:' or 'xml:'"
+            },
+            {
+                "code": "    ns_uri = NULL;\n  } else {",
+                "output": ""
+            },
+            {
+                "code": "    ns_uri = (const xmlChar *)StringValueCStr(uri);\n  }\n\n  xmlXPathRegisterNs(c_context, (const xmlChar *)StringValueCStr(prefix), ns_uri);\n\n  return rb_context;\n}\n\nstatic VALUE\nnoko_xml_xpath_context_register_ns(VALUE rb_context, VALUE prefix, VALUE uri)\n{\n  xmlXPathContextPtr c_context;\n  const xmlChar *ns_uri;\n\n  TypedData_Get_Struct(rb_context, xmlXPathContext, &_noko_xml_xpath_context_type, c_context);\n\n  if (NIL_P(uri)) {",
+                "output": ""
+            },
+            {
+                "code": "    xmlValue = xmlXPathNewCString(StringValueCStr(value));\n  }\n\n  xmlXPathRegisterVariable(c_context, (const xmlChar *)StringValueCStr(name), xmlValue);\n\n  return rb_context;\n}\n\nstatic VALUE\nnoko_xml_xpath_context_register_variable(VALUE rb_context, VALUE name, VALUE value)\n{\n  xmlXPathContextPtr c_context;\n  xmlXPathObjectPtr xmlValue;\n\n  TypedData_Get_Struct(rb_context, xmlXPathContext, &_noko_xml_xpath_context_type, c_context);\n\n  if (NIL_P(value)) {",
+                "output": ""
+            },
+            {
+                "code": "    key = key.to_s\n\n    register_variable(key, value)\n  end\nend\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 14,
+        "date": null
+    },
+    {
+        "source_url": "https://nokogiri.org/rdoc/Object.html",
+        "api": "Nokogiri",
+        "package": "Nokogiri",
+        "language": "Ruby",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "To improve parsing functionality by allowing developers to specify the exact document type, rather than guessing based on input.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "VersionInfo.instance.to_hash\n\"1.18.10\"\n\n\"1.18.10\"\n{\n}.freeze\n\n{\n}.freeze\nJAR_DEPENDENCIES[\"xerces:xercesImpl\"]\n\nJAR_DEPENDENCIES[\"xerces:xercesImpl\"]\nJAR_DEPENDENCIES[\"net.sourceforge.htmlunit:neko-htmlunit\"]\n\nJAR_DEPENDENCIES[\"net.sourceforge.htmlunit:neko-htmlunit\"]\n\n\n\n7\n8\n9\n\n\n\n\n7\n8\n9\n# File 'lib/nokogiri/html4.rb', line 7\n\ndef HTML4(...)",
+                "output": "\"isorelax:isorelax\" => \"20030108\",\n  \"net.sf.saxon:Saxon-HE\" => \"9.6.0-4\",\n  \"net.sourceforge.htmlunit:neko-htmlunit\" => \"2.63.0\",\n  \"nu.validator:jing\" => \"20200702VNU\",\n  \"org.nokogiri:nekodtd\" => \"0.1.11.noko2\",\n  \"xalan:serializer\" => \"2.7.3\",\n  \"xalan:xalan\" => \"2.7.3\",\n  \"xerces:xercesImpl\" => \"2.12.2\",\n  \"xml-apis:xml-apis\" => \"1.4.01\",\n  \"isorelax:isorelax\" => \"20030108\",\n  \"net.sf.saxon:Saxon-HE\" => \"9.6.0-4\",\n  \"net.sourceforge.htmlunit:neko-htmlunit\" => \"2.63.0\",\n  \"nu.validator:jing\" => \"20200702VNU\",\n  \"org.nokogiri:nekodtd\" => \"0.1.11.noko2\",\n  \"xalan:serializer\" => \"2.7.3\",\n  \"xalan:xalan\" => \"2.7.3\",\n  \"xerces:xercesImpl\" => \"2.12.2\",\n  \"xml-apis:xml-apis\" => \"1.4.01\","
+            },
+            {
+                "code": "  Nokogiri::HTML4::Document.parse(...)\nend\n\n# File 'lib/nokogiri/html4.rb', line 7\n\ndef HTML4(...)",
+                "output": ""
+            },
+            {
+                "code": "  Nokogiri::HTML4::Document.parse(...)\nend\n\n\n\n28\n29\n30\n\n\n\n\n28\n29\n30\n# File 'lib/nokogiri/html5.rb', line 28\n\ndef self.HTML5(...)",
+                "output": ""
+            },
+            {
+                "code": "  Nokogiri::HTML5::Document.parse(...)\nend\n\n# File 'lib/nokogiri/html5.rb', line 28\n\ndef self.HTML5(...)",
+                "output": ""
+            },
+            {
+                "code": "  Nokogiri::HTML5::Document.parse(...)\nend\n\n\n\n96\n97\n98\n99\n\n\n\n\n96\n97\n98\n99\n# File 'lib/nokogiri.rb', line 96\n\ndef install_default_aliases",
+                "output": ""
+            },
+            {
+                "code": "  warn(\"Nokogiri.install_default_aliases is deprecated. Please call Nokogiri::EncodingHandler.install_default_aliases instead. This will become an error in Nokogiri v1.17.0.\", uplevel: 1, category: :deprecated) # deprecated in v1.14.0, remove in v1.17.0",
+                "output": ""
+            },
+            {
+                "code": "  Nokogiri::EncodingHandler.install_default_aliases\nend\n\n# File 'lib/nokogiri.rb', line 96\n\ndef install_default_aliases",
+                "output": ""
+            },
+            {
+                "code": "  warn(\"Nokogiri.install_default_aliases is deprecated. Please call Nokogiri::EncodingHandler.install_default_aliases instead. This will become an error in Nokogiri v1.17.0.\", uplevel: 1, category: :deprecated) # deprecated in v1.14.0, remove in v1.17.0",
+                "output": ""
+            },
+            {
+                "code": "  Nokogiri::EncodingHandler.install_default_aliases\nend\n\n\n\n206\n207\n208\n\n\n\n\n206\n207\n208\n# File 'lib/nokogiri/version/info.rb', line 206\n\ndef self.jruby?\n  VersionInfo.instance.jruby?\nend\n\n# File 'lib/nokogiri/version/info.rb', line 206\n\ndef self.jruby?\n  VersionInfo.instance.jruby?\nend\n\n\n\n211\n212\n213\n214\n215\n216\n217\n\n\n\n\n211\n212\n213\n214\n215\n216\n217\n# File 'lib/nokogiri/version/info.rb', line 211\n\ndef self.libxml2_patches\n  if VersionInfo.instance.libxml2_using_packaged?",
+                "output": ""
+            },
+            {
+                "code": "    Nokogiri::VERSION_INFO[\"libxml\"][\"patches\"]\n  else\n    []\n  end\nend\n\n# File 'lib/nokogiri/version/info.rb', line 211\n\ndef self.libxml2_patches\n  if VersionInfo.instance.libxml2_using_packaged?",
+                "output": ""
+            },
+            {
+                "code": "    Nokogiri::HTML4.fragment(input).children.first\n  else\n    Nokogiri(&blk)\n  end\nend\n\n# File 'lib/nokogiri.rb', line 68\n\ndef make(input = nil, opts = {}, &blk)\n  if input",
+                "output": ""
+            },
+            {
+                "code": "doc = Nokogiri::Slop(<<-eohtml)\n  <html>\n    <body>\n      <p>first</p>\n      <p>second</p>\n    </body>\n  </html>\neohtml\nassert_equal('second', doc.html.body.p[1].text)\n\n",
+                "output": ""
+            },
+            {
+                "code": "  Nokogiri::XML::Document.parse(...)\nend\n\n\n\n7\n8\n9\n\n\n\n\n7\n8\n9\n# File 'lib/nokogiri/xslt.rb', line 7\n\ndef XSLT(...)\n  XSLT.parse(...)\nend\n\n# File 'lib/nokogiri/xslt.rb', line 7\n\ndef XSLT(...)\n  XSLT.parse(...)\nend\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 17,
+        "date": null
+    }
+]

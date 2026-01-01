@@ -1,0 +1,1303 @@
+[
+  {
+    "source_url": "https://www.boost.org/library/latest/coroutine2/",
+    "api": "boost.coroutine2",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.60.0",
+    "removed_in": "",
+    "replaced_by": "boost.coroutine2",
+    "change_type": "API Deprecation",
+    "reason": "boost.coroutine2 was introduced as the successor of boost.coroutine to provide support for C++11 and offer enhanced coroutine functionality. The older boost.coroutine was deprecated due to lack of modern language support and maintenance.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/library/latest/coroutine/",
+    "api": "boost.coroutine",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.53.0",
+    "removed_in": "",
+    "replaced_by": "boost.coroutine2",
+    "change_type": "API Deprecation",
+    "reason": "boost.coroutine is deprecated, and boost.coroutine2 is its successor. The upgrade ensures compatibility with modern C++ standards, as boost.coroutine is meant for pre-C++11 use cases.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/library/latest/date_time/",
+    "api": "Boost.DateTime",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.79.0",
+    "removed_in": "",
+    "replaced_by": "header-only implementation",
+    "change_type": "API Removal",
+    "reason": "The built library is now considered legacy for backward compatibility and contains no symbols. The API has transitioned to a header-only implementation to simplify usage and improve maintainability.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2022-04-13"
+  },
+  {
+    "source_url": "https://www.boost.org/library/latest/foreach/",
+    "api": "Boost.Foreach",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "std::for_each()",
+    "change_type": "Behavior Change",
+    "reason": "BOOST_FOREACH provides a more concise and readable loop construct compared to using traditional iterators or std::for_each() for iterating over sequences. The change was introduced to simplify the process of writing loops in C++ and to improve code readability.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/library/latest/function/",
+    "api": "boost::function",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.46.0",
+    "removed_in": "",
+    "replaced_by": "std::function",
+    "change_type": "API Deprecation",
+    "reason": "boost::function was replaced by std::function as it was accepted into the C++11 standard, providing more modern and standardized functionality.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/library/latest/log/",
+    "api": "Boost.Log",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "1.89.0",
+    "replaced_by": "",
+    "change_type": "API Removal",
+    "reason": "The 'Random' dependency was removed from Boost.Log in version 1.89.0, likely due to performance or architectural improvements.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2025-07-17"
+  },
+  {
+    "source_url": "https://www.boost.org/library/latest/mysql/",
+    "api": "Boost.MySQL",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.81.0",
+    "removed_in": "",
+    "replaced_by": "Boost.Charconv",
+    "change_type": "API Deprecation",
+    "reason": "Boost.MySQL started requiring linking with Boost.Charconv, which is a compiled library. This was introduced to resolve linking issues and improve integration with other Boost libraries.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2022-11-17"
+  },
+  {
+    "source_url": "https://www.boost.org/library/latest/utilityresult_of/",
+    "api": "Boost.ResultOf",
+    "package": "Boost.Utility",
+    "language": "C++",
+    "deprecated_in": "1.46.0",
+    "removed_in": "",
+    "replaced_by": "std::invoke_result",
+    "change_type": "API Deprecation",
+    "reason": "Boost.ResultOf was deprecated due to the availability of the C++11 standard library feature `std::invoke_result`, which provides similar functionality and ensures compatibility with modern C++ standards.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/library/latest/static_assert/",
+    "api": "Boost.StaticAssert",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.46.0",
+    "removed_in": "",
+    "replaced_by": "static_assert",
+    "change_type": "API Deprecation",
+    "reason": "Boost.StaticAssert was deprecated due to the introduction of the native `static_assert` feature in modern C++ standards, making the library less vital for current and future compilers.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\nBOOST_STATIC_ASSERT(x)\nBOOST_STATIC_ASSERT_MSG(x, msg)\n\nIllegal use of STATIC_ASSERTION_FAILURE<false>\n\n\nIllegal use of STATIC_ASSERTION_FAILURE<false>\n\n\n#include <climits>\n#include <cwchar>\n#include <limits>\n#include <boost/static_assert.hpp>\n\nnamespace my_conditions {\n",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n   BOOST_STATIC_ASSERT(std::numeric_limits<int>::digits >= 32);\n   BOOST_STATIC_ASSERT(WCHAR_MIN >= 0);\n\n} // namespace my_conditions\n\n\n#include <iterator>\n#include <boost/static_assert.hpp>\n#include <boost/type_traits.hpp>\n\ntemplate <class RandomAccessIterator >\nRandomAccessIterator foo(RandomAccessIterator from,\n                         RandomAccessIterator to)\n{\n   // this template can only be used with\n   // random access iterators...",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n   typedef typename std::iterator_traits<\n         RandomAccessIterator >::iterator_category cat;\n   BOOST_STATIC_ASSERT(",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n      (boost::is_convertible<\n         cat,",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n         const std::random_access_iterator_tag&>::value));\n   //\n   // detail goes here...\n   return from;\n}\n\n\n#include <limits>\n#include <boost/static_assert.hpp>\n\ntemplate <class UnsignedInt>\nclass myclass\n{\nprivate:",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n   BOOST_STATIC_ASSERT_MSG(std::numeric_limits<UnsignedInt>::is_specialized, \"myclass can only be specialized for types with numeric_limits support.\");",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n   BOOST_STATIC_ASSERT_MSG(std::numeric_limits<UnsignedInt>::digits >= 16, \"Template argument UnsignedInt must have at least 16 bits precision.\")",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n   BOOST_STATIC_ASSERT_MSG(std::numeric_limits<UnsignedInt>::is_integer, \"Template argument UnsignedInt must be an integer.\");",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n   BOOST_STATIC_ASSERT_MSG(!std::numeric_limits<UnsignedInt>::is_signed, \"Template argument UnsignedInt must not be signed.\");\npublic:\n   /* details here */\n};\n\ntemplate <class T>\nstruct must_not_be_instantiated\n{\n   BOOST_STATIC_ASSERT(false);\n};\n\n\ntemplate <class T>\nstruct must_not_be_instantiated\n{\n   BOOST_STATIC_ASSERT(false);\n};\n\ntemplate <class T>\nstruct must_not_be_instantiated\n{\n   // this will be triggered if this type is instantiated\n   BOOST_STATIC_ASSERT(sizeof(T) == 0);\n};\n\n\ntemplate <class T>\nstruct must_not_be_instantiated\n{\n   // this will be triggered if this type is instantiated\n   BOOST_STATIC_ASSERT(sizeof(T) == 0);\n};\n\n\n",
+        "output": ""
+      }
+    ],
+    "examples_count": 9,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/library/latest/stl_interfaces/",
+    "api": "Boost.StlInterfaces",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.79.0",
+    "removed_in": "",
+    "replaced_by": "iterator_facade and iterator_adaptor",
+    "change_type": "API Deprecation",
+    "reason": "Boost.Iterator's iterator_facade and iterator_adaptor were updated to align with modern C++ standards and concepts, providing a cleaner and more maintainable approach to creating iterators.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "repeated_chars_iterator first(\"foo\", 3, 0); // 3 is the length of \"foo\", 0 is this iterator's position.\nrepeated_chars_iterator last(\"foo\", 3, 7);  // Same as above, but now the iterator's position is 7.",
+        "output": ""
+      },
+      {
+        "code": "std::string result;",
+        "output": ""
+      },
+      {
+        "code": "std::copy(first, last, std::back_inserter(result));\nassert(result == \"foofoof\");\n\n\nstruct repeated_chars_iterator\n{",
+        "output": ""
+      },
+      {
+        "code": "    using value_type = char;",
+        "output": ""
+      },
+      {
+        "code": "    using difference_type = std::ptrdiff_t;",
+        "output": ""
+      },
+      {
+        "code": "    using pointer = char const *;",
+        "output": ""
+      },
+      {
+        "code": "    using reference = char const;",
+        "output": ""
+      },
+      {
+        "code": "    using iterator_category = std::random_access_iterator_tag;\n\n    constexpr repeated_chars_iterator() noexcept :\n        first_(nullptr),\n        size_(0),\n        n_(0)\n    {}\n    constexpr repeated_chars_iterator(\n        char const * first,\n        difference_type size,\n        difference_type n) noexcept :\n        first_(first),\n        size_(size),\n        n_(n)\n    {}\n\n    constexpr reference operator*() const noexcept\n    {\n        return first_[n_ % size_];\n    }\n\n    constexpr value_type operator[](difference_type n) const noexcept\n    {\n        return first_[(n_ + n) % size_];\n    }\n\n    constexpr repeated_chars_iterator & operator++() noexcept\n    {\n        ++n_;\n        return *this;\n    }\n    constexpr repeated_chars_iterator operator++(int)noexcept\n    {",
+        "output": ""
+      },
+      {
+        "code": "        repeated_chars_iterator retval = *this;\n        ++*this;\n        return retval;\n    }\n    constexpr repeated_chars_iterator & operator+=(difference_type n) noexcept\n    {\n        n_ += n;\n        return *this;\n    }\n\n    constexpr repeated_chars_iterator & operator--() noexcept\n    {\n        --n_;\n        return *this;\n    }\n    constexpr repeated_chars_iterator operator--(int)noexcept\n    {",
+        "output": ""
+      },
+      {
+        "code": "        repeated_chars_iterator retval = *this;\n        --*this;\n        return retval;\n    }\n    constexpr repeated_chars_iterator & operator-=(difference_type n) noexcept\n    {\n        n_ -= n;\n        return *this;\n    }\n\n    friend constexpr bool operator==(\n        repeated_chars_iterator lhs, repeated_chars_iterator rhs) noexcept\n    {\n        return lhs.first_ == rhs.first_ && lhs.n_ == rhs.n_;\n    }\n    friend constexpr bool operator!=(\n        repeated_chars_iterator lhs, repeated_chars_iterator rhs) noexcept\n    {\n        return !(lhs == rhs);\n    }\n    friend constexpr bool operator<(\n        repeated_chars_iterator lhs, repeated_chars_iterator rhs) noexcept\n    {\n        return lhs.first_ == rhs.first_ && lhs.n_ < rhs.n_;\n    }\n    friend constexpr bool operator<=(\n        repeated_chars_iterator lhs, repeated_chars_iterator rhs) noexcept\n    {",
+        "output": ""
+      },
+      {
+        "code": "        return lhs == rhs || lhs < rhs;\n    }\n    friend constexpr bool operator>(\n        repeated_chars_iterator lhs, repeated_chars_iterator rhs) noexcept\n    {\n        return rhs < lhs;\n    }\n    friend constexpr bool operator>=(\n        repeated_chars_iterator lhs, repeated_chars_iterator rhs) noexcept\n    {\n        return rhs <= lhs;\n    }\n\n    friend constexpr repeated_chars_iterator\n    operator+(repeated_chars_iterator lhs, difference_type rhs) noexcept\n    {\n        return lhs += rhs;\n    }\n    friend constexpr repeated_chars_iterator\n    operator+(difference_type lhs, repeated_chars_iterator rhs) noexcept\n    {\n        return rhs += lhs;\n    }\n    friend constexpr repeated_chars_iterator\n    operator-(repeated_chars_iterator lhs, difference_type rhs) noexcept\n    {\n        return lhs -= rhs;\n    }\n    friend constexpr difference_type operator-(\n        repeated_chars_iterator lhs, repeated_chars_iterator rhs) noexcept\n    {\n        return lhs.n_ - rhs.n_;\n    }\n\nprivate:\n    char const * first_;\n    difference_type size_;\n    difference_type n_;\n};\n\n",
+        "output": ""
+      },
+      {
+        "code": "struct repeated_chars_iterator : boost::stl_interfaces::iterator_interface<\n#if !BOOST_STL_INTERFACES_USE_DEDUCED_THIS\n                                     repeated_chars_iterator,\n#endif",
+        "output": ""
+      },
+      {
+        "code": "                                     std::random_access_iterator_tag,\n                                     char,\n                                     char>\n{\n    constexpr repeated_chars_iterator() noexcept :\n        first_(nullptr),\n        size_(0),\n        n_(0)\n    {}\n    constexpr repeated_chars_iterator(\n        char const * first, difference_type size, difference_type n) noexcept :\n        first_(first),\n        size_(size),\n        n_(n)\n    {}\n\n    constexpr char operator*() const noexcept { return first_[n_ % size_]; }",
+        "output": ""
+      },
+      {
+        "code": "    constexpr repeated_chars_iterator & operator+=(std::ptrdiff_t i) noexcept\n    {\n        n_ += i;\n        return *this;\n    }",
+        "output": ""
+      },
+      {
+        "code": "    constexpr auto operator-(repeated_chars_iterator other) const noexcept\n    {\n        return n_ - other.n_;\n    }\n\nprivate:\n    char const * first_;\n    difference_type size_;\n    difference_type n_;\n};\n\n\n",
+        "output": ""
+      }
+    ],
+    "examples_count": 15,
+    "date": "2022-04-13"
+  },
+  {
+    "source_url": "https://www.boost.org/library/latest/system/",
+    "api": "Boost.System",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "result<T> class",
+    "change_type": "Behavior Change",
+    "reason": "Boost.System implementation evolved to include additional functionality beyond the standard <system_error>, such as attaching source locations and the result<T> class.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\nnamespace sys = boost::system;\n\n",
+        "output": ""
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/library/latest/yap/",
+    "api": "Boost.Yap",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "Boost.Proto",
+    "change_type": "Behavior Change",
+    "reason": "Boost.Yap was designed to address the same problem space as Boost.Proto but uses newer features of C++14 and later to implement expression templates differently.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/any/index.html",
+    "api": "boost::any",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "boost::anys::unique_any",
+    "change_type": "Behavior Change",
+    "reason": "The existing `boost::any` API does not support ownership transfer for its values, requiring copy or move constructors for the held type. `boost::anys::unique_any` was added as an alternative with ownership transfer capabilities.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/array/index.html",
+    "api": "boost::array",
+    "package": "boost",
+    "language": "C++",
+    "deprecated_in": "1.46.0",
+    "removed_in": "",
+    "replaced_by": "std::array",
+    "change_type": "API Deprecation",
+    "reason": "boost::array is largely redundant with std::array, which has been part of the C++ standard since C++11, offering minimal differences and better standards compliance.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "\r\nnamespace std {\r\n  template <class T, size_t N > struct array;\r\n  template <class T, size_t N >\r",
+        "output": ""
+      },
+      {
+        "code": "    bool operator==\r\n      (const array<T,N>& x, const array<T,N>& y);\r\n  template <class T, size_t N >\r\n    bool operator<\r\n      (const array<T,N>& x, const array<T,N>& y);\r\n  template <class T, size_t N >\r\n    bool operator!=\r\n      (const array<T,N>& x, const array<T,N>& y);\r\n  template <class T, size_t N >\r\n    bool operator>\r\n      (const array<T,N>& x, const array<T,N>& y);\r\n  template <class T, size_t N >\r\n    bool operator>=\r\n      (const array<T,N>& x, const array<T,N>& y);\r\n  template <class T, size_t N >\r\n    bool operator<=\r\n      (const array<T,N>& x, const array<T,N>& y);\r\n  template <class T, size_t N >\r\n    void swap(array<T,N>& x, array<T,N>& y);\r\n}\r\n\n\r",
+        "output": ""
+      },
+      {
+        "code": "    array a = { initializer-list };\r\n\n\n\r",
+        "output": ""
+      },
+      {
+        "code": "    array a = { initializer-list };\r\n\n\n\r\nnamespace std {\r\n  template <class T, size_t N >\r\n  struct array {\r\n    //\n\r\n\tT       elems[N];\r\n\r\n    //\n\n\r\n\tT       elems[N];\r\n\r\n    //\n\r\n    //\n\n\r\n    //\n\r\n    //\n\n\r\n    //\n\r\n    //\n\n\r\n    //\n\r\n    T *       data();\r\n    const T * data() const;\r\n  };\r\n\n\n\r\n    T *       data();\r\n    const T * data() const;\r\n  };\r\n\n\r\n  template <class T, size_t N>\r",
+        "output": ""
+      },
+      {
+        "code": "    bool operator==(const array<T,N>& x,\r\n\t\t    const array<T,N>& y);\r\n  template <class T, size_t N>\r\n    bool operator< (const array<T,N>& x,\r\n\t\t    const array<T,N>& y);\r\n  template <class T, size_t N>\r\n    bool operator!=(const array<T,N>& x,\r\n\t\t    const array<T,N>& y);\r\n  template <class T, size_t N>\r\n    bool operator> (const array<T,N>& x,\r\n\t\t    const array<T,N>& y);\r\n  template <class T, size_t N>\r\n    bool operator>=(const array<T,N>& x,\r\n\t\t    const array<T,N>& y);\r\n  template <class T, size_t N>\r\n    bool operator<=(const array<T,N>& x,\r\n\t\t    const array<T,N>& y);\r\n\n\n\r\n  template <class T, size_t N>\r",
+        "output": ""
+      },
+      {
+        "code": "    bool operator==(const array<T,N>& x,\r\n\t\t    const array<T,N>& y);\r\n  template <class T, size_t N>\r\n    bool operator< (const array<T,N>& x,\r\n\t\t    const array<T,N>& y);\r\n  template <class T, size_t N>\r\n    bool operator!=(const array<T,N>& x,\r\n\t\t    const array<T,N>& y);\r\n  template <class T, size_t N>\r\n    bool operator> (const array<T,N>& x,\r\n\t\t    const array<T,N>& y);\r\n  template <class T, size_t N>\r\n    bool operator>=(const array<T,N>& x,\r\n\t\t    const array<T,N>& y);\r\n  template <class T, size_t N>\r\n    bool operator<=(const array<T,N>& x,\r\n\t\t    const array<T,N>& y);\r\n\n\r\n  //\n\n\r\n  //\n\r\ntemplate <class T, size_t N>\r\n  void swap(array<T,N>& x, array<T,N>& y);\r\n\n\n\r\ntemplate <class T, size_t N>\r\n  void swap(array<T,N>& x, array<T,N>& y);\r\n\n\r\n  swap_ranges(x.begin(), x.end(), y.begin() );\r\n\n\n\r\n  swap_ranges(x.begin(), x.end(), y.begin() );\r\n\n\r\narray<int> x = { 0, 1, 2 };\r\n\n\n\r\narray<int> x = { 0, 1, 2 };\r\n\n\n",
+        "output": ""
+      }
+    ],
+    "examples_count": 6,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/circular_buffer/index.html",
+    "api": "boost::circular_buffer",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "space-optimized version",
+    "change_type": "Behavior Change",
+    "reason": "The space-optimized version allocates memory as needed, freeing it automatically as the container size decreases, offering more memory efficiency compared to the original circular_buffer.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/compat/index.html",
+    "api": "bind_back",
+    "package": "Boost.Compat",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "std::bind_back",
+    "change_type": "Behavior Change",
+    "reason": "Implemented to provide support for the C++20 `std::bind_back` functionality for environments that do not support it.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/concept_check/index.html",
+    "api": "Boost Concept Checking Library",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "To simplify usage, improve compatibility with proposed C++ standards, and provide better error messages for template instantiation failures.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/container_hash/index.html",
+    "api": "boost::hash",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "1.66.0",
+    "replaced_by": "hash_value",
+    "change_type": "API Removal",
+    "reason": "The implementation was changed to always call the hash_value function, and the specializations of boost::hash were removed. This ensures consistency and extensibility across all BO-GST-user-defined types.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/convert/index.html",
+    "api": "Boost.Convert",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "boost::lexical_cast",
+    "change_type": "Behavior Change",
+    "reason": "Boost.Convert was introduced as a new API to enhance flexibility, extend functionality such as formatting and locale support, and address usage limitations of boost::lexical_cast, which was unable to support non-default constructible user types.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/describe/index.html",
+    "api": "BOOST_DESCRIBE_ENUM",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.77.0",
+    "removed_in": "",
+    "replaced_by": "BOOST_DEFINE_ENUM",
+    "change_type": "API Deprecation",
+    "reason": "Convenience macros like BOOST_DEFINE_ENUM were introduced as an improved alternative to simplify describing enumeration types.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2021-08-11"
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/endian/index.html",
+    "api": "endian_arithmetic",
+    "package": "boost",
+    "language": "C++",
+    "deprecated_in": "1.66.0",
+    "removed_in": "",
+    "replaced_by": "BOOST_ENDIAN_NO_CTORS",
+    "change_type": "API Deprecation",
+    "reason": "C++03 is no longer supported, requiring C++11 or later for compatibility. The macro `BOOST_ENDIAN_NO_CTORS` can still be used to ensure C++03 POD compliance.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/exception/doc/boost-exception.html",
+    "api": "Boost Exception",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.75.0",
+    "removed_in": "",
+    "replaced_by": "Boost LEAF",
+    "change_type": "API Deprecation",
+    "reason": "Boost LEAF is recommended over Boost Exception for better efficiency, a more elegant interface, and compatibility with legacy code. Boost LEAF works with or without exception handling and supports understanding Boost Exception data structures.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2020-12-11"
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/functional/factory/index.html",
+    "api": "boost::factory",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.58.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "In Boost 1.58.0, the default parameter for allocators was changed from `boost::none_t` to `void`, intending to remove dependency on Boost.Optional. This change simplified the implementation, allowing allocators not tied to Boost.Optional.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\nboost::factory<T*>()(arg1,arg2,arg3)\n// same as new T(arg1,arg2,arg3)\n",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\nboost::value_factory<T>()(arg1,arg2,arg3)\n// same as T(arg1,arg2,arg3)\n\n// assuming a_concrete_class and another_concrete_class are derived\n// from an_abstract_class\n\nstruct a_factory {\n    virtual an_abstract_class* create() const = 0;\n    virtual ~a_factory() { }\n};\n\nstruct a_concrete_factory\n    : a_factory {\n    an_abstract_class* create() const {\n        return new a_concrete_class();\n    }\n};\n\nstruct another_concrete_factory\n    : a_factory {\n    an_abstract_class* create() const {\n        return new another_concrete_class();\n    }\n};\n\n// [...]\n",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\nint main()\n{",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n    boost::ptr_map<std::string, a_factory> factories;\n\n    // [...]\n\n    factories.insert(\"a_name\",",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n        std::unique_ptr<a_factory>(new a_concrete_factory));\n    factories.insert(\"another_name\",",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n        std::unique_ptr<a_factory>(new another_concrete_factory));\n\n    // [...]\n",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n    std::unique_ptr<an_abstract_class> x(factories.at(some_name).create());\n\n    // [...]\n}\n\n\n// assuming a_concrete_class and another_concrete_class are derived\n// from an_abstract_class\n\nstruct a_factory {\n    virtual an_abstract_class* create() const = 0;\n    virtual ~a_factory() { }\n};\n\nstruct a_concrete_factory\n    : a_factory {\n    an_abstract_class* create() const {\n        return new a_concrete_class();\n    }\n};\n\nstruct another_concrete_factory\n    : a_factory {\n    an_abstract_class* create() const {\n        return new another_concrete_class();\n    }\n};\n\n// [...]\n",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\nint main()\n{",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n    boost::ptr_map<std::string, a_factory> factories;\n\n    // [...]\n\n    factories.insert(\"a_name\",",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n        std::unique_ptr<a_factory>(new a_concrete_factory));\n    factories.insert(\"another_name\",",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n        std::unique_ptr<a_factory>(new another_concrete_factory));\n\n    // [...]\n",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n    std::unique_ptr<an_abstract_class> x(factories.at(some_name).create());\n\n    // [...]\n}\n\ntemplate<class T>\nvoid do_something()\n{\n    // [...]",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n    T x = T(a, b);\n\n    // for conceptually similar objects x we neither need virtual\n    // functions nor a common base class in this context.\n    // [...]\n}\n\n\ntemplate<class T>\nvoid do_something()\n{\n    // [...]",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n    T x = T(a, b);\n\n    // for conceptually similar objects x we neither need virtual\n    // functions nor a common base class in this context.\n    // [...]\n}\n\ntemplate<class ValueFactory>\nvoid do_something(ValueFactory make_obj = ValueFactory())\n{\n    // [...]\n    typename ValueFactory::result_type x = make_obj(a, b);\n\n    // for conceptually similar objects x we neither need virtual\n    // functions nor a common base class in this context.\n    // [...]\n}\n",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\nint main()\n{\n    // [...]\n",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n    do_something(boost::value_factory<X>());",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n    do_something(boost::bind(boost::value_factory<Y>(), _1, 5, _2));\n    // construct X(a, b) and Y(a, 5, b), respectively.\n\n    // [...]\n}\n\n\ntemplate<class ValueFactory>\nvoid do_something(ValueFactory make_obj = ValueFactory())\n{\n    // [...]\n    typename ValueFactory::result_type x = make_obj(a, b);\n\n    // for conceptually similar objects x we neither need virtual\n    // functions nor a common base class in this context.\n    // [...]\n}\n",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\nint main()\n{\n    // [...]\n",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n    do_something(boost::value_factory<X>());",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n    do_something(boost::bind(boost::value_factory<Y>(), _1, 5, _2));\n    // construct X(a, b) and Y(a, 5, b), respectively.\n\n    // [...]\n}\n\ntemplate<class Factory>\nwhatever do_something(Factory new_obj = Factory())\n{\n    typename Factory::result_type ptr = new_obj(a, b);\n\n    // again, no common base class or virtual functions needed,\n    // we could enforce a polymorphic base by writing e.g.\n    //     boost::shared_ptr<base>\n    // instead of\n    //     typename Factory::result_type\n    // above.\n    // Note that we are also free to have the type erasure happen\n    // somewhere else (e.g. in the constructor of this function's\n    // result type).\n\n    // [...]\n}\n\n// [... call do_something like above but with boost::factory instead\n// of boost::value_factory]\n\n\ntemplate<class Factory>\nwhatever do_something(Factory new_obj = Factory())\n{\n    typename Factory::result_type ptr = new_obj(a, b);\n\n    // again, no common base class or virtual functions needed,\n    // we could enforce a polymorphic base by writing e.g.\n    //     boost::shared_ptr<base>\n    // instead of\n    //     typename Factory::result_type\n    // above.\n    // Note that we are also free to have the type erasure happen\n    // somewhere else (e.g. in the constructor of this function's\n    // result type).\n\n    // [...]\n}\n\n// [... call do_something like above but with boost::factory instead\n// of boost::value_factory]\n",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\ntypedef boost::function<an_abstract_class*()> a_factory;\n\n// [...]\n",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\nint main()\n{",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n    std::map<std::string, a_factory> factories;\n\n    // [...]\n",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n    factories[\"a_name\"] = boost::factory<a_concrete_class*>();",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n    factories[\"another_name\"] = boost::factory<another_concrete_class*>();\n\n    // [...]\n}\n\n",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\ntypedef boost::function<an_abstract_class*()> a_factory;\n\n// [...]\n",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\nint main()\n{",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n    std::map<std::string, a_factory> factories;\n\n    // [...]\n",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n    factories[\"a_name\"] = boost::factory<a_concrete_class*>();",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n    factories[\"another_name\"] = boost::factory<another_concrete_class*>();\n\n    // [...]\n}\n\n\n#include <boost/functional/value_factory.hpp>\n\n\nnamespace boost {\n\ntemplate<class T>\nclass value_factory;\n\n} // boost\n\n\n#include <boost/functional/factory.hpp>\n\n\nnamespace boost {\n\nenum factory_alloc_propagation {\n    factory_alloc_for_pointee_and_deleter,\n    factory_passes_alloc_to_smart_pointer\n};\n\ntemplate<class Pointer,",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n    class Allocator = void,",
+        "output": ""
+      },
+      {
+        "code": "#include <iostream>\n#include <boost/bind.hpp>\n    factory_alloc_propagation Policy = factory_alloc_for_pointee_and_deleter>\nclass factory;\n\n} // boost\n\n\n",
+        "output": ""
+      }
+    ],
+    "examples_count": 32,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/functional/forward/index.html",
+    "api": "boost::forward_adapter",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.56.0",
+    "removed_in": "",
+    "replaced_by": "better handling for reference wrappers and arity constraints",
+    "change_type": "API Deprecation",
+    "reason": "To improve performance and usability, by providing better handling for reference wrappers and arity constraints.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/icl/index.html",
+    "api": "Boost.Icl",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.60.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "C++03 compatibility is deprecated to streamline and modernize library usage for newer versions of C++. C++03 support is no longer required due to widespread adoption of more recent C++ standards.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/utility/in_place_factories.html",
+    "api": "in_place_factory",
+    "package": "boost",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "explicit factory type specification",
+    "change_type": "Parameter Change",
+    "reason": "Differentiation between dynamic types in heterogeneous or polymorphic objects required explicit factory type specification for accurate construction.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/interprocess/index.html",
+    "api": "Boost.Interprocess",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.60.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "Older versions of GCC and MSVC lack modern compiler support and compatibility with updated Boost features.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/intrusive/index.html",
+    "api": "Boost.Intrusive containers",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.60.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "GCC versions < 4.3 and MSVC versions < 9.0 are deprecated due to compatibility and performance concerns. The removal is planned to ensure continued support for modern compilers.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/io/doc/html/io.html",
+    "api": "Boost::IO::ios_flags_saver",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "Saver classes made non-copyable to improve performance and safety.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "void hex_my_byte(std::ostream& os, char byte)\n{",
+        "output": ""
+      },
+      {
+        "code": "    os << std::hex << static_cast<unsigned>(byte);\n}\n\n",
+        "output": ""
+      }
+    ],
+    "examples_count": 2,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/iterator/index.html",
+    "api": "Boost Iterator Adaptor Library",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.33.0",
+    "removed_in": "",
+    "replaced_by": "Boost.Iterator",
+    "change_type": "API Deprecation",
+    "reason": "The older Boost Iterator Adaptor library had several shortcomings, such as limited functionality and difficulty for finer control. The new Boost.Iterator library rewrite addressed these issues by moving core operations into the iterator class itself, using the CRTP design pattern.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/numeric/interval/doc/interval.htm",
+    "api": "boost::numeric::interval",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.38.0",
+    "removed_in": "",
+    "replaced_by": "policies for better customization and support for user-defined types",
+    "change_type": "API Deprecation",
+    "reason": "The library introduced policies for better customization and support for user-defined types. Previous functions like pred and succ, which were used for operations such as enlarging intervals, were eliminated after updating the implementation with rounding policies. This approach allowed tighter intervals and removed reliance on ulp.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/lexical_cast/index.html",
+    "api": "Boost.Lexical_Cast",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "Standard C++ libraries",
+    "change_type": "Behavior Change",
+    "reason": "Standard C++ libraries provide alternative APIs with better control for complex formatting or precision. Boost recommends these alternatives for advanced use cases, while lexical_cast is preferred for simpler conversions.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/bind/mem_fn.html",
+    "api": "boost::mem_fn",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.46.0",
+    "removed_in": "",
+    "replaced_by": "std::mem_fn",
+    "change_type": "API Deprecation",
+    "reason": "Standardization of the API in the C++ Standard Library. The functionality of boost::mem_fn was largely superseded by the standard implementation std::mem_fn, which provides compatibility and portability across different platforms.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/move/index.html",
+    "api": "Boost.Move",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.60.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "Older compiler versions (GCC < 4.3 and MSVC < 9.0) do not efficiently support C++ move semantics, and continued support would limit optimization and modern code development.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/mpl/index.html",
+    "api": "Boost.MPL",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.32.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "Major interface changes introduced in version 1.32, many of which are not backward compatible.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/mp11/index.html",
+    "api": "Boost.Mp11",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "1.70.0",
+    "replaced_by": "mp_invoke_q",
+    "change_type": "API Removal",
+    "reason": "mp_invoke was removed in favor of mp_invoke_q to improve clarity and consistency with other parts of the API.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/optional/index.html",
+    "api": "Boost.Optional",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.66.0",
+    "removed_in": "",
+    "replaced_by": "std::optional",
+    "change_type": "API Deprecation",
+    "reason": "Boost.Optional provides functionality similar to std::optional, which was introduced in C++17 as a standardized and integrated solution within the language standard library.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/utility/operators.htm",
+    "api": "boost::operators",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "base class chaining approach",
+    "change_type": "Behavior Change",
+    "reason": "Older versions of Boost used multiple operator templates inheritance, causing significant object size bloating due to lack of compiler support for empty base class optimization in multi-inheritance scenarios. The new base class chaining approach avoids this issue and is applicable for all compilers.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/parser/index.html",
+    "api": "Boost.Parser",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "callback-based parsing",
+    "change_type": "Behavior Change",
+    "reason": "To support callback-based parsing without requiring users to rewrite parsing code.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/ptr_container/index.html",
+    "api": "Boost.Pointer Container",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.56.0",
+    "removed_in": "",
+    "replaced_by": "std::unique_ptr",
+    "change_type": "API Deprecation",
+    "reason": "std::auto_ptr was formally removed as of ISO C++17 and replaced with the preferable std::unique_ptr. The change is to modernize the API and ensure compatibility with newer C++ standards.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/range/index.html",
+    "api": "Boost.Range",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.75.0",
+    "removed_in": "",
+    "replaced_by": "range-based concepts and utilities",
+    "change_type": "API Deprecation",
+    "reason": "Upgrade required due to enhancements in range-based concepts and utilities for better efficiency and readability when compared to standard library alternatives.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2020-12-11"
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/ratio/index.html",
+    "api": "Boost.Ratio",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.46.0",
+    "removed_in": "",
+    "replaced_by": "<ratio>",
+    "change_type": "API Deprecation",
+    "reason": "Since C++11 is universally available, Boost.Ratio's functionality has been implemented in terms of the standard <ratio> header for backward compatibility.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/regex/index.html",
+    "api": "regex_format",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.53.0",
+    "removed_in": "",
+    "replaced_by": "better alternatives and performance considerations in newer Boost.Regex capabilities",
+    "change_type": "API Deprecation",
+    "reason": "The `regex_format` interface has been deprecated due to better alternatives and performance considerations in newer Boost.Regex capabilities.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/utility/doc/html/utility/utilities/result_of.html",
+    "api": "boost::result_of",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.66.0",
+    "removed_in": "",
+    "replaced_by": "std::result_of",
+    "change_type": "API Deprecation",
+    "reason": "With the introduction of C++11, `std::result_of` often fulfills the same functionality as `boost::result_of`. Modern compilers with support for `decltype` make Boost's implementation redundant.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/process/index.html",
+    "api": "Boost.Process V2",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.79.0",
+    "removed_in": "",
+    "replaced_by": "Redesign based on previous design mistakes and improvements in system APIs.",
+    "change_type": "API Deprecation",
+    "reason": "Redesign based on previous design mistakes and improvements in system APIs.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2022-04-13"
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/scope/index.html",
+    "api": "Boost.Scope",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.61.0",
+    "removed_in": "",
+    "replaced_by": "Boost.ScopeExit",
+    "change_type": "API Deprecation",
+    "reason": "Boost.Scope offers simpler syntax with C++17 and new features for specific use cases compared to Boost.ScopeExit.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/scope_exit/index.html",
+    "api": "BOOST_SCOPE_EXIT",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "alternative syntax for specifying captured variables",
+    "change_type": "Parameter Change",
+    "reason": "Alternative syntax introduced for specifying captured variables, allowing the use of comma-separated lists instead of Boost.Preprocessor sequences. Provides a simpler and preferred syntax while maintaining backward compatibility.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/signals2/index.html",
+    "api": "Boost.Signals2",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.40.0",
+    "removed_in": "",
+    "replaced_by": "Boost.Signals2",
+    "change_type": "API Deprecation",
+    "reason": "The original Boost.Signals library did not implement thread-safety features, which necessitated the introduction of Boost.Signals2 to modernize API usage and ensure robust connection management in multithreaded environments.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/qvm/index.html",
+    "api": "slerp",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.56.0",
+    "removed_in": "",
+    "replaced_by": "slerp180 and slerp360",
+    "change_type": "API Deprecation",
+    "reason": "Previously the slerp function provided only slerp360 behavior under the name slerp. Due to ambiguity and discontinuities, explicitly named slerp180 and slerp360 were introduced.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/spirit/index.html",
+    "api": "Spirit",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.60.0",
+    "removed_in": "",
+    "replaced_by": "newer version with C++14 support and improved functionality",
+    "change_type": "API Deprecation",
+    "reason": "Introduction of newer version with C++14 support and improved functionality.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/statechart/index.html",
+    "api": "Boost.Statechart",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.35.0",
+    "removed_in": "",
+    "replaced_by": "Boost.Statechart",
+    "change_type": "API Rename",
+    "reason": "Renaming of the library from boost::fsm to Boost.Statechart to better align with functionality and naming conventions.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "\nbjam --toolset=your-toolset\n\n\n",
+        "output": ""
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/static_assert/index.html",
+    "api": "BOOST_STATIC_ASSERT",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.46.0",
+    "removed_in": "",
+    "replaced_by": "static_assert",
+    "change_type": "API Deprecation",
+    "reason": "C++ introduced the `static_assert` feature as part of the C++0x standard, which directly replaces the functionality of `BOOST_STATIC_ASSERT` with its native equivalent.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/smart_ptr/index.html",
+    "api": "shared_array",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.53.0",
+    "removed_in": "",
+    "replaced_by": "shared_ptr to T[] or T[N]",
+    "change_type": "API Deprecation",
+    "reason": "shared_ptr to T[] or T[N] offers superior functionality and eliminates the need for shared_array.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "namespace boost {\n\n  template<class T> class scoped_ptr {\n  private:\n\n    scoped_ptr(scoped_ptr const&);\n    scoped_ptr& operator=(scoped_ptr const&);\n",
+        "output": ""
+      },
+      {
+        "code": "    void operator==(scoped_ptr const&) const;\n    void operator!=(scoped_ptr const&) const;\n\n  public:\n\n    typedef T element_type;\n\n    explicit scoped_ptr(T * p = 0) noexcept;\n    ~scoped_ptr() noexcept;\n\n    void reset(T * p = 0) noexcept;\n\n    T & operator*() const noexcept;\n    T * operator->() const noexcept;\n    T * get() const noexcept;\n\n    explicit operator bool() const noexcept;\n\n    void swap(scoped_ptr & b) noexcept;\n  };\n\n  template<class T> void swap(scoped_ptr<T> & a, scoped_ptr<T> & b) noexcept;\n\n  template<class T>",
+        "output": ""
+      },
+      {
+        "code": "    bool operator==( scoped_ptr<T> const & p, std::nullptr_t ) noexcept;\n  template<class T>",
+        "output": ""
+      },
+      {
+        "code": "    bool operator==( std::nullptr_t, scoped_ptr<T> const & p ) noexcept;\n\n  template<class T>",
+        "output": ""
+      },
+      {
+        "code": "    bool operator!=( scoped_ptr<T> const & p, std::nullptr_t ) noexcept;\n  template<class T>",
+        "output": ""
+      },
+      {
+        "code": "    bool operator!=( std::nullptr_t, scoped_ptr<T> const & p ) noexcept;\n}\n\n",
+        "output": ""
+      }
+    ],
+    "examples_count": 6,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/utility/doc/html/utility/utilities/string_view.html",
+    "api": "boost::string_ref",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.61.0",
+    "removed_in": "",
+    "replaced_by": "std::basic_string_view",
+    "change_type": "API Deprecation",
+    "reason": "string_ref was replaced to align with the Library Fundamentals TS (N4480) and to enhance compatibility with std::basic_string_view and support more constexpr features.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/stl_interfaces/index.html",
+    "api": "Boost Timer Library",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.48.0",
+    "removed_in": "",
+    "replaced_by": "version 2 timers",
+    "change_type": "API Deprecation",
+    "reason": "The original timers (version 1) were deprecated as they do not conform to modern Boost practices. Version 1 timers rely solely on C/C++ standard library functions, resulting in lower precision and lack of additional functionality compared to version 2.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/timer/index.html",
+    "api": "boost::throw_exception",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "boost::source_location",
+    "change_type": "Parameter Change",
+    "reason": "An overload was added to include boost::source_location support, allowing the attachment of source location information to exceptions for better debugging.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/throw_exception/index.html",
+    "api": "char_delimiters_separator",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.35.0",
+    "removed_in": "",
+    "replaced_by": "char_separator",
+    "change_type": "API Deprecation",
+    "reason": "This change was motivated by simplifying default functionalities and improving flexibility using isspace and ispunct in char_separator, as well as enhancing user-friendliness and reducing complexity.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/tokenizer/index.html",
+    "api": "boost::system::throws",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.69.0",
+    "removed_in": "1.75.0",
+    "replaced_by": "",
+    "change_type": "API Removal",
+    "reason": "The object was deprecated and removed due to changes in API design, aiming to simplify error and exception handling",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2020-12-11"
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/system/index.html",
+    "api": "Boost.Typeof",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.54.0",
+    "removed_in": "",
+    "replaced_by": "decltype and auto keywords",
+    "change_type": "API Deprecation",
+    "reason": "Boost.Typeof was designed as a temporary solution to provide functionality for type deduction in C++ before native support was available via the standard typeof/decltype and auto keywords. These language features are now part of the C++ standard, making Boost.Typeof redundant.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/typeof/index.html",
+    "api": "uBLAS",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.60.0",
+    "removed_in": "",
+    "replaced_by": "Other libraries provide better performance and cutting-edge features.",
+    "change_type": "API Deprecation",
+    "reason": "No significant updates or improvements since 2009. Misses modern C++ features (such as C++11). Other libraries provide better performance and cutting-edge features.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/numeric/ublas/index.html",
+    "api": "random_generator_pure",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.42.0",
+    "removed_in": "",
+    "replaced_by": "random_generator",
+    "change_type": "API Deprecation",
+    "reason": "random_generator_pure is deprecated in favor of random_generator, which uses a cryptographically strong random number generator and is the recommended approach to generate version 4 UUIDs.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/uuid/index.html",
+    "api": "value_initialized<T>",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.75.0",
+    "removed_in": "",
+    "replaced_by": "initialized<T>",
+    "change_type": "API Deprecation",
+    "reason": "The previous versions of `value_initialized<T>` allowed non-const access to the wrapped object from a constant wrapper, causing obscure and unintended behavior. The updated version fixed this issue by supporting logical constness, and it's recommended to use `initialized<T>` for better initialization functionality.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2020-12-11"
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/utility/value_init.htm",
+    "api": "Variadic Macro Data Library (VMD)",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.69.0",
+    "removed_in": "",
+    "replaced_by": "enhancements to extend functionality and improve support for variadic macros, preprocessor data types, and sequences",
+    "change_type": "API Deprecation",
+    "reason": "Enhancements were made to extend functionality and improve support for variadic macros, preprocessor data types, and sequences.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/vmd/index.html",
+    "api": "boost::variant2",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "std::variant",
+    "change_type": "Behavior Change",
+    "reason": "Boost.Variant underwent changes to provide strong exception safety, a never-valueless guarantee, and performance improvements. While std::variant already existed for similar functionality, Boost.Variant2 was introduced to align more closely with std::variant, focusing on avoiding heap allocations and improving behavior in exceptional cases.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/doc/libs/latest/libs/variant2/index.html",
+    "api": "boost::bind",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.58.0",
+    "removed_in": "",
+    "replaced_by": "std::bind",
+    "change_type": "API Deprecation",
+    "reason": "boost::bind was deprecated due to the availability of the standard std::bind function introduced in C++11, which offers similar functionality and is supported natively in the standard library.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/libraries/latest/grid/function-objects/",
+    "api": "bind",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.53.0",
+    "removed_in": "",
+    "replaced_by": "boost::phoenix",
+    "change_type": "API Deprecation",
+    "reason": "boost::phoenix offers more functionality and supports a cleaner syntax for defining small unnamed function objects at the call site.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://www.boost.org/libraries/latest/grid/algorithms/",
+    "api": "JSON",
+    "package": "Boost",
+    "language": "C++",
+    "deprecated_in": "1.75.0",
+    "removed_in": "",
+    "replaced_by": "community-driven enhancements",
+    "change_type": "API Deprecation",
+    "reason": "The JSON API in its earlier implementation lacked compliance with certain modern standards and was actively replaced by community-driven enhancements.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2020-12-11"
+  }
+]

@@ -1,0 +1,8 @@
+{"example_id": "PyTorch-1.9.0-old-1", "solution": "det = matrix.det()"}
+{"example_id": "PyTorch-2.1.0-new-1", "solution": "det = matrix.det()"}
+{"example_id": "PyTorch-1.8.0-old-2", "solution": "sum_of_elements = vector.sum()"}
+{"example_id": "PyTorch-2.1.0-new-2", "solution": "sum_of_elements = vector.sum()"}
+{"example_id": "PyTorch-1.7.1-old-1", "solution": "    return torch.moveaxis(tensor, 1, 2)"}
+{"example_id": "PyTorch-2.0.0-new-1", "solution": "    return torch.movedim(tensor, 1, 2)"}
+{"example_id": "PyTorch-1.7.1-old-2", "solution": "    return torch.moveaxis(tensor, 0, -1)"}
+{"example_id": "PyTorch-2.0.0-new-2", "solution": "    return torch.movedim(tensor, 0, -1)"}

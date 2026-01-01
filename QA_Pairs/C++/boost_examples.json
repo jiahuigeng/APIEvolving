@@ -1023,7 +1023,7 @@
     "deprecated_in": "1.35.0",
     "removed_in": "",
     "replaced_by": "Boost.Statechart",
-    "change_type": "API Renaming",
+    "change_type": "API Rename",
     "reason": "Renaming of the library from boost::fsm to Boost.Statechart to better align with functionality and naming conventions.",
     "has_examples": true,
     "examples": [

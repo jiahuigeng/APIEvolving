@@ -136,6 +136,6 @@ org.w3c.dom,
 Change Type: API Deprecation,106
 Change Type: Behavior Change,7
 Change Type: API Addition,2
-Change Type: API Replacement,1
+Change Type: API Deprecation,1
 Change Type: API Removal,1
 Change Type: Performance Optimization,1

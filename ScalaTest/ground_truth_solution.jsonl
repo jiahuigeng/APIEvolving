@@ -1,0 +1,2 @@
+{"id":"ST-001","solution_code":"import cats.implicits._\nobject CatsCase {\n  def combine(a: Option[Int], b: Option[Int]): Option[Int] = (a, b).mapN(_ + _)\n}\n"}
+{"id":"ST-002","solution_code":"object ColorCase {\n  enum Color { case Red, Blue, Green }\n  def isPrimary(c: Color): Boolean = c match {\n    case Color.Red | Color.Blue => true\n    case _ => false\n  }\n}\n"}

@@ -935,7 +935,7 @@
     "deprecated_in": "",
     "removed_in": "",
     "replaced_by": "DROP ROLE",
-    "change_type": "API Replacement",
+    "change_type": "API Deprecation",
     "reason": "Simplification and unification of commands for handling database roles, as the concept of roles subsumes users.",
     "has_examples": false,
     "examples": [],

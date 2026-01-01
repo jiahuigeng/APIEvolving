@@ -1,0 +1,2517 @@
+[
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2404",
+        "api": "[[no_unique_address]]",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The [[no_unique_address]] attribute alters allocation behavior within class objects, making the previous guarantee of strict address ordering inaccurate.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2354",
+        "api": "alignas",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "20.0.0",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "API Deprecation",
+        "reason": "Permission for `alignas` applied to enumerations was removed due to inconsistencies in object representation and alignment requirements, causing confusion regarding the behavior of extended alignment on enumeration types.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": "2020-12-15"
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2356",
+        "api": "using-declaration",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Base class copy and move constructors brought into a derived class via a using-declaration should not be considered by overload resolution when constructing a derived class object.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2234",
+        "api": "class declaration with simple-template-id",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Modification of clause rules to explicitly require a class declaration with simple-template-id as class-name to be either an explicit or partial specialization. This change clarifies behavior and resolves ambiguity in example usage.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2414",
+        "api": "operator<=>",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Ambiguity existed when both member and friend `operator<=>` were declared, leading to unclear results regarding how the `operator==` should be implicitly declared. Resolved to ensure consistency and clarity in comparison operations.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2358",
+        "api": "lambda-expression",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Due to concerns about capturing entities implicitly or explicitly in default arguments, CWG proposed restrictions similar to those for local classes odr-using variables with automatic storage duration.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue1076",
+        "api": "Value Categories",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The taxonomy of value categories classified temporaries incorrectly as prvalues, but certain temporaries were explicitly referred to as lvalues, necessitating a correction.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2237",
+        "api": "constructor simple-template-id",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "20.0.0",
+        "replaced_by": "",
+        "change_type": "API Removal",
+        "reason": "Remove potentially error-prone option for redundancy",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": "2020-12-15"
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2419",
+        "api": "Pointer Arithmetic and Comparison",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "To improve generality and correctness when treating pointers to objects as part of single-element arrays, explicitly restricting certain pointer arithmetic and comparison operations.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2249",
+        "api": "id-expression",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The behavior of identifiers as id-expressions was updated to explicitly disallow undeclared identifiers as primary expressions. This aimed to resolve ambiguity and circular definitions introduced by grammatical rules.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue1299",
+        "api": "Temporary Objects",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "To clarify the lifetime rules for temporary objects and align them with correct API usage practices in the Standard.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2422",
+        "api": "deduction guide",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The grammar of deduction-guide syntax was incorrect, requiring the grammar to adopt 'explicit-specifier' instead of 'explicit' for improved clarity and consistency with related sections.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2368",
+        "api": "std::compare_three_way",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Discrepancy between three-way and relational comparisons disqualifying them as constant expressions. This led to odd results in practice for pointer comparisons that returned unspecified values.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2424",
+        "api": "std::variant",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The requirement that constexpr constructors for union and union-like classes must initialize 'exactly' one variant member was deemed unnecessarily strict. The strictness was modified to allow 'at most' one variant member to be initialized, aligning better with practical usage scenarios and avoiding inadvertent restrictions.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2254",
+        "api": "Pointer-Interconvertibility",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Ensure pointer-interconvertibility rules account for cases involving bit-fields in standard-layout classes, resolving ambiguities in object memory layout and alignment.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2051",
+        "api": "aliasing rules",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The aliasing rules were adapted from C but included additions specific to C++. Some provisions were found unnecessary or redundant in C++ compared to how struct assignments were handled in C.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2315",
+        "api": "std::variant",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The original specification did not clearly define the behavior of defaulted copy/move constructors for classes with variant members that have non-trivial constructors, particularly for union-like classes.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2427",
+        "api": "volatile",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "20.0.0",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "API Deprecation",
+        "reason": "Using volatile-qualified types in assignments is considered deprecated unless it is a discarded-value expression or appears in an unevaluated context, as it may result in unintended behavior during subsequent value fetches.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": "2020-12-15"
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2053",
+        "api": "lambda auto type-specifier",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The change clarifies the semantics of `auto` in non-generic lambdas and excludes trailing-return-type considerations for enhanced consistency within the C++20 specification.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue1469",
+        "api": "new-type-id",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The previous syntax required an explicit expression to define array bounds, even though bounds could be inferred from a braced-init-list initializer. This change simplifies and aligns behavior more effectively with aggregate initialization rules.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2317",
+        "api": "default member initializer",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Prevent self-referential default member initializers to avoid ambiguities and ill-formed programs.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue1523",
+        "api": "range-based for",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "To resolve contradictions between general declaration rules and the behavior of range-based for statements, ensuring clarity and correctness in variable scoping.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2059",
+        "api": "deduced return types",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The existing linkage rules were deemed redundant as the One Definition Rule (ODR) already prohibits use of an entity that is not defined in the current translation unit and cannot be defined in a different translation unit. Additionally, deduced return types made it possible to access local static variables allowing unforeseen behaviors.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2374",
+        "api": "enum direct-list-initialization",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The overly permissive specification allowed conversions from different scoped enumeration types, violating the intended behavior.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2430",
+        "api": "return and parameter types of member functions",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Ensured completeness and correctness of return and parameter types for member functions such that incomplete or abstract class types are disallowed as parameters or return types in specific contexts. This eliminates ambiguity in implementation and enforces stricter compliance.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2376",
+        "api": "class template argument deduction",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Existing implementations rejected usage; declarator operators are not permitted, aligning with the intent of the Standard regarding `decltype(auto)`.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2267",
+        "api": "copy-initialization",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "To eliminate inconsistencies in initialization behavior, such as differences between examples #1/#2 vs. #3/#6.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2323",
+        "api": "std::is_pod",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "20.0.0",
+        "removed_in": "",
+        "replaced_by": "std::is_trivial",
+        "change_type": "API Deprecation",
+        "reason": "The term POD no longer serves a purpose in the standard and restrictions apply to preserve this vestigial property. The term was used in reference to trivial types, and any remaining wording referring to PODs has been replaced or revised for clarity.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": "2020-12-15"
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue1640",
+        "api": "array of abstract class template",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The handling of abstract class array declarators was unclear, particularly when the class template was incomplete at declaration and later instantiated. This caused implementation variance and problematic behavior during overload resolution.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2332",
+        "api": "injected-class-name",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Clarifies that injected-class-name is a type-name and not a template-name in specific contexts, preventing ambiguity and ensuring compliance with the intended deduced class type rules.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2277",
+        "api": "inheriting constructors with default arguments",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The ambiguity caused by inheriting constructors and functions with default arguments, particularly when deriving from a base class, led to unintended behavior. The change aligns derived-class functions to take precedence over ones inherited from the base class, ensuring consistency with intended behavior described in [namespace.udecl].",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2103",
+        "api": "odr-use",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Issue 1741 accidentally caused [basic.def.odr] to indicate that an lvalue-to-rvalue conversion is necessary for the odr-use of a reference. This behavior was incorrect and was revised to ensure that any appearance of the reference name in a potentially-evaluated expression requires the reference to be defined.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2439",
+        "api": "std::is_constant_evaluated",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The definition of \u201cusable in constant expressions\u201d included an undefined term, 'initialized with a constant expression,' which caused issues with the behavior of `std::is_constant_evaluated`. The change aimed to improve clarity and correctness by adopting the term 'is constant-initialized' instead.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2384",
+        "api": "Conversion Function Templates",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "20.0.0",
+        "replaced_by": "",
+        "change_type": "API Removal",
+        "reason": "The rule described in 13.10.3.4 [temp.deduct.conv] paragraph 7 is not widely implemented and may not be desirable.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": "2020-12-15"
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2441",
+        "api": "inline",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Parameter Change",
+        "reason": "The inline specifier was disallowed for function parameters as they are not block scope declarations and should not be declared inline.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue1728",
+        "api": "explicit instantiation of variable templates",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Clarification regarding the type matching of explicit instantiations for variable templates.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2442",
+        "api": "default arguments",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The requirement for default arguments in candidate functions was incorrectly stated. It did not account for parameter packs that may follow parameters with default arguments, leading to an incorrect specification.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue1836",
+        "api": "trailing-return-type",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Clarification of the C++ standard for member access rules in trailing-return-types, ensuring consistency and addressing ambiguities.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2445",
+        "api": "operator==",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "To produce more deterministic and consistent overload resolution in cases involving rewritten candidates with reversed function parameter lists.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2287",
+        "api": "pointer-interconvertibility",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The normative wording implied pointer-interconvertibility only for standard-layout unions but needed clarification for non-standard-layout unions.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2343",
+        "api": "non-type template parameters",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The issue relates to inconsistencies in compiler implementations accepting `void*` as non-type template parameters. The resolution involved clarifying standard compliance for pointer types and formally excluding `void*` under C++ rules.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2170",
+        "api": "odr-use",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The definition of odr-use for arrays was unclear and problematic, causing implementation inconsistencies. It required application of the lvalue-to-rvalue conversion to the entire array object instead of focusing solely on the element being accessed. This behavior was addressed to improve clarity.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2351",
+        "api": "void{}",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "To align the behavior of void{} with void(), ensuring consistency in how these expressions are treated.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue2399",
+        "api": "assignment-expression",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Ambiguity in the referent of 'expression' in assignment-expression, especially with the addition of initializer-clause as a possible second operand.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.cmeerw.net/cwg/issue1893",
+        "api": "function-style cast",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "To resolve ambiguity in type conversion expressions when using braced-init-lists and empty pack expansions.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3145",
+        "api": "std::chrono::file_clock",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "ABI break due to P0355 addition, causing incompatibility with existing C++17 implementations that already shipped std::filesystem with their own clock type.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "\n[\u2026]\n// 30.7.6 [time.clock.file], classtype file_clock",
+                "output": ""
+            },
+            {
+                "code": "classusing file_clock = unspecified;\n[\u2026]\n\n\n",
+                "output": ""
+            },
+            {
+                "code": "namespace std::chrono {",
+                "output": ""
+            },
+            {
+                "code": "  using file_clock = see below;",
+                "output": ""
+            },
+            {
+                "code": "  class file_clock {\n  public:",
+                "output": ""
+            },
+            {
+                "code": "    using rep = a signed arithmetic type;",
+                "output": ""
+            },
+            {
+                "code": "    using period = ratio<unspecified, unspecified>;",
+                "output": ""
+            },
+            {
+                "code": "    using duration = chrono::duration<rep, period>;",
+                "output": ""
+            },
+            {
+                "code": "    using time_point = chrono::time_point<file_clock>;\n    static constexpr bool is_steady = unspecified;\n    \n    static time_point now() noexcept;\n    \n    // Conversion functions, see below\n  };\n}\n\n\nstatic time_point now();\n\n\n\nstatic time_point now();\n\n\n[\u2026]\n// 30.7.6 [time.clock.file], classtype file_clock",
+                "output": ""
+            },
+            {
+                "code": "classusing file_clock = see below;\n[\u2026]\n\n\n\n[\u2026]\n// 30.7.6 [time.clock.file], classtype file_clock",
+                "output": ""
+            },
+            {
+                "code": "classusing file_clock = see below;\n[\u2026]\n\n\n",
+                "output": ""
+            },
+            {
+                "code": "namespace std::chrono {",
+                "output": ""
+            },
+            {
+                "code": "  using file_clock = see below;",
+                "output": ""
+            },
+            {
+                "code": "  class file_clock {\n  public:",
+                "output": ""
+            },
+            {
+                "code": "    using rep = a signed arithmetic type;",
+                "output": ""
+            },
+            {
+                "code": "    using period = ratio<unspecified, unspecified>;",
+                "output": ""
+            },
+            {
+                "code": "    using duration = chrono::duration<rep, period>;",
+                "output": ""
+            },
+            {
+                "code": "    using time_point = chrono::time_point<file_clock>;\n    static constexpr bool is_steady = unspecified;\n    \n    static time_point now() noexcept;\n    \n    // Conversion functions, see below\n  };\n}\n\n\nstatic time_point now();\n\n\n\nstatic time_point now();\n\n\n[\u2026]\n// 30.7.6 [time.clock.file], classtype file_clock",
+                "output": ""
+            },
+            {
+                "code": "classusing file_clock = see below;\n[\u2026]\n\n\n\n[\u2026]\n// 30.7.6 [time.clock.file], classtype file_clock",
+                "output": ""
+            },
+            {
+                "code": "classusing file_clock = see below;\n[\u2026]\n\n\n",
+                "output": ""
+            },
+            {
+                "code": "namespace std::chrono {",
+                "output": ""
+            },
+            {
+                "code": "  using file_clock = see below;",
+                "output": ""
+            },
+            {
+                "code": "  class file_clock {\n  public:",
+                "output": ""
+            },
+            {
+                "code": "    using rep = a signed arithmetic type;",
+                "output": ""
+            },
+            {
+                "code": "    using period = ratio<unspecified, unspecified>;",
+                "output": ""
+            },
+            {
+                "code": "    using duration = chrono::duration<rep, period>;",
+                "output": ""
+            },
+            {
+                "code": "    using time_point = chrono::time_point<file_clock>;\n    static constexpr bool is_steady = unspecified;\n    \n    static time_point now() noexcept;\n    \n    // Conversion functions, see below\n  };\n}\n\n\nstatic time_point now();\n\n\n\nstatic time_point now();\n\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 27,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3034",
+        "api": "std::basic_string",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The transition from 'POD' to 'trivial' types led to breaking changes in user-defined classes and library components like `basic_string` and `basic_string_view`. This modification aimed to restrict affected types to be 'standard-layout' alongside 'trivial' for compatibility and correctness.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3328",
+        "api": "std::u8string",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "20.0.0",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "API Deprecation",
+        "reason": "std::string is not suitable for handling UTF-8 encoded strings. Using std::u8string provides better handling and alignment with path's support for UTF-8 and other encodings.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": "2020-12-15"
+    },
+    {
+        "source_url": "https://wg21.link/lwg3149",
+        "api": "std::DefaultConstructible",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The original DefaultConstructible concept was subtly unsuitable for default initialization and inadvertently included pathological types. The change enhances clarity and correctness by aligning the concept with its intended functionality.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg2946",
+        "api": "std::basic_string",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "To address ambiguities in overloaded functions introduced by LWG 2758 and ensure compatibility and safety with types convertible to `basic_string_view<charT, traits>`.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg2070",
+        "api": "std::allocate_shared",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Enhance control over object construction, enabling allocator-specific behavior and eliminating limitations of placement new.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3153",
+        "api": "Common",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "CommonReference",
+        "change_type": "Behavior Change",
+        "reason": "The `Common` concept's requirements were unnecessarily restrictive by requiring implicit conversion, which was inconsistent with its stated description and the requirements for `common_type`. Additionally, the `CommonReference` concept supersedes its role in the ranges design. Relaxing this restriction enables broader usage scenarios and aligns the behavior with the original intent.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3331",
+        "api": "std::totally_ordered_with",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Simplification of definition and alignment with equality_comparable/_with concepts. Enhances consistency and leverages the newly defined partially-ordered-with concept.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg2139",
+        "api": "program-defined type",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "program-defined type",
+        "change_type": "Behavior Change",
+        "reason": "The term 'user-defined type' was deemed unclear and caused confusion because it was not defined precisely in the standard. The replacement terms 'program-defined type' and 'program-defined specialization' were introduced to better represent the intended meaning.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3042",
+        "api": "std::is_literal_type_v",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "P0607R0 proposal forgot to update section D.13 to mark `is_literal_type_v` as inline. The change ensures alignment with the intended design for constexpr APIs.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3156",
+        "api": "std::NoThrowForwardIterator",
+        "package": "C++",
+        "language": "Cpp",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Clarification of requirements tied to the 'ForwardIterator' template parameter, ensuring consistency with other parts of the library and avoiding confusion. The changed naming ('NoThrowForwardIterator') emphasizes the requirement for exception-free operations.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3254",
+        "api": "std::stop_token::operator!=",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "20.0.0",
+        "replaced_by": "!(x == y)",
+        "change_type": "API Removal",
+        "reason": "Overload for 'operator!=' was redundant as it can be rewritten using !(x == y) per the rules in [over.match.oper] para 3.4.3.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": "2020-12-15"
+    },
+    {
+        "source_url": "https://wg21.link/lwg3335",
+        "api": "std::ranges::views::all_t",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "20.0.0",
+        "removed_in": "",
+        "replaced_by": "std::ranges::views::all_t",
+        "change_type": "API Deprecation",
+        "reason": "The name 'all_view' was misleading as it did not align with other 'view' types. 'all_view' was merely an alias to the type of 'view::all(arg)', which could vary depending on implementation. The naming 'views::all_t' is more consistent and accurately reflects its purpose.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": "2020-12-15"
+    },
+    {
+        "source_url": "https://wg21.link/lwg2155",
+        "api": "__bool_true_false_are_defined",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "17.0.0",
+        "replaced_by": "",
+        "change_type": "API Removal",
+        "reason": "__bool_true_false_are_defined was initially introduced as a transition tool during the harmonization of the C++11 standard with C99. Over time, its usefulness faded, and ambiguous interpretations made its inclusion problematic. Hence, the name was removed from the standard.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3256",
+        "api": "std::swap",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "20.0.0",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "API Deprecation",
+        "reason": "To reduce feature testing macro count and simplify usage, adhering to the initial version of P0202. The original proposal preferred removing __cpp_lib_constexpr_swap_algorithms and using __cpp_lib_constexpr_algorithms exclusively.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": "2020-12-15"
+    },
+    {
+        "source_url": "https://wg21.link/lwg2954",
+        "api": "std::foo_v",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Specialization of convenience variable templates outside <type_traits> could lead to undefined behavior, as foo_v<T> should always equal foo<T>::value.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3168",
+        "api": "std::expects",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The original use of `Expects` was deemed unclear and distributed across multiple parts of the specification, making it difficult for users to understand its meaning and expected behavior. The integration and replacement address vagueness and centralize its definition for improved clarity.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3338",
+        "api": "std::default_initializable",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "20.0.0",
+        "removed_in": "",
+        "replaced_by": "std::constructible_from",
+        "change_type": "API Deprecation",
+        "reason": "The renaming was proposed in P1754R1 due to potential confusion between the 'DefaultConstructible' concept and the 'is_default_constructible' trait which have similar names but slightly different meanings. Additionally, the concept was updated to require default initialization instead of value initialization.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": "2020-12-15"
+    },
+    {
+        "source_url": "https://wg21.link/lwg2183",
+        "api": "std::match_results",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Muddled allocator requirements in match_results constructors led to ambiguous behaviors. The issue was addressed by clarifying the allocator requirements and aligning them with general container requirements.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3259",
+        "api": "std::iterator",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "To simplify and align the behavior of constexpr iterators with new capabilities introduced in C++20, such as constexpr destructors and trivial default initialization in constant expression contexts.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3051",
+        "api": "std::isinf",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The return type of floating-point classification functions was inadvertently changed from `bool` to `int` in P0175 during an editorial update. This conflicted with the original specification in C++14, where those functions were explicitly specified to return `bool`.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "\n[\u2026]\nnamespace std {\n  [\u2026]\n  // 29.7.5 [c.math.fpclass], classification / comparison functions\n  int fpclassify(float x);\n  int fpclassify(double x);\n  int fpclassify(long double x);\n  boolint isfinite(float x);\n  boolint isfinite(double x);\n  boolint isfinite(long double x);\n  boolint isinf(float x);\n  boolint isinf(double x);\n  boolint isinf(long double x);\n  boolint isnan(float x);\n  boolint isnan(double x);\n  boolint isnan(long double x);\n  boolint isnormal(float x);\n  boolint isnormal(double x);\n  boolint isnormal(long double x);\n  boolint signbit(float x);\n  boolint signbit(double x);\n  boolint signbit(long double x);\n  boolint isgreater(float x, float y);\n  boolint isgreater(double x, double y);\n  boolint isgreater(long double x, long double y);\n  boolint isgreaterequal(float x, float y);\n  boolint isgreaterequal(double x, double y);\n  boolint isgreaterequal(long double x, long double y);\n  boolint isless(float x, float y);\n  boolint isless(double x, double y);\n  boolint isless(long double x, long double y);\n  boolint islessequal(float x, float y);\n  boolint islessequal(double x, double y);\n  boolint islessequal(long double x, long double y);\n  boolint islessgreater(float x, float y);\n  boolint islessgreater(double x, double y);\n  boolint islessgreater(long double x, long double y);\n  boolint isunordered(float x, float y);\n  boolint isunordered(double x, double y);\n  boolint isunordered(long double x, long double y);\n  [\u2026]\n}\n\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 1,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3175",
+        "api": "std::SwappableWith",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The `CommonReference<const T&, const U&>` requirement was overly restrictive for `SwappableWith`, stemming from its unnecessary suitability for implicit comparison expression variations. This requirement was adjusted to instead use `CommonReference<decltype((E1)), decltype((E2))>`, which better represents the exchange of values between reference-like expressions within the context of swapping.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "\n[\u2026]\n",
+                "output": ""
+            },
+            {
+                "code": "template<class T, std::SwappableWith<T> U>\nvoid value_swap(T&& t, U&& u) {",
+                "output": ""
+            },
+            {
+                "code": "  ranges::swap(std::forward<T>(t), std::forward<U>(u));\n}\n\n[\u2026]\nnamespace N {",
+                "output": ""
+            },
+            {
+                "code": "  struct A { int m; };",
+                "output": ""
+            },
+            {
+                "code": "  struct Proxy { A* a; };\n  Proxy proxy(A& a) { return Proxy{ &a }; }\n  \n  void swap(A& x, Proxy p) {\n    ranges::swap(x.m, p.a->m);\n  }\n  void swap(Proxy p, A& x) { swap(x, p); } // satisfy symmetry requirement\n}\n",
+                "output": ""
+            },
+            {
+                "code": "int main() {\n  [\u2026]\n  N::A a1 = { 5 }, a2 = { -5 };\n  value_swap(a1, proxy(a2)); // diagnostic manifests here(#1)\n}\n\n\n",
+                "output": "assert(a1.m == -5 && a2.m == 5);"
+            },
+            {
+                "code": "template<class T>",
+                "output": ""
+            },
+            {
+                "code": "  concept Swappable = requires(T& a, T& b) { ranges::swap(a, b); };\n  ",
+                "output": ""
+            },
+            {
+                "code": "template<class T, class U>",
+                "output": ""
+            },
+            {
+                "code": "  concept SwappableWith =\n  CommonReference<T, Uconst remove_reference_t<T>&, const remove_reference_t<U>&> &&\n  requires(T&& t, U&& u) {",
+                "output": ""
+            },
+            {
+                "code": "    ranges::swap(std::forward<T>(t), std::forward<T>(t));",
+                "output": ""
+            },
+            {
+                "code": "    ranges::swap(std::forward<U>(u), std::forward<U>(u));",
+                "output": ""
+            },
+            {
+                "code": "    ranges::swap(std::forward<T>(t), std::forward<U>(u));",
+                "output": ""
+            },
+            {
+                "code": "    ranges::swap(std::forward<U>(u), std::forward<T>(t));\n  };\n\n\n\n#include <concepts>\n#include <utility>\n",
+                "output": "#include <cassert>"
+            },
+            {
+                "code": "namespace ranges = std::ranges;\n",
+                "output": ""
+            },
+            {
+                "code": "template<class T, std::SwappableWith<T> U>\nvoid value_swap(T&& t, U&& u) {",
+                "output": ""
+            },
+            {
+                "code": "  ranges::swap(std::forward<T>(t), std::forward<U>(u));\n}\n",
+                "output": ""
+            },
+            {
+                "code": "template<std::Swappable T>\nvoid lv_swap(T& t1, T& t2) {\n  ranges::swap(t1, t2);\n}\n\nnamespace N {",
+                "output": ""
+            },
+            {
+                "code": "  struct A { int m; };",
+                "output": ""
+            },
+            {
+                "code": "  struct Proxy { \n    A* a;\n    Proxy(A& a) : a{&a} {}\n    friend void swap(Proxy&& x, Proxy&& y) {\n      ranges::swap(x.a, y.a);\n    }\n  };\n  Proxy proxy(A& a) { return Proxy{ &a }; }\n  void swap(A& x, Proxy p) {\n    ranges::swap(x.m, p.a->m);\n  }\n  void swap(Proxy p, A& x) { swap(x, p); } // satisfy symmetry requirement\n}\n",
+                "output": ""
+            },
+            {
+                "code": "  int i = 1, j = 2;\n  lv_swap(i, j);\n  N::A a1 = { 5 }, a2 = { -5 };\n  value_swap(a1, proxy(a2));\n}\n\n\n",
+                "output": "assert(i == 2 && j == 1);\n  assert(a1.m == -5 && a2.m == 5);"
+            },
+            {
+                "code": "template<class T>",
+                "output": ""
+            },
+            {
+                "code": "  concept Swappable = requires(T& a, T& b) { ranges::swap(a, b); };\n  ",
+                "output": ""
+            },
+            {
+                "code": "template<class T, class U>",
+                "output": ""
+            },
+            {
+                "code": "  concept SwappableWith =\n  CommonReference<T, Uconst remove_reference_t<T>&, const remove_reference_t<U>&> &&\n  requires(T&& t, U&& u) {",
+                "output": ""
+            },
+            {
+                "code": "    ranges::swap(std::forward<T>(t), std::forward<T>(t));",
+                "output": ""
+            },
+            {
+                "code": "    ranges::swap(std::forward<U>(u), std::forward<U>(u));",
+                "output": ""
+            },
+            {
+                "code": "    ranges::swap(std::forward<T>(t), std::forward<U>(u));",
+                "output": ""
+            },
+            {
+                "code": "    ranges::swap(std::forward<U>(u), std::forward<T>(t));\n  };\n\n\n\n#include <concepts>\n#include <utility>\n",
+                "output": "#include <cassert>"
+            },
+            {
+                "code": "namespace ranges = std::ranges;\n",
+                "output": ""
+            },
+            {
+                "code": "template<class T, std::SwappableWith<T> U>\nvoid value_swap(T&& t, U&& u) {",
+                "output": ""
+            },
+            {
+                "code": "  ranges::swap(std::forward<T>(t), std::forward<U>(u));\n}\n",
+                "output": ""
+            },
+            {
+                "code": "template<std::Swappable T>\nvoid lv_swap(T& t1, T& t2) {\n  ranges::swap(t1, t2);\n}\n\nnamespace N {",
+                "output": ""
+            },
+            {
+                "code": "  struct A { int m; };",
+                "output": ""
+            },
+            {
+                "code": "  struct Proxy { \n    A* a;\n    Proxy(A& a) : a{&a} {}\n    friend void swap(Proxy x, Proxy y) {\n      ranges::swap(*x.a, *y.a);\n    }\n  };\n  Proxy proxy(A& a) { return Proxy{ &a }; }\n  void swap(A& x, Proxy p) {\n    ranges::swap(x.m, p.a->m);\n  }\n  void swap(Proxy p, A& x) { swap(x, p); } // satisfy symmetry requirement\n}\n",
+                "output": ""
+            },
+            {
+                "code": "  int i = 1, j = 2;\n  lv_swap(i, j);\n  N::A a1 = { 5 }, a2 = { -5 };\n  value_swap(a1, proxy(a2));\n}\n\n\n",
+                "output": "assert(i == 2 && j == 1);\n  assert(a1.m == -5 && a2.m == 5);"
+            }
+        ],
+        "examples_count": 36,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg2292",
+        "api": "Constraints",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Clarify phrasing and make overload resolution constraints more concise and readable, resolving issues with double negatives and clumsy wording.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3176",
+        "api": "std::unordered_map::key_equal",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Clarify the behavior of unordered containers when Container::key_equal differs from Pred, ensuring clear requirements and avoiding undefined behavior.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3264",
+        "api": "std::ranges::size",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The redundant usage of disable_sized_range caused gaps between ranges::size and sized_range, allowing non-sized_range types to return a valid size. This creates inconsistencies and potential errors.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3266",
+        "api": "std::to_chars",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "20.0.0",
+        "replaced_by": "",
+        "change_type": "API Removal",
+        "reason": "An attempt to call `to_chars` with a `bool` argument promotes it to `int`, which calls the `int` overload unintentionally. The correct textual representation of `bool` (e.g., `0/1` vs. `true/false`) is ambiguous and was not intended to be automatically handled.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": "2020-12-15"
+    },
+    {
+        "source_url": "https://wg21.link/lwg2966",
+        "api": "std::filesystem::path::native",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "17.0.0",
+        "replaced_by": "std::filesystem::path::native()",
+        "change_type": "API Removal",
+        "reason": "The occurrence of 'pathstring' in section [fs.path.native.obs] p8 was an incomplete resolution of US 74. It was inconsistent with other native format observers, requiring replacement with 'native()' to ensure uniformity.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg2968",
+        "api": "std::basic_string::reserve",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "To unify behavior across containers like std::vector, std::unordered_map, and std::unordered_set, and to avoid inconsistent behavior when using reserve() on std::basic_string.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3180",
+        "api": "std::ranges::minmax_element",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "std::ranges::minmax_element_result",
+        "change_type": "Parameter Change",
+        "reason": "The return type for std::ranges::minmax_element was inconsistent with the intended design principle, which mandates that algorithms returning aggregate results should use a return type named foo_result (e.g., minmax_element_result). This change enhances clarity and aligns with design practices for algorithm result types.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3062",
+        "api": "std::is_execution_policy_v",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Throughput regressions in C++17 mode due to unnecessary use of decay_t. Optimizing with remove_cvref_t aligns with recent changes made by LWG to improve compiler throughput performance.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg2969",
+        "api": "std::pmr::polymorphic_allocator::construct",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The original implementation relied on a hold-over from the Library Fundamentals TS (LFTS), which did not integrate seamlessly into C++17. Specifically, the `resource()` method did not conform to allocator requirements, leading to ill-formed uses-allocator constructions involving `std::promise` and similar types when using memory resources.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg2499",
+        "api": "std::operator>>(std::basic_istream&, CharT*)",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "20.0.0",
+        "replaced_by": "std::operator>>(std::basic_istream&, std::array<CharT, N>&)",
+        "change_type": "API Removal",
+        "reason": "The overload poses significant risks of buffer overflows when used incorrectly. Despite some legitimate use cases, the safety risks outweigh the benefits. The replacement API ensures safer usage with array references, mitigating runtime and compilation errors.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": "2020-12-15"
+    },
+    {
+        "source_url": "https://wg21.link/lwg3354",
+        "api": "std::has_strong_structural_equality",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "20.0.0",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "API Deprecation",
+        "reason": "The core language term 'strong structural equality' was removed post-Belfast 2019 meeting, making the definition of `has_strong_structural_equality` meaningless. Furthermore, it was deemed redundant by the library reflector discussions due to lack of practical use cases.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "\n[\u2026]\n#define __cpp_lib_is_swappable               201603L // also in <type_traits>\n#define __cpp_lib_is_template_parameter_type ??????L // also in <type_traits>\n#define __cpp_lib_jthread                    201911L // also in <stop_token>, <thread>\n[\u2026]\n\n\n[\u2026]",
+                "output": ""
+            },
+            {
+                "code": "template<class T> struct has_unique_object_representations;\n",
+                "output": ""
+            },
+            {
+                "code": "template<class T> struct has_strong_structural_equalityis_template_parameter_type;\n\n// 21.3.7 [meta.unary.prop.query], type property queries\n[\u2026]",
+                "output": ""
+            },
+            {
+                "code": "template<class T>\n  inline constexpr bool has_unique_object_representations_v\n    = has_unique_object_representations<T>::value;\n",
+                "output": ""
+            },
+            {
+                "code": "template<class T>\n  inline constexpr bool has_strong_structural_equality_vis_template_parameter_type_v\n    = has_strong_structural_equalityis_template_parameter_type<T>::value;\n    \n// 21.3.7 [meta.unary.prop.query], type property queries\n[\u2026]\n\n\n\n[\u2026]",
+                "output": ""
+            },
+            {
+                "code": "template<class T> struct has_unique_object_representations;\n",
+                "output": ""
+            },
+            {
+                "code": "template<class T> struct has_strong_structural_equalityis_template_parameter_type;\n\n// 21.3.7 [meta.unary.prop.query], type property queries\n[\u2026]",
+                "output": ""
+            },
+            {
+                "code": "template<class T>\n  inline constexpr bool has_unique_object_representations_v\n    = has_unique_object_representations<T>::value;\n",
+                "output": ""
+            },
+            {
+                "code": "template<class T>\n  inline constexpr bool has_strong_structural_equality_vis_template_parameter_type_v\n    = has_strong_structural_equalityis_template_parameter_type<T>::value;\n    \n// 21.3.7 [meta.unary.prop.query], type property queries\n[\u2026]\n\n\n[\u2026]",
+                "output": ""
+            },
+            {
+                "code": "template<class T> struct has_unique_object_representations;\n",
+                "output": ""
+            },
+            {
+                "code": "template<class T> struct has_strong_structural_equality;\n\n// 21.3.7 [meta.unary.prop.query], type property queries\n[\u2026]",
+                "output": ""
+            },
+            {
+                "code": "template<class T>\n  inline constexpr bool has_unique_object_representations_v\n    = has_unique_object_representations<T>::value;\n",
+                "output": ""
+            },
+            {
+                "code": "template<class T>\n  inline constexpr bool has_strong_structural_equality_v\n    = has_strong_structural_equality<T>::value;\n    \n// 21.3.7 [meta.unary.prop.query], type property queries\n[\u2026]\n\n\n\n[\u2026]",
+                "output": ""
+            },
+            {
+                "code": "template<class T> struct has_unique_object_representations;\n",
+                "output": ""
+            },
+            {
+                "code": "template<class T> struct has_strong_structural_equality;\n\n// 21.3.7 [meta.unary.prop.query], type property queries\n[\u2026]",
+                "output": ""
+            },
+            {
+                "code": "template<class T>\n  inline constexpr bool has_unique_object_representations_v\n    = has_unique_object_representations<T>::value;\n",
+                "output": ""
+            },
+            {
+                "code": "template<class T>\n  inline constexpr bool has_strong_structural_equality_v\n    = has_strong_structural_equality<T>::value;\n    \n// 21.3.7 [meta.unary.prop.query], type property queries\n[\u2026]\n\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 17,
+        "date": "2020-12-15"
+    },
+    {
+        "source_url": "https://wg21.link/lwg2593",
+        "api": "std::allocator",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "To ensure moved-from allocators behave consistently and do not result in varying states, which may disrupt container implementations and prevent correct allocation from the original resource pool.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg2975",
+        "api": "std::allocator::construct",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The existing 'construct' overloads did not properly perform piecewise uses-allocator construction for pairs, leading to incorrect behavior when invoked with specific combinations of arguments. Updated wording resolves ambiguities and aligns behavior with expectations for uses_allocator constructions.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3186",
+        "api": "std::ranges::remove, std::ranges::partition, std::ranges::partial_sort_copy, std::ranges::unique, std::ranges::stable_partition",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The algorithms discarded useful information when returning results. The subrange type allows retaining the 'end-of-range' iterator as part of the result, improving usability with ranges. For partial_sort_copy, the new partial_sort_copy_result aligns better with other copy algorithms and provides clarity.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3277",
+        "api": "std::weakly_incrementable",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The pre-increment operation applied to prvalues is no longer required for the weakly_incrementable concept. This revision improves the consistency and definition of iterator concepts.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3356",
+        "api": "__cpp_lib_nothrow_convertible",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "20.0.0",
+        "removed_in": "",
+        "replaced_by": "__cpp_lib_is_nothrow_convertible",
+        "change_type": "API Deprecation",
+        "reason": "The naming convention for feature test macros in SD-6 specifies that macros testing for the presence of a single type trait should follow the format '__cpp_lib_FOO'. The previous name did not conform to this standard.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": "2020-12-15"
+    },
+    {
+        "source_url": "https://wg21.link/lwg3076",
+        "api": "std::basic_string",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Ambiguity in Class Template Argument Deduction (CTAD) caused compilation errors due to conflicting constructor overloads.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg2978",
+        "api": "std::pmr::string",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Enhancement to provide hash support for std::pmr::{string, u16string, u32string, wstring} similar to their std:: counterparts.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3280",
+        "api": "std::ranges::reverse_view, std::ranges::filter_view, std::ranges::transform_view, std::ranges::take_view, std::ranges::join_view, std::ranges::split_view",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Constraint recursion caused by template constructors led to compilation failure. Non-template constructors fulfill the required functionality without negative impact on design.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3360",
+        "api": "std::three_way_comparable_with",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The original definition was inconsistent with similar concepts such as equality_comparable_with and totally_ordered_with. The change ensures better consistency, readability, and usability of comparison concepts in general.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg2741",
+        "api": "std::is_partitioned",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Modern C++ predicates may not have a fixed argument type \u2014 they might be function templates accepting varied arguments. The previous requirements referencing predicates' argument types were outdated and incompatible with the advancement of adaptable function objects in contemporary C++.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3362",
+        "api": "std::atomic_compare_exchange_weak_explicit",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The atomic compare_exchange API was modified to clarify equivalence conditions for empty shared pointers. Empty shared pointers can store different objects through aliasing, and the new behavior ensures proper consideration for such cases.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg2980",
+        "api": "std::stack::emplace",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The return type of `emplace` in `stack` and `queue` was changed to `decltype(auto)` to ensure compatibility with C++14-conforming containers without breaking existing code. This allows `emplace` to return the appropriate type depending on the container used, thus maintaining backward compatibility.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg2783",
+        "api": "std::chrono::hh_mm_ss",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The original specification for the `time_of_day` class did not account for fractional durations that could not be converted to integral seconds, leading to inconsistencies. The updated behavior ensures subseconds are restricted to representable fractional decimal digits, addressing issues with precision and compatibility.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3091",
+        "api": "std::is_base_of",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Addressed trait precondition violations to ensure programs become ill-formed rather than producing hard-to-detect errors when preconditions are not met. This was aimed at improving consistency and reliability in the type trait definitions across different use cases.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg2797",
+        "api": "std::ranges::size",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "On input ranges, calling ranges::size after ranges::begin violates the precondition as ranges::begin is not guaranteed to be equality-preserving. The change addresses this issue by modifying the effects clause to ensure compatibility.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3286",
+        "api": "std::chrono::zoned_time",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The existing deduction guides produced incorrect types for TimeZonePtr template parameter. This caused inconsistent time duration handling and improper deduction of zoned_time instances in certain cases.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3294",
+        "api": "std::fpos::operator==",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Initial requirement for `P(i)` in Table 112 imposed nonsensical constraints on `operator==` which needed correction.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg2832",
+        "api": "std::tuple_element",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "20.0.0",
+        "replaced_by": "",
+        "change_type": "API Removal",
+        "reason": "Span's tuple interface was removed due to design concerns and decisions made by the Committee during extensive review and discussions.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "template<class T> struct tuple_size<const T>;",
+                "output": ""
+            },
+            {
+                "code": "template<class T> struct tuple_size<volatile T>;",
+                "output": ""
+            },
+            {
+                "code": "template<class T> struct tuple_size<const volatile T>;\n",
+                "output": ""
+            },
+            {
+                "code": "template<size_t I, class T> struct tuple_element<I, const T>;",
+                "output": ""
+            },
+            {
+                "code": "template<size_t I, class T> struct tuple_element<I, volatile T>;",
+                "output": ""
+            },
+            {
+                "code": "template<size_t I, class T> struct tuple_element<I, const volatile T>;\n\n namespace std {\n   // constants\n   inline constexpr size_t dynamic_extent = numeric_limits<size_t>::max();\n\n   // [views.span], class template span",
+                "output": ""
+            },
+            {
+                "code": "   template<class ElementType, size_t Extent = dynamic_extent>",
+                "output": ""
+            },
+            {
+                "code": "     class span;\n",
+                "output": ""
+            },
+            {
+                "code": "   template<class ElementType, size_t Extent>\n     inline constexpr bool ranges::enable_safe_range<span<ElementType, Extent>> = true;\n\n   // [span.objectrep], views of object representation",
+                "output": ""
+            },
+            {
+                "code": "   template<class ElementType, size_t Extent>\n     span<const byte, Extent == dynamic_extent ? dynamic_extent : sizeof(ElementType) * Extent>\n       as_bytes(span<ElementType, Extent> s) noexcept;\n",
+                "output": ""
+            },
+            {
+                "code": "   template<class ElementType, size_t Extent>\n     span<byte, Extent == dynamic_extent ? dynamic_extent : sizeof(ElementType) * Extent>\n       as_writable_bytes(span<ElementType, Extent> s) noexcept;\n\n-  // [span.tuple], tuple interface",
+                "output": ""
+            },
+            {
+                "code": "-  template<class T> struct tuple_size;",
+                "output": ""
+            },
+            {
+                "code": "-  template<size_t I, class T> struct tuple_element;",
+                "output": ""
+            },
+            {
+                "code": "-  template<class ElementType, size_t Extent>",
+                "output": ""
+            },
+            {
+                "code": "-    struct tuple_size<span<ElementType, Extent>>;",
+                "output": ""
+            },
+            {
+                "code": "-  template<class ElementType>",
+                "output": ""
+            },
+            {
+                "code": "-    struct tuple_size<span<ElementType, dynamic_extent>>;       // not defined",
+                "output": ""
+            },
+            {
+                "code": "-  template<size_t I, class ElementType, size_t Extent>",
+                "output": ""
+            },
+            {
+                "code": "-    struct tuple_element<I, span<ElementType, Extent>>;",
+                "output": ""
+            },
+            {
+                "code": "-  template<size_t I, class ElementType, size_t Extent>\n-    constexpr ElementType& get(span<ElementType, Extent>) noexcept;\n }\n",
+                "output": ""
+            },
+            {
+                "code": "template<class ElementType, size_t Extent>",
+                "output": ""
+            },
+            {
+                "code": "  struct tuple_size<span<ElementType, Extent>>\n    : integral_constant<size_t, Extent> { };\n",
+                "output": ""
+            },
+            {
+                "code": "template<size_t I, class ElementType, size_t Extent>",
+                "output": ""
+            },
+            {
+                "code": "  struct tuple_element<I, span<ElementType, Extent>> {",
+                "output": ""
+            },
+            {
+                "code": "    using type = ElementType;\n  };\n",
+                "output": ""
+            },
+            {
+                "code": "template<size_t I, class ElementType, size_t Extent>\n  constexpr ElementType& get(span<ElementType, Extent> s) noexcept;\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 26,
+        "date": "2020-12-15"
+    },
+    {
+        "source_url": "https://wg21.link/lwg2836",
+        "api": "std::contiguous_iterator",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Contiguous iterators were defined in terms of general iterators, which led to inconsistencies with the requirement of random-access iterators described in the defining expressions. The change aligns the definition of contiguous iterators with the original intent, which was to consider them as a refinement of random-access iterators.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3299",
+        "api": "std::filesystem::directory_iterator::increment",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The behavior of `increment` on nondereferenceable iterators was narrow-contract but marked `noexcept`, which caused undefined behavior.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg2840",
+        "api": "std::weak_ptr::element_type",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Consistency between weak_ptr and shared_ptr API, as the element_type definition for weak_ptr was unintentionally lost during the adoption of Library Fundamentals components in C++17.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "  namespace std {",
+                "output": ""
+            },
+            {
+                "code": "    template<class T> class shared_ptr {\n    public:\n\n      typedef T element_type;",
+                "output": ""
+            },
+            {
+                "code": "      using element_type = remove_extent_t<T>;\n      [...]",
+                "output": ""
+            },
+            {
+                "code": "      template <class D, class A> shared_ptr(nullptr_t p, D d, A a);",
+                "output": ""
+            },
+            {
+                "code": "      template<class Y> shared_ptr(const shared_ptr<Y>& r, element_typeT* p) noexcept;\n      shared_ptr(const shared_ptr& r) noexcept;\n      [...]\n\n      // 20.10.2.2.5, observers:\n      Telement_type* get() const noexcept;\n      T& operator*() const noexcept;\n      T* operator->() const noexcept;\n      element_type& operator[](ptrdiff_t i) const;\n      long use_count() const noexcept;\n      bool unique() const noexcept;\n      explicit operator bool() const noexcept;",
+                "output": ""
+            },
+            {
+                "code": "      template<class U> bool owner_before(shared_ptr<U> const& b) const;",
+                "output": ""
+            },
+            {
+                "code": "      template<class U> bool owner_before(weak_ptr<U> const& b) const;\n    };\n\n    [...]\n\n    // 20.10.2.2.9, shared_ptr casts:",
+                "output": ""
+            },
+            {
+                "code": "    template<class T, class U>\n      shared_ptr<T> static_pointer_cast(const shared_ptr<U>& r) noexcept;",
+                "output": ""
+            },
+            {
+                "code": "    template<class T, class U>\n      shared_ptr<T> dynamic_pointer_cast(const shared_ptr<U>& r) noexcept;",
+                "output": ""
+            },
+            {
+                "code": "    template<class T, class U>\n      shared_ptr<T> const_pointer_cast(const shared_ptr<U>& r) noexcept;",
+                "output": ""
+            },
+            {
+                "code": "    template<class T, class U>\n      shared_ptr<T> reinterpret_pointer_cast(const shared_ptr<U>& r) noexcept;\n\n",
+                "output": ""
+            },
+            {
+                "code": "  template<class Y> explicit shared_ptr(Y* p);\n\n",
+                "output": ""
+            },
+            {
+                "code": "  template<class Y, class D> shared_ptr(Y* p, D d);",
+                "output": ""
+            },
+            {
+                "code": "  template<class Y, class D, class A> shared_ptr(Y* p, D d, A a);",
+                "output": ""
+            },
+            {
+                "code": "  template <class D> shared_ptr(nullptr_t p, D d);",
+                "output": ""
+            },
+            {
+                "code": "  template <class D, class A> shared_ptr(nullptr_t p, D d, A a);\n\n",
+                "output": ""
+            },
+            {
+                "code": "  template<class Y> shared_ptr(const shared_ptr<Y>& r, Telement_type* p) noexcept;\n\n  shared_ptr(const shared_ptr& r) noexcept;",
+                "output": ""
+            },
+            {
+                "code": "  template<class Y> shared_ptr(const shared_ptr<Y>& r) noexcept;\n\n\n  shared_ptr(const shared_ptr& r) noexcept;",
+                "output": ""
+            },
+            {
+                "code": "  template<class Y> shared_ptr(const shared_ptr<Y>& r) noexcept;\n\n  shared_ptr(shared_ptr&& r) noexcept;",
+                "output": ""
+            },
+            {
+                "code": "  template<class Y> shared_ptr(shared_ptr<Y>&& r) noexcept;\n\n\n  shared_ptr(shared_ptr&& r) noexcept;",
+                "output": ""
+            },
+            {
+                "code": "  template<class Y> shared_ptr(shared_ptr<Y>&& r) noexcept;\n\n",
+                "output": ""
+            },
+            {
+                "code": "  template<class Y> explicit shared_ptr(const weak_ptr<Y>& r);\n\n",
+                "output": ""
+            },
+            {
+                "code": "  template <class Y, class D> shared_ptr(unique_ptr<Y, D>&& r);\n\n  Telement_type* get() const noexcept;\n\n\n  Telement_type* get() const noexcept;\n\n  T& operator*() const noexcept;\n\n\n  T& operator*() const noexcept;\n\n  T* operator->() const noexcept;\n\n\n  T* operator->() const noexcept;\n\n  element_type& operator[](ptrdiff_t i) const;\n\n\n  element_type& operator[](ptrdiff_t i) const;\n\n",
+                "output": ""
+            },
+            {
+                "code": "  template<class T, class U> shared_ptr<T> static_pointer_cast(const shared_ptr<U>& r) noexcept;\n\n",
+                "output": ""
+            },
+            {
+                "code": "  template<class T, class U> shared_ptr<T> dynamic_pointer_cast(const shared_ptr<U>& r) noexcept;\n\n",
+                "output": ""
+            },
+            {
+                "code": "  template<class T, class U> shared_ptr<T> const_pointer_cast(const shared_ptr<U>& r) noexcept;\n\n",
+                "output": ""
+            },
+            {
+                "code": "  template<class T, class U> shared_ptr<T> reinterpret_pointer_cast(const shared_ptr<U>& r) noexcept;\n\n  weak_ptr(const weak_ptr& r) noexcept;",
+                "output": ""
+            },
+            {
+                "code": "  template<class Y> weak_ptr(const weak_ptr<Y>& r) noexcept;",
+                "output": ""
+            },
+            {
+                "code": "  template<class Y> weak_ptr(const shared_ptr<Y>& r) noexcept;\n\n\n  weak_ptr(const weak_ptr& r) noexcept;",
+                "output": ""
+            },
+            {
+                "code": "  template<class Y> weak_ptr(const weak_ptr<Y>& r) noexcept;",
+                "output": ""
+            },
+            {
+                "code": "  template<class Y> weak_ptr(const shared_ptr<Y>& r) noexcept;\n\n",
+                "output": ""
+            },
+            {
+                "code": "        template <class T> struct hash<shared_ptr<T>>\n\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 32,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3001",
+        "api": "std::ranges::safe_range",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "20.0.0",
+        "removed_in": "",
+        "replaced_by": "std::ranges::borrowed_range",
+        "change_type": "API Deprecation",
+        "reason": "The term 'safe' was considered misleading and inappropriate as it does not align with the intended meaning and connotations in specific domains. The names aim to avoid confusion by reflecting the nature of 'borrowed' iterators and ranges, which are not lifetime-bound to the adapting range.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": "2020-12-15"
+    },
+    {
+        "source_url": "https://wg21.link/lwg3379",
+        "api": "std::chrono::parse",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The '%d' parse flag was inconsistent with the POSIX strftime specification and format functions. '%Ed' was incorrectly documented and implemented instead of '%Od', which aligns with POSIX standards.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3218",
+        "api": "std::common_type",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "After the adoption of proposal P1959R0 in Belfast, `std::strong_equality` is no longer relevant. Thus, the behavior of `common_type` was updated to simplify and align with standard practices.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "\ndecay_t<decltype(false ? declval<D1>() : declval<D2>())>\n\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 1,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3380",
+        "api": "std::ranges::keys_view",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The keys and values API were unspecified in the <ranges> header, and P1035R7 forgot to specify their functionality as `elements<0>` and `elements<1>`.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3302",
+        "api": "std::chrono::operator<=>",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The original constraint compared sys_seconds (a time point) with Duration (a duration type), which is incompatible. The change aligns the type constraint with the correct duration type, ensuring valid comparisons.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "\nnamespace std {\n  [\u2026]\n  namespace chrono {\n    [\u2026]",
+                "output": ""
+            },
+            {
+                "code": "    template<three_way_comparable_with<sys_seconds> Duration>",
+                "output": ""
+            },
+            {
+                "code": "      auto operator<=>(const leap& x, const sys_time<Duration>& y);\n    [\u2026]\n  }\n  [\u2026]\n}\n\n\n",
+                "output": ""
+            },
+            {
+                "code": "template<three_way_comparable_with<sys_seconds> Duration>",
+                "output": ""
+            },
+            {
+                "code": "  constexpr auto operator<=>(const leap& x, const sys_time<Duration>& y) noexcept;\n\n\n\nnamespace std {\n  [\u2026]\n  namespace chrono {\n    [\u2026]",
+                "output": ""
+            },
+            {
+                "code": "    template<three_way_comparable_with<sys_seconds>class Duration>\n      requires three_way_comparable_with<sys_seconds, sys_time<Duration>>",
+                "output": ""
+            },
+            {
+                "code": "        constexpr auto operator<=>(const leap& x, const sys_time<Duration>& y) noexcept;\n    [\u2026]\n  }\n  [\u2026]\n}\n\n\n",
+                "output": ""
+            },
+            {
+                "code": "template<three_way_comparable_with<sys_seconds>class Duration>\n  requires three_way_comparable_with<sys_seconds, sys_time<Duration>>",
+                "output": ""
+            },
+            {
+                "code": "    constexpr auto operator<=>(const leap& x, const sys_time<Duration>& y) noexcept;\n\n\n\nnamespace std {\n  [\u2026]\n  namespace chrono {\n    [\u2026]",
+                "output": ""
+            },
+            {
+                "code": "    template<three_way_comparable_with<sys_seconds>class Duration>\n      requires three_way_comparable_with<sys_seconds, sys_time<Duration>>",
+                "output": ""
+            },
+            {
+                "code": "        constexpr auto operator<=>(const leap& x, const sys_time<Duration>& y);\n    [\u2026]\n  }\n  [\u2026]\n}\n\n\n",
+                "output": ""
+            },
+            {
+                "code": "template<three_way_comparable_with<sys_seconds>class Duration>\n  requires three_way_comparable_with<sys_seconds, sys_time<Duration>>",
+                "output": ""
+            },
+            {
+                "code": "    constexpr auto operator<=>(const leap& x, const sys_time<Duration>& y) noexcept;\n\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 13,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3383",
+        "api": "program-defined type",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "To address the ambiguity in the specification regarding whether closure types should be considered program-defined types, consistent with the intended use of program-defined types.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3119",
+        "api": "std::allocator<void>",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "17.0.0",
+        "replaced_by": "",
+        "change_type": "API Removal",
+        "reason": "The explicit specialization of std::allocator<void> was removed because std::allocator<void> no longer serves a useful purpose. The primary template with allocate and deallocate members handles the use case adequately, simplifying the implementation.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3307",
+        "api": "std::allocator::allocate",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "23.0.0",
+        "removed_in": "",
+        "replaced_by": "std::numeric_limits<size_t>::max()",
+        "change_type": "API Deprecation",
+        "reason": "It's better to use a C++ property (numeric_limits<size_t>::max()) than the C standard library macro SIZE_MAX for improved compatibility and transparency.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": "2023-10-16"
+    },
+    {
+        "source_url": "https://wg21.link/lwg3310",
+        "api": "std::strftime",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Inconsistency with the POSIX strftime specification regarding locale alternative representations for year format specifiers.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3128",
+        "api": "std::allocator_traits::construct",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The default behavior of a.construct and a.destroy was updated to align with the corresponding allocator traits methods (construct_at and destroy_at). The previous approach (::new and ::delete) did not match the specification for allocator traits.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg2929",
+        "api": "std::forward_list::splice_after",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "To ensure the library uses std::addressof for address comparison when handling list operations, as &x != this might produce undefined behavior.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3017",
+        "api": "expects",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "20.0.0",
+        "replaced_by": "",
+        "change_type": "API Removal",
+        "reason": "Macros named 'expects' and 'ensures' were conflicting with contract-attribute-specifiers, and prohibiting such macros ensures consistency and resolves this conflict.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": "2020-12-15"
+    },
+    {
+        "source_url": "https://wg21.link/lwg3132",
+        "api": "std::bind",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "During migration from std::bind1st/std::bind2nd, removed in C++17, to std::bind, the type system may produce inconsistent call wrapper types based on qualifiers and arguments, which could lead to unexpected issues in storing or usage.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3023",
+        "api": "Hidden Friends",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "To restrict entity lookup solely to argument-dependent lookup (ADL) and prevent unqualified or qualified lookup.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3239",
+        "api": "std::numeric_limits",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The original wording for numeric requirements contained overly restrictive and outdated elements that did not align with modern C++ programming practices, including ambiguities, unnecessary restrictions, and lack of proper equivalence requirements.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3133",
+        "api": "std::span::cbegin",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "20.0.0",
+        "replaced_by": "std::ranges::cbegin",
+        "change_type": "API Removal",
+        "reason": "To ensure consistent behavior between std::cbegin/std::ranges::cbegin and span.cbegin. The methods were removed based on discussions within the library evolution working group (LEWG) to avoid inconsistencies caused by `span<T>` providing different results for const-qualified and non-const-qualified types.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": "2020-12-15"
+    },
+    {
+        "source_url": "https://wg21.link/lwg3320",
+        "api": "__cpp_lib_to_chars",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Originally proposed for <utility>, but std::to_chars and std::from_chars were moved to their own header <charconv>. The document was not updated, leading to an incorrect header association for the macro.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "#if __has_include(<optional>)\r\n# include <optional>\r\n# if __cpp_lib_optional >= 201603\r\n#  define have_optional 1\r\n# endif\r\n#elif __has_include(<experimental/optional>)\r\n# include <experimental/optional>\r\n# if __cpp_lib_experimental_optional >= 201411\r\n#  define have_optional 1\r\n#  define experimental_optional 1\r\n# endif\r\n#endif\r\n#else#ifndef have_optional\r\n# define have_optional 0\r\n#endif\r\n\n#if __has_cpp_attribute(acme::deprecated)\r\n# define ATTR_DEPRECATED(msg) [[acme::deprecated(msg)]]\r\n#else\r\n# define ATTR_DEPRECATED(msg) [[deprecated(msg)]]\r\n#endif\r\nATTR_DEPRECATED(\"This function is deprecated\") void anvil();\r\n\n\n#if __has_cpp_attribute(acme::deprecated)\r\n# define ATTR_DEPRECATED(msg) [[acme::deprecated(msg)]]\r\n#else\r\n# define ATTR_DEPRECATED(msg) [[deprecated(msg)]]\r\n#endif\r\nATTR_DEPRECATED(\"This function is deprecated\") void anvil();\r\n\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 1,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3137",
+        "api": "std::filesystem::equivalent",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "Prior behavior for `equivalent` could result in errors when paths did not exist or when comparing special files such as POSIX FIFOs or NT pipes. This behavior was revised to allow a more consistent and useful result in some cases and led to discussions about introducing an alternative (`file_identity`) for more reliable checks.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "\nfile_identity identity(const path&, bool resolve = true);\n\n\nbool equivalent(const path& p1, const path& p2);\nbool equivalent(const path& p1, const path& p2, error_code& ec) noexcept;\n\n\n\nbool equivalent(const path& p1, const path& p2);\nbool equivalent(const path& p1, const path& p2, error_code& ec) noexcept;\n\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 1,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg2937",
+        "api": "std::uninitialized_construct_using_allocator",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "std::construct_at",
+        "change_type": "Behavior Change",
+        "reason": "The API was updated to use `construct_at` instead of `operator new` to ensure guaranteed elision and follow the NB proposal.",
+        "has_examples": true,
+        "examples": [
+            {
+                "code": "\nreturn ::new(static_cast<void*>(p))\nconstruct_at(p,\nT(make_obj_using_allocator<T>(alloc,",
+                "output": ""
+            },
+            {
+                "code": "std::forward<Args>(args)...)));\n\n\n",
+                "output": ""
+            },
+            {
+                "code": "template<class T, class Alloc, class... Args>\n  constexpr T* uninitialized_construct_using_allocator(T* p, const Alloc& alloc, Args&&... args);\n\n\n\nreturn ::new(static_cast<void*>(p))",
+                "output": ""
+            },
+            {
+                "code": "  T(make_obj_using_allocator<T>(apply([&](auto&&...xs) {",
+                "output": ""
+            },
+            {
+                "code": "         return construct_at(p, std::forward<decltype(xs)>(xs)...);",
+                "output": ""
+            },
+            {
+                "code": "     }, uses_allocator_construction_args<T>(alloc, std::forward<Args>(args)...));\n\n\n",
+                "output": ""
+            }
+        ],
+        "examples_count": 6,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3321",
+        "api": "std::ranges::basic_istream_view::iterator",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The iterator does not meet the C++17 iterator requirements as it is move-only, and therefore it should not provide `iterator_category`. Instead, `iterator_concept` should be provided to align with the updated standards.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3397",
+        "api": "std::common_reference",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The original specification of COMMON_REF was nonsensical because a specialization of a class template cannot be a cv-qualified type or reference type. It required changes to make the API implementable.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3140",
+        "api": "std::result_of",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "17.0.0",
+        "removed_in": "",
+        "replaced_by": "std::invoke_result",
+        "change_type": "API Deprecation",
+        "reason": "The general prohibition against specializing type traits no longer exists after moving `result_of` to Annex D, and an explicit exclusion rule was provided. Furthermore, adjustments were needed to improve correctness in scenarios where deprecated trait templates might permit specializations by users.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg2940",
+        "api": "std::CopyConstructible",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The previous wording did not enforce the design intent that CopyConstructible constructions leave the source unchanged. Updated to align with the original design intent and reformulated Constructible concept.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3141",
+        "api": "std::filesystem::path",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The implementation of `std::filesystem::path` encountered constraint recursion due to updates in the definition of `iterator_traits` introduced by P0896R4 ('The One Ranges Proposal'). This caused issues with overload resolution and template argument deduction. The proposed resolution explicitly specifies that `path` is not a valid `Source` to avoid the recursion.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    },
+    {
+        "source_url": "https://wg21.link/lwg3398",
+        "api": "std::strong_order, std::weak_order, std::partial_order",
+        "package": "C++",
+        "language": "C++",
+        "deprecated_in": "",
+        "removed_in": "",
+        "replaced_by": "",
+        "change_type": "Behavior Change",
+        "reason": "The comparison algorithms were missing special cases for pointers, which caused inconsistency with other similar functions like compare_three_way and std::less. This change aligns the behavior and resolves these inconsistencies.",
+        "has_examples": false,
+        "examples": [],
+        "examples_count": 0,
+        "date": null
+    }
+]

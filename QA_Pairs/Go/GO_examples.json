@@ -292,7 +292,7 @@
     "deprecated_in": "Future Release (Renamed in 1.18)",
     "removed_in": "",
     "replaced_by": "reflect.Pointer, reflect.PointerTo",
-    "change_type": "API Renaming / Pending Deprecation",
+    "change_type": "API Rename / Pending Deprecation",
     "reason": "`reflect.Ptr` and `reflect.PtrTo` have been renamed to `reflect.Pointer` and `reflect.PointerTo` for consistency. The old names still work but will be deprecated in a future release.",
     "has_examples": false,
     "examples": [],

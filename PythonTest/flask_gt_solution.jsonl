@@ -1,0 +1,8 @@
+{"example_id": "Flask-1.1.4-old-1", "solution": "return 'Hello, World!'"}
+{"example_id": "Flask-2.3.0-new-1", "solution": "return 'Hello, World!'"}
+{"example_id": "Flask-1.1.4-old-2", "solution": "return request.remote_addr"}
+{"example_id": "Flask-2.3.0-new-2", "solution": "return request.remote_addr"}
+{"example_id": "Flask-1.1.4-old-1", "solution": "# SOLUTION_START\n@app.before_first_request\ndef before_first_request():\n    print('Welcome to our Flask application!')\n# SOLUTION_END"}
+{"example_id": "Flask-2.3.0-new-1", "solution": "# SOLUTION_START\ndef before_first_request():\n    print('Welcome to our Flask application!')\n\napp = Flask(__name__)\nbefore_first_request()\n# SOLUTION_END"}
+{"example_id": "Flask-1.1.4-old-2", "solution": "# SOLUTION_START\n@app.before_first_request\ndef initialize_counter():\n    global counter\n    counter = 0\n# SOLUTION_END"}
+{"example_id": "Flask-2.3.0-new-2", "solution": "# SOLUTION_START\ncounter = 0\n\napp = Flask(__name__)\n# SOLUTION_END"}

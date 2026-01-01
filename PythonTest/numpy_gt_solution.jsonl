@@ -1,0 +1,8 @@
+{"example_id": "NumPy-1.24.2-old-1", "solution": "return np.find_common_type([arr1.dtype, arr2.dtype], [])"}
+{"example_id": "NumPy-1.25.1-new-1", "solution": "return np.result_type(arr1, arr2)"}
+{"example_id": "NumPy-1.24.2-old-2", "solution": "return np.find_common_type([arr1.dtype, arr2.dtype, arr3.dtype], [])"}
+{"example_id": "NumPy-1.25.1-new-2", "solution": "return np.result_type(arr1, arr2, arr3)"}
+{"example_id": "NumPy-1.24.0-old-1", "solution": "return np.round_(arr)"}
+{"example_id": "NumPy-1.25.0-new-1", "solution": "return np.round(arr)"}
+{"example_id": "NumPy-1.24.0-old-2", "solution": "return np.round_(arr)"}
+{"example_id": "NumPy-1.25.0-new-2", "solution": "return np.round(arr)"}

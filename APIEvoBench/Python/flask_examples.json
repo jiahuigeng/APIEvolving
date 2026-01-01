@@ -1,0 +1,632 @@
+[
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-2-3-0",
+    "api": "FLASK_ENV",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "2.2.0",
+    "removed_in": "2.3.0",
+    "replaced_by": "debug=True (in run) or --debug (CLI)",
+    "change_type": "API Removal",
+    "reason": "The FLASK_ENV environment variable, ENV config key, and app.env property are removed. The distinction between development and debug mode is removed.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "# Removed usage: export FLASK_ENV=development\n# Recommended usage\n# export FLASK_DEBUG=1\n# or\n# flask run --debug",
+        "output": "(Debug mode enabled)"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2023-04-25"
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-2-3-0",
+    "api": "flask.Flask.before_first_request",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "2.2.0",
+    "removed_in": "2.3.0",
+    "replaced_by": "Setup code at creation",
+    "change_type": "API Removal",
+    "reason": "The app.before_first_request and bp.before_app_first_request decorators are removed. Run setup code when creating the application instead.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from flask import Flask\napp = Flask(__name__)\n\n# Deprecated/Removed usage\n# @app.before_first_request\n# def setup(): ...\n\n# Recommended usage\nwith app.app_context():\n    # perform setup here\n    pass",
+        "output": "N/A"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2023-04-25"
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-2-3-0",
+    "api": "flask.json.JSONEncoder",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "2.2.0",
+    "removed_in": "2.3.0",
+    "replaced_by": "app.json provider",
+    "change_type": "API Removal",
+    "reason": "json_encoder and json_decoder attributes on app and blueprint, and corresponding classes are removed. Use the app.json provider interface instead.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from flask import Flask\napp = Flask(__name__)\n# Deprecated usage: app.json_encoder = MyEncoder\n# Recommended usage\n# app.json.dumps or configure app.json.provider",
+        "output": "N/A"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2023-04-25"
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-3-0-0",
+    "api": "flask.__version__",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "3.0.0",
+    "removed_in": "",
+    "replaced_by": "importlib.metadata.version",
+    "change_type": "API Deprecation",
+    "reason": "The __version__ attribute is deprecated. Use feature detection, or importlib.metadata.version('flask') instead.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "import flask\nfrom importlib.metadata import version\n# Deprecated usage: flask.__version__\n# Recommended usage\nversion(\"flask\")",
+        "output": "'3.0.0'"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2023-09-30"
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-2-3-0",
+    "api": "flask.Markup",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "2.3.0",
+    "removed_in": "",
+    "replaced_by": "markupsafe.Markup",
+    "change_type": "API Deprecation",
+    "reason": "Importing escape and Markup from flask is deprecated. Import them directly from markupsafe instead.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "# Deprecated usage: from flask import Markup\n# Recommended usage\nfrom markupsafe import Markup",
+        "output": "N/A"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2023-04-25"
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-2-2-0",
+    "api": "flask.send_file",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "",
+    "removed_in": "2.2.0",
+    "replaced_by": "download_name, max_age, etag",
+    "change_type": "Parameter Change",
+    "reason": "Old parameter names (attachment_filename, cache_timeout, add_etags) have been removed. Use download_name, max_age, and etag respectively.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "# Removed usage: send_file(..., attachment_filename='file.txt')\n# Recommended usage\nsend_file(..., download_name='file.txt')",
+        "output": "N/A"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2022-08-02"
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-2-1-0",
+    "api": "flask.safe_join",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "",
+    "removed_in": "2.1.0",
+    "replaced_by": "werkzeug.utils.safe_join",
+    "change_type": "API Removal",
+    "reason": "flask.safe_join is removed. Use werkzeug.utils.safe_join instead.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "# Removed usage: from flask import safe_join\n# Recommended usage\nfrom werkzeug.utils import safe_join",
+        "output": "N/A"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2022-03-28"
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-2-1-0",
+    "api": "flask.Config.from_json",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "2.0.0",
+    "removed_in": "2.1.0",
+    "replaced_by": "flask.Config.from_file",
+    "change_type": "API Removal",
+    "reason": "Config.from_json is replaced by Config.from_file(name, load=json.load).",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "import json\nfrom flask import Flask\napp = Flask(__name__)\n# Removed usage: app.config.from_json(\"config.json\")\n# Recommended usage\napp.config.from_file(\"config.json\", load=json.load)",
+        "output": "N/A"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2022-03-28"
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-2-1-0",
+    "api": "as_tuple",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "2.0.3",
+    "removed_in": "2.1.0",
+    "replaced_by": "response.request.environ",
+    "change_type": "Parameter Change",
+    "reason": "The test client's 'as_tuple' parameter is removed. Use response.request.environ instead.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2022-03-28"
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-2-1-0",
+    "api": "flask.ctx.RequestContext.g",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "2.1.0",
+    "removed_in": "",
+    "replaced_by": "flask.g",
+    "change_type": "API Deprecation",
+    "reason": "The RequestContext.g property is deprecated. Use 'g' directly or AppContext.g instead.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from flask import g, ctx\n# Deprecated usage: ctx.RequestContext(app, environ).g\n# Recommended usage\n# Use the global 'g' proxy during a request",
+        "output": "N/A"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2022-03-28"
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-2-0-1",
+    "api": "flask.send_from_directory",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "2.0.1",
+    "removed_in": "",
+    "replaced_by": "path",
+    "change_type": "Parameter Change",
+    "reason": "The 'filename' parameter has been renamed to 'path'. The old name is deprecated.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "# Deprecated usage: send_from_directory(dir, filename='image.png')\n# Recommended usage\nsend_from_directory(dir, path='image.png')",
+        "output": "N/A"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2021-05-21"
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-2-0-0",
+    "api": "flask.send_file",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "2.0.0",
+    "removed_in": "",
+    "replaced_by": "download_name, max_age, etag",
+    "change_type": "Parameter Change",
+    "reason": "Several parameters have been renamed and the old names are deprecated. 'attachment_filename' is renamed to 'download_name'. 'cache_timeout' is renamed to 'max_age'. 'add_etags' is renamed to 'etag'.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "# Deprecated usage: send_file(..., attachment_filename='file.txt')\n# Recommended usage\nsend_file(..., download_name='file.txt')",
+        "output": "N/A"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2021-05-11"
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-2-0-0",
+    "api": "flask.helpers.safe_join",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "2.0.0",
+    "removed_in": "",
+    "replaced_by": "werkzeug.utils.safe_join",
+    "change_type": "API Deprecation",
+    "reason": "flask.helpers.safe_join is deprecated. Use werkzeug.utils.safe_join instead.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "# Deprecated usage: from flask.helpers import safe_join\n# Recommended usage\nfrom werkzeug.utils import safe_join",
+        "output": "N/A"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2021-05-11"
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-2-0-0",
+    "api": "flask.helpers.total_seconds",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "2.0.0",
+    "removed_in": "",
+    "replaced_by": "datetime.timedelta.total_seconds",
+    "change_type": "API Deprecation",
+    "reason": "flask.helpers.total_seconds() is deprecated. Use the standard library method timedelta.total_seconds() instead.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from datetime import timedelta\ntd = timedelta(minutes=1)\n# Deprecated usage: flask.helpers.total_seconds(td)\n# Recommended usage\ntd.total_seconds()",
+        "output": "60.0"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2021-05-11"
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-2-0-0",
+    "api": "flask.send_file",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "2.0.0",
+    "removed_in": "",
+    "replaced_by": "Binary mode IO",
+    "change_type": "Behavior Change",
+    "reason": "send_file now raises a ValueError when passed an io object in text mode. Previously it responded with 200 OK and an empty file.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "import io\n# Incorrect usage (Text Mode)\n# f = io.StringIO(\"test\")\n# send_file(f)\n# Correct usage (Binary Mode)\nf = io.BytesIO(b\"test\")\nsend_file(f, download_name=\"test.txt\")",
+        "output": "(File Sent)"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2021-05-11"
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-2-0-0",
+    "api": "flask.Flask.make_response",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "2.0.0",
+    "removed_in": "",
+    "replaced_by": "response.headers.extend",
+    "change_type": "Behavior Change",
+    "reason": "When returning a (response, headers) tuple from a view, the headers now replace rather than extend existing headers on the response object. Use response.headers.extend() if extending is desired.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2021-05-11"
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-1-1-0",
+    "api": "flask.testing.make_test_environ_builder",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "1.1.0",
+    "removed_in": "",
+    "replaced_by": "flask.testing.EnvironBuilder",
+    "change_type": "API Deprecation",
+    "reason": "flask.testing.make_test_environ_builder() has been deprecated in favour of a new class flask.testing.EnvironBuilder.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-1-1-1",
+    "api": "flask.json_available",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "1.1.1",
+    "removed_in": "2.0.0",
+    "replaced_by": "N/A",
+    "change_type": "API Deprecation",
+    "reason": "The flask.json_available flag was added back for compatibility with some extensions. It will raise a deprecation warning when used and will be removed in version 2.0.0.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "import flask\n# Deprecated usage: if flask.json_available:\n# Recommended usage: Assume JSON is available (standard in modern Flask)",
+        "output": "(DeprecationWarning)"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2021-05-11"
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-1-0",
+    "api": "flask.ext",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "0.11.0",
+    "removed_in": "1.0.0",
+    "replaced_by": "Direct package import",
+    "change_type": "API Removal",
+    "reason": "Importing extensions via flask.ext is removed. Import them directly from their installed packages instead (e.g., import flask_sqlalchemy).",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "# Removed usage: import flask.ext.sqlalchemy\n# Recommended usage\nimport flask_sqlalchemy",
+        "output": "N/A"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-1-0",
+    "api": "flask.Request.json",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "0.11.0",
+    "removed_in": "",
+    "replaced_by": "N/A (Deprecation Reverted)",
+    "change_type": "Behavior Change",
+    "reason": "The Request.json property was previously deprecated in 0.11 in favor of get_json(), but in 1.0 it is no longer deprecated.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "# In 0.11: request.json was deprecated.\n# In 1.0+: request.json is valid again.",
+        "output": "N/A"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-1-0",
+    "api": "LOGGER_NAME",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "",
+    "removed_in": "1.0.0",
+    "replaced_by": "flask.app",
+    "change_type": "API Removal",
+    "reason": "LOGGER_NAME and LOGGER_HANDLER_POLICY config keys were removed. The logger is always named 'flask.app'.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-1-0",
+    "api": "flask.Flask.static_path",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "",
+    "removed_in": "1.0.0",
+    "replaced_by": "flask.Flask.static_url_path",
+    "change_type": "API Removal",
+    "reason": "Flask.static_path is removed. Use Flask.static_url_path instead.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "# Removed usage: app.static_path\n# Recommended usage\napp.static_url_path",
+        "output": "N/A"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-0-11",
+    "api": "flask.Request.json",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "0.11.0",
+    "removed_in": "",
+    "replaced_by": "flask.Request.get_json()",
+    "change_type": "API Deprecation",
+    "reason": "request.json is deprecated in favour of request.get_json() (Note: This deprecation was later reverted in 1.0).",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "# Deprecated usage (in 0.11): request.json\n# Recommended usage\nrequest.get_json()",
+        "output": "N/A"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-0-10",
+    "api": "flask.session",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "",
+    "removed_in": "0.10.0",
+    "replaced_by": "flask.sessions",
+    "change_type": "API Removal",
+    "reason": "The deprecated internal flask.session module alias is removed. Use flask.sessions to get the module instead. This avoids confusion with the flask.session proxy.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "# Removed usage: import flask.session (as a module)\n# Recommended usage\nimport flask.sessions",
+        "output": "N/A"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-0-10",
+    "api": "flask.Flask.request_globals_class",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "",
+    "removed_in": "0.10.0",
+    "replaced_by": "flask.Flask.app_ctx_globals_class",
+    "change_type": "API Rename",
+    "reason": "Renamed to app_ctx_globals_class which is a better name for what it does since the introduction of the application context.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-0-7",
+    "api": "flask.send_file",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "0.7.0",
+    "removed_in": "",
+    "replaced_by": "Pass filename or manual metadata",
+    "change_type": "Behavior Change",
+    "reason": "Mimetype guessing and etag support based on file objects is deprecated because it was unreliable. Pass filenames instead or attach your own etags and mimetypes manually.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "# Deprecated usage: send_file(open('image.png', 'rb'))\n# Recommended usage\nsend_file('image.png')",
+        "output": "N/A"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-0-7",
+    "api": "flask.Flask.init_jinja_globals",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "0.7.0",
+    "removed_in": "",
+    "replaced_by": "flask.Flask.create_jinja_environment",
+    "change_type": "API Deprecation",
+    "reason": "init_jinja_globals is deprecated. Override the Flask.create_jinja_environment method instead to achieve the same functionality.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-2-3-0",
+    "api": "open_resource",
+    "package": "flask",
+    "language": "Python",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "Starting from Flask 2.3, 'open_resource' accepts 'encoding' and 'errors' arguments to allow opening files in text mode.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-2-0-0",
+    "api": "send_file",
+    "package": "flask",
+    "language": "Python",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "download_name (parameter)",
+    "change_type": "Parameter Change",
+    "reason": "In Flask 2.0, parameters were renamed: 'attachment_filename' -> 'download_name', 'cache_timeout' -> 'max_age', 'add_etags' -> 'etag'. Old parameters were deprecated.",
+    "has_examples": true,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/server/",
+    "api": "Flask.run",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "flask run (CLI)",
+    "change_type": "API Deprecation",
+    "reason": "The 'flask run' CLI command is recommended over 'Flask.run' for development functionality, though 'Flask.run' is not formally deprecated.",
+    "has_examples": true,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-3-0-0",
+    "api": "get_send_file_max_age",
+    "package": "flask",
+    "language": "Python",
+    "deprecated_in": "2.3.0",
+    "removed_in": "3.0.0",
+    "replaced_by": "Flask.get_send_file_max_age",
+    "change_type": "API Removal",
+    "reason": "This method was deprecated in 2.3.0 and removed in 3.0.0. Configuration of default cache timeouts has changed.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2023-09-30"
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-2-1-0",
+    "api": "Request.get_json",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "In Flask 2.1, 'get_json' will raise a 400 Bad Request error if the Content-Type is not application/json, unless 'force=True' is used.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-2-0-0",
+    "api": "Flask.make_response",
+    "package": "flask",
+    "language": "Python",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "In Flask 2.0, when returning a (response, headers) tuple, the headers now replace rather than extend existing headers.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/server/",
+    "api": "Flask.run",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "flask run (CLI)",
+    "change_type": "API Deprecation",
+    "reason": "Using the 'flask run' CLI is the recommended way to run the development server, though Flask.run() is not deprecated.",
+    "has_examples": true,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://flask.palletsprojects.com/en/stable/changes/#version-1-0",
+    "api": "subdomain_matching",
+    "package": "Flask",
+    "language": "Python",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "Since Flask 1.0, setting SERVER_NAME does not implicitly enable subdomain matching. Explicitly set subdomain_matching=True if needed.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  }
+]

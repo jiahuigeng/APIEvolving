@@ -1,0 +1,2 @@
+{"example_id": "pandas-1-df-shape", "solution": "df = pd.DataFrame(data)\nprint(df.shape)"}
+{"example_id": "requests-2-get", "solution": "resp = requests.get('https://www.google.com')\nprint(resp.status_code)"}

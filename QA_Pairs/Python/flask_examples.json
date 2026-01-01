@@ -467,7 +467,7 @@
     "deprecated_in": "",
     "removed_in": "0.10",
     "replaced_by": "flask.Flask.app_ctx_globals_class",
-    "change_type": "API Renaming",
+    "change_type": "API Rename",
     "reason": "Renamed to app_ctx_globals_class which is a better name for what it does since the introduction of the application context.",
     "has_examples": false,
     "examples": [],

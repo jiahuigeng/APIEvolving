@@ -11,6 +11,41 @@
 !QA_Pairs/
 !QA_Pairs/**
 
+# Allow APIEvoBench directory and all its contents
+!APIEvoBench/
+!APIEvoBench/**
+
+# Allow scripts directory and all its contents
+!scripts/
+!scripts/**
+!Scripts/
+!Scripts/**
+
+# Allow Test directories and all their contents
+!PythonTest/
+!PythonTest/**
+PythonTest/envs/
+
+!JavaTest/
+!JavaTest/**
+JavaTest/envs/
+
+!CPPTest/
+!CPPTest/**
+CPPTest/envs/
+
+!JavaScriptTest/
+!JavaScriptTest/**
+JavaScriptTest/envs/
+
+!RubyTest/
+!RubyTest/**
+RubyTest/envs/
+
+!ScalaTest/
+!ScalaTest/**
+ScalaTest/envs/
+
 # Optional: keep license if you add one later
 !LICENSE
 

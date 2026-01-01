@@ -1,0 +1,2 @@
+{"example_id": "gson-2-json-map", "solution": "com.google.gson.Gson gson = new com.google.gson.Gson();\nString json = gson.toJson(m);\nSystem.out.println(json);\n", "expected_output_contains": ["\"x\":1", "\"y\":2"]}
+{"example_id": "commons-lang3-3-capitalize", "solution": "String out = org.apache.commons.lang3.StringUtils.capitalize(s);\nSystem.out.println(out);\n", "expected_output_contains": ["Hello world"]}

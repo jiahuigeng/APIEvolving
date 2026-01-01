@@ -1,0 +1,2055 @@
+[
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.cluster.Birch.html#sklearn.cluster.Birch",
+    "api": "sklearn.cluster.Birch",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "1.6.0",
+    "removed_in": "1.8.0",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The 'copy' parameter was deprecated in version 1.6 and will be removed in version 1.8 as the estimator does not perform in-place operations on the input data, rendering the parameter unnecessary.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.cluster import Birch\nX = [[0, 1], [0.3, 1], [-0.3, 1], [0, -1], [0.3, -1], [-0.3, -1]]\nbrc = Birch(n_clusters=None)\nbrc.fit(X)\nbrc.predict(X)",
+        "output": "Birch(n_clusters=None)\narray([0, 0, 0, 1, 1, 1])"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2025-12-10"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.cluster.BisectingKMeans.html#sklearn.cluster.BisectingKMeans",
+    "api": "sklearn.cluster.KMeans",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "1.0.0",
+    "removed_in": "",
+    "replaced_by": "lloyd",
+    "change_type": "Parameter Change",
+    "reason": "Default value of the `n_init` parameter was changed to `'auto'` to simplify configuration and improve performance based on initialization method. Additionally, the `'full'` algorithm was renamed to `'lloyd'`, and the `'auto'` algorithm was deprecated in favor of `'lloyd'`.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.cluster import BisectingKMeans\nimport numpy as np\nX = np.array([[1, 1], [10, 1], [3, 1],\n[10, 0], [2, 1], [10, 2],\n[10, 8], [10, 9], [10, 10]])\nbisect_means = BisectingKMeans(n_clusters=3, random_state=0).fit(X)\nbisect_means.labels_\nbisect_means.predict([[0, 0], [12, 3]])\nbisect_means.cluster_centers_",
+        "output": "array([0, 2, 0, 2, 0, 2, 1, 1, 1], dtype=int32)\narray([0, 2], dtype=int32)\narray([[ 2., 1.],\n       [10., 9.],\n       [10., 1.]])"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2021-09-24"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/whats_new/v1.4.html https://scikit-learn.org/stable/whats_new/v1.2.html",
+    "api": "sklearn.cluster.k_means",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "1.1.0",
+    "removed_in": "",
+    "replaced_by": "lloyd or elkan",
+    "change_type": "Parameter Change",
+    "reason": "The 'auto' option for the 'n_init' parameter was added in version 1.2, and its default value was adjusted to 'auto' in version 1.4 for more optimal behavior. The algorithm option 'auto', which previously mapped to 'elkan', was deprecated in version 1.1 in favor of explicitly specifying 'lloyd' or 'elkan'. The default algorithm was updated to 'lloyd' from 'full' in version 1.1.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2022-05-12"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.base.OutlierMixin.html#sklearn.base.OutlierMixin.fit_predict",
+    "api": "sklearn.base.OutlierMixin.fit_predict",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "ClusterMixin.fit_predict",
+    "change_type": "Behavior Change",
+    "reason": "The `fit_predict` method was added to the `ClusterMixin` in version 1.4 to streamline cluster estimators' API and improve consistency in usage.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.base import BaseEstimator, OutlierMixin\nimport numpy as np\nclass MyEstimator(OutlierMixin):\ndef fit(self, X, y=None):\nself.is_fitted_ = True\nreturn self\ndef predict(self, X):\nreturn np.ones(shape=len(X))\nestimator = MyEstimator()\nX = np.array([[1, 2], [2, 3], [3, 4]])\nestimator.fit_predict(X)",
+        "output": "array([1., 1., 1.])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/whats_new.html#version-1-6-0",
+    "api": "sklearn.base.MetaEstimatorMixin",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "1.6.0",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "The `_required_parameters` attribute was removed because tests were refactored and no longer utilize this attribute.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2024-12-09"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.base.clone.html#sklearn.base.clone",
+    "api": "sklearn.base.clone",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "To allow individual estimators to provide their own `__sklearn_clone__` method for a customized implementation of the cloning process.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.base import clone\nfrom sklearn.linear_model import LogisticRegression\nX = [[-1, 0], [0, 1], [0, -1], [1, 0]]\ny = [0, 0, 1, 1]\nclassifier = LogisticRegression().fit(X, y)\ncloned_classifier = clone(classifier)\nhasattr(classifier, \"classes_\")\nhasattr(cloned_classifier, \"classes_\")\nclassifier is cloned_classifier",
+        "output": "True\nFalse\nFalse"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.calibration.CalibratedClassifierCV.html#sklearn.calibration.CalibratedClassifierCV",
+    "api": "sklearn.calibration.CalibratedClassifierCV",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "FrozenEstimator",
+    "change_type": "Parameter Change",
+    "reason": "The 'prefit' option of the 'cv' parameter was deprecated in favor of using the FrozenEstimator mechanism to avoid confusion and improve clarity when using pre-trained classifiers for calibration.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.calibration import CalibratedClassifierCV\nfrom sklearn.datasets import make_classification\nfrom sklearn.naive_bayes import GaussianNB\nX, y = make_classification(n_samples=100, n_features=2,\nn_redundant=0, random_state=42)\nbase_clf = GaussianNB()\ncalibrated_clf = CalibratedClassifierCV(base_clf, cv=3)\ncalibrated_clf.fit(X, y)\nlen(calibrated_clf.calibrated_classifiers_)\ncalibrated_clf.predict_proba(X)[:5, :]",
+        "output": "CalibratedClassifierCV(...)\n3\narray([[0.110, 0.889],\n       [0.072, 0.927],\n       [0.928, 0.072],\n       [0.928, 0.072],\n       [0.072, 0.928]])"
+      },
+      {
+        "code": "from sklearn.model_selection import train_test_split\nX, y = make_classification(n_samples=100, n_features=2,\nn_redundant=0, random_state=42)",
+        "output": ""
+      },
+      {
+        "code": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nX_train, X_calib, y_train, y_calib = train_test_split(\nX, y, random_state=42\n)\nbase_clf = GaussianNB()\nbase_clf.fit(X_train, y_train)",
+        "output": "GaussianNB()"
+      },
+      {
+        "code": "from sklearn.frozen import FrozenEstimator\ncalibrated_clf = CalibratedClassifierCV(FrozenEstimator(base_clf))\ncalibrated_clf.fit(X_calib, y_calib)\nlen(calibrated_clf.calibrated_classifiers_)\ncalibrated_clf.predict_proba([[-0.5, 0.5]])",
+        "output": "CalibratedClassifierCV(...)\n1\narray([[0.936, 0.063]])"
+      }
+    ],
+    "examples_count": 4,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.compose.ColumnTransformer.html#sklearn.compose.ColumnTransformer",
+    "api": "sklearn.compose.ColumnTransformer",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The `force_int_remainder_cols` parameter was deprecated due to limited use cases and redundancy with existing functionality.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.compose import ColumnTransformer\nfrom sklearn.preprocessing import Normalizer\nimport numpy as np\nct = ColumnTransformer(\n[(\"norm1\", Normalizer(norm='l1'), [0, 1]),\n(\"norm2\", Normalizer(norm='l1'), slice(2, 4))])\nX = np.array([[0., 1., 2., 2.],\n[1., 1., 0., 1.]])\n# Normalizer scales each row of X to unit norm. A separate scaling\n# is applied for the two first and two last elements of each\n# row independently.\nct.fit_transform(X)",
+        "output": "array([[0. , 1. , 0.5, 0.5],\n       [0.5, 0.5, 0. , 1. ]])"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.compose.make_column_transformer.html#sklearn.compose.make_column_transformer",
+    "api": "sklearn.compose.make_column_transformer",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "1.0.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "The parameter `force_int_remainder_cols` was deprecated due to its lack of effect on the API functionality and unnecessary complexity in usage.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.compose import make_column_transformer\nfrom sklearn.preprocessing import StandardScaler, OneHotEncoder\nmake_column_transformer(\n(StandardScaler(), ['numerical_column']),\n(OneHotEncoder(), ['categorical_column']))",
+        "output": "ColumnTransformer(transformers=[('standardscaler', StandardScaler(...),\n                                 ['numerical_column']),\n                                ('onehotencoder', OneHotEncoder(...),\n                                 ['categorical_column'])])"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2021-09-24"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.covariance.EmpiricalCovariance.html",
+    "api": "sklearn.covariance.EmpiricalCovariance",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "Two attributes, `n_features_in_` and `feature_names_in_`, were added in version 0.24 and 1.0, respectively, to improve support for feature inspection and consistency in dimensionality checks during `fit`.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.covariance import EmpiricalCovariance\nfrom sklearn.datasets import make_gaussian_quantiles\nimport numpy as np\nreal_cov = np.array([[.8, .3],\n[.3, .4]])\nrng = np.random.RandomState(0)\nX = rng.multivariate_normal(mean=[0, 0],\ncov=real_cov,\nsize=500)\ncov = EmpiricalCovariance().fit(X)\ncov.covariance_\ncov.location_",
+        "output": "array([[0.7569, 0.2818],\n       [0.2818, 0.3928]])\narray([0.0622, 0.0193])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.covariance.GraphicalLassoCV.html",
+    "api": "sklearn.covariance.GraphicalLassoCV",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "GraphicalLassoCV",
+    "change_type": "API Deprecation",
+    "reason": "The API `GraphLassoCV` was renamed to `GraphicalLassoCV` for clarity and consistency within the scikit-learn library.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.covariance import GraphicalLassoCV\nimport numpy as np\ntrue_cov = np.array([[0.8, 0.0, 0.2, 0.0],\n[0.0, 0.4, 0.0, 0.0],\n[0.2, 0.0, 0.3, 0.1],\n[0.0, 0.0, 0.1, 0.7]])\nnp.random.seed(0)\nX = np.random.multivariate_normal(mean=[0, 0, 0, 0],\ncov=true_cov,\nsize=200)\ncov = GraphicalLassoCV().fit(X)\nnp.around(cov.covariance_, decimals=3)\nnp.around(cov.location_, decimals=3)",
+        "output": "array([[0.816, 0.051, 0.22 , 0.017],\n       [0.051, 0.364, 0.018, 0.036],\n       [0.22 , 0.018, 0.322, 0.094],\n       [0.017, 0.036, 0.094, 0.69 ]])\narray([0.073, 0.04 , 0.038, 0.143])"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/whats_new/v0.20.html",
+    "api": "sklearn.covariance.GraphLasso",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.20.0",
+    "removed_in": "",
+    "replaced_by": "GraphLassoCV",
+    "change_type": "API Deprecation",
+    "reason": "The API was renamed to improve clarity and alignment with consistent naming conventions within scikit-learn.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.covariance.graphical_lasso.html#sklearn.covariance.graphical_lasso",
+    "api": "sklearn.covariance.graphical_lasso",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "graphical_lasso",
+    "change_type": "API Deprecation",
+    "reason": "The original API name `graph_lasso` was renamed to `graphical_lasso` for better clarity and consistency in naming conventions.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.covariance import empirical_covariance, graphical_lasso\nfrom sklearn.datasets import make_sparse_spd_matrix\nimport numpy as np\ntrue_cov = make_sparse_spd_matrix(n_dim=3,random_state=42)\nrng = np.random.RandomState(42)\nX = rng.multivariate_normal(mean=np.zeros(3), cov=true_cov, size=3)\nemp_cov = empirical_covariance(X, assume_centered=True)\nemp_cov, _ = graphical_lasso(emp_cov, alpha=0.05)\nemp_cov",
+        "output": "array([[ 1.687,  0.212, -0.209],\n       [ 0.212,  0.221, -0.0817],\n       [-0.209, -0.0817, 0.232]])"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/whats_new/v1.3.html",
+    "api": "sklearn.cross_decomposition.CCA",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "1.3.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "Metadata routing mechanisms were introduced for better handling of auxiliary data and to improve the flexibility when CCA is used within meta-estimators.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2023-06-30"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.cross_decomposition.PLSRegression.html#sklearn.cross_decomposition.PLSRegression",
+    "api": "sklearn.cross_decomposition.PLSRegression",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "In version 1.3, `set_predict_request`, `set_score_request`, and `set_transform_request` methods were added to configure metadata routing for predict, score, and transform methods, respectively. These changes were made to enable more flexibility when used as a sub-estimator within meta-estimators.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.cross_decomposition import PLSRegression\nX = [[0., 0., 1.], [1.,0.,0.], [2.,2.,2.], [2.,5.,4.]]\ny = [[0.1, -0.2], [0.9, 1.1], [6.2, 5.9], [11.9, 12.3]]\npls2 = PLSRegression(n_components=2)\npls2.fit(X, y)\ny_pred = pls2.predict(X)",
+        "output": "PLSRegression()"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/whats_new/v0.17.html#sklearn-datasets-dump-svmlight-file",
+    "api": "sklearn.datasets.dump_svmlight_file",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "multilabel",
+    "change_type": "Parameter Change",
+    "reason": "Support for multilabel datasets was added in version 0.17, introducing the `multilabel` parameter.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/whats_new/v0.24.html#id15",
+    "api": "sklearn.datasets.fetch_file",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "",
+    "reason": "",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html",
+    "api": "sklearn.datasets.load_digits",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The `return_X_y` parameter was added in version 0.18 to simplify the return value by directly separating the data and target variables into a tuple, rather than returning a Bunch object.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/whats_new/v1.2.html#id25",
+    "api": "sklearn.datasets.load_svmlight_files",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "Support for Path-like objects was added to enhance compatibility with modern file handling and Python libraries.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_svmlight_file.html",
+    "api": "sklearn.datasets.load_svmlight_file",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The `f` parameter now accepts path-like objects in addition to strings, file-like objects, and integers. This changes the allowed types for better compatibility with modern file system APIs.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/whats_new/v1.7.html",
+    "api": "sklearn.cluster.compute_optics_graph",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "1.9.0",
+    "removed_in": "1.11.0",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "`kulsinski` metric was deprecated in SciPy 1.9 and slated for removal in SciPy 1.11 due to better alternatives or reduced usage.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html",
+    "api": "sklearn.datasets.make_blobs",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "In version 0.20, the `n_samples` parameter was updated to accept array-like inputs for specifying the number of samples per cluster, improving flexibility.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.datasets import make_blobs\nX, y = make_blobs(n_samples=10, centers=3, n_features=2,\nrandom_state=0)\nprint(X.shape)\ny\nX, y = make_blobs(n_samples=[3, 3, 4], centers=None, n_features=2,\nrandom_state=0)\nprint(X.shape)\ny",
+        "output": "(10, 2)\narray([0, 0, 1, 0, 2, 2, 2, 1, 1, 0])\n(10, 2)\narray([0, 1, 2, 0, 2, 2, 2, 1, 1, 0])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_circles.html",
+    "api": "sklearn.datasets.make_circles",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "Support for generating circles with different numbers of points in inner and outer circles by introducing a two-element tuple format for the `n_samples` parameter.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.datasets import make_circles\nX, y = make_circles(random_state=42)\nX.shape\ny.shape\nlist(y[:5])",
+        "output": "(100, 2)\n(100,)\n[np.int64(1), np.int64(1), np.int64(1), np.int64(0), np.int64(0)]"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_moons.html#sklearn.datasets.make_moons",
+    "api": "sklearn.datasets.make_moons",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The `n_samples` parameter was updated to support a two-element tuple to allow specifying the number of samples per moon. This change provides better flexibility for users to customize the dataset according to their needs.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.datasets import make_moons\nX, y = make_moons(n_samples=200, noise=0.2, random_state=42)\nX.shape\ny.shape",
+        "output": "(200, 2)\n(200,)"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_sparse_spd_matrix.html",
+    "api": "sklearn.datasets.make_sparse_spd_matrix",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "n_dim",
+    "change_type": "Parameter Change",
+    "reason": "The parameter `dim` was renamed to `n_dim` to better reflect its purpose and align it with naming conventions.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.datasets import make_sparse_spd_matrix\nmake_sparse_spd_matrix(n_dim=4, norm_diag=False, random_state=42)",
+        "output": "array([[1., 0., 0., 0.],\n       [0., 1., 0., 0.],\n       [0., 0., 1., 0.],\n       [0., 0., 0., 1.]])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/whats_new/v1.3.html",
+    "api": "sklearn.decomposition.FastICA",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The default value of the `whiten` parameter was updated to ensure better numerical stability and alignment with common use cases.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.KernelPCA.html",
+    "api": "sklearn.decomposition.KernelPCA",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "Enhancement to support randomized truncated SVD via Halko et al.'s method for certain conditions where n_components is much less than the number of training samples.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.datasets import load_digits\nfrom sklearn.decomposition import KernelPCA\nX, _ = load_digits(return_X_y=True)\ntransformer = KernelPCA(n_components=7, kernel='linear')\nX_transformed = transformer.fit_transform(X)\nX_transformed.shape",
+        "output": "(1797, 7)"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.LatentDirichletAllocation.html#sklearn.decomposition.LatentDirichletAllocation",
+    "api": "sklearn.decomposition.LatentDirichletAllocation",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "n_components",
+    "change_type": "Parameter Change",
+    "reason": "The parameter `n_topics` was renamed to `n_components` for improved clarity and consistency in naming conventions.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.datasets import make_multilabel_classification\nfrom sklearn.decomposition import LatentDirichletAllocation\n# This produces a feature matrix of token counts, similar to what\n# CountVectorizer would produce on text.\nX, _ = make_multilabel_classification(random_state=0)\nlda = LatentDirichletAllocation(n_components=5,\nrandom_state=0)\nlda.fit(X)\n# get topics for some given samples:\nlda.transform(X[-2:])",
+        "output": "LatentDirichletAllocation(...)\narray([[0.00360392, 0.25499205, 0.0036211 , 0.64236448, 0.09541846],\n       [0.15297572, 0.00362644, 0.44412786, 0.39568399, 0.003586  ]])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.MiniBatchSparsePCA.html",
+    "api": "sklearn.decomposition.MiniBatchSparsePCA",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "Introduction of early stopping based on the norm of the differences in the dictionary between 2 steps and smoothed cost function in later versions as well as additional parameters for optimization to enhance performance and flexibility.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.datasets import make_friedman1\nfrom sklearn.decomposition import MiniBatchSparsePCA\nimport numpy as np\nX, _ = make_friedman1(n_samples=200, n_features=30, random_state=0)\ntransformer = MiniBatchSparsePCA(n_components=5, batch_size=50,\nmax_iter=10, random_state=0)\ntransformer.fit(X)\nX_transformed = transformer.transform(X)\nX_transformed.shape\n# most values in the components_ are zero (sparsity)\nnp.mean(transformer.components_ == 0)",
+        "output": "MiniBatchSparsePCA(...)\n(200, 5)\nnp.float64(0.9)"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.SparsePCA.html#sklearn.decomposition.SparsePCA",
+    "api": "sklearn.decomposition.SparsePCA",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "covariance_eigh",
+    "change_type": "Parameter Change",
+    "reason": "The 'covariance_eigh' solver was added to improve efficiency for large datasets where n_samples >> n_features and small n_features. This solver is less numerically stable than the 'full' solver but offers better performance for specific cases.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.datasets import make_friedman1\nfrom sklearn.decomposition import SparsePCA\nimport numpy as np\nX, _ = make_friedman1(n_samples=200, n_features=30, random_state=0)\ntransformer = SparsePCA(n_components=5, random_state=0)\ntransformer.fit(X)\nX_transformed = transformer.transform(X)\nX_transformed.shape\n# most values in the components_ are zero (sparsity)\nnp.mean(transformer.components_ == 0)",
+        "output": "SparsePCA(...)\n(200, 5)\nnp.float64(0.9666)"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.fastica.html",
+    "api": "sklearn.decomposition.fastica",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The default value of the 'whiten' parameter was changed from False to 'unit-variance' to enhance clarity in the whitening strategy and ensure consistency with user expectations.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis.html",
+    "api": "sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "store_covariance",
+    "change_type": "Parameter Change",
+    "reason": "The `store_covariances` parameter was moved to the main constructor as `store_covariance` for improved consistency across scikit-learn estimator APIs. Similarly, the `tol` parameter was also moved to the main constructor, allowing for better configuration of the class.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis\nimport numpy as np\nX = np.array([[-1, -1], [-2, -1], [-3, -2], [1, 1], [2, 1], [3, 2]])\ny = np.array([1, 1, 1, 2, 2, 2])\nclf = QuadraticDiscriminantAnalysis()\nclf.fit(X, y)\nprint(clf.predict([[-0.8, -1]]))",
+        "output": "QuadraticDiscriminantAnalysis()\n[1]"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html",
+    "api": "sklearn.dummy.DummyClassifier",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The `strategy` parameter's default value was updated from 'most_frequent' to 'prior' in version 0.24.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.dummy import DummyClassifier\nimport numpy as np\nX = np.array([-1, 1, 1, 1])\ny = np.array([0, 1, 1, 1])\ndummy_clf = DummyClassifier(strategy=\"most_frequent\")\ndummy_clf.fit(X, y)\ndummy_clf.predict(X)\ndummy_clf.score(X, y)",
+        "output": "DummyClassifier(strategy='most_frequent')\narray([1, 1, 1, 1])\n0.75"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html",
+    "api": "sklearn.ensemble.AdaBoostClassifier",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "1.6.0",
+    "removed_in": "1.8.0",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The `algorithm` parameter was deprecated in version 1.6 because the `AdaBoostClassifier` only implements the ‘SAMME’ algorithm, making the parameter redundant. It will be removed in version 1.8.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.datasets import make_classification\nfrom sklearn.ensemble import AdaBoostClassifier\nX, y = make_classification(n_samples=1000, n_features=4,\nn_informative=2, n_redundant=0,\nrandom_state=0, shuffle=False)\nclf = AdaBoostClassifier(n_estimators=100, random_state=0)\nclf.fit(X, y)\nclf.predict([[0, 0, 0, 0]])\nclf.score(X, y)",
+        "output": "AdaBoostClassifier(n_estimators=100, random_state=0)\narray([1])\n0.96"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2025-12-10"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/whats_new/v0.24.html#id14",
+    "api": "sklearn.ensemble.AdaBoostRegressor",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "estimator",
+    "change_type": "Parameter Change",
+    "reason": "Rename of 'base_estimator' parameter to 'estimator' for better consistency and clarity in the API.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.BaggingClassifier.html#sklearn.ensemble.BaggingClassifier",
+    "api": "sklearn.ensemble.BaggingClassifier",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "estimator",
+    "change_type": "Parameter Change",
+    "reason": "The `base_estimator` parameter was renamed to `estimator` for consistency and clarity in parameter naming.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.datasets import make_classification\nfrom sklearn.ensemble import BaggingClassifier\nfrom sklearn.svm import SVC\nX, y = make_classification(n_samples=100, n_features=4,\nn_informative=2, n_redundant=0,\nrandom_state=0, shuffle=False)",
+        "output": ""
+      },
+      {
+        "code": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nclf = BaggingClassifier(estimator=SVC(),\nn_estimators=10, random_state=0).fit(X, y)\nclf.predict([[0, 0, 0, 0]])",
+        "output": "array([1])"
+      }
+    ],
+    "examples_count": 2,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.BaggingRegressor.html#sklearn.ensemble.BaggingRegressor",
+    "api": "sklearn.ensemble.BaggingRegressor",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "Renaming for better alignment with naming conventions and clarity.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.datasets import make_regression\nfrom sklearn.ensemble import BaggingRegressor\nfrom sklearn.svm import SVR\nX, y = make_regression(n_samples=100, n_features=4,\nn_informative=2, n_targets=1,\nrandom_state=0, shuffle=False)\nregr = BaggingRegressor(estimator=SVR(),\nn_estimators=10, random_state=0).fit(X, y)\nregr.predict([[0, 0, 0, 0]])",
+        "output": "array([-2.8720])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html",
+    "api": "sklearn.ensemble.GradientBoostingClassifier",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "HistGradientBoostingClassifier",
+    "change_type": "Behavior Change",
+    "reason": "HistGradientBoostingClassifier is a much faster variant of GradientBoostingClassifier for intermediate and large datasets (n_samples >= 10,000), supporting monotonic constraints.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html",
+    "api": "sklearn.ensemble.GradientBoostingRegressor",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "HistGradientBoostingRegressor",
+    "change_type": "Behavior Change",
+    "reason": "HistGradientBoostingRegressor was introduced as a faster variant optimized for intermediate and large datasets.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.datasets import make_regression\nfrom sklearn.ensemble import GradientBoostingRegressor\nfrom sklearn.model_selection import train_test_split\nX, y = make_regression(random_state=0)",
+        "output": ""
+      },
+      {
+        "code": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nX_train, X_test, y_train, y_test = train_test_split(\nX, y, random_state=0)\nreg = GradientBoostingRegressor(random_state=0)\nreg.fit(X_train, y_train)\nreg.predict(X_test[1:2])\nreg.score(X_test, y_test)",
+        "output": "GradientBoostingRegressor(random_state=0)\narray([-61.1])\n0.4..."
+      }
+    ],
+    "examples_count": 2,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html",
+    "api": "sklearn.ensemble.RandomForestClassifier",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "estimator_",
+    "change_type": "Parameter Change",
+    "reason": "To provide consistent parameter naming across the library. The 'base_estimator_' was renamed to 'estimator_'.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.datasets import make_classification\nfrom sklearn.ensemble import RandomForestClassifier\nX, y = make_classification(n_samples=1000, n_features=4,\nn_informative=2, n_redundant=0,\nrandom_state=0, shuffle=False)\nclf = RandomForestClassifier(max_depth=2, random_state=0)\nclf.fit(X, y)\nprint(clf.predict([[0, 0, 0, 0]]))",
+        "output": "RandomForestClassifier(...)\n[1]"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/1.7.2/modules/generated/sklearn.ensemble.VotingRegressor.html",
+    "api": "sklearn.ensemble.VotingRegressor",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "1.7.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "Improved clarity and usability - the 'None' value did not adequately communicate intent for dropping estimators.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2025-06-05"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.VotingClassifier.html",
+    "api": "sklearn.ensemble.VotingClassifier",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "To provide an explicit and clear mechanism for dropping estimators from the ensemble, enabling better functionality and usage.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.ensemble import RandomForestClassifier, VotingClassifier\nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.naive_bayes import GaussianNB\nimport numpy as np\nclf1 = LogisticRegression(random_state=1)\nclf2 = RandomForestClassifier(n_estimators=50, random_state=1)\nclf3 = GaussianNB()\nX = np.array([[-1, -1], [-2, -1], [-3, -2], [1, 1], [2, 1], [3, 2]])\ny = np.array([1, 1, 1, 2, 2, 2])\neclf1 = VotingClassifier(estimators=[\n('lr', clf1), ('rf', clf2), ('gnb', clf3)], voting='hard')\neclf1 = eclf1.fit(X, y)\nprint(eclf1.predict(X))\nnp.array_equal(eclf1.named_estimators_.lr.predict(X),\neclf1.named_estimators_['lr'].predict(X))\neclf2 = VotingClassifier(estimators=[\n('lr', clf1), ('rf', clf2), ('gnb', clf3)],\nvoting='soft')\neclf2 = eclf2.fit(X, y)\nprint(eclf2.predict(X))",
+        "output": "[1 1 1 2 2 2]\nTrue\n[1 1 1 2 2 2]"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.utils.as_float_array.html#sklearn.utils.as_float_array",
+    "api": "sklearn.utils.as_float_array",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "1.7.0",
+    "removed_in": "1.8.0",
+    "replaced_by": "ensure_all_finite",
+    "change_type": "API Deprecation",
+    "reason": "The parameter `force_all_finite` was renamed to `ensure_all_finite` for clarity and consistency with behavior changes. Deprecated usage will be removed in version 1.8.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.utils import as_float_array\nimport numpy as np\narray = np.array([0, 0, 1, 2, 2], dtype=np.int64)\nas_float_array(array)",
+        "output": "array([0., 0., 1., 2., 2.])"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2025-12-10"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.utils.estimator_html_repr.html",
+    "api": "sklearn.utils.estimator_html_repr",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "Updated to enhance the visualization capabilities and improve usability for representing estimators in HTML.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.linear_model import LogisticRegression\nfrom sklearn.utils._repr_html.estimator import estimator_html_repr\nestimator_html_repr(LogisticRegression())",
+        "output": "'<style>#sk-container-id...'"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.utils.gen_batches.html",
+    "api": "sklearn.utils.gen_batches",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "gen_even_slices",
+    "change_type": "API Deprecation",
+    "reason": "The gen_batches API was deprecated due to its limited utility compared to gen_even_slices, which offers more versatile functionality for generating batch slices.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.utils import gen_batches\nlist(gen_batches(7, 3))\nlist(gen_batches(6, 3))\nlist(gen_batches(2, 3))\nlist(gen_batches(7, 3, min_batch_size=0))\nlist(gen_batches(7, 3, min_batch_size=2))",
+        "output": "[slice(0, 3, None), slice(3, 6, None), slice(6, 7, None)]\n[slice(0, 3, None), slice(3, 6, None)]\n[slice(0, 2, None)]\n[slice(0, 3, None), slice(3, 6, None), slice(6, 7, None)]\n[slice(0, 3, None), slice(3, 7, None)]"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.utils.shuffle.html",
+    "api": "sklearn.utils.shuffle",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "resample",
+    "change_type": "API Deprecation",
+    "reason": "The `shuffle` function was deprecated to encourage users to use the more generalized and preferred `resample` function for consistent random permutation of collections. The change improves usability and aligns with other functionality provided by the `resample` function.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/whats_new/v1.6.html#get-tags-api-change",
+    "api": "sklearn.utils.get_tags",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "1.6.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "Fallback mechanism introduced for non-BaseEstimator classes to ensure appropriate tag retrieval.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2024-12-09"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.utils.check_array.html#sklearn.utils.check_array",
+    "api": "sklearn.utils.validation.check_array",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "1.7.0",
+    "removed_in": "1.8.0",
+    "replaced_by": "ensure_all_finite",
+    "change_type": "API Deprecation",
+    "reason": "The parameter `force_all_finite` has been renamed to `ensure_all_finite` for better clarity and consistency. The `force_all_finite` parameter will be removed entirely in version 1.8.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.utils.validation import check_array\nX = [[1, 2, 3], [4, 5, 6]]\nX_checked = check_array(X)\nX_checked",
+        "output": "array([[1, 2, 3], [4, 5, 6]])"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2025-12-10"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.utils.validation.column_or_1d.html#sklearn.utils.validation.column_or_1d",
+    "api": "sklearn.utils.validation.column_or_1d",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "Addition of new optional `device` parameter to support Array API User Guide compatibility and extend functionality.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.utils.validation import column_or_1d\ncolumn_or_1d([1, 1])",
+        "output": "array([1, 1])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.utils.multiclass.type_of_target.html#sklearn.utils.multiclass.type_of_target",
+    "api": "sklearn.utils.multiclass.type_of_target",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "Addition of new parameters to improve functionality and error handling.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.utils.multiclass import type_of_target\nimport numpy as np\ntype_of_target([0.1, 0.6])\ntype_of_target([1, -1, -1, 1])\ntype_of_target(['a', 'b', 'a'])\ntype_of_target([1.0, 2.0])\ntype_of_target([1, 0, 2])\ntype_of_target([1.0, 0.0, 3.0])\ntype_of_target(['a', 'b', 'c'])\ntype_of_target(np.array([[1, 2], [3, 1]]))\ntype_of_target([[1, 2]])\ntype_of_target(np.array([[1.5, 2.0], [3.0, 1.6]]))\ntype_of_target(np.array([[0, 1], [1, 1]]))",
+        "output": "'continuous'\n'binary'\n'binary'\n'binary'\n'multiclass'\n'multiclass'\n'multiclass'\n'multiclass-multioutput'\n'multilabel-indicator'\n'continuous-multioutput'\n'multilabel-indicator'"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.utils.extmath.randomized_range_finder.html",
+    "api": "sklearn.utils.extmath.randomized_range_finder",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The parameter `power_iteration_normalizer` was added in version 0.18 to address numerical stability issues with using power iterations in matrix decomposition.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.utils.extmath import randomized_range_finder\nimport numpy as np\nA = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nrandomized_range_finder(A, size=2, n_iter=2, random_state=42)",
+        "output": "array([[-0.214,  0.887],\n       [-0.521,  0.249],\n       [-0.826, -0.388]])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/whats_new/v_1.3.html",
+    "api": "sklearn.utils.metadata_routing.MetadataRequest",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "1.3.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "Metadata routing updates to provide improved parameter management for consumer classes and simplify code interaction.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2023-06-30"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/whats_new/v0.24.html#id8",
+    "api": "sklearn.utils.estimator_checks.parametrize_with_checks",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.23.0",
+    "removed_in": "0.24.0",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "Passing classes to `estimators` was deprecated in version 0.23 to ensure better conformance to scikit-learn conventions. Support for class-based input was removed in version 0.24 to enforce stricter standards.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/whats_new/v1.6.html",
+    "api": "sklearn.utils.estimator_checks.estimator_checks_generator",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "1.6.0",
+    "removed_in": "",
+    "replaced_by": "parametrize_with_checks, check_estimator",
+    "change_type": "API Deprecation",
+    "reason": "The function should be used primarily through parametrize_with_checks or check_estimator.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2024-12-09"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/whats_new/v1.3.html",
+    "api": "sklearn.utils.parallel.delayed",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "1.3.0",
+    "replaced_by": "sklearn.utils.parallel.delayed",
+    "change_type": "API Removal",
+    "reason": "The `delayed` function was moved from `sklearn.utils.fixes` to `sklearn.utils.parallel` in version 1.3 to streamline functionality and provide better modularization within the scikit-learn library.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2023-06-30"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.utils.check_X_y.html#sklearn.utils.check_X_y",
+    "api": "sklearn.utils.check_X_y",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "ensure_all_finite",
+    "change_type": "Parameter Change",
+    "reason": "Renaming of the parameter `force_all_finite` to `ensure_all_finite` for more clarity and consistency moving forward.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.utils.validation import check_X_y\nX = [[1, 2], [3, 4], [5, 6]]\ny = [1, 2, 3]\nX, y = check_X_y(X, y)\nX\ny",
+        "output": "array([[1, 2],\n      [3, 4],\n      [5, 6]])\narray([1, 2, 3])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/whats_new/v1.3.html#id6",
+    "api": "sklearn.utils.parallel.Parallel",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "joblib.Parallel",
+    "change_type": "Behavior Change",
+    "reason": "The `sklearn.utils.parallel.Parallel` API was introduced in version 1.3 as a tweak of `joblib.Parallel`. It propagates the scikit-learn configuration to parallel workers during task execution, effectively enhancing compatibility and configuration management.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.tree.export_graphviz.html",
+    "api": "sklearn.tree.export_graphviz",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The default value of the `out_file` parameter was changed from \"tree.dot\" to `None` to align with best practices and allow for easier handling of outputs as strings without requiring file creation.",
+    "has_examples": true,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.tree.export_text.html",
+    "api": "sklearn.tree.export_text",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The `class_names` parameter was added in version 1.3 to improve flexibility of naming target classes for classification tasks.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.datasets import load_iris\nfrom sklearn.tree import DecisionTreeClassifier\nfrom sklearn.tree import export_text\niris = load_iris()\nX = iris['data']\ny = iris['target']\ndecision_tree = DecisionTreeClassifier(random_state=0, max_depth=2)\ndecision_tree = decision_tree.fit(X, y)\nr = export_text(decision_tree, feature_names=iris['feature_names'])\nprint(r)",
+        "output": "|--- petal width (cm) <= 0.80\n|   |--- class: 0\n|--- petal width (cm) >  0.80\n|   |--- petal width (cm) <= 1.75\n|   |   |--- class: 1\n|   |--- petal width (cm) >  1.75\n|   |   |--- class: 2"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVR.html#sklearn.svm.LinearSVR",
+    "api": "sklearn.svm.LinearSVR",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The `dual` parameter's new `\"auto\"` option was introduced to handle situations where the number of samples (n_samples) is less than the number of features (n_features) more effectively. This ensures automatic selection of dual optimization when applicable.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.datasets import make_regression\nfrom sklearn.pipeline import make_pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.svm import LinearSVR\nX, y = make_regression(n_features=4, random_state=0)\nregr = make_pipeline(StandardScaler(),\nLinearSVR(random_state=0, tol=1e-5))\nregr.fit(X, y)",
+        "output": "Pipeline(steps=[('standardscaler', StandardScaler()),\n                ('linearsvr', LinearSVR(random_state=0, tol=1e-05))])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html",
+    "api": "sklearn.svm.SVC.decision_function_shape",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "ovr",
+    "change_type": "Parameter Change",
+    "reason": "decision_function_shape='ovo' and None are deprecated; 'ovr' became the recommended approach as it supports standard multi-class strategies.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.pipeline import make_pipeline\nfrom sklearn.preprocessing import StandardScaler\nimport numpy as np\nX = np.array([[-1, -1], [-2, -1], [1, 1], [2, 1]])\ny = np.array([1, 1, 2, 2])",
+        "output": ""
+      },
+      {
+        "code": "from sklearn.svm import SVC\nclf = make_pipeline(StandardScaler(), SVC(gamma='auto'))\nclf.fit(X, y)",
+        "output": "Pipeline(steps=[('standardscaler', StandardScaler()),\n                ('svc', SVC(gamma='auto'))])"
+      }
+    ],
+    "examples_count": 2,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html",
+    "api": "sklearn.svm.OneClassSVM",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "The default value of the `gamma` parameter was changed from 'auto' to 'scale' to improve the performance of the algorithm by using a more appropriate scaling of `gamma` based on the number of features and variance of the data.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.svm import OneClassSVM\nX = [[0], [0.44], [0.45], [0.46], [1]]\nclf = OneClassSVM(gamma='auto').fit(X)\nclf.predict(X)\nclf.score_samples(X)",
+        "output": "array([-1,  1,  1,  1, -1])\narray([1.7798, 2.0547, 2.0556, 2.0561, 1.7332])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.svm.NuSVR.html#sklearn.svm.NuSVR",
+    "api": "sklearn.svm.NuSVR",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The default value for the `gamma` parameter was changed from 'auto' to 'scale' to improve default model performance and stability by making the scaling dependent on the feature dimensions and variance.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.pipeline import make_pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.svm import NuSVR\nimport numpy as np\nn_samples, n_features = 10, 5\nnp.random.seed(0)\ny = np.random.randn(n_samples)\nX = np.random.randn(n_samples, n_features)\nregr = make_pipeline(StandardScaler(), NuSVR(C=1.0, nu=0.1))\nregr.fit(X, y)",
+        "output": "Pipeline(steps=[('standardscaler', StandardScaler()),\n                ('nusvr', NuSVR(nu=0.1))])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.svm.NuSVC.html",
+    "api": "sklearn.svm.NuSVC",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.17.0",
+    "removed_in": "",
+    "replaced_by": "decision_function_shape='ovr'",
+    "change_type": "Parameter Change",
+    "reason": "The `decision_function_shape='ovo'` and `None` options in the `NuSVC` classifier's `decision_function_shape` parameter were deprecated in version 0.17. This was due to the recommendation to standardize the decision function shape to default as `ovr` (one-vs-rest) for uniformity across classifiers and consistency in handling multi-class strategies.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "import numpy as np\nX = np.array([[-1, -1], [-2, -1], [1, 1], [2, 1]])\ny = np.array([1, 1, 2, 2])",
+        "output": ""
+      },
+      {
+        "code": "from sklearn.pipeline import make_pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.svm import NuSVC\nclf = make_pipeline(StandardScaler(), NuSVC())\nclf.fit(X, y)\nprint(clf.predict([[-0.8, -1]]))",
+        "output": "Pipeline(steps=[('standardscaler', StandardScaler()), ('nusvc', NuSVC())])\n[1]"
+      }
+    ],
+    "examples_count": 2,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/",
+    "api": "sklearn.pipeline.FeatureUnion",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "drop",
+    "change_type": "Parameter Change",
+    "reason": "The use of `None` as a transformer was deprecated in favor of `drop` to improve clarity and maintain consistency within the scikit-learn framework.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_union.html",
+    "api": "sklearn.pipeline.make_union",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The default value of the `n_jobs` parameter was changed from 1 to None to make better use of parallel processing by default and to align with the global behavior of the `joblib.parallel_backend` context.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.decomposition import PCA, TruncatedSVD\nfrom sklearn.pipeline import make_union\nmake_union(PCA(), TruncatedSVD())",
+        "output": "FeatureUnion(transformer_list=[('pca', PCA()),\n                               ('truncatedsvd', TruncatedSVD())])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.FunctionTransformer.html",
+    "api": "sklearn.preprocessing.FunctionTransformer",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The default value for the 'validate' parameter was changed from True to False to better reflect real-world usage and to improve performance for instances where validation is unnecessary.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.preprocessing import FunctionTransformer\nimport numpy as np\ntransformer = FunctionTransformer(np.log1p)\nX = np.array([[0, 1], [2, 3]])\ntransformer.transform(X)",
+        "output": "array([[0.       , 0.6931],\n       [1.0986, 1.3862]])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelBinarizer.html",
+    "api": "sklearn.preprocessing.LabelBinarizer",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "Starting from version 1.3, the API added a new feature to configure metadata routing for the `inverse_transform` method through the `set_inverse_transform_request` function.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.preprocessing import LabelBinarizer\nlb = LabelBinarizer()\nlb.fit([1, 2, 6, 4, 2])\nlb.classes_\nlb.transform([1, 6])",
+        "output": "LabelBinarizer()\narray([1, 2, 4, 6])\narray([[1, 0, 0, 0],\n       [0, 0, 0, 1]])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MaxAbsScaler.html",
+    "api": "sklearn.preprocessing.MaxAbsScaler",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "MaxAbsScaler scales each feature individually such that the maximal absolute value will be equal to 1, without shifting or centering the data. The scaling behavior involving NaNs was clarified in the documentation, treating them as missing values.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.preprocessing import MaxAbsScaler\nX = [[ 1., -1.,  2.],\n[ 2.,  0.,  0.],\n[ 0.,  1., -1.]]\ntransformer = MaxAbsScaler().fit(X)\ntransformer\ntransformer.transform(X)",
+        "output": "MaxAbsScaler()\narray([[ 0.5, -1. ,  1. ],\n       [ 1. ,  0. ,  0. ],\n       [ 0. ,  1. , -0.5]])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.binarize.html",
+    "api": "sklearn.preprocessing.binarize",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "To conform to the Transformer API for streamlined integration into preprocessing pipelines, ensuring consistency and enhancing usability.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.preprocessing import binarize\nX = [[0.4, 0.6, 0.5], [0.6, 0.1, 0.2]]\nbinarize(X, threshold=0.5)",
+        "output": "array([[0., 1., 0.],\n       [1., 0., 0.]])"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.label_binarize.html",
+    "api": "sklearn.preprocessing.label_binarize",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "LabelBinarizer",
+    "change_type": "API Deprecation",
+    "reason": "LabelBinarizer allows for fitting to classes independently of the transform operation, providing extended functionality over `label_binarize`.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.preprocessing import label_binarize\nlabel_binarize([1, 6], classes=[1, 2, 4, 6])",
+        "output": "array([[1, 0, 0, 0],\n       [0, 0, 0, 1]])"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.maxabs_scale.html",
+    "api": "sklearn.preprocessing.maxabs_scale",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "MaxAbsScaler",
+    "change_type": "Behavior Change",
+    "reason": "maxabs_scale can lead to data leakage risks when applied incorrectly on the entire dataset instead of properly using it within a pipeline. Using MaxAbsScaler in a pipeline better prevents data leakage.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.preprocessing import maxabs_scale\nX = [[-2, 1, 2], [-1, 0, 1]]\nmaxabs_scale(X, axis=0)  # scale each column independently\nmaxabs_scale(X, axis=1)  # scale each row independently",
+        "output": "array([[-1. ,  1. ,  1. ],\n       [-0.5,  0. ,  0.5]])\narray([[-1. ,  0.5,  1. ],\n       [-1. ,  0. ,  1. ]])"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/dev/developers/develop.html",
+    "api": "sklearn.utils.estimator_checks.check_estimator",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "estimator_checks_generator",
+    "change_type": "API Deprecation",
+    "reason": "The `generate_only` parameter in the `check_estimator` function was deprecated to streamline the API and avoid redundancy. The new `estimator_checks_generator` is introduced to serve the same functionality more effectively.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.minmax_scale.html",
+    "api": "sklearn.preprocessing.minmax_scale",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "Transformer API",
+    "change_type": "API Deprecation",
+    "reason": "To encourage usage of the Transformer API for pipeline-based data preprocessing, which reduces risks of data leakage during model evaluation and ensures alignment with the scikit-learn pipeline framework.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.preprocessing import minmax_scale\nX = [[-2, 1, 2], [-1, 0, 1]]\nminmax_scale(X, axis=0)  # scale each column independently\nminmax_scale(X, axis=1)  # scale each row independently",
+        "output": "array([[0., 1., 1.],\n       [1., 0., 0.]])\narray([[0.  , 0.75, 1.  ],\n       [0.  , 0.5 , 1.  ]])"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.normalize.html",
+    "api": "sklearn.preprocessing.normalize",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "Normalizer",
+    "change_type": "Behavior Change",
+    "reason": "The `Normalizer` using the Transformer API is preferred for preprocessing pipelines and offers improved flexibility and integration.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.preprocessing import normalize\nX = [[-2, 1, 2], [-1, 0, 1]]\nnormalize(X, norm=\"l1\")  # L1 normalization each row independently\nnormalize(X, norm=\"l2\")  # L2 normalization each row independently",
+        "output": "array([[-0.4,  0.2,  0.4],\n       [-0.5,  0. ,  0.5]])\narray([[-0.67, 0.33, 0.67],\n       [-0.71, 0.  , 0.71]])"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.power_transform.html",
+    "api": "sklearn.preprocessing.power_transform",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "Default value of the 'method' parameter changed from 'box-cox' to 'yeo-johnson' to support transforming both positive and negative data, whereas 'box-cox' only supports strictly positive values.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.preprocessing import power_transform\nimport numpy as np\ndata = [[1, 2], [3, 2], [4, 5]]\nprint(power_transform(data, method='box-cox'))",
+        "output": "[[-1.332 -0.707]\n [ 0.256 -0.707]\n [ 1.076  1.414]]"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.quantile_transform.html",
+    "api": "sklearn.preprocessing.quantile_transform",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "Transformer API",
+    "change_type": "Parameter Change",
+    "reason": "Performance optimization and better control over preprocessing steps, including reducing data leakage risks by using Transformer API.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.preprocessing import quantile_transform\nimport numpy as np\nrng = np.random.RandomState(0)\nX = np.sort(rng.normal(loc=0.5, scale=0.25, size=(25, 1)), axis=0)\nquantile_transform(X, n_quantiles=10, random_state=0, copy=True)",
+        "output": "array([...])"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.robust_scale.html",
+    "api": "sklearn.preprocessing.robust_scale",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "RobustScaler",
+    "change_type": "API Deprecation",
+    "reason": "The `robust_scale` API, while functional, risks data leaking during model evaluation if not used correctly. The newer `RobustScaler` API, used within a `Pipeline`, reduces the risks associated with data leakage and aligns better with scikit-learn's recommended practices.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.preprocessing import robust_scale\nX = [[-2, 1, 2], [-1, 0, 1]]\nrobust_scale(X, axis=0)  # scale each column independently\nrobust_scale(X, axis=1)  # scale each row independently",
+        "output": "array([[-1.,  1.,  1.],\n       [ 1., -1., -1.]])\narray([[-1.5,  0. ,  0.5],\n       [-1. ,  0. ,  1. ]])"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.scale.html",
+    "api": "sklearn.preprocessing.scale",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "Using ‘scale’ before splitting data into training and test sets can lead to data leakage resulting in biased model evaluations.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.preprocessing import scale\nX = [[-2, 1, 2], [-1, 0, 1]]\nscale(X, axis=0)  # scaling each column independently\nscale(X, axis=1)  # scaling each row independently",
+        "output": "array([[-1.,  1.,  1.],\n       [ 1., -1., -1.]])\narray([[-1.37,  0.39,  0.98],\n       [-1.22,  0.     ,  1.22]])"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.NearestCentroid.html#sklearn.neighbors.NearestCentroid",
+    "api": "sklearn.neighbors.NearestCentroid",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "Metrics other than 'euclidean' and 'manhattan' were deprecated in this version to streamline the functionality and support a more focused feature set.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.neighbors import NearestCentroid\nimport numpy as np\nX = np.array([[-1, -1], [-2, -1], [-3, -2], [1, 1], [2, 1], [3, 2]])\ny = np.array([1, 1, 1, 2, 2, 2])\nclf = NearestCentroid()\nclf.fit(X, y)\nprint(clf.predict([[-0.8, -1]]))",
+        "output": "NearestCentroid()\n[1]"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/whats_new/v1.4.html",
+    "api": "sklearn.naive_bayes.CategoricalNB",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The default value of the `force_alpha` parameter changed from `False` to `True` to improve numerical stability by avoiding alpha values being set too close to zero.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.check_scoring.html#sklearn.metrics.check_scoring",
+    "api": "sklearn.metrics.check_scoring",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The `raise_exc` parameter was added to improve error handling for multimetric scoring cases, allowing the user to either raise exceptions or handle errors with formatted strings.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.datasets import load_iris\nfrom sklearn.metrics import check_scoring\nfrom sklearn.tree import DecisionTreeClassifier\nX, y = load_iris(return_X_y=True)\nclassifier = DecisionTreeClassifier(max_depth=2).fit(X, y)\nscorer = check_scoring(classifier, scoring='accuracy')\nscorer(classifier, X, y)",
+        "output": "0.96..."
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html#sklearn.preprocessing.Normalizer",
+    "api": "sklearn.preprocessing.Normalizer",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "Introduction of metadata routing for more flexible handling of the `transform` method in meta-estimators.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.preprocessing import Normalizer\nX = [[4, 1, 2, 2],\n[1, 3, 9, 3],\n[5, 7, 5, 1]]\ntransformer = Normalizer().fit(X)  # fit does nothing.\ntransformer\ntransformer.transform(X)",
+        "output": "Normalizer()\narray([[0.8, 0.2, 0.4, 0.4],\n       [0.1, 0.3, 0.9, 0.3],\n       [0.5, 0.7, 0.5, 0.1]])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html",
+    "api": "sklearn.naive_bayes.MultinomialNB",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "force_alpha",
+    "change_type": "Behavior Change",
+    "reason": "The `force_alpha` parameter was introduced in version 1.2 to avoid potential numerical issues when the `alpha` parameter is set to a value less than 1e-10, ensuring it defaults to 1e-10 unless explicitly overridden.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "import numpy as np\nrng = np.random.RandomState(1)\nX = rng.randint(5, size=(6, 100))\ny = np.array([1, 2, 3, 4, 5, 6])",
+        "output": ""
+      },
+      {
+        "code": "from sklearn.naive_bayes import MultinomialNB\nclf = MultinomialNB()\nclf.fit(X, y)\nprint(clf.predict(X[2:3]))",
+        "output": "MultinomialNB()\n[3]"
+      }
+    ],
+    "examples_count": 2,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.make_scorer.html#sklearn.metrics.make_scorer",
+    "api": "sklearn.metrics.make_scorer",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "1.0.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The default behavior of the 'response_method' parameter when set to 'None' (equivalent to 'predict') is deprecated to improve clarity and enforce explicit definitions in scoring. Future versions will require explicit values.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.metrics import fbeta_score, make_scorer\nftwo_scorer = make_scorer(fbeta_score, beta=2)\nftwo_scorer",
+        "output": "make_scorer(fbeta_score, response_method='predict', beta=2)"
+      },
+      {
+        "code": "from sklearn.model_selection import GridSearchCV\nfrom sklearn.svm import LinearSVC\ngrid = GridSearchCV(LinearSVC(), param_grid={'C': [1, 10]},\nscoring=ftwo_scorer)",
+        "output": ""
+      }
+    ],
+    "examples_count": 2,
+    "date": "2021-09-24"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.brier_score_loss.html",
+    "api": "sklearn.metrics.brier_score_loss",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The `scale_by_half` parameter was added to allow more flexibility in the output score range, particularly for binary classification.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.metrics import brier_score_loss\nimport numpy as np\ny_true = np.array([0, 1, 1, 0])\ny_true_categorical = np.array([\"spam\", \"ham\", \"ham\", \"spam\"])\ny_prob = np.array([0.1, 0.9, 0.8, 0.3])\nbrier_score_loss(y_true, y_prob)\nbrier_score_loss(y_true, 1-y_prob, pos_label=0)\nbrier_score_loss(y_true_categorical, y_prob, pos_label=\"ham\")\nbrier_score_loss(y_true, np.array(y_prob) > 0.5)\nbrier_score_loss(y_true, y_prob, scale_by_half=False)\nbrier_score_loss(\n[\"eggs\", \"ham\", \"spam\"],\n[[0.8, 0.1, 0.1], [0.2, 0.7, 0.1], [0.2, 0.2, 0.6]],\nlabels=[\"eggs\", \"ham\", \"spam\"]\n)",
+        "output": "0.0375\n0.0375\n0.0375\n0.0\n0.075\n0.146"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.class_likelihood_ratios.html",
+    "api": "sklearn.metrics.class_likelihood_ratios",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "UndefinedMetricWarning",
+    "change_type": "API Deprecation",
+    "reason": "The `raise_warning` parameter was deprecated in favor of using the `UndefinedMetricWarning` mechanism for division by zero cases, simplifying error handling.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.metrics import class_likelihood_ratios\nimport numpy as np\nclass_likelihood_ratios([0, 1, 0, 1, 0], [1, 1, 0, 0, 0])\ny_true = np.array([\"non-cat\", \"cat\", \"non-cat\", \"cat\", \"non-cat\"])\ny_pred = np.array([\"cat\", \"cat\", \"non-cat\", \"non-cat\", \"non-cat\"])\nclass_likelihood_ratios(y_true, y_pred)\ny_true = np.array([\"non-zebra\", \"zebra\", \"non-zebra\", \"zebra\", \"non-zebra\"])\ny_pred = np.array([\"zebra\", \"zebra\", \"non-zebra\", \"non-zebra\", \"non-zebra\"])\nclass_likelihood_ratios(y_true, y_pred)",
+        "output": "(1.5, 0.75)\n(1.33, 0.66)\n(1.5, 0.75)"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.dcg_score.html",
+    "api": "sklearn.metrics.dcg_score",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "ndcg_score",
+    "change_type": "Behavior Change",
+    "reason": "The `ndcg_score` is preferred as it provides normalized values by dividing the DCG by the ideal DCG, yielding a score between 0 and 1 for easier interpretation.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.metrics import dcg_score\nimport numpy as np\n# we have ground-truth relevance of some answers to a query:\ntrue_relevance = np.asarray([[10, 0, 0, 1, 5]])\n# we predict scores for the answers\nscores = np.asarray([[.1, .2, .3, 4, 70]])\ndcg_score(true_relevance, scores)\n# we can set k to truncate the sum; only top k answers contribute\ndcg_score(true_relevance, scores, k=2)\n# now we have some ties in our prediction\nscores = np.asarray([[1, 0, 0, 0, 1]])\n# by default ties are averaged, so here we get the average true\n# relevance of our top predictions: (10 + 5) / 2 = 7.5\ndcg_score(true_relevance, scores, k=1)\n# we can choose to ignore ties for faster results, but only\n# if we know there aren't ties in our scores, otherwise we get\n# wrong results:\ndcg_score(true_relevance,\nscores, k=1, ignore_ties=True)",
+        "output": "9.49\n5.63\n7.5\n5.0"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.fbeta_score.html#sklearn.metrics.fbeta_score",
+    "api": "sklearn.metrics.fbeta_score",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "Parameter `labels` was improved for handling multiclass problems more effectively. This change provides enhanced functionality for specifying labels to include or exclude during metric calculation, allowing for better handling of multiclass classification scenarios.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.metrics import fbeta_score\nimport numpy as np\ny_true = [0, 1, 2, 0, 1, 2]\ny_pred = [0, 2, 1, 0, 0, 1]\nfbeta_score(y_true, y_pred, average='macro', beta=0.5)\nfbeta_score(y_true, y_pred, average='micro', beta=0.5)\nfbeta_score(y_true, y_pred, average='weighted', beta=0.5)\nfbeta_score(y_true, y_pred, average=None, beta=0.5)\ny_pred_empty = [0, 0, 0, 0, 0, 0]\nfbeta_score(\ny_true,\ny_pred_empty,\naverage=\"macro\",\nzero_division=np.nan,\nbeta=0.5,\n)",
+        "output": "0.238\n0.33\n0.238\narray([0.71, 0.        , 0.        ])\n0.128"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html",
+    "api": "sklearn.metrics.recall_score",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The 'labels' parameter improved for multiclass problem in version 0.17 to handle multiclass classification cases more efficiently.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.metrics import recall_score\nimport numpy as np\ny_true = [0, 1, 2, 0, 1, 2]\ny_pred = [0, 2, 1, 0, 0, 1]\nrecall_score(y_true, y_pred, average='macro')\nrecall_score(y_true, y_pred, average='micro')\nrecall_score(y_true, y_pred, average='weighted')\nrecall_score(y_true, y_pred, average=None)\ny_true = [0, 0, 0, 0, 0, 0]\nrecall_score(y_true, y_pred, average=None)\nrecall_score(y_true, y_pred, average=None, zero_division=1)\nrecall_score(y_true, y_pred, average=None, zero_division=np.nan)",
+        "output": "0.33\n0.33\n0.33\narray([1., 0., 0.])\narray([0.5, 0. , 0. ])\narray([0.5, 1. , 1. ])\narray([0.5, nan, nan])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html",
+    "api": "sklearn.metrics.roc_curve",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The parameter `drop_intermediate` was added to reduce the number of plotted points in ROC space while maintaining visual clarity and ROC AUC accuracy.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn import metrics\nimport numpy as np\ny = np.array([1, 1, 2, 2])\nscores = np.array([0.1, 0.4, 0.35, 0.8])\nfpr, tpr, thresholds = metrics.roc_curve(y, scores, pos_label=2)\nfpr\ntpr\nthresholds",
+        "output": "array([0. , 0. , 0.5, 0.5, 1. ])\narray([0. , 0.5, 0.5, 1. , 1. ])\narray([ inf, 0.8 , 0.4 , 0.35, 0.1 ])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html",
+    "api": "sklearn.metrics.explained_variance_score",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "To prevent non-finite numbers (NaN or -Inf) from influencing higher-level experiments, such as grid search cross-validation.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.metrics import explained_variance_score\ny_true = [3, -0.5, 2, 7]\ny_pred = [2.5, 0.0, 2, 8]\nexplained_variance_score(y_true, y_pred)\ny_true = [[0.5, 1], [-1, 1], [7, -6]]\ny_pred = [[0, 2], [-1, 2], [8, -5]]\nexplained_variance_score(y_true, y_pred, multioutput='uniform_average')\ny_true = [-2, -2, -2]\ny_pred = [-2, -2, -2]\nexplained_variance_score(y_true, y_pred)\nexplained_variance_score(y_true, y_pred, force_finite=False)\ny_true = [-2, -2, -2]\ny_pred = [-2, -2, -2 + 1e-8]\nexplained_variance_score(y_true, y_pred)\nexplained_variance_score(y_true, y_pred, force_finite=False)",
+        "output": "0.957...\n0.983...\n1.0\nnan\n0.0\n-inf"
+      }
+    ],
+    "examples_count": 1,
+    "date": "2020-12-22"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html",
+    "api": "sklearn.metrics.f1_score",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The 'labels' parameter was improved to handle multiclass problems.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.metrics import f1_score\nimport numpy as np\ny_true = [0, 1, 2, 0, 1, 2]\ny_pred = [0, 2, 1, 0, 0, 1]\nf1_score(y_true, y_pred, average='macro')\nf1_score(y_true, y_pred, average='micro')\nf1_score(y_true, y_pred, average='weighted')\nf1_score(y_true, y_pred, average=None)",
+        "output": "0.267\n0.33\n0.267\narray([0.8, 0. , 0. ])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html",
+    "api": "sklearn.metrics.median_absolute_error",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The `sample_weight` parameter was added in version 0.24, likely to provide functionality for weighted error calculation.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.metrics import median_absolute_error\ny_true = [3, -0.5, 2, 7]\ny_pred = [2.5, 0.0, 2, 8]\nmedian_absolute_error(y_true, y_pred)\ny_true = [[0.5, 1], [-1, 1], [7, -6]]\ny_pred = [[0, 2], [-1, 2], [8, -5]]\nmedian_absolute_error(y_true, y_pred)\nmedian_absolute_error(y_true, y_pred, multioutput='raw_values')\nmedian_absolute_error(y_true, y_pred, multioutput=[0.3, 0.7])",
+        "output": "0.5\n0.75\narray([0.5, 1. ])\n0.85"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.label_ranking_average_precision_score.html",
+    "api": "sklearn.metrics.label_ranking_average_precision_score",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The `sample_weight` parameter was introduced in version 0.20 to enable weighting individual sample contributions to the computed metric.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.metrics import label_ranking_average_precision_score\nimport numpy as np\ny_true = np.array([[1, 0, 0], [0, 0, 1]])\ny_score = np.array([[0.75, 0.5, 1], [1, 0.2, 0.1]])\nlabel_ranking_average_precision_score(y_true, y_score)",
+        "output": "0.416"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.adjusted_mutual_info_score.html",
+    "api": "sklearn.metrics.adjusted_mutual_info_score",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The default value of `average_method` was changed from 'max' to 'arithmetic' to provide a more suitable normalization for the Adjusted Mutual Information metric.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/whats_new/v1.7.html",
+    "api": "sklearn.metrics.cluster.fowlkes_mallows_score",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "1.7.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The 'sparse' parameter is deprecated due to its ineffectiveness in altering the behavior of the function.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": "2025-06-05"
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.homogeneity_score.html",
+    "api": "sklearn.metrics.homogeneity_score",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "",
+    "reason": "Unclear; the API does not indicate any recent or upcoming changes.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.rand_score.html",
+    "api": "sklearn.metrics.rand_score",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "Improved documentation clarity and detailed examples were added to ensure better user understanding and proper usage of this clustering evaluation metric. No functional changes to the API were reported in this version.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.v_measure_score.html",
+    "api": "sklearn.metrics.v_measure_score",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "normalized_mutual_info_score",
+    "change_type": "Behavior Change",
+    "reason": "The v_measure_score metric behavior is equivalent to normalized_mutual_info_score with 'arithmetic' averaging, offering a more standardized and widely applicable option.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html",
+    "api": "sklearn.metrics.pairwise.cosine_similarity",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "The `dense_output` parameter was added in version 0.17 to allow users to choose whether the output should be sparse when inputs are sparse.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.metrics.pairwise import cosine_similarity\nX = [[0, 0, 0], [1, 1, 1]]\nY = [[1, 0, 0], [1, 1, 0]]\ncosine_similarity(X, Y)",
+        "output": "array([[0.   , 0.   ],\n       [0.577, 0.816]])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.paired_distances.html",
+    "api": "sklearn.metrics.pairwise.paired_distances",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "",
+    "reason": "",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.metrics.pairwise import paired_distances\nX = [[0, 1], [1, 1]]\nY = [[0, 1], [2, 1]]\npaired_distances(X, Y)",
+        "output": "array([0., 1.])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise_distances.html",
+    "api": "sklearn.metrics.pairwise_distances",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "ensure_all_finite",
+    "change_type": "Parameter Change",
+    "reason": "The parameter `force_all_finite` was renamed to `ensure_all_finite` to better reflect its functionality.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn.metrics.pairwise import pairwise_distances\nX = [[0, 0, 0], [1, 1, 1]]\nY = [[1, 0, 0], [1, 1, 0]]\npairwise_distances(X, Y, metric='sqeuclidean')",
+        "output": "array([[1., 2.],\n       [2., 1.]])"
+      }
+    ],
+    "examples_count": 1,
+    "date": null
+  },
+  {
+    "source_url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.RocCurveDisplay.html#sklearn.metrics.RocCurveDisplay.from_predictions",
+    "api": "sklearn.metrics.RocCurveDisplay.from_predictions",
+    "package": "sklearn",
+    "language": null,
+    "deprecated_in": "0.24.0",
+    "removed_in": "",
+    "replaced_by": "name, curve_kwargs",
+    "change_type": "API Deprecation",
+    "reason": "To improve consistency and functionality, deprecated parameters ('estimator_name', 'y_pred', and '**kwargs') are being retired in favor of better named and structured parameters ('name' and/or 'curve_kwargs') with enhanced multi-curve plotting and usage.",
+    "has_examples": true,
+    "examples": [
+      {
+        "code": "from sklearn import metrics\nimport matplotlib.pyplot as plt\nimport numpy as np\ny_true = np.array([0, 0, 1, 1])\ny_score = np.array([0.1, 0.4, 0.35, 0.8])\nfpr, tpr, thresholds = metrics.roc_curve(y_true, y_score)\nroc_auc = metrics.auc(fpr, tpr)\ndisplay = metrics.RocCurveDisplay(fpr=fpr, tpr=tpr, roc_auc=roc_auc,\nname='example estimator')\ndisplay.plot()",
+        "output": "<...>"
+      },
+      {
+        "code": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nplt.show()",
+        "output": ""
+      },
+      {
+        "code": "from sklearn.datasets import make_classification\nfrom sklearn.metrics import RocCurveDisplay\nfrom sklearn.model_selection import cross_validate\nfrom sklearn.svm import SVC\nimport matplotlib.pyplot as plt\nX, y = make_classification(random_state=0)",
+        "output": ""
+      },
+      {
+        "code": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nclf = SVC(random_state=0)\ncv_results = cross_validate(\nclf, X, y, cv=3, return_estimator=True, return_indices=True)\nRocCurveDisplay.from_cv_results(cv_results, X, y)",
+        "output": "<...>"
+      },
+      {
+        "code": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nplt.show()",
+        "output": ""
+      },
+      {
+        "code": "from sklearn.datasets import make_classification\nfrom sklearn.metrics import RocCurveDisplay\nfrom sklearn.model_selection import cross_validate\nfrom sklearn.svm import SVC\nimport matplotlib.pyplot as plt\nX, y = make_classification(random_state=0)",
+        "output": ""
+      },
+      {
+        "code": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nclf = SVC(random_state=0)\ncv_results = cross_validate(\nclf, X, y, cv=3, return_estimator=True, return_indices=True)\nRocCurveDisplay.from_cv_results(cv_results, X, y)",
+        "output": "<...>"
+      },
+      {
+        "code": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nplt.show()",
+        "output": ""
+      },
+      {
+        "code": "from sklearn.datasets import make_classification\nfrom sklearn.metrics import RocCurveDisplay\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nimport matplotlib.pyplot as plt\nX, y = make_classification(random_state=0)",
+        "output": ""
+      },
+      {
+        "code": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nX_train, X_test, y_train, y_test = train_test_split(\nX, y, random_state=0)",
+        "output": ""
+      },
+      {
+        "code": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nclf = SVC(random_state=0).fit(X_train, y_train)\nRocCurveDisplay.from_estimator(\nclf, X_test, y_test)",
+        "output": "<...>"
+      },
+      {
+        "code": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nplt.show()",
+        "output": ""
+      },
+      {
+        "code": "from sklearn.datasets import make_classification\nfrom sklearn.metrics import RocCurveDisplay\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nimport matplotlib.pyplot as plt\nX, y = make_classification(random_state=0)",
+        "output": ""
+      },
+      {
+        "code": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nX_train, X_test, y_train, y_test = train_test_split(\nX, y, random_state=0)",
+        "output": ""
+      },
+      {
+        "code": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nclf = SVC(random_state=0).fit(X_train, y_train)\nRocCurveDisplay.from_estimator(\nclf, X_test, y_test)",
+        "output": "<...>"
+      },
+      {
+        "code": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nplt.show()",
+        "output": ""
+      },
+      {
+        "code": "from sklearn.datasets import make_classification\nfrom sklearn.metrics import RocCurveDisplay\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nimport matplotlib.pyplot as plt\nX, y = make_classification(random_state=0)",
+        "output": ""
+      },
+      {
+        "code": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nX_train, X_test, y_train, y_test = train_test_split(\nX, y, random_state=0)",
+        "output": ""
+      },
+      {
+        "code": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nclf = SVC(random_state=0).fit(X_train, y_train)\ny_score = clf.decision_function(X_test)\nRocCurveDisplay.from_predictions(y_test, y_score)",
+        "output": "<...>"
+      },
+      {
+        "code": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nplt.show()",
+        "output": ""
+      },
+      {
+        "code": "from sklearn.datasets import make_classification\nfrom sklearn.metrics import RocCurveDisplay\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nimport matplotlib.pyplot as plt\nX, y = make_classification(random_state=0)",
+        "output": ""
+      },
+      {
+        "code": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nX_train, X_test, y_train, y_test = train_test_split(\nX, y, random_state=0)",
+        "output": ""
+      },
+      {
+        "code": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nclf = SVC(random_state=0).fit(X_train, y_train)\ny_score = clf.decision_function(X_test)\nRocCurveDisplay.from_predictions(y_test, y_score)",
+        "output": "<...>"
+      },
+      {
+        "code": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.svm import SVC\nplt.show()",
+        "output": ""
+      }
+    ],
+    "examples_count": 24,
+    "date": "2020-12-22"
+  }
+]
