@@ -2,7 +2,7 @@
     {
         "source_url": "https://docs.opencv.org/4.x/javadoc/org/opencv/aruco/package-summary.html",
         "api": "org.opencv.aruco.EstimateParameters",
-        "package": "opencv",
+        "package": "OpenCV",
         "language": "Java",
         "deprecated_in": "4.6.0",
         "removed_in": "",
@@ -17,7 +17,7 @@
     {
         "source_url": "https://docs.opencv.org/4.x/javadoc/org/opencv/core/CvType.html",
         "api": "org.opencv.core.CvType",
-        "package": "opencv",
+        "package": "OpenCV",
         "language": "Java",
         "deprecated_in": "4.0.0",
         "removed_in": "",
@@ -32,7 +32,7 @@
     {
         "source_url": "https://docs.opencv.org/4.x/javadoc/org/opencv/dnn/Dnn.html",
         "api": "org.opencv.dnn.Dnn.getInferenceEngineBackendType",
-        "package": "opencv",
+        "package": "OpenCV",
         "language": "Java",
         "deprecated_in": "4.6.0",
         "removed_in": "",
@@ -47,7 +47,7 @@
     {
         "source_url": "https://docs.opencv.org/4.x/javadoc/org/opencv/dnn/Layer.html",
         "api": "org.opencv.dnn.Layer.run",
-        "package": "opencv",
+        "package": "OpenCV",
         "language": "Java",
         "deprecated_in": "4.6.0",
         "removed_in": "",
@@ -62,7 +62,7 @@
     {
         "source_url": "https://docs.opencv.org/4.x/javadoc/org/opencv/core/Core.html",
         "api": "org.opencv.core.Core.convertFp16",
-        "package": "opencv",
+        "package": "OpenCV",
         "language": "Java",
         "deprecated_in": "4.6.0",
         "removed_in": "",
@@ -77,7 +77,7 @@
     {
         "source_url": "https://docs.opencv.org/4.x/javadoc/org/opencv/dnn/Net.html",
         "api": "org.opencv.dnn.Net.getLayer(java.lang.String layerName)",
-        "package": "opencv",
+        "package": "OpenCV",
         "language": "Java",
         "deprecated_in": "4.6.0",
         "removed_in": "",
@@ -92,7 +92,7 @@
     {
         "source_url": "https://docs.opencv.org/4.x/javadoc/org/opencv/face/Face.html",
         "api": "org.opencv.face.Face.getFacesHAAR",
-        "package": "opencv",
+        "package": "OpenCV",
         "language": "Java",
         "deprecated_in": "4.0.0",
         "removed_in": "",
@@ -107,7 +107,7 @@
     {
         "source_url": "https://docs.opencv.org/4.x/javadoc/org/opencv/features2d/BFMatcher.html",
         "api": "org.opencv.features2d.BFMatcher",
-        "package": "opencv",
+        "package": "OpenCV",
         "language": "Java",
         "deprecated_in": "4.0.0",
         "removed_in": "",
@@ -122,7 +122,7 @@
     {
         "source_url": "https://docs.opencv.org/4.x/javadoc/org/opencv/imgproc/LineSegmentDetector.html",
         "api": "org.opencv.imgproc.LineSegmentDetector",
-        "package": "opencv",
+        "package": "OpenCV",
         "language": "Java",
         "deprecated_in": "",
         "removed_in": "4.x",
@@ -137,7 +137,7 @@
     {
         "source_url": "https://docs.opencv.org/4.x/javadoc/org/opencv/objdetect/CharucoBoard.html",
         "api": "org.opencv.objdetect.CharucoBoard",
-        "package": "opencv",
+        "package": "OpenCV",
         "language": "Java",
         "deprecated_in": "4.6.0",
         "removed_in": "",
@@ -152,7 +152,7 @@
     {
         "source_url": "https://docs.opencv.org/4.x/javadoc/org/opencv/objdetect/CharucoDetector.html",
         "api": "org.opencv.objdetect.CharucoDetector",
-        "package": "opencv",
+        "package": "OpenCV",
         "language": "Java",
         "deprecated_in": "4.6.0",
         "removed_in": "",
@@ -167,7 +167,7 @@
     {
         "source_url": "https://docs.opencv.org/4.x/javadoc/org/opencv/text/Text.html",
         "api": "org.opencv.text.Text.loadOCRHMMClassifierNM",
-        "package": "opencv",
+        "package": "OpenCV",
         "language": "Java",
         "deprecated_in": "4.6.0",
         "removed_in": "",
@@ -182,7 +182,7 @@
     {
         "source_url": "https://docs.opencv.org/4.x/javadoc/org/opencv/text/TextDetector.html",
         "api": "org.opencv.text.TextDetector",
-        "package": "opencv",
+        "package": "OpenCV",
         "language": "Java",
         "deprecated_in": "4.0.0",
         "removed_in": "",
@@ -197,7 +197,7 @@
     {
         "source_url": "https://docs.opencv.org/4.x/javadoc/org/opencv/utils/Converters.html",
         "api": "org.opencv.utils.Converters",
-        "package": "opencv",
+        "package": "OpenCV",
         "language": "Java",
         "deprecated_in": "4.0.0",
         "removed_in": "",
@@ -212,7 +212,7 @@
     {
         "source_url": "https://docs.opencv.org/4.x/javadoc/org/opencv/video/DISOpticalFlow.html",
         "api": "org.opencv.video.DISOpticalFlow",
-        "package": "opencv",
+        "package": "OpenCV",
         "language": "Java",
         "deprecated_in": "4.0.0",
         "removed_in": "",
@@ -227,7 +227,7 @@
     {
         "source_url": "https://docs.opencv.org/4.x/javadoc/org/opencv/xfeatures2d/SURF_CUDA.html",
         "api": "org.opencv.xfeatures2d.SURF_CUDA",
-        "package": "opencv",
+        "package": "OpenCV",
         "language": "Java",
         "deprecated_in": "4.0.0",
         "removed_in": "",
@@ -238,5 +238,95 @@
         "examples": [],
         "examples_count": 0,
         "extraction_method": "No Examples"
-    }
+    },
+    {
+    "source_url": "github.com/opencv/opencv/wiki/OpenCV-Change-Logs#version4120",
+    "api": "cv::UMat",
+    "package": "OpenCV",
+    "language": "C++",
+    "deprecated_in": "4.12.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Parameter Change",
+    "reason": "Deprecated `copyData` parameter in `cv::UMat` construction from `std::vector`; the constructor will now always copy data.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "github.com/opencv/opencv/wiki/OpenCV-Change-Logs#version4130",
+    "api": "WorkloadType::notify()",
+    "package": "OpenCV",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "4.13.0",
+    "replaced_by": "WorkloadType::set()",
+    "change_type": "API Renaming",
+    "reason": "Renamed `WorkloadType::notify()` to `WorkloadType::set()`.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "github.com/opencv/opencv/wiki/OpenCV-Change-Logs#version4130",
+    "api": "ov::element::undefined",
+    "package": "OpenCV",
+    "language": "C++",
+    "deprecated_in": "4.12.0",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "API Deprecation",
+    "reason": "Updated deprecated `ov::element::undefined`.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "github.com/opencv/opencv/wiki/OpenCV-Change-Logs#version4130",
+    "api": "OPENCV_FOR_OPENMP_DYNAMIC_DISABLE",
+    "package": "OpenCV",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "4.13.0",
+    "replaced_by": "OMP_DYNAMIC",
+    "change_type": "API Removal",
+    "reason": "Dropped `OPENCV_FOR_OPENMP_DYNAMIC_DISABLE` environment variable in favor of standard `OMP_DYNAMIC`.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "github.com/opencv/opencv/wiki/OpenCV-Change-Logs#version4130",
+    "api": "cuda::GpuMatND",
+    "package": "OpenCV",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "Made `cuda::GpuMatND` compatible with `InputArray`/`OutputArray`.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  },
+  {
+    "source_url": "github.com/opencv/opencv/wiki/OpenCV-Change-Logs#version4130",
+    "api": "cv::FileStorage",
+    "package": "OpenCV",
+    "language": "C++",
+    "deprecated_in": "",
+    "removed_in": "",
+    "replaced_by": "",
+    "change_type": "Behavior Change",
+    "reason": "Extended JSON support: added `null` parsing and back slash `\"` support.",
+    "has_examples": false,
+    "examples": [],
+    "examples_count": 0,
+    "extraction_method": "No Examples"
+  }
 ]
