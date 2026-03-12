@@ -86,9 +86,47 @@ def create_venv(env_dir: Path, python_version: str):
     subprocess.run([str(python_exec), "-m", "venv", str(env_dir)], check=True)
 
 
+def is_package_installed(env_dir: Path, library: str, version: str) -> bool:
+    pip_cmd = env_dir / "Scripts" / "pip.exe"
+    try:
+        # Check if pip exists first
+        if not pip_cmd.exists():
+            return False
+            
+        res = subprocess.run(
+            [str(pip_cmd), "show", library],
+            capture_output=True,
+            text=True,
+            check=False
+        )
+        if res.returncode != 0:
+            return False
+        
+        # Check version
+        for line in res.stdout.splitlines():
+            if line.startswith("Version:"):
+                installed_version = line.split(":", 1)[1].strip()
+                if installed_version == version:
+                    return True
+    except Exception:
+        pass
+    return False
+
+
 def install_library(env_dir: Path, library: str, version: str):
     pip_cmd = env_dir / "Scripts" / "pip.exe"
     pkg_spec = f"{library}=={version}"
+    
+    # Check if already installed
+    if is_package_installed(env_dir, library, version):
+        print(f"{pkg_spec} already installed in {env_dir}. Skipping installation.")
+        # Ensure pytest is installed (it's fast and usually needed)
+        try:
+             subprocess.run([str(pip_cmd), "install", "pytest"], check=True, capture_output=True)
+        except Exception:
+             pass
+        return
+
     print(f"Installing {pkg_spec} in {env_dir}...")
     
     # Special handling for pandas 1.3.x which needs older numpy to avoid binary incompatibility on Python 3.10+
