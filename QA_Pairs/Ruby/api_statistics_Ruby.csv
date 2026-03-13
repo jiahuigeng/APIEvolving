@@ -1,6 +1,6 @@
 Statistic,Count
 Total Unique Packages,4
-Total Unique APIs,206
+Total Unique APIs,203
 --- Package List ---,---
 Nokogiri,
 RSpec,
@@ -9,6 +9,6 @@ Ruby on Rails,
 --- Change Type Counts ---,---
 Change Type: API Removal,88
 Change Type: Behavior Change,58
-Change Type: API Deprecation,57
+Change Type: API Deprecation,54
 Change Type: Behavior Removal,4
 Change Type: Parameter Change,3
