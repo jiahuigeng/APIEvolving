@@ -12,22 +12,22 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2354",
         "api": "alignas",
         "package": "C++",
         "language": "C++",
-        "deprecated_in": "C++20",
-        "removed_in": "",
+        "deprecated_in": null,
+        "removed_in": "C++20",
         "replaced_by": "",
-        "change_type": "API Deprecation",
-        "reason": "Permission for `alignas` applied to enumerations was removed due to inconsistencies in object representation and alignment requirements, causing confusion regarding the behavior of extended alignment on enumeration types.",
+        "change_type": "API Removal",
+        "reason": "Permission for `alignas` applied to enumerations was explicitly removed (making it ill-formed) due to inconsistencies between object representation and extended alignment requirements.",
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": "2019-02-23"
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2356",
@@ -42,7 +42,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2234",
@@ -57,7 +57,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2414",
@@ -72,7 +72,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2358",
@@ -87,7 +87,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue1076",
@@ -102,22 +102,22 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2237",
         "api": "constructor simple-template-id",
         "package": "C++",
         "language": "C++",
-        "deprecated_in": "",
+        "deprecated_in": null,
         "removed_in": "C++20",
-        "replaced_by": "",
+        "replaced_by": "injected-class-name (e.g., using A() instead of A<T>())",
         "change_type": "API Removal",
-        "reason": "Remove potentially error-prone option for redundancy",
+        "reason": "Naming a constructor with a simple-template-id is no longer valid. The C++20 standard rationale is to remove a potentially error-prone option for redundancy, requiring the use of the injected-class-name instead.",
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": "2020-12-15"
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2419",
@@ -132,7 +132,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2249",
@@ -147,7 +147,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue1299",
@@ -162,7 +162,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2422",
@@ -177,7 +177,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2368",
@@ -192,7 +192,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2424",
@@ -207,7 +207,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2254",
@@ -222,7 +222,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2051",
@@ -237,7 +237,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2315",
@@ -252,22 +252,22 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
-        "source_url": "https://wg21.cmeerw.net/cwg/issue2427",
+        "source_url": "https://wg21.link/P1152R4",
         "api": "volatile",
         "package": "C++",
         "language": "C++",
         "deprecated_in": "C++20",
-        "removed_in": "",
-        "replaced_by": "",
+        "removed_in": null,
+        "replaced_by": "std::atomic (for thread synchronization)",
         "change_type": "API Deprecation",
-        "reason": "Using volatile-qualified types in assignments is considered deprecated unless it is a discarded-value expression or appears in an unevaluated context, as it may result in unintended behavior during subsequent value fetches.",
+        "reason": "Many uses of volatile (e.g., compound assignments, return types, parameters, and using the result of a simple assignment) were deprecated in C++20 (via proposal P1152R4). This aims to prevent developers from mistakenly assuming volatile provides thread synchronization guarantees.",
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": "2019-07-19"
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2053",
@@ -282,7 +282,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue1469",
@@ -297,7 +297,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2317",
@@ -312,7 +312,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue1523",
@@ -327,7 +327,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2059",
@@ -342,7 +342,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2374",
@@ -357,7 +357,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2430",
@@ -372,7 +372,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2376",
@@ -387,7 +387,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2267",
@@ -402,22 +402,22 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
-        "source_url": "https://wg21.cmeerw.net/cwg/issue2323",
+        "source_url": "https://wg21.link/P0767R1",
         "api": "std::is_pod",
         "package": "C++",
         "language": "C++",
         "deprecated_in": "C++20",
-        "removed_in": "",
-        "replaced_by": "std::is_trivial",
+        "removed_in": null,
+        "replaced_by": "std::is_trivial AND std::is_standard_layout",
         "change_type": "API Deprecation",
-        "reason": "The term POD no longer serves a purpose in the standard and restrictions apply to preserve this vestigial property. The term was used in reference to trivial types, and any remaining wording referring to PODs has been replaced or revised for clarity.",
+        "reason": "The term POD was deprecated in C++20 via proposal P0767R1. It was deemed too restrictive and vestigial. Developers are now encouraged to explicitly assert for std::is_trivial and/or std::is_standard_layout depending on the specific memory guarantees they need.",
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": "2017-11-10"
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue1640",
@@ -432,7 +432,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2332",
@@ -447,7 +447,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2277",
@@ -462,7 +462,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2103",
@@ -477,7 +477,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2439",
@@ -488,11 +488,11 @@
         "removed_in": "",
         "replaced_by": "",
         "change_type": "Behavior Change",
-        "reason": "The definition of “usable in constant expressions” included an undefined term, 'initialized with a constant expression,' which caused issues with the behavior of `std::is_constant_evaluated`. The change aimed to improve clarity and correctness by adopting the term 'is constant-initialized' instead.",
+        "reason": "The definition of \u201cusable in constant expressions\u201d included an undefined term, 'initialized with a constant expression,' which caused issues with the behavior of `std::is_constant_evaluated`. The change aimed to improve clarity and correctness by adopting the term 'is constant-initialized' instead.",
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2384",
@@ -500,14 +500,14 @@
         "package": "C++",
         "language": "C++",
         "deprecated_in": "",
-        "removed_in": "C++20",
+        "removed_in": "20.0.0",
         "replaced_by": "",
         "change_type": "API Removal",
         "reason": "The rule described in 13.10.3.4 [temp.deduct.conv] paragraph 7 is not widely implemented and may not be desirable.",
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": "2020-12-15"
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2441",
@@ -522,7 +522,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue1728",
@@ -537,7 +537,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2442",
@@ -552,7 +552,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue1836",
@@ -567,7 +567,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2445",
@@ -582,7 +582,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2287",
@@ -597,7 +597,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2343",
@@ -612,7 +612,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2170",
@@ -627,7 +627,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2351",
@@ -642,7 +642,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue2399",
@@ -657,7 +657,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.cmeerw.net/cwg/issue1893",
@@ -672,7 +672,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3145",
@@ -687,47 +687,11 @@
         "has_examples": true,
         "examples": [
             {
-                "code": "\n[…]\n// 30.7.6 [time.clock.file], classtype file_clock",
+                "code": "\n[\u2026]\n// 30.7.6 [time.clock.file], classtype file_clock",
                 "output": ""
             },
             {
-                "code": "classusing file_clock = unspecified;\n[…]\n\n\n",
-                "output": ""
-            },
-            {
-                "code": "namespace std::chrono {",
-                "output": ""
-            },
-            {
-                "code": "  using file_clock = see below;",
-                "output": ""
-            },
-            {
-                "code": "  class file_clock {\n  public:",
-                "output": ""
-            },
-            {
-                "code": "    using rep = a signed arithmetic type;",
-                "output": ""
-            },
-            {
-                "code": "    using period = ratio<unspecified, unspecified>;",
-                "output": ""
-            },
-            {
-                "code": "    using duration = chrono::duration<rep, period>;",
-                "output": ""
-            },
-            {
-                "code": "    using time_point = chrono::time_point<file_clock>;\n    static constexpr bool is_steady = unspecified;\n    \n    static time_point now() noexcept;\n    \n    // Conversion functions, see below\n  };\n}\n\n\nstatic time_point now();\n\n\n\nstatic time_point now();\n\n\n[…]\n// 30.7.6 [time.clock.file], classtype file_clock",
-                "output": ""
-            },
-            {
-                "code": "classusing file_clock = see below;\n[…]\n\n\n\n[…]\n// 30.7.6 [time.clock.file], classtype file_clock",
-                "output": ""
-            },
-            {
-                "code": "classusing file_clock = see below;\n[…]\n\n\n",
+                "code": "classusing file_clock = unspecified;\n[\u2026]\n\n\n",
                 "output": ""
             },
             {
@@ -755,15 +719,51 @@
                 "output": ""
             },
             {
-                "code": "    using time_point = chrono::time_point<file_clock>;\n    static constexpr bool is_steady = unspecified;\n    \n    static time_point now() noexcept;\n    \n    // Conversion functions, see below\n  };\n}\n\n\nstatic time_point now();\n\n\n\nstatic time_point now();\n\n\n[…]\n// 30.7.6 [time.clock.file], classtype file_clock",
+                "code": "    using time_point = chrono::time_point<file_clock>;\n    static constexpr bool is_steady = unspecified;\n    \n    static time_point now() noexcept;\n    \n    // Conversion functions, see below\n  };\n}\n\n\nstatic time_point now();\n\n\n\nstatic time_point now();\n\n\n[\u2026]\n// 30.7.6 [time.clock.file], classtype file_clock",
                 "output": ""
             },
             {
-                "code": "classusing file_clock = see below;\n[…]\n\n\n\n[…]\n// 30.7.6 [time.clock.file], classtype file_clock",
+                "code": "classusing file_clock = see below;\n[\u2026]\n\n\n\n[\u2026]\n// 30.7.6 [time.clock.file], classtype file_clock",
                 "output": ""
             },
             {
-                "code": "classusing file_clock = see below;\n[…]\n\n\n",
+                "code": "classusing file_clock = see below;\n[\u2026]\n\n\n",
+                "output": ""
+            },
+            {
+                "code": "namespace std::chrono {",
+                "output": ""
+            },
+            {
+                "code": "  using file_clock = see below;",
+                "output": ""
+            },
+            {
+                "code": "  class file_clock {\n  public:",
+                "output": ""
+            },
+            {
+                "code": "    using rep = a signed arithmetic type;",
+                "output": ""
+            },
+            {
+                "code": "    using period = ratio<unspecified, unspecified>;",
+                "output": ""
+            },
+            {
+                "code": "    using duration = chrono::duration<rep, period>;",
+                "output": ""
+            },
+            {
+                "code": "    using time_point = chrono::time_point<file_clock>;\n    static constexpr bool is_steady = unspecified;\n    \n    static time_point now() noexcept;\n    \n    // Conversion functions, see below\n  };\n}\n\n\nstatic time_point now();\n\n\n\nstatic time_point now();\n\n\n[\u2026]\n// 30.7.6 [time.clock.file], classtype file_clock",
+                "output": ""
+            },
+            {
+                "code": "classusing file_clock = see below;\n[\u2026]\n\n\n\n[\u2026]\n// 30.7.6 [time.clock.file], classtype file_clock",
+                "output": ""
+            },
+            {
+                "code": "classusing file_clock = see below;\n[\u2026]\n\n\n",
                 "output": ""
             },
             {
@@ -796,7 +796,7 @@
             }
         ],
         "examples_count": 27,
-        "extraction_method": "Manual"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3034",
@@ -811,22 +811,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
-    },
-    {
-        "source_url": "https://wg21.link/lwg3328",
-        "api": "std::u8string",
-        "package": "C++",
-        "language": "C++",
-        "deprecated_in": "C++20",
-        "removed_in": "",
-        "replaced_by": "",
-        "change_type": "API Deprecation",
-        "reason": "std::string is not suitable for handling UTF-8 encoded strings. Using std::u8string provides better handling and alignment with path's support for UTF-8 and other encodings.",
-        "has_examples": false,
-        "examples": [],
-        "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3149",
@@ -841,7 +826,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg2946",
@@ -856,7 +841,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg2070",
@@ -871,7 +856,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3153",
@@ -886,7 +871,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3331",
@@ -901,7 +886,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg2139",
@@ -916,7 +901,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3042",
@@ -931,7 +916,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3156",
@@ -946,67 +931,52 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3254",
         "api": "std::stop_token::operator!=",
         "package": "C++",
         "language": "C++",
-        "deprecated_in": "",
+        "deprecated_in": null,
         "removed_in": "C++20",
-        "replaced_by": "!(x == y)",
+        "replaced_by": "operator== (via C++20 automatic operator rewriting)",
         "change_type": "API Removal",
-        "reason": "Overload for 'operator!=' was redundant as it can be rewritten using !(x == y) per the rules in [over.match.oper] para 3.4.3.",
+        "reason": "Explicit overloads for 'operator!=' were removed from std::stop_token (and many other standard types) in C++20. With the new operator rewriting rules, the compiler automatically synthesizes '!=' using the existing 'operator=='.",
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": "2019-08-16"
     },
     {
         "source_url": "https://wg21.link/lwg3335",
-        "api": "std::ranges::views::all_t",
+        "api": "std::ranges::all_view",
         "package": "C++",
         "language": "C++",
-        "deprecated_in": "C++20",
-        "removed_in": "",
+        "deprecated_in": null,
+        "removed_in": "C++20",
         "replaced_by": "std::ranges::views::all_t",
-        "change_type": "API Deprecation",
-        "reason": "The name 'all_view' was misleading as it did not align with other 'view' types. 'all_view' was merely an alias to the type of 'view::all(arg)', which could vary depending on implementation. The naming 'views::all_t' is more consistent and accurately reflects its purpose.",
+        "change_type": "API Rename",
+        "reason": "During the finalization of C++20, the class template 'all_view' was deemed misleading. It was replaced by an alias template named 'views::all_t' to be more consistent with the rest of the Ranges library naming conventions.",
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": "2020-02-14"
     },
     {
-        "source_url": "https://wg21.link/lwg2155",
+        "source_url": "https://wg21.link/p0619r4",
         "api": "__bool_true_false_are_defined",
         "package": "C++",
         "language": "C++",
-        "deprecated_in": "",
-        "removed_in": "C++17",
-        "replaced_by": "",
+        "deprecated_in": "C++17",
+        "removed_in": "C++20",
+        "replaced_by": "native true/false keywords",
         "change_type": "API Removal",
-        "reason": "__bool_true_false_are_defined was initially introduced as a transition tool during the harmonization of the C++11 standard with C99. Over time, its usefulness faded, and ambiguous interpretations made its inclusion problematic. Hence, the name was removed from the standard.",
+        "reason": "This legacy macro (inherited from C's <stdbool.h>) was deprecated in C++17 and completely removed in C++20 (via proposal P0619R4). In C++, bool, true, and false have always been native keywords, making this macro redundant.",
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
-    },
-    {
-        "source_url": "https://wg21.link/lwg3256",
-        "api": "std::swap",
-        "package": "C++",
-        "language": "C++",
-        "deprecated_in": "C++20",
-        "removed_in": "",
-        "replaced_by": "",
-        "change_type": "API Deprecation",
-        "reason": "To reduce feature testing macro count and simplify usage, adhering to the initial version of P0202. The original proposal preferred removing __cpp_lib_constexpr_swap_algorithms and using __cpp_lib_constexpr_algorithms exclusively.",
-        "has_examples": false,
-        "examples": [],
-        "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": "2018-02-11"
     },
     {
         "source_url": "https://wg21.link/lwg2954",
@@ -1021,7 +991,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3168",
@@ -1036,22 +1006,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
-    },
-    {
-        "source_url": "https://wg21.link/lwg3338",
-        "api": "std::default_initializable",
-        "package": "C++",
-        "language": "C++",
-        "deprecated_in": "C++20",
-        "removed_in": "",
-        "replaced_by": "std::constructible_from",
-        "change_type": "API Deprecation",
-        "reason": "The renaming was proposed in P1754R1 due to potential confusion between the 'DefaultConstructible' concept and the 'is_default_constructible' trait which have similar names but slightly different meanings. Additionally, the concept was updated to require default initialization instead of value initialization.",
-        "has_examples": false,
-        "examples": [],
-        "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg2183",
@@ -1066,7 +1021,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3259",
@@ -1081,7 +1036,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3051",
@@ -1096,12 +1051,12 @@
         "has_examples": true,
         "examples": [
             {
-                "code": "\n[…]\nnamespace std {\n  […]\n  // 29.7.5 [c.math.fpclass], classification / comparison functions\n  int fpclassify(float x);\n  int fpclassify(double x);\n  int fpclassify(long double x);\n  boolint isfinite(float x);\n  boolint isfinite(double x);\n  boolint isfinite(long double x);\n  boolint isinf(float x);\n  boolint isinf(double x);\n  boolint isinf(long double x);\n  boolint isnan(float x);\n  boolint isnan(double x);\n  boolint isnan(long double x);\n  boolint isnormal(float x);\n  boolint isnormal(double x);\n  boolint isnormal(long double x);\n  boolint signbit(float x);\n  boolint signbit(double x);\n  boolint signbit(long double x);\n  boolint isgreater(float x, float y);\n  boolint isgreater(double x, double y);\n  boolint isgreater(long double x, long double y);\n  boolint isgreaterequal(float x, float y);\n  boolint isgreaterequal(double x, double y);\n  boolint isgreaterequal(long double x, long double y);\n  boolint isless(float x, float y);\n  boolint isless(double x, double y);\n  boolint isless(long double x, long double y);\n  boolint islessequal(float x, float y);\n  boolint islessequal(double x, double y);\n  boolint islessequal(long double x, long double y);\n  boolint islessgreater(float x, float y);\n  boolint islessgreater(double x, double y);\n  boolint islessgreater(long double x, long double y);\n  boolint isunordered(float x, float y);\n  boolint isunordered(double x, double y);\n  boolint isunordered(long double x, long double y);\n  […]\n}\n\n\n",
+                "code": "\n[\u2026]\nnamespace std {\n  [\u2026]\n  // 29.7.5 [c.math.fpclass], classification / comparison functions\n  int fpclassify(float x);\n  int fpclassify(double x);\n  int fpclassify(long double x);\n  boolint isfinite(float x);\n  boolint isfinite(double x);\n  boolint isfinite(long double x);\n  boolint isinf(float x);\n  boolint isinf(double x);\n  boolint isinf(long double x);\n  boolint isnan(float x);\n  boolint isnan(double x);\n  boolint isnan(long double x);\n  boolint isnormal(float x);\n  boolint isnormal(double x);\n  boolint isnormal(long double x);\n  boolint signbit(float x);\n  boolint signbit(double x);\n  boolint signbit(long double x);\n  boolint isgreater(float x, float y);\n  boolint isgreater(double x, double y);\n  boolint isgreater(long double x, long double y);\n  boolint isgreaterequal(float x, float y);\n  boolint isgreaterequal(double x, double y);\n  boolint isgreaterequal(long double x, long double y);\n  boolint isless(float x, float y);\n  boolint isless(double x, double y);\n  boolint isless(long double x, long double y);\n  boolint islessequal(float x, float y);\n  boolint islessequal(double x, double y);\n  boolint islessequal(long double x, long double y);\n  boolint islessgreater(float x, float y);\n  boolint islessgreater(double x, double y);\n  boolint islessgreater(long double x, long double y);\n  boolint isunordered(float x, float y);\n  boolint isunordered(double x, double y);\n  boolint isunordered(long double x, long double y);\n  [\u2026]\n}\n\n\n",
                 "output": ""
             }
         ],
         "examples_count": 1,
-        "extraction_method": "Manual"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3175",
@@ -1116,7 +1071,7 @@
         "has_examples": true,
         "examples": [
             {
-                "code": "\n[…]\n",
+                "code": "\n[\u2026]\n",
                 "output": ""
             },
             {
@@ -1124,7 +1079,7 @@
                 "output": ""
             },
             {
-                "code": "  ranges::swap(std::forward<T>(t), std::forward<U>(u));\n}\n\n[…]\nnamespace N {",
+                "code": "  ranges::swap(std::forward<T>(t), std::forward<U>(u));\n}\n\n[\u2026]\nnamespace N {",
                 "output": ""
             },
             {
@@ -1136,7 +1091,7 @@
                 "output": ""
             },
             {
-                "code": "int main() {\n  […]\n  N::A a1 = { 5 }, a2 = { -5 };\n  value_swap(a1, proxy(a2)); // diagnostic manifests here(#1)\n}\n\n\n",
+                "code": "int main() {\n  [\u2026]\n  N::A a1 = { 5 }, a2 = { -5 };\n  value_swap(a1, proxy(a2)); // diagnostic manifests here(#1)\n}\n\n\n",
                 "output": "assert(a1.m == -5 && a2.m == 5);"
             },
             {
@@ -1261,7 +1216,7 @@
             }
         ],
         "examples_count": 36,
-        "extraction_method": "Manual"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg2292",
@@ -1276,7 +1231,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3176",
@@ -1291,7 +1246,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3264",
@@ -1306,7 +1261,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3266",
@@ -1321,22 +1276,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
-    },
-    {
-        "source_url": "https://wg21.link/lwg2966",
-        "api": "std::filesystem::path::native",
-        "package": "C++",
-        "language": "C++",
-        "deprecated_in": "",
-        "removed_in": "C++17",
-        "replaced_by": "std::filesystem::path::native()",
-        "change_type": "API Removal",
-        "reason": "The occurrence of 'pathstring' in section [fs.path.native.obs] p8 was an incomplete resolution of US 74. It was inconsistent with other native format observers, requiring replacement with 'native()' to ensure uniformity.",
-        "has_examples": false,
-        "examples": [],
-        "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": "2020-12-15"
     },
     {
         "source_url": "https://wg21.link/lwg2968",
@@ -1351,7 +1291,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3180",
@@ -1366,7 +1306,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3062",
@@ -1381,7 +1321,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg2969",
@@ -1396,7 +1336,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg2499",
@@ -1411,7 +1351,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": "2020-12-15"
     },
     {
         "source_url": "https://wg21.link/lwg3354",
@@ -1426,7 +1366,7 @@
         "has_examples": true,
         "examples": [
             {
-                "code": "\n[…]\n#define __cpp_lib_is_swappable               201603L // also in <type_traits>\n#define __cpp_lib_is_template_parameter_type ??????L // also in <type_traits>\n#define __cpp_lib_jthread                    201911L // also in <stop_token>, <thread>\n[…]\n\n\n[…]",
+                "code": "\n[\u2026]\n#define __cpp_lib_is_swappable               201603L // also in <type_traits>\n#define __cpp_lib_is_template_parameter_type ??????L // also in <type_traits>\n#define __cpp_lib_jthread                    201911L // also in <stop_token>, <thread>\n[\u2026]\n\n\n[\u2026]",
                 "output": ""
             },
             {
@@ -1434,7 +1374,7 @@
                 "output": ""
             },
             {
-                "code": "template<class T> struct has_strong_structural_equalityis_template_parameter_type;\n\n// 21.3.7 [meta.unary.prop.query], type property queries\n[…]",
+                "code": "template<class T> struct has_strong_structural_equalityis_template_parameter_type;\n\n// 21.3.7 [meta.unary.prop.query], type property queries\n[\u2026]",
                 "output": ""
             },
             {
@@ -1442,7 +1382,7 @@
                 "output": ""
             },
             {
-                "code": "template<class T>\n  inline constexpr bool has_strong_structural_equality_vis_template_parameter_type_v\n    = has_strong_structural_equalityis_template_parameter_type<T>::value;\n    \n// 21.3.7 [meta.unary.prop.query], type property queries\n[…]\n\n\n\n[…]",
+                "code": "template<class T>\n  inline constexpr bool has_strong_structural_equality_vis_template_parameter_type_v\n    = has_strong_structural_equalityis_template_parameter_type<T>::value;\n    \n// 21.3.7 [meta.unary.prop.query], type property queries\n[\u2026]\n\n\n\n[\u2026]",
                 "output": ""
             },
             {
@@ -1450,7 +1390,7 @@
                 "output": ""
             },
             {
-                "code": "template<class T> struct has_strong_structural_equalityis_template_parameter_type;\n\n// 21.3.7 [meta.unary.prop.query], type property queries\n[…]",
+                "code": "template<class T> struct has_strong_structural_equalityis_template_parameter_type;\n\n// 21.3.7 [meta.unary.prop.query], type property queries\n[\u2026]",
                 "output": ""
             },
             {
@@ -1458,7 +1398,7 @@
                 "output": ""
             },
             {
-                "code": "template<class T>\n  inline constexpr bool has_strong_structural_equality_vis_template_parameter_type_v\n    = has_strong_structural_equalityis_template_parameter_type<T>::value;\n    \n// 21.3.7 [meta.unary.prop.query], type property queries\n[…]\n\n\n[…]",
+                "code": "template<class T>\n  inline constexpr bool has_strong_structural_equality_vis_template_parameter_type_v\n    = has_strong_structural_equalityis_template_parameter_type<T>::value;\n    \n// 21.3.7 [meta.unary.prop.query], type property queries\n[\u2026]\n\n\n[\u2026]",
                 "output": ""
             },
             {
@@ -1466,7 +1406,7 @@
                 "output": ""
             },
             {
-                "code": "template<class T> struct has_strong_structural_equality;\n\n// 21.3.7 [meta.unary.prop.query], type property queries\n[…]",
+                "code": "template<class T> struct has_strong_structural_equality;\n\n// 21.3.7 [meta.unary.prop.query], type property queries\n[\u2026]",
                 "output": ""
             },
             {
@@ -1474,7 +1414,7 @@
                 "output": ""
             },
             {
-                "code": "template<class T>\n  inline constexpr bool has_strong_structural_equality_v\n    = has_strong_structural_equality<T>::value;\n    \n// 21.3.7 [meta.unary.prop.query], type property queries\n[…]\n\n\n\n[…]",
+                "code": "template<class T>\n  inline constexpr bool has_strong_structural_equality_v\n    = has_strong_structural_equality<T>::value;\n    \n// 21.3.7 [meta.unary.prop.query], type property queries\n[\u2026]\n\n\n\n[\u2026]",
                 "output": ""
             },
             {
@@ -1482,7 +1422,7 @@
                 "output": ""
             },
             {
-                "code": "template<class T> struct has_strong_structural_equality;\n\n// 21.3.7 [meta.unary.prop.query], type property queries\n[…]",
+                "code": "template<class T> struct has_strong_structural_equality;\n\n// 21.3.7 [meta.unary.prop.query], type property queries\n[\u2026]",
                 "output": ""
             },
             {
@@ -1490,12 +1430,12 @@
                 "output": ""
             },
             {
-                "code": "template<class T>\n  inline constexpr bool has_strong_structural_equality_v\n    = has_strong_structural_equality<T>::value;\n    \n// 21.3.7 [meta.unary.prop.query], type property queries\n[…]\n\n\n",
+                "code": "template<class T>\n  inline constexpr bool has_strong_structural_equality_v\n    = has_strong_structural_equality<T>::value;\n    \n// 21.3.7 [meta.unary.prop.query], type property queries\n[\u2026]\n\n\n",
                 "output": ""
             }
         ],
         "examples_count": 17,
-        "extraction_method": "Manual"
+        "date": "2020-12-15"
     },
     {
         "source_url": "https://wg21.link/lwg2593",
@@ -1510,7 +1450,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg2975",
@@ -1525,7 +1465,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3186",
@@ -1540,7 +1480,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3277",
@@ -1555,22 +1495,22 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3356",
         "api": "__cpp_lib_nothrow_convertible",
         "package": "C++",
         "language": "C++",
-        "deprecated_in": "C++20",
+        "deprecated_in": "",
         "removed_in": "",
         "replaced_by": "__cpp_lib_is_nothrow_convertible",
-        "change_type": "API Deprecation",
-        "reason": "The naming convention for feature test macros in SD-6 specifies that macros testing for the presence of a single type trait should follow the format '__cpp_lib_FOO'. The previous name did not conform to this standard.",
+        "change_type": "API Rename",
+        "reason": "This feature test macro was renamed prior to the C++20 final release. The change ensures consistency with standard naming conventions, matching the macro perfectly to the 'std::is_nothrow_convertible' type trait it tests.",
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": "2020-02-14"
     },
     {
         "source_url": "https://wg21.link/lwg3076",
@@ -1585,7 +1525,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg2978",
@@ -1600,7 +1540,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3280",
@@ -1615,7 +1555,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3360",
@@ -1630,7 +1570,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg2741",
@@ -1641,11 +1581,11 @@
         "removed_in": "",
         "replaced_by": "",
         "change_type": "Behavior Change",
-        "reason": "Modern C++ predicates may not have a fixed argument type — they might be function templates accepting varied arguments. The previous requirements referencing predicates' argument types were outdated and incompatible with the advancement of adaptable function objects in contemporary C++.",
+        "reason": "Modern C++ predicates may not have a fixed argument type \u2014 they might be function templates accepting varied arguments. The previous requirements referencing predicates' argument types were outdated and incompatible with the advancement of adaptable function objects in contemporary C++.",
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3362",
@@ -1660,7 +1600,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg2980",
@@ -1675,7 +1615,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg2783",
@@ -1690,7 +1630,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3091",
@@ -1705,7 +1645,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg2797",
@@ -1720,7 +1660,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3286",
@@ -1735,7 +1675,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3294",
@@ -1750,7 +1690,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg2832",
@@ -1870,7 +1810,7 @@
             }
         ],
         "examples_count": 26,
-        "extraction_method": "Manual"
+        "date": "2020-12-15"
     },
     {
         "source_url": "https://wg21.link/lwg2836",
@@ -1885,7 +1825,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3299",
@@ -1900,7 +1840,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg2840",
@@ -2044,22 +1984,22 @@
             }
         ],
         "examples_count": 32,
-        "extraction_method": "Manual"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3001",
         "api": "std::ranges::safe_range",
         "package": "C++",
         "language": "C++",
-        "deprecated_in": "C++20",
+        "deprecated_in": "",
         "removed_in": "",
         "replaced_by": "std::ranges::borrowed_range",
-        "change_type": "API Deprecation",
+        "change_type": "API Rename",
         "reason": "The term 'safe' was considered misleading and inappropriate as it does not align with the intended meaning and connotations in specific domains. The names aim to avoid confusion by reflecting the nature of 'borrowed' iterators and ranges, which are not lifetime-bound to the adapting range.",
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": "2020-12-15"
     },
     {
         "source_url": "https://wg21.link/lwg3379",
@@ -2074,7 +2014,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3218",
@@ -2094,7 +2034,7 @@
             }
         ],
         "examples_count": 1,
-        "extraction_method": "Manual"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3380",
@@ -2109,7 +2049,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3302",
@@ -2124,7 +2064,7 @@
         "has_examples": true,
         "examples": [
             {
-                "code": "\nnamespace std {\n  […]\n  namespace chrono {\n    […]",
+                "code": "\nnamespace std {\n  [\u2026]\n  namespace chrono {\n    [\u2026]",
                 "output": ""
             },
             {
@@ -2132,7 +2072,7 @@
                 "output": ""
             },
             {
-                "code": "      auto operator<=>(const leap& x, const sys_time<Duration>& y);\n    […]\n  }\n  […]\n}\n\n\n",
+                "code": "      auto operator<=>(const leap& x, const sys_time<Duration>& y);\n    [\u2026]\n  }\n  [\u2026]\n}\n\n\n",
                 "output": ""
             },
             {
@@ -2140,7 +2080,7 @@
                 "output": ""
             },
             {
-                "code": "  constexpr auto operator<=>(const leap& x, const sys_time<Duration>& y) noexcept;\n\n\n\nnamespace std {\n  […]\n  namespace chrono {\n    […]",
+                "code": "  constexpr auto operator<=>(const leap& x, const sys_time<Duration>& y) noexcept;\n\n\n\nnamespace std {\n  [\u2026]\n  namespace chrono {\n    [\u2026]",
                 "output": ""
             },
             {
@@ -2148,7 +2088,7 @@
                 "output": ""
             },
             {
-                "code": "        constexpr auto operator<=>(const leap& x, const sys_time<Duration>& y) noexcept;\n    […]\n  }\n  […]\n}\n\n\n",
+                "code": "        constexpr auto operator<=>(const leap& x, const sys_time<Duration>& y) noexcept;\n    [\u2026]\n  }\n  [\u2026]\n}\n\n\n",
                 "output": ""
             },
             {
@@ -2156,7 +2096,7 @@
                 "output": ""
             },
             {
-                "code": "    constexpr auto operator<=>(const leap& x, const sys_time<Duration>& y) noexcept;\n\n\n\nnamespace std {\n  […]\n  namespace chrono {\n    […]",
+                "code": "    constexpr auto operator<=>(const leap& x, const sys_time<Duration>& y) noexcept;\n\n\n\nnamespace std {\n  [\u2026]\n  namespace chrono {\n    [\u2026]",
                 "output": ""
             },
             {
@@ -2164,7 +2104,7 @@
                 "output": ""
             },
             {
-                "code": "        constexpr auto operator<=>(const leap& x, const sys_time<Duration>& y);\n    […]\n  }\n  […]\n}\n\n\n",
+                "code": "        constexpr auto operator<=>(const leap& x, const sys_time<Duration>& y);\n    [\u2026]\n  }\n  [\u2026]\n}\n\n\n",
                 "output": ""
             },
             {
@@ -2177,7 +2117,7 @@
             }
         ],
         "examples_count": 13,
-        "extraction_method": "Manual"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3383",
@@ -2192,7 +2132,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3119",
@@ -2200,29 +2140,14 @@
         "package": "C++",
         "language": "C++",
         "deprecated_in": "",
-        "removed_in": "C++17",
+        "removed_in": "C++20",
         "replaced_by": "",
         "change_type": "API Removal",
         "reason": "The explicit specialization of std::allocator<void> was removed because std::allocator<void> no longer serves a useful purpose. The primary template with allocate and deallocate members handles the use case adequately, simplifying the implementation.",
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
-    },
-    {
-        "source_url": "https://wg21.link/lwg3307",
-        "api": "std::allocator::allocate",
-        "package": "C++",
-        "language": "C++",
-        "deprecated_in": "C++23",
-        "removed_in": "",
-        "replaced_by": "std::numeric_limits<size_t>::max()",
-        "change_type": "API Deprecation",
-        "reason": "It's better to use a C++ property (numeric_limits<size_t>::max()) than the C standard library macro SIZE_MAX for improved compatibility and transparency.",
-        "has_examples": false,
-        "examples": [],
-        "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3310",
@@ -2237,7 +2162,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3128",
@@ -2252,7 +2177,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg2929",
@@ -2267,22 +2192,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
-    },
-    {
-        "source_url": "https://wg21.link/lwg3017",
-        "api": "expects",
-        "package": "C++",
-        "language": "C++",
-        "deprecated_in": "",
-        "removed_in": "C++20",
-        "replaced_by": "",
-        "change_type": "API Removal",
-        "reason": "Macros named 'expects' and 'ensures' were conflicting with contract-attribute-specifiers, and prohibiting such macros ensures consistency and resolves this conflict.",
-        "has_examples": false,
-        "examples": [],
-        "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3132",
@@ -2297,7 +2207,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3023",
@@ -2312,7 +2222,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3239",
@@ -2327,7 +2237,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3133",
@@ -2342,7 +2252,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": "2020-12-15"
     },
     {
         "source_url": "https://wg21.link/lwg3320",
@@ -2362,7 +2272,7 @@
             }
         ],
         "examples_count": 1,
-        "extraction_method": "Manual"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3137",
@@ -2382,7 +2292,7 @@
             }
         ],
         "examples_count": 1,
-        "extraction_method": "Manual"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg2937",
@@ -2422,7 +2332,7 @@
             }
         ],
         "examples_count": 6,
-        "extraction_method": "Manual"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3321",
@@ -2437,7 +2347,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3397",
@@ -2452,22 +2362,22 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
-        "source_url": "https://wg21.link/lwg3140",
+        "source_url": "https://wg21.link/p0619r4",
         "api": "std::result_of",
         "package": "C++",
         "language": "C++",
         "deprecated_in": "C++17",
-        "removed_in": "",
+        "removed_in": "C++20",
         "replaced_by": "std::invoke_result",
-        "change_type": "API Deprecation",
-        "reason": "The general prohibition against specializing type traits no longer exists after moving `result_of` to Annex D, and an explicit exclusion rule was provided. Furthermore, adjustments were needed to improve correctness in scenarios where deprecated trait templates might permit specializations by users.",
+        "change_type": "API Removal",
+        "reason": "std::result_of was deprecated in C++17 and completely removed in C++20 (via P0619R4). The primary reason was its clunky and confusing syntax (requiring a function type signature like 'F(Args...)'). It was cleanly replaced by std::invoke_result, which uses a more standard and intuitive comma-separated template parameter list ('F, Args...').",
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": "2018-02-11"
     },
     {
         "source_url": "https://wg21.link/lwg2940",
@@ -2482,7 +2392,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3141",
@@ -2497,7 +2407,7 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     },
     {
         "source_url": "https://wg21.link/lwg3398",
@@ -2512,6 +2422,6 @@
         "has_examples": false,
         "examples": [],
         "examples_count": 0,
-        "extraction_method": "No Examples"
+        "date": null
     }
 ]
