@@ -1,18 +1,18 @@
 Statistic,Count
-Total Unique Packages,8
-Total Unique APIs,306
+Total Unique Packages,7
+Total Unique APIs,262
 --- Package List ---,---
 Boost,
 Boost.Compat,
-Boost.Utility,
 C++,
+OpenCV,
 Qt,
 boost,
 fmt,
-opencv,
 --- Change Type Counts ---,---
-Change Type: API Deprecation,138
-Change Type: Behavior Change,126
-Change Type: API Removal,36
-Change Type: Parameter Change,12
-Change Type: API Rename,1
+Change Type: Behavior Change,128
+Change Type: API Deprecation,91
+Change Type: API Removal,33
+Change Type: Parameter Change,13
+Change Type: API Rename,3
+Change Type: API Renaming,1
